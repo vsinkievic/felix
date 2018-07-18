@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Felix XREF analyser</title>
+        <link rel="stylesheet" href="/felix/master.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <SCRIPT LANGUAGE="SpeedScript">
+            CREATE WIDGET-POOL.
+        </SCRIPT>
+
+    </head>
+    <body>
+
+        <script language="speedscript">
+            define variable cName as character no-undo.
+            define variable iType as integer no-undo.
+            define temp-table ttOutput
+                field fName as character
+                field fType as integer.
+            
+                cName = get-field('name':U).
+                iType = integer(get-field('type':U)).
+
+        </script>
+
+        <!--WSS if cName = "" then do: -->
+
+        <div class="container">
+            <div class="form-container">
+                <h1>Felix<sup>&reg</sup> XREF analyser</h1>
+                <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
+                <p>Output shows all references of one specific program's element within the application's filesystem.</p>
+                <br>
+
+                <form class="form-group" id="xrefForm" action="front.html" method="POST">
+                    <h3>Please enter searched element by type and name:</h3>
+                    <label for="type">Type:</label><br>
+                    <select id="inpType" class="form-control" name="type">
+                        <option value="0">Select ...</option>
+                        <option value="1">Procedure</option>
+                        <option value="2">Class</option>
+                        <option value="3">Include</option>
+                        <option value="4">DB field</option>
+                        <option value="5">Index</option>
+                    </select><br>
+                    <div id="invFeedbackType" class="invalid-feedback">
+                        Please enter type.
+                    </div>
+                    <label for="name">Name:</label>
+                    <input id="inpName" type="text" class="form-control" name="name" value="" placeholder="please enter name" required>
+                    <div id="invFeedbackName" class="invalid-feedback">
+                        Please enter name.
+                    </div>
+                    <br>
+                    <button id="xrefFormButton" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <div class="outputMessage">
+                </div>
+            </div>
+        </div>
+
+        <!--WSS end. -->
+        <!--WSS else do: run runquery.p (input cName, iType, output table ttOutput). -->
+        <div class="container">
+            <div class="form-container">
+                <h3>Output of <em>`cName`</em> references:</h3>
+               <table>
+		            <!--WSS for each ttOutput: -->
+		            <tr>
+			            <td> `ttOutput.fName` </td>
+			            <td> `ttOutput.fType` </td>
+		            </tr>
+		            <!--WSS END. -->
+		        </table>
+		   </div>
+        </div>
+         <!--WSS end. -->    
+    </body>
+</html>
+
+<!-- SCRIPTS: -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.invalid-feedback').hide();
+
+    $('#inpType').change(function() {
+
+        if ($(this).val() === '1') {
+            $('#inpName').attr("placeholder", "Enter procedure name");
+            $('#invFeedbackType').hide();
+        };
+        if ($(this).val() === '2') {
+            $('#inpName').attr("placeholder", "Enter class name");
+            $('#invFeedbackType').hide();
+        };
+        if ($(this).val() === '3') {
+            $('#inpName').attr("placeholder", "Enter name of included file");
+            $('#invFeedbackType').hide();
+        };
+        if ($(this).val() === '4') {
+            $('#inpName').attr("placeholder", "Enter name of DB field");
+            $('#invFeedbackType').hide();
+        };
+        if ($(this).val() === '5') {
+            $('#inpName').attr("placeholder", "Enter index name");
+            $('#invFeedbackType').hide();
+        };
+
+    });
+    $("#xrefForm").submit(function( event ) {
+        let fValid = true;
+
+        if ($('#inpName').val() == "") {
+            $('#invFeedbackName').show();
+            fValid = false;
+        };
+        if ($('#inpType').val() == "0") {
+            $('#invFeedbackType').show();
+            fValid = false;
+        };
+        if (fValid) {
+            $('.invalid-feedback').hide();
+            $('.outputMessage').text("XREF report of " + $('#inpName').val() + " saved to report.txt").show().
+            return;
+        } else {
+            event.preventDefault();
+
+        }
+    });
+})
+
+</script>
