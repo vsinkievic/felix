@@ -11,7 +11,7 @@ ADD SEQUENCE "sqFieldNum"
 ADD TABLE "fieldDB"
   AREA "Schema Area"
   DUMP-NAME "fielddb"
-  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "C:\mokymai\db\tr_create_field.p" CRC "?" 
+  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "tr_create_field.p" CRC "?" 
 
 ADD FIELD "fieldNum" OF "fieldDB" AS integer 
   FORMAT "->>>>>>9"
@@ -58,7 +58,7 @@ ADD FIELD "information" OF "fieldDB" AS character
 ADD TABLE "files"
   AREA "Schema Area"
   DUMP-NAME "files"
-  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "C:\mokymai\db\tr_create_file.p" CRC "?" 
+  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "tr_create_file.p" CRC "?" 
 
 ADD FIELD "fileNum" OF "files" AS integer 
   FORMAT "->>>>>>9"
@@ -102,8 +102,15 @@ ADD FIELD "type" OF "files" AS character
   MAX-WIDTH 16
   ORDER 60
 
+ADD FIELD "info" OF "files" AS character 
+  FORMAT "x(200)"
+  INITIAL ""
+  POSITION 8
+  MAX-WIDTH 400
+  ORDER 70
+
 .
 PSC
 cpstream=1257
 .
-0000001962
+0000002055
