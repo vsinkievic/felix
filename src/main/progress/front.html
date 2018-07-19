@@ -28,6 +28,7 @@
 
         <div class="container">
             <div class="form-container">
+                <img src="/felix/giphy.gif" alt="Felix" width="200" heigth="200">
                 <h1>Felix<sup>&reg</sup> XREF analyser</h1>
                 <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
                 <p>Output shows all references of one specific program's element within the application's filesystem.</p>
@@ -41,8 +42,8 @@
                         <option value="1">Procedure</option>
                         <option value="2">Class</option>
                         <option value="3">Include</option>
-                        <option value="4">DB field</option>
-                        <option value="5">Index</option>
+                        <option value="4" disabled>DB field</option>
+                        <option value="5" disabled>Index</option>
                     </select><br>
                     <div id="invFeedbackType" class="invalid-feedback">
                         Please enter type.
@@ -62,34 +63,97 @@
         </div>
 
         <!--WSS end. -->
-        <!--WSS else do: run runquery.p (input cName, iType, output table ttOutput). -->
-        <div class="container">
-            <div class="form-container">
+        <!--WSS else do: 
+                    if iType = 1
+                        then do:
+                            run procedures.p (cName, output table ttOutput).-->
 
-                <form class="form-group" action="front.html" method="POST">
-                    <input type="hidden" name="name" value="">
-                    <input type="hidden" name="type" value="">
-                    <br>
-                    <button class="xrefbutton btn btn-primary" type="submit">
-                        <i class="fa fa-chevron-left"></i> Back</button>
-                </form>
+                        <div class="container">
+                            <div class="form-container">
+                                <form class="form-group" action="front.html" method="POST">
+                                <br>
+                                    <button class="xrefbutton btn btn-primary" type="submit">
+                                    <i class="fa fa-chevron-left"></i> Back</button>
+                                </form>
 
-                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-               <table>
-                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
-                        <th>Type</th><th>Info</th>
-                    <!--WSS for each ttOutput: -->
-                    <tr>
-                        <td> `ttOutput.sourceName` </td>
-                        <td> `ttOutput.sourcePath` </td>
-                        <td class="right"> `ttOutput.line` </td>
-                        <td> `ttOutput.type` </td>
-                        <td> `ttOutput.info` </td>
-                    </tr>
-                    <!--WSS END. -->
-                </table>
-           </div>
-        </div>
+				                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+				                <table>
+				                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
+				                        <th>Type</th><th>Info</th>
+				                    <!--WSS for each ttOutput: -->
+				                    <tr>
+				                        <td> `ttOutput.sourceName` </td>
+				                        <td> `ttOutput.sourcePath` </td>
+				                        <td class="right"> `ttOutput.line` </td>
+				                        <td> `ttOutput.type` </td>
+				                        <td> `ttOutput.info` </td>
+				                    </tr>
+				                    <!--WSS END. -->
+				                </table>
+				            </div>
+				        </div>
+				        <!--WSS end. -->
+         
+                    <!--WSS if iType = 2
+                        then do:
+                            run classes.p (cName, output table ttOutput).-->
+
+                        <div class="container">
+                            <div class="form-container">
+                                <form class="form-group" action="front.html" method="POST">
+                                <br>
+                                    <button class="xrefbutton btn btn-primary" type="submit">
+                                    <i class="fa fa-chevron-left"></i> Back</button>
+                                </form>
+
+                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+                                <table>
+                                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
+                                        <th>Type</th><th>Info</th>
+                                    <!--WSS for each ttOutput: -->
+                                    <tr>
+                                        <td> `ttOutput.sourceName` </td>
+                                        <td> `ttOutput.sourcePath` </td>
+                                        <td class="right"> `ttOutput.line` </td>
+                                        <td> `ttOutput.type` </td>
+                                        <td> `ttOutput.info` </td>
+                                    </tr>
+                                    <!--WSS END. -->
+                                </table>
+                            </div>
+                        </div>
+                        <!--WSS end. -->
+                        
+                    <!--WSS if iType = 3
+                        then do:
+                            run run_i.p (cName, output table ttOutput).-->
+
+                        <div class="container">
+                            <div class="form-container">
+                                <form class="form-group" action="front.html" method="POST">
+                                <br>
+                                    <button class="xrefbutton btn btn-primary" type="submit">
+                                    <i class="fa fa-chevron-left"></i> Back</button>
+                                </form>
+
+                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+                                <table>
+                                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
+                                        <th>Type</th><th>Info</th>
+                                    <!--WSS for each ttOutput: -->
+                                    <tr>
+                                        <td> `ttOutput.sourceName` </td>
+                                        <td> `ttOutput.sourcePath` </td>
+                                        <td class="right"> `ttOutput.line` </td>
+                                        <td> `ttOutput.type` </td>
+                                        <td> `ttOutput.info` </td>
+                                    </tr>
+                                    <!--WSS END. -->
+                                </table>
+                            </div>
+                        </div>
+                        <!--WSS end. -->
+
          <!--WSS end. -->
          <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 
