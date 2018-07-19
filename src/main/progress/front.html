@@ -16,9 +16,7 @@
         <script language="speedscript">
             define variable cName as character no-undo.
             define variable iType as integer no-undo.
-            define temp-table ttOutput
-                field fName as character
-                field fType as integer.
+            define temp-table ttOutput like files.
             
                 cName = get-field('name':U).
                 iType = integer(get-field('type':U)).
@@ -67,10 +65,12 @@
             <div class="form-container">
                 <h3>Output of <em>`cName`</em> references:</h3>
                <table>
+                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
 		            <!--WSS for each ttOutput: -->
 		            <tr>
-			            <td> `ttOutput.fName` </td>
-			            <td> `ttOutput.fType` </td>
+			            <td> `ttOutput.sourceName` </td>
+			            <td> `ttOutput.sourcePath` </td>
+			            <td class="right"> `ttOutput.line` </td>
 		            </tr>
 		            <!--WSS END. -->
 		        </table>
