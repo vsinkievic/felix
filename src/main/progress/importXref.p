@@ -13,7 +13,7 @@ define variable i4 as integer no-undo.
 define input parameter cPath as character no-undo.
 define variable cProPath as character extent 3 init ["system/", "migration/", "integration/"].
 define variable cCompilePath as character no-undo init "/u1/env/bankcp/indigo/svn-trunk/".
-define variable c as character no-undo.
+define variable cSourePath as character no-undo.
 
 
 function trimPath returns character (pProPath as character extent 3, pCompilePath as character, pAbsolutPath as character):
@@ -42,8 +42,8 @@ input from value(cPath).
             else do:
                 cXrefInformation = entry (1, cXrefInformation, ",").
             end.
-/*cXrefInformation = trimPath(input cProPath, input cCompilePath, input cSourceName).*/
-            c = trimPath(input cProPath, input cCompilePath, input cSourceName).
+            
+            cSourePath = trimPath(input cProPath, input cCompilePath, input cSourceName).
             
             if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE" 
             then do:
@@ -54,10 +54,7 @@ input from value(cPath).
                 
                 if cXrefType = "COMPILE" 
                 then do:
-/*                    repeat i3 = 2 to num-entries(cXrefInformation, "/"):*/
-/*                    end.                                                */
-                    cXrefInformation = trimPath(input cProPath, input cCompilePath, input cSourceName).
-                    
+                    cXrefInformation = trimPath(input cProPath, input cCompilePath, input cXrefInformation).
                     cCompileUnit = cXrefInformation.
                 end.
                 
@@ -65,7 +62,7 @@ input from value(cPath).
                     assign
                         files.fileName = entry(i - 1, cFileName, "/")
                         files.sourceName = entry(i2 - 1, cSourceName, "/")
-                        files.sourcePath = c
+                        files.sourcePath = cSourePath
                         files.line = integer(cLineNumber)
                         files.type = cXrefType
                         files.info = cXrefInformation
