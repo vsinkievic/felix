@@ -1,16 +1,18 @@
 define input parameter cName as character.
 
-define temp-table ttOutput like FelixDB.files.
+define temp-table ttOutput like files.
 
 define output parameter table for ttOutput.
 
-for each files where files.info matches ("*" + string(cName) + "*" + ".i " + "*") no-lock:
-display files.line.
-    create ttOutput.
-    ttOutput.fileName = files.fileName.
-    ttOutput.sourceName = files.sourceNam.
-    ttOutput.sourcePath = files.sourcePath.
-    ttOutput.type = files.type.
-    ttOutput.line = files.line.
-    ttOutput.info = files.info.
+
+for each files no-lock where files.type = "INCLUDE" and 
+    (substring(files.info, index(files.info, '/') + 1) = cName or
+     substring(files.info, index(files.info, '/') + 1) matches ("*" + cName + "*")):
+        find first ttOutput where files.compileUnit = ttOutput.compileUnit no-error.
+        if not available ttOutput
+        then do:
+            create ttOutput.
+            ttOutput.compileUnit = files.compileUnit.
+        end.
 end.
+

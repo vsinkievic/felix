@@ -17,10 +17,16 @@
         <script language="speedscript">
             define variable cName as character no-undo.
             define variable iType as integer no-undo.
-            define temp-table ttOutput like files.
+            define variable lDetails as logical init false no-undo.
+            define temp-table ttOutput like FelixDB.files.
+            
+            define temp-table ttFiles no-undo
+                field compileUnit as character.
 
                 cName = get-field('name':U).
                 iType = integer(get-field('type':U)).
+                if get-field('details':U) <> "" then
+                    lDetails = logical(get-field('details':U), "yes/no").
 
         </script>
 
@@ -28,8 +34,8 @@
 
         <div class="container">
             <div class="form-container">
-                <img src="/felix/giphy.gif" alt="Felix" width="200" heigth="200">
-                <h1>Felix<sup>&reg</sup> XREF analyser</h1>
+                <img id="giffy" src="/felix/giphy.gif" alt="Felix" width="200" heigth="200">
+                <h1><span id="logo">Felix<sup>&reg</sup></span> XREF analyser</h1>
                 <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
                 <p>Output shows all references of one specific program's element within the application's filesystem.</p>
                 <br>
@@ -64,97 +70,232 @@
 
         <!--WSS end. -->
         <!--WSS else do: 
-                    if iType = 1
-                        then do:
-                            run procedures.p (cName, output table ttOutput).-->
-
+            
+            if iType = 1 then do:
+                if lDetails = false then do:
+                        run findProcedure.p (input cName, output table ttFiles).-->
                         <div class="container">
                             <div class="form-container">
-                                <form class="form-group" action="front.html" method="POST">
-                                <br>
-                                    <button class="xrefbutton btn btn-primary" type="submit">
-                                    <i class="fa fa-chevron-left"></i> Back</button>
-                                </form>
-
+                                <div class="form-container-buttons">
+	                                <form class="buttons form-group" action="front.html" method="POST">
+	                                <br>
+	                                    <button class="xrefbutton btn btn-primary" type="submit">
+	                                    <i class="fa fa-chevron-left"></i> Back</button>
+	                                </form>
+	                                <form class="buttons form-group" action="front.html" method="POST">
+	                                <br>
+	                                    <input type="hidden" name="name" value="`cName`">
+	                                    <input type="hidden" name="type" value="`iType`">
+	                                    <input type="hidden" name="details" value="yes">
+	                                    <button class="xrefbutton btn btn-primary" type="submit">
+	                                    Details</button>
+                                    </form>
+                                </div>
 				                <h3>Output of <em>`cName`</em> references (XREF):</h3>
 				                <table>
-				                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
-				                        <th>Type</th><th>Info</th>
-				                    <!--WSS for each ttOutput: -->
+				                    <thead><th>Compile Unit</th></thead>
+				                    <!--WSS for each ttFiles: -->
 				                    <tr>
-				                        <td> `ttOutput.sourceName` </td>
-				                        <td> `ttOutput.sourcePath` </td>
-				                        <td class="right"> `ttOutput.line` </td>
-				                        <td> `ttOutput.type` </td>
-				                        <td> `ttOutput.info` </td>
+				                        <td> `ttFiles.compileUnit` </td>
 				                    </tr>
-				                    <!--WSS END. -->
+				                    <!--WSS end. -->
 				                </table>
 				            </div>
 				        </div>
-				        <!--WSS end. -->
-         
-                    <!--WSS if iType = 2
-                        then do:
-                            run classes.p (cName, output table ttOutput).-->
-
-                        <div class="container">
+			     <!--WSS end. 
+			     else do:
+			         run findProcedure_details.p (input cName, output table ttOutput). -->
+		                <div class="container">
                             <div class="form-container">
-                                <form class="form-group" action="front.html" method="POST">
-                                <br>
-                                    <button class="xrefbutton btn btn-primary" type="submit">
-                                    <i class="fa fa-chevron-left"></i> Back</button>
-                                </form>
-
+                                <div class="form-container-buttons">
+	                                <form class="buttons form-group" action="front.html" method="POST">
+	                                <br>
+	                                    <button class="xrefbutton btn btn-primary" type="submit">
+	                                    <i class="fa fa-chevron-left"></i> Back</button>
+	                                </form>
+	                                <form class="buttons form-group" action="front.html" method="POST">
+	                                <br>
+	                                    <input type="hidden" name="name" value="`cName`">
+	                                    <input type="hidden" name="type" value="`iType`">
+	                                    <input type="hidden" name="details" value="no">
+	                                    <button class="xrefbutton btn btn-primary" type="submit">
+	                                    (Less)</button>
+	                                </form>
+	                            </div>
                                 <h3>Output of <em>`cName`</em> references (XREF):</h3>
                                 <table>
-                                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
-                                        <th>Type</th><th>Info</th>
+                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                        <th>Line</th><th>Info</th></thead>
                                     <!--WSS for each ttOutput: -->
                                     <tr>
-                                        <td> `ttOutput.sourceName` </td>
+                                        <td> `ttOutput.compileUnit` </td>
+                                        <td> `ttOutput.fileName` </td>
                                         <td> `ttOutput.sourcePath` </td>
-                                        <td class="right"> `ttOutput.line` </td>
                                         <td> `ttOutput.type` </td>
+                                        <td> `ttOutput.line` </td>
                                         <td> `ttOutput.info` </td>
                                     </tr>
-                                    <!--WSS END. -->
+                                    <!--WSS end. -->
                                 </table>
                             </div>
                         </div>
-                        <!--WSS end. -->
-                        
-                    <!--WSS if iType = 3
-                        then do:
-                            run run_i.p (cName, output table ttOutput).-->
+			         
+		          <!--WSS end.
+	           end.
 
+            if iType = 2 then do:
+                if lDetails = false then do:
+                        run findClass.p (input cName, output table ttFiles).-->
                         <div class="container">
                             <div class="form-container">
-                                <form class="form-group" action="front.html" method="POST">
-                                <br>
-                                    <button class="xrefbutton btn btn-primary" type="submit">
-                                    <i class="fa fa-chevron-left"></i> Back</button>
-                                </form>
-
+                                <div class="form-container-buttons">
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        <i class="fa fa-chevron-left"></i> Back</button>
+                                    </form>
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <input type="hidden" name="name" value="`cName`">
+                                        <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="details" value="yes">
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        Details</button>
+                                    </form>
+                                </div>
                                 <h3>Output of <em>`cName`</em> references (XREF):</h3>
                                 <table>
-                                    <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
-                                        <th>Type</th><th>Info</th>
-                                    <!--WSS for each ttOutput: -->
+                                    <thead><th>Compile Unit</th></thead>
+                                    <!--WSS for each ttFiles: -->
                                     <tr>
-                                        <td> `ttOutput.sourceName` </td>
-                                        <td> `ttOutput.sourcePath` </td>
-                                        <td class="right"> `ttOutput.line` </td>
-                                        <td> `ttOutput.type` </td>
-                                        <td> `ttOutput.info` </td>
+                                        <td> `ttFiles.compileUnit` </td>
                                     </tr>
-                                    <!--WSS END. -->
+                                    <!--WSS end. -->
                                 </table>
                             </div>
                         </div>
-                        <!--WSS end. -->
+                 <!--WSS end. 
+                 else do:
+                     run findClass_details.p (input cName, output table ttOutput). -->
+                        <div class="container">
+                            <div class="form-container">
+                                <div class="form-container-buttons">
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        <i class="fa fa-chevron-left"></i> Back</button>
+                                    </form>
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <input type="hidden" name="name" value="`cName`">
+                                        <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="details" value="no">
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        (Less)</button>
+                                    </form>
+                                </div>
+                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+                                <table>
+                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                        <th>Line</th><th>Info</th></thead>
+                                    <!--WSS for each ttOutput: -->
+                                    <tr>
+                                        <td> `ttOutput.compileUnit` </td>
+                                        <td> `ttOutput.fileName` </td>
+                                        <td> `ttOutput.sourcePath` </td>
+                                        <td> `ttOutput.type` </td>
+                                        <td> `ttOutput.line` </td>
+                                        <td> `ttOutput.info` </td>
+                                    </tr>
+                                    <!--WSS end. -->
+                                </table>
+                            </div>
+                        </div>
+                     
+                  <!--WSS end.
+               end.
+            
+            if iType = 3 then do:
+                if lDetails = false then do:
+                        run findInclude.p (input cName, output table ttOutput).-->
+                        <div class="container">
+                            <div class="form-container">
+                                <div class="form-container-buttons">
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        <i class="fa fa-chevron-left"></i> Back</button>
+                                    </form>
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <input type="hidden" name="name" value="`cName`">
+                                        <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="details" value="yes">
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        Details</button>
+                                    </form>
+                                </div>
+                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+                                <table>
+                                    <thead><th>Compile Unit</th></thead>
+                                    <!--WSS for each ttOutput: -->
+                                    <tr>
+                                        <td> `ttOutput.compileUnit` </td>
+                                    </tr>
+                                    <!--WSS end. -->
+                                </table>
+                            </div>
+                        </div>
+                 <!--WSS end. 
+                 else do:
+                     run findInclude_details.p (input cName, output table ttOutput). -->
+                        <div class="container">
+                            <div class="form-container">
+                                <div class="form-container-buttons">
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        <i class="fa fa-chevron-left"></i> Back</button>
+                                    </form>
+                                    <form class="buttons form-group" action="front.html" method="POST">
+                                    <br>
+                                        <input type="hidden" class="form-control" name="name" value="`cName`">
+                                        <input type="hidden" class="form-control" name="type" value="`iType`">
+                                        <input type="hidden" class="form-control" name="details" value="no">
+                                        <button class="xrefbutton btn btn-primary" type="submit">
+                                        (Less)</button>
+                                    </form>
+                                </div>
+                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
+                                <table>
+                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                        <th>Line</th><th>Info</th></thead>
+                                    <!--WSS for each ttOutput: -->
+                                    <tr>
+                                        <td> `ttOutput.compileUnit` </td>
+                                        <td> `ttOutput.fileName` </td>
+                                        <td> `ttOutput.sourcePath` </td>
+                                        <td> `ttOutput.type` </td>
+                                        <td> `ttOutput.line` </td>
+                                        <td>
+                                            <form>
+                                                <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+                                                <input type="hidden" value="3" name="type">
+                                                <input type="hidden" value="yes" name="details">
+                                                <input class="infoField" type="submit" value="`ttOutput.info`">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <!--WSS end. -->
+                                </table>
+                            </div>
+                        </div>
+                     
+                  <!--WSS end.
+               end.
+			
 
-         <!--WSS end. -->
+         end. -->
          <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 
     </body>
@@ -165,6 +306,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('.invalid-feedback').hide();
+    $('#giffy').hide();
 
     $('#inpType').change(function() {
 
@@ -177,7 +319,7 @@ $(document).ready(function(){
             $('#invFeedbackType').hide();
         };
         if ($(this).val() === '3') {
-            $('#inpName').attr("placeholder", "Enter name of included file");
+            $('#inpName').attr("placeholder", "Enter FULL name of included file");
             $('#invFeedbackType').hide();
         };
         if ($(this).val() === '4') {
@@ -203,7 +345,7 @@ $(document).ready(function(){
         };
         if (fValid) {
             $('.invalid-feedback').hide();
-            $('.outputMessage').text("XREF report of " + $('#inpName').val() + " saved to report.txt").show().
+            $('.outputMessage').text("XREF report of " + $('#inpName').val() + " is being generated...").show().
             return;
         } else {
             event.preventDefault();
@@ -224,6 +366,12 @@ $(document).ready(function(){
         $('body,html').animate({
             scrollTop : 0
         }, 500);
+    });
+    $('#giffy').click(function() {
+        $(this).hide();
+    });
+    $('#logo').click(function() {
+        $('#giffy').show();
     });
 
 })
