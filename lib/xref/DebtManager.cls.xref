@@ -1,0 +1,794 @@
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 6 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 22 CLASS dbt.DebtManager,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 22 STRING "dbt.DebtManager" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 23 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 24 STRING "prBankDt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 27 CONSTRUCTOR PUBLIC,,,,DebtManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 27 STRING "DEBTMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 30 DESTRUCTOR PUBLIC,,,,DebtManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 30 STRING "DEBTMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 38 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 41 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 41 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 43 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 44 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 44 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 44 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 46 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 46 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 49 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 50 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 50 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 58 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 60 METHOD PUBLIC,,,,,getDayBal,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 60 STRING "GETDAYBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 62 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 62 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 64 METHOD PUBLIC,,,,,getDayBal,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 64 STRING "GETDAYBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 74 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 74 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 74 STRING "pAllowNegative" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 75 STRING "vOutsBal" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 76 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 77 STRING "vBalance" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 78 STRING "vOpenAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 80 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 81 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 89 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 90 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 90 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 91 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 91 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 98 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 98 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 98 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 101 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 104 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 104 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 104 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 107 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 107 ACCESS indigo.acrbal debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 111 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 111 STRING "BYSCHEDBAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 117 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 117 STRING "BYLIMIT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 119 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 140 METHOD PUBLIC,,,,,getDayBal,decimal,INPUT pComp CHARACTER,INPUT pDt DATE,INPUT pAllowNegative LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 140 STRING "GETDAYBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 149 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 149 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 150 STRING "vOutsBal" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 151 STRING "vBalance" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 152 STRING "vOpenAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 154 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 155 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 156 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 158 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 159 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 159 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 160 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 160 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 165 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 165 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 165 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 168 INCLUDE "core/businessErr.i &id='DBT0003' pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 168 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DBT0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 170 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 170 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 170 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 173 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 173 ACCESS indigo.acrbal debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 177 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 177 STRING "BYSCHEDBAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 183 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 183 STRING "BYLIMIT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 187 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 213 METHOD PUBLIC,,,,,getPastBal,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 213 STRING "GETPASTBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 215 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 216 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 218 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 218 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 218 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 218 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 220 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 224 METHOD PUBLIC,,,,,getDebtSum,decimal,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 224 STRING "GETDEBTSUM" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 226 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 227 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 229 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 229 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 231 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 235 METHOD PUBLIC,,,,,getDebtSumCached,decimal,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 235 STRING "GETDEBTSUMCACHED" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 239 METHOD PUBLIC,,,,,getDebtSumCached,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 239 STRING "GETDEBTSUMCACHED" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 243 METHOD PUBLIC,,,,,getDebtSum,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 243 STRING "GETDEBTSUM" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 245 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 246 STRING "lcsch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 247 STRING "lcacr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 247 STRING "lcacr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 249 ACCESS indigo.lcsch lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 249 ACCESS indigo.lcsch comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 249 SEARCH indigo.lcsch PK_lcompsch
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 252 ACCESS indigo.lcacr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 252 ACCESS indigo.lcacr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 252 SEARCH indigo.lcacr FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 255 REFERENCE indigo.lcacr 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 255 REFERENCE indigo.lcsch 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 259 METHOD PUBLIC,,,,,canHaveDebt,logical,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 259 STRING "CANHAVEDEBT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 268 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 268 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 269 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 271 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 272 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 272 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 273 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 273 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 275 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 275 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 275 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 278 INCLUDE "core/businessErr.i &id='DBT0003' pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 278 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DBT0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 280 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 280 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 280 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 280 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 284 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 284 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 289 METHOD PUBLIC,,,,,getDebt,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 289 STRING "GETDEBT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 299 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 299 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 300 STRING "vSubCompDebt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 301 STRING "vParentComp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 302 STRING "vIntCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 303 STRING "vIntDebt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 305 STRING "compUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 306 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 315 INCLUDE "core/businessErr.i &id='DBT0005'"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DBT0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 318 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 321 STRING "INTOFF" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 325 METHOD PUBLIC,,,,,getSubCompDebt,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 325 STRING "GETSUBCOMPDEBT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 328 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 330 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 330 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 333 ACCESS indigo.loan ddate 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 334 STRING "ISLOANCLOSED" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 342 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 343 STRING "vIntBalDebt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 344 STRING "vIntDebt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 345 STRING "vIntCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 347 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 348 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 359 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 364 STRING "GETINTBALDEBT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 372 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 373 STRING "vIntOffDebt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 374 STRING "vIntDebt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 375 STRING "vIntBalDebt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 376 STRING "vIntCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 378 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 393 STRING "GETINTOFFDEBT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 401 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 403 METHOD PUBLIC,,,,,getDebt,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 403 STRING "GETDEBT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 412 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 412 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 413 STRING "vOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 419 METHOD PUBLIC,,,,,getOverdueStart,date,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 419 STRING "GETOVERDUESTART" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 427 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 429 METHOD PUBLIC,,,,,getOverdueStart,date,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 429 STRING "GETOVERDUESTART" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 437 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 439 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 439 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 441 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 445 METHOD PUBLIC,,,,,getNextPayPrognosisSum,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 445 STRING "GETNEXTPAYPROGNOSISSUM" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 453 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 453 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 454 STRING "lcacr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 454 STRING "lcacr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 455 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 456 STRING "vNextPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 462 INCLUDE "core/businessErr.i &id='DBT0004'"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DBT0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 465 ACCESS indigo.lcacr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 465 ACCESS indigo.lcacr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 465 SEARCH indigo.lcacr FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 468 REFERENCE indigo.lcacr 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 471 METHOD PUBLIC,,,,,getNextPayPrognosis,decimal,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 471 STRING "GETNEXTPAYPROGNOSIS" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 480 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 480 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 481 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 482 STRING "vNextPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 494 METHOD PUBLIC,,,,,getNextPayHistPrognosis,decimal,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 494 STRING "GETNEXTPAYHISTPROGNOSIS" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 496 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 497 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 498 STRING "vNextPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 507 METHOD PUBLIC,,,,,getNextPayPrognosis,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 507 STRING "GETNEXTPAYPROGNOSIS" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 509 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 510 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 510 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 512 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 512 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 512 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 515 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 515 ACCESS indigo.acrbal amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 518 METHOD PUBLIC,,,,,getAccruedAmt,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 518 STRING "GETACCRUEDAMT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 526 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 527 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 529 STRING "vNextPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 530 STRING "vCurrent" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 531 STRING "vNextPayAmt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 549 STRING "GETNEXTPAYSCH" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 557 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 557 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 558 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 559 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 561 STRING "vNextPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 562 STRING "vPrevPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 563 STRING "vCurrent" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 564 STRING "vNextPayAmt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 565 STRING "vAcrDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 STRING "acr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 STRING "acr" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 ACCESS indigo.acr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 ACCESS indigo.acr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 ACCESS indigo.acr sts 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 STRING "0" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 588 SEARCH indigo.acr PK_acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 595 ACCESS indigo.acr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 595 ACCESS indigo.acr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 595 SEARCH indigo.acr PK_acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 598 ACCESS indigo.acr tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 598 REFERENCE indigo.acr 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 610 STRING "GETNEXTPAYACR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 618 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 620 METHOD PUBLIC,,,,,getOverdue,integer,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 620 STRING "GETOVERDUE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 622 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 623 STRING "vMax" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 625 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 625 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 627 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 631 METHOD PUBLIC,,,,,getOverdueMax,integer,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 631 STRING "GETOVERDUEMAX" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 635 METHOD PUBLIC,,,,,getOverdueMax,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 635 STRING "GETOVERDUEMAX" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 643 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 644 STRING "vMax" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 646 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 646 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 648 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 652 METHOD PUBLIC,,,,,getOverdueMaxCached,integer,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 652 STRING "GETOVERDUEMAXCACHED" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 661 METHOD PUBLIC,,,,,getOverdueMaxCached,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 661 STRING "GETOVERDUEMAXCACHED" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 663 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 663 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 665 METHOD PUBLIC,,,,,getOverdue,integer,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 665 STRING "GETOVERDUE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 675 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 675 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 675 STRING "pSchedLine" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 676 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 676 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 677 STRING "bloancomp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 677 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 678 STRING "lcacr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 678 STRING "lcacr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 680 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 680 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 680 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 685 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 687 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 687 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 687 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 687 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 690 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 692 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 692 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 692 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 700 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 700 STRING "BYSCHEDEND" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 702 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 702 STRING "BYLIMIT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 705 ACCESS indigo.lcacr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 705 ACCESS indigo.lcacr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 705 SEARCH indigo.lcacr FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 708 REFERENCE indigo.lcacr 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 708 ACCESS indigo.lcacr usebsched 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 712 METHOD PUBLIC,,,,,getOverdue,integer,INPUT pComp CHARACTER,INPUT pDt DATE,INPUT pSchedLine LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 712 STRING "GETOVERDUE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 720 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 722 METHOD PUBLIC,,,,,getOverdueCached,integer,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 722 STRING "GETOVERDUECACHED" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 731 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 731 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 732 STRING "acrBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 734 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 734 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 734 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 737 INCLUDE "core/businessErr.i &id='DBT0003' pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 737 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DBT0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 739 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 739 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 739 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 739 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 739 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 742 ACCESS indigo.acrbal fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 742 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 742 ACCESS indigo.acrbal overdue 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 749 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 749 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 749 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 752 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 752 ACCESS indigo.acrbal overdue 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 757 METHOD PUBLIC,,,,,getOverdueCached,integer,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 757 STRING "GETOVERDUECACHED" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 766 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 766 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 766 STRING "pSchedLine" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 766 STRING "pUseBaseSched" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 767 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 768 STRING "vOver" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 769 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 770 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 771 STRING "vDbtDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 772 STRING "vDayBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 773 STRING "vScheduleComp" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 774 STRING "vIsWholeLineDebtPaid" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 776 STRING "schHelp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 777 STRING "loanCompUt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 779 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 780 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 780 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 781 STRING "acr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 781 STRING "acr" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 787 STRING "TRUE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 797 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 797 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 797 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 797 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 801 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 803 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 804 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 ACCESS indigo.acr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 ACCESS indigo.acr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 ACCESS indigo.acr sts 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 STRING "9" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 ACCESS indigo.acr tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 SEARCH indigo.acr PK_acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 824 SORT-ACCESS indigo.acr tdt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 836 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 845 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 845 ACCESS indigo.acr tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 845 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 852 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 856 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 STRING "sch" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 STRING "sch" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 ACCESS indigo.sch lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 ACCESS indigo.sch comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 ACCESS indigo.sch sts 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 868 SEARCH indigo.sch PK_sch
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 873 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 873 REFERENCE indigo.sch 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 875 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 880 ACCESS indigo.sch lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 880 ACCESS indigo.sch comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 880 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 880 ACCESS indigo.sch sts 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 880 SEARCH indigo.sch PK_sch
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 885 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 885 REFERENCE indigo.sch 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 887 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 893 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 893 REFERENCE indigo.sch 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 905 STRING "GETOVERDUEACR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 914 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 914 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 915 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 915 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 916 STRING "sch" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 916 STRING "sch" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 918 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 919 STRING "vOver" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 920 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 921 STRING "vDbtDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 922 STRING "vDayBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 924 STRING "schHelp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 925 STRING "bankDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 927 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 927 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 927 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 927 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 931 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 933 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 934 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 ACCESS indigo.sch lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 ACCESS indigo.sch comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 SEARCH indigo.sch PK_sch
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 954 SORT-ACCESS indigo.sch dt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 959 ACCESS indigo.sch amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 963 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 973 STRING "GETOVERDUESCH" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 982 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 982 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 983 STRING "sch" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 983 STRING "sch" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 985 STRING "vOver" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 987 ACCESS indigo.sch lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 987 ACCESS indigo.sch comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 987 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 987 SEARCH indigo.sch PK_sch
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 991 REFERENCE indigo.sch 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 991 ACCESS indigo.sch dt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 995 METHOD PUBLIC,,,,,getOverdueSchEnd,integer,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 995 STRING "GETOVERDUESCHEND" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1004 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1004 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1005 STRING "acr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1005 STRING "acr" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1006 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1006 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1008 STRING "vObligationAmt" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1009 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1010 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1012 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1020 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1020 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1020 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1023 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1023 ACCESS indigo.acrbal amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1028 ACCESS indigo.acr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1028 ACCESS indigo.acr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1028 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1028 SEARCH indigo.acr PK_acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1032 ACCESS indigo.acr tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1034 ACCESS indigo.acr fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1034 ACCESS indigo.acr tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1046 STRING "GETOBLIGATIONACR" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1055 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1055 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1056 STRING "vObligationAmt" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1057 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1058 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1059 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1070 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1070 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1070 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1073 ACCESS indigo.loancomp debt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1073 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1073 STRING "BYSCHEDEND" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1078 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1083 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1083 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1092 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1092 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1092 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1095 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1095 ACCESS indigo.acrbal amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1110 STRING "GETOBLIGATIONSCH" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1112 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1112 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1113 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1123 METHOD PUBLIC,,,,,getObligationRem,decimal,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1123 STRING "GETOBLIGATIONREM" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1125 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1127 METHOD PUBLIC,,,,,getObligationRem,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1127 STRING "GETOBLIGATIONREM" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1135 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1135 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1136 STRING "vAcrBalAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1137 STRING "vAdHocManager" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1141 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1141 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1141 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1145 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1152 STRING "lcacr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1152 STRING "lcacr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1152 ACCESS indigo.lcacr lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1152 ACCESS indigo.lcacr comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1152 SEARCH indigo.lcacr FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1155 REFERENCE indigo.lcacr 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1161 METHOD PUBLIC,,,,,getObligation,decimal,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1161 STRING "GETOBLIGATION" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1169 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1171 METHOD PUBLIC,,,,,getObligation,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1171 STRING "GETOBLIGATION" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1179 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1180 STRING "getDebtAdjusted" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1182 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1193 METHOD PUBLIC,,,,,getDebtAdjusted,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1193 STRING "GETDEBTADJUSTED" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1201 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1203 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1203 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1205 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1205 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1207 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1211 METHOD PUBLIC,,,,,getDebtSumAdjusted,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1211 STRING "GETDEBTSUMADJUSTED" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1220 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1220 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1221 STRING "vOver" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1223 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1223 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1224 STRING "bhisdbt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1224 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1225 STRING "bbhisdbt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1225 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1228 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1228 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1228 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1228 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1232 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1234 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1238 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1243 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1246 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1251 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1251 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1253 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1256 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1256 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1256 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1256 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1260 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1260 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1266 METHOD PUBLIC,,,,,getOverdueLim,integer,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1266 STRING "GETOVERDUELIM" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1274 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1275 STRING "vCompNoDebtDt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1276 STRING "vMaxNoDebtDat" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1278 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1278 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1282 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1282 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1285 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1290 METHOD PUBLIC,,,,,getLoanPeriodWithoutDebt,integer,INPUT pFdt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1290 STRING "GETLOANPERIODWITHOUTDEBT" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1299 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1299 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1299 STRING "pFdtNoDbt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1300 STRING "vDebtStartDt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1301 STRING "vDebtEndDt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1303 STRING "hisdbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1303 STRING "hisdbt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1305 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1305 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1305 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1305 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1305 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1310 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1312 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1314 ACCESS indigo.hisdbt lid 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1314 ACCESS indigo.hisdbt comp 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1314 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1314 ACCESS indigo.hisdbt amt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1314 SEARCH indigo.hisdbt PK_hisdbt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1319 REFERENCE indigo.hisdbt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1325 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1325 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1328 ACCESS indigo.hisdbt fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1329 STRING "GETLASTDATEWITHOUTDEBT" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 40 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 40 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 49 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 59 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 63 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 83 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 84 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 86 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 87 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 93 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 94 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 115 INVOKE trx.Book:getCompBookedAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 115 INVOKE trx.Book:getCompPaidAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 119 INVOKE trx.TrxBal:getBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 120 INVOKE loan.LoanUtil:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 121 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 127 INVOKE trx.Book:getCompPaidAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 132 INVOKE dbt.DebtManager:getDebt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 137 DELETE-INSTANCE trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 162 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 163 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 181 INVOKE trx.Book:getCompBookedAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 181 INVOKE trx.Book:getCompPaidAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 185 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 186 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 187 INVOKE trx.TrxBal:getBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 189 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 190 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 191 INVOKE loan.LoanUtil:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 192 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 198 INVOKE trx.Book:getCompPaidAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 206 DELETE-INSTANCE trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 208 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 210 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 220 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 231 INVOKE dbt.DebtManager:getDebt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 238 INVOKE dbt.DebtManager:getDebtSumCached,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 242 INVOKE dbt.DebtManager:getDebtSum,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 308 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 309 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 310 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 311 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 313 INVOKE setup.CompUtil:getCompParent,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 318 INVOKE dbt.DebtManager:getIntBalDebt,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 321 INVOKE dbt.DebtManager:getIntOffDebt,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 350 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 351 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 353 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 354 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 356 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 358 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 359 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 380 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 382 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 384 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 386 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 387 INVOKE dbt.DebtManager:getIntBalDebt,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 402 INVOKE dbt.DebtManager:getDebt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 415 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 416 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 428 INVOKE dbt.DebtManager:getOverdueStart,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 441 INVOKE dbt.DebtManager:getNextPayPrognosis,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 458 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 459 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 461 INVOKE sched.SchedUtil:getNextPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 468 INVOKE dbt.DebtManager:getNextPayAcr,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 470 INVOKE dbt.DebtManager:getNextPaySch,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 484 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 485 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 487 INVOKE sched.SchedUtil:getNextPayDay,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 488 INVOKE sched.SchedUtil:getNextPayDayBaseComp,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 491 INVOKE dbt.DebtManager:getNextPayPrognosis,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 493 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 500 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 501 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 503 INVOKE sched.SchedUtil:getNextPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 506 INVOKE dbt.DebtManager:getNextPayPrognosis,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 533 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 534 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 536 INVOKE sched.SchedUtil:getNextPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 538 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 544 INVOKE sched.SchedUtil:getNextPayAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 567 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 568 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 569 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 570 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 572 INVOKE sched.SchedUtil:getNextPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 576 INVOKE sched.SchedUtil:getPrevPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 577 INVOKE loan.LoanUtil:getFirstIssueDate
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 580 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 583 INVOKE dbt.DebtManager:isLoanClosed
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 592 INVOKE acr.AcrUtil:calcLineAmt,BUFFER acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 601 INVOKE acr.AcrUtil:calcLineAmt,BUFFER acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 602 INVOKE acr.AcrUtil:calcExtendedLineAmt,BUFFER acr,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 606 INVOKE sched.SchedUtil:getNextPayAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 619 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 627 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 634 INVOKE dbt.DebtManager:getOverdueMax,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 648 INVOKE dbt.DebtManager:getOverdueCached,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 660 INVOKE dbt.DebtManager:getOverdueMaxCached,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 664 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 697 INVOKE dbt.DebtManager:getDayBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 700 INVOKE dbt.DebtManager:getOverdueSchEnd,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 702 INVOKE dbt.DebtManager:getOverdueLim,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 708 INVOKE dbt.DebtManager:getOverdueAcr,INPUT character,INPUT date,INPUT logical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 710 INVOKE dbt.DebtManager:getOverdueSch,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 721 INVOKE dbt.DebtManager:getOverdueCached,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 745 NEW acr.AcrBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 746 INVOKE acr.AcrBal:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 747 INVOKE acr.AcrBal:setOverdue,INPUT decimal,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 747 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 756 INVOKE dbt.DebtManager:getOverdue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 783 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 784 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 789 NEW loan.LoanCompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 790 INVOKE loan.LoanCompUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 792 INVOKE loan.LoanCompUtil:getBaseComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 810 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 821 INVOKE sched.SchedUtil:schedExists,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 831 INVOKE acr.AcrUtil:calcLineAmt,BUFFER acr,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 876 INVOKE sched.SchedUtil:findPayDay,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 888 INVOKE sched.SchedUtil:findPayDay,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 902 DELETE-INSTANCE sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 939 NEW core.BankDay
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 941 INVOKE core.BankDay:isEodActive
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 943 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 964 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 965 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 966 INVOKE sched.SchedUtil:findPayDay,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1013 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1015 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1032 INVOKE acr.AcrUtil:calcLineAmt,BUFFER acr
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1037 INVOKE acr.AcrUtil:calcLineAmt,BUFFER acr,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1044 DELETE-INSTANCE trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1063 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1064 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1065 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1066 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1067 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1068 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1086 INVOKE sched.SchedUtil:getUniqueLine,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1086 INVOKE trx.TrxBal:getBookedAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1101 INVOKE trx.TrxBal:getBookedAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1107 DELETE-INSTANCE sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1108 DELETE-INSTANCE loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1115 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1116 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1118 INVOKE dbt.DebtManager:getObligation,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1118 INVOKE trx.Book:getCompPaidAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1121 DELETE-INSTANCE trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1126 INVOKE dbt.DebtManager:getObligationRem,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1139 NEW loan.AdHocManager
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1145 INVOKE loan.AdHocManager:isAdHocType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1147 INVOKE loan.AdHocManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1148 INVOKE loan.AdHocManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1149 INVOKE loan.AdHocManager:getObligation
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1155 INVOKE dbt.DebtManager:getObligationAcr,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1157 INVOKE dbt.DebtManager:getObligationSch,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1170 INVOKE dbt.DebtManager:getObligation,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1184 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1185 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1187 INVOKE dbt.DebtManager:getDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1187 INVOKE trx.Book:getCompPaidAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1187 INVOKE trx.Book:getCompPaidAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1207 INVOKE dbt.DebtManager:getDebtAdjusted,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1285 INVOKE dbt.DebtManager:getLastDateWithoutDebt,INPUT character,INPUT date,INPUT-OUTPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/dbt/DebtManager.cls 1328 INVOKE dbt.DebtManager:getLastDateWithoutDebt,INPUT character,INPUT date,INPUT-OUTPUT date

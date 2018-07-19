@@ -1,0 +1,994 @@
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 6 INCLUDE bf/sort-browse.i
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 34 STRING "vReposStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 35 STRING "SORT-CELL-DCOLOR" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 36 STRING "SORT-LABEL-DCOLOR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 37 STRING "SEARCH-RESULTS-DCOLOR" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 38 STRING "SEARCH-NORESULTS-DCOLOR" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 41 STRING "vBrowseSortMode" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 41 STRING "ASC" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 42 STRING "vQueryIsOpen" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 43 STRING "vPresorted" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 45 STRING "vDEBUG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 46 STRING "hBrws" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 47 STRING "cQPrivData" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 48 STRING "iCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 56 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 57 STRING "CHANGE-SORT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 59 STRING "CHANGE-COLUMN" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 62 PROCEDURE setBrowseSort,,INPUT hBrw HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 62 STRING "SETBROWSESORT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 65 STRING "listCol" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 68 STRING "ColList" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 69 STRING "iCounter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 70 STRING "cQryStr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 71 STRING "cTable" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 73 STRING "hQry" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 74 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 75 STRING "vSelectedRowID" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 76 STRING "cColLbl" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 77 STRING "cColNam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 78 STRING "iColIndex" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 79 STRING "iWhichElem" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 93 STRING "listFrm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 93 STRING "Sort by:" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 93 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 93 STRING "Select..." 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 103 STRING "vQueryStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 113 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 113 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 116 STRING "&3 by &1.&2" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 127 STRING "cursor-right" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 133 STRING "cursor-left" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 138 STRING "cursor-right" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 145 STRING "close" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 146 STRING "listFrm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 151 STRING "listFrm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 157 STRING "&1,&2,&3" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 158 STRING "[&1]" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 162 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 166 STRING "entry" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 168 STRING "listFrm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 168 PROCEDURE chooseCol,,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 168 STRING "CHOOSECOL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 181 STRING "pActionMode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 182 STRING "pQryStr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 186 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 187 STRING "hQry" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 188 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 189 STRING "vColName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 190 STRING "vQueryStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 191 STRING "vColTable" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 192 STRING "vSelectedRowID" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 193 STRING "vSortMode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 194 STRING "iCounter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 201 STRING "BROWSE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 210 STRING "for each " 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 216 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 216 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 226 STRING "CHANGE-COLUMN" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 244 STRING "CHANGE-SORT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 246 STRING "DESC" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 246 STRING "ASC" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 247 STRING "ASC" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 247 STRING "DESC" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 254 STRING "DESC" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 254 STRING "DESC" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 255 STRING "ASC" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 260 STRING "[&1]" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 270 STRING "&1 BY &2.&3 &4" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 279 STRING "CHANGE-SORT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 282 STRING "cursor-left" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 287 STRING "cursor-right" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 293 STRING "hBuffer" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 306 PROCEDURE sortBrowseColumn,,INPUT pActionMode CHARACTER,INPUT pQryStr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 306 STRING "SORTBROWSECOLUMN" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 314 STRING "vText" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 317 STRING "vEscaped" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 320 STRING "~~" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 320 STRING "~" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 321 STRING "~{" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 321 STRING "{" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 324 FUNCTION escapeChar,character,INPUT vText CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 324 STRING "ESCAPECHAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 336 STRING "pAction" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 337 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 338 STRING "pResultsFound" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 339 STRING "hQry" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 340 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 341 STRING "vQueryStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 342 STRING "vEachStr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 343 STRING "vWhereStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 344 STRING "vBeginsStr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 345 STRING "vByStr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 346 STRING "vColName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 347 STRING "vColTable" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 348 STRING "vOldQueryStr" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 349 STRING "vRowid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 350 STRING "vLastRowID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 354 STRING "BROWSE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 373 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 375 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 376 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 377 STRING " by " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 383 STRING " where " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 385 STRING " where " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 387 STRING " where " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 395 STRING "ADD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 397 STRING " and " 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 399 STRING " and " 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 403 STRING " begins " 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 411 STRING "character" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 411 STRING "&1.&2 begins &3" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 413 STRING "trim(string(&1.&2, ""&4"")) begins &3" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 417 STRING "(&1) and &2" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 420 STRING "&1 where &2 &3" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 422 STRING "&1 &2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 443 PROCEDURE columnSearch,,INPUT pAction CHARACTER,INPUT hBrw HANDLE,OUTPUT pResultsFound INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 443 STRING "COLUMNSEARCH" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 451 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 452 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 453 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 454 STRING "pResultsFound" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 455 STRING "vFirstChar" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 457 STRING "fStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 457 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 468 STRING "Right after enter" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 468 STRING "vStr=" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 468 STRING ",vReposStr=" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 468 STRING " (Added: 2009.12.23 14:45:05)" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 468 STRING " In ANY-PRINTABLE " 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 470 STRING "\" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 479 STRING "ADD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 498 STRING "NOT vFirstChar..." 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 498 STRING " (Added: 2009.12.28 10:20:54)" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 498 STRING " Debug message " 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 502 STRING "ADD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 519 STRING "Before exit" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 519 STRING "vStr=" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 519 STRING ",vReposStr=" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 519 STRING " (Added: 2009.12.23 14:45:05)" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 519 STRING " In ANY-PRINTABLE " 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 522 STRING "fStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 534 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 545 STRING "vStr=" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 545 STRING "vStr:SCREEN-VALUE=" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 545 STRING " (Added: 2009.12.24 10:38:16)" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 545 STRING " Debug message " 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 547 STRING "ADD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 549 STRING "fStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 558 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 561 STRING "fStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 575 STRING "x(255)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 581 STRING "ANY-PRINTABLE" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 584 STRING "fStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 584 PROCEDURE trapKeys,,INPUT hBrw HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 584 STRING "TRAPKEYS" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 594 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 595 STRING "hQry" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 596 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 597 STRING "vValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 610 STRING "frEditor" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 610 STRING " Field value " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 610 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 620 PROCEDURE viewFldValue,,INPUT hBrw HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 620 STRING "VIEWFLDVALUE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 629 STRING "hBrw" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 630 STRING "iCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 631 STRING "hCol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 632 STRING "vValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 640 STRING "frEditor" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 640 STRING " Field value " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 640 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 650 PROCEDURE viewColFldValue,,INPUT hBrw HANDLE,INPUT iCol INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/sort-browse.i 650 STRING "VIEWCOLFLDVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "tBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "sel" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "act" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "mpol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "sched" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "nexts" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 8 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "tItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "p" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "g" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "desct" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "parid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "reso" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 19 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 33 STRING "tParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 33 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 33 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "brBatch" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "x(15)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "yes/no" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "x(500)" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "99/99/9999 HH:MM:SS" 19 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "x(12)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 40 STRING "99/99/9999 HH:MM:SS" 19 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 52 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 52 STRING "CTRL-N - new, F1 - edit, ENTER - tasks, F2 - help" 49 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 58 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 61 STRING "vBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 65 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 68 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 70 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 71 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 71 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 75 STRING "vBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 78 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 83 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 84 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 85 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 85 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 89 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 94 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 98 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 100 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 103 STRING "vAns" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 103 STRING "Do you really want to delete batch '&1'?" 40 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 115 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 117 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 117 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 127 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 129 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 129 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 134 STRING "vInstId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 135 STRING "vYes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 136 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 138 STRING "Do you really want to run batch '&1' now?" 41 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 146 STRING "Batch '&1' started." 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 147 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "CTRL-N     - new          " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "F1         - edit         " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "DEL/CTRL-D - delete       " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "CTRL-Z     - refresh      " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "ENTER      - tasks        " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "CTRL-R     - run batch now" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "CTRL-P     - import/export" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "TAB        - sort         " 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING "Any letter - search        " 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 151 STRING " Commands " 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 161 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 165 STRING "vBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 166 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 170 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 172 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 173 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 173 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 175 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 175 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 186 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 194 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 195 STRING "vSize" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 196 STRING "vFormat" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 200 STRING "x(&1)" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 201 STRING "bfbatch" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 201 SEARCH indigo.bfbatch bid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 202 CREATE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 203 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 204 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 205 ACCESS indigo.bfbatch multpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 206 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 207 ACCESS indigo.bfbatch who 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 208 ACCESS indigo.bfbatch whndt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 210 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 210 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 210 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 210 SEARCH indigo.bfsched bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 215 STRING "&1 &2 &3 &4 &5 &6" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 222 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 228 STRING "(multiple)" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 233 STRING "(none)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 236 PROCEDURE loadBatches,,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 236 STRING "LOADBATCHES" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 239 STRING "pBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 241 STRING "btOk" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 242 STRING "btCancel" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 244 STRING "vHour" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 245 STRING "vMin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 246 STRING "vMonth" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 247 STRING "vDay" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 248 STRING "vWeek" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "fBatchEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 ACCESS indigo.bfbatch multpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(15)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "deny" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "allow" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "yes/no" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(20)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "Comma-separated list of 0-23" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(20)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "Comma-separated list of 0-59" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(20)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "Comma-separated list of 1-12(january-december)" 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(20)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "Comma-separated list of 1-31, L(month's last day)" 49 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "x(20)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING "Comma-separated list of 1-7(monday-sunday)" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 250 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 283 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 284 STRING "vNextRun" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 ACCESS indigo.bfbatch multpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 UPDATE indigo.bfbatch bname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 UPDATE indigo.bfbatch multpol
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 286 UPDATE indigo.bfbatch act
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 289 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 289 UPDATE indigo.bfsched shour
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 290 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 290 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 290 UPDATE indigo.bfsched shour
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 291 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 291 UPDATE indigo.bfsched smin
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 292 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 292 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 292 UPDATE indigo.bfsched smin
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 293 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 293 UPDATE indigo.bfsched smonth
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 294 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 294 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 294 UPDATE indigo.bfsched smonth
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 295 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 295 UPDATE indigo.bfsched sday
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 296 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 296 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 296 UPDATE indigo.bfsched sday
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 297 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 297 UPDATE indigo.bfsched sweek
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 298 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 298 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 298 UPDATE indigo.bfsched sweek
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 300 ACCESS indigo.bfsched whndt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 300 UPDATE indigo.bfsched whndt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 301 ACCESS indigo.bfbatch who 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 301 STRING "bank" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 301 UPDATE indigo.bfbatch who
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 302 ACCESS indigo.bfbatch whndt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 302 UPDATE indigo.bfbatch whndt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 303 ACCESS indigo.bfsched act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 303 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 303 UPDATE indigo.bfsched act
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 305 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 316 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 316 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 320 STRING "vAnswer" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 320 STRING "Batch is set to run every minute (Minutes: *)." 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 320 STRING "Are you sure?" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 320 STRING " Warning " 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 330 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 331 STRING "fBatchEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 334 STRING "fBatchEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 338 CREATE indigo.bfbatch 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 339 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 339 STRING "_Sequence" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 339 ACCESS indigo.bfbatch-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 339 UPDATE indigo.bfbatch-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 339 UPDATE indigo.bfbatch bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 341 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 341 CREATE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 342 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 342 STRING "batch-root" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 342 UPDATE indigo.bfitem iname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 343 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 343 STRING "list" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 343 UPDATE indigo.bfitem itype
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 344 ACCESS indigo.bfitem idesc 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 344 STRING "Batch root group (autogenerated)" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 344 UPDATE indigo.bfitem idesc
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 345 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 345 UPDATE indigo.bfitem parid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 346 ACCESS indigo.bfitem bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 346 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 346 UPDATE indigo.bfitem bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 347 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 347 UPDATE indigo.bfitem-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 347 UPDATE indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 348 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 348 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 350 ACCESS indigo.bfbatch rootiid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 350 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 350 UPDATE indigo.bfbatch rootiid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 352 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 352 SEARCH indigo.bfbatch bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 354 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 354 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 354 SEARCH indigo.bfsched bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 356 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 358 CREATE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 360 ACCESS indigo.bfsched sname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 360 STRING "default" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 360 UPDATE indigo.bfsched sname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 361 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 361 UPDATE indigo.bfsched-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 361 UPDATE indigo.bfsched sid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 362 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 362 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 362 UPDATE indigo.bfsched bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 365 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 366 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 367 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 368 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 369 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 371 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 371 ACCESS indigo.bfbatch multpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 371 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 374 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 374 ACCESS indigo.bfbatch multpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 374 ACCESS indigo.bfbatch act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Batch.........." 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "bname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Mult. instances" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "multpol" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Active........." 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "act" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Hours.........." 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Minutes" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Months........." 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Days..." 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Day of week...." 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Save" 4 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "Cancel" 6 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "fBatchEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 PROCEDURE editBatch,,INPUT-OUTPUT pBatchId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 380 STRING "EDITBATCH" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 383 STRING "vBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 384 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 386 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 386 SEARCH indigo.bfbatch bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 388 ACCESS indigo.bfbatch rootiid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 393 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 393 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 393 SEARCH indigo.bfsched bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 394 DELETE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 397 DELETE indigo.bfbatch 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 399 PROCEDURE deleteBatch,,INPUT vBatchId INTEGER,OUTPUT vErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 399 STRING "DELETEBATCH" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 405 STRING "pBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 407 STRING "vListId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 408 STRING "vReturnId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 409 STRING "vRootId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 410 STRING "vBatchName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 411 STRING "vPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "brItem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "P/ " 3 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(25)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING ">>/ " 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(50)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 414 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 429 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 429 STRING "CTRL-N - new, F1 - edit, ENTER - sub-tasks, F2 - help" 53 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 436 STRING "vMaxLength" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 438 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 448 STRING " &1 (&2)" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 453 STRING "brItem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 453 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 453 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 457 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 458 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 465 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 465 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 469 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 470 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 479 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 479 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 483 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 485 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 493 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 493 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 497 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 499 STRING "bItemAfter" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 500 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 501 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 504 STRING "vAns" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 504 STRING "Do you really want to delete item '&1'?" 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 511 SEARCH tItem ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 516 SEARCH tItem ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 532 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 532 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 532 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 536 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 537 STRING "vMaxLength" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 543 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 551 STRING " &1 (&2)" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 555 STRING " &1 " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 559 STRING "brItem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 559 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 559 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 563 STRING "vItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 564 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 569 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 569 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 574 STRING "tItemNext" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 576 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 579 SEARCH tItem ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 589 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 589 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 589 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 594 STRING "tItemPrev" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 596 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 599 SEARCH tItem ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 609 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 609 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 609 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "CTRL-N     - new       " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "F1         - edit      " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "DEL/CTRL-D - delete    " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "ENTER      - sub-tasks " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "CTRL-P     - parameters" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "CTRL-Z     - refresh   " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "CTRL-K     - move down " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "CTRL-J     - move up   " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "TAB        - sort      " 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING "Any letter - search     " 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 613 STRING " Commands " 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 624 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 626 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 626 SEARCH indigo.bfbatch bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 627 ACCESS indigo.bfbatch rootiid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 628 ACCESS indigo.bfbatch rootiid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 629 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 629 STRING "[" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 629 STRING "]" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 634 STRING " &1 " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Ord." 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "P" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "G" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Description" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Cont. policy" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Default result" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "Output label" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "brItem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "fItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "qItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 PROCEDURE displayItems,,INPUT pBatchId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 643 STRING "DISPLAYITEMS" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 646 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 647 STRING "pMaxLength" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 648 STRING "pRootName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 649 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 651 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 652 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 654 STRING "tItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 656 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 664 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 668 STRING "../&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 677 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 680 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 681 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 681 PROCEDURE getPath,,INPUT pItemId INTEGER,INPUT pMaxLength INTEGER,INPUT pRootName CHARACTER,OUTPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 681 STRING "GETPATH" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 684 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 685 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 686 STRING "hQuery" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 687 STRING "vQueryStr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 689 STRING "for each tItem where tItem.parid = &1 by tItem.ord" 50 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 697 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 698 REFERENCE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 700 PROCEDURE queryItems,,INPUT pItemId INTEGER,INPUT pParentId INTEGER,INPUT hQuery HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 700 STRING "QUERYITEMS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 703 STRING "pBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 706 ACCESS indigo.bfitem bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 706 SEARCH indigo.bfitem bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 707 CREATE tItem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 708 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 709 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 710 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 711 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 712 ACCESS indigo.bfitem idesc 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 713 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 714 ACCESS indigo.bfitem contpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 715 ACCESS indigo.bfitem defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 716 ACCESS indigo.bfitem deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 718 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 718 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 719 STRING "bfipar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 719 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 719 STRING "bfipar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 719 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 719 SEARCH indigo.bfipar iid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 722 PROCEDURE loadItems,,INPUT pBatchId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 722 STRING "LOADITEMS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 726 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 727 STRING "vNextOrd" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 728 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 730 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 730 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 732 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 732 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 733 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 735 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 738 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 738 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 738 SEARCH indigo.bfitem par-ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 741 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 741 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 748 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 748 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 748 SEARCH indigo.bfitem par-ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 752 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 754 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 755 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 755 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 755 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 759 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 762 PROCEDURE insertOrd,,INPUT pItemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 762 STRING "INSERTORD" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 764 STRING "pBeforeItemId" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 766 STRING "vOrd" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 768 STRING "bfItemBefore" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 768 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 768 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 769 STRING "bfItemAfter" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 769 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 769 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 774 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 774 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 777 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 777 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 777 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 777 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 777 SEARCH indigo.bfitem par-ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 780 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 780 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 783 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 783 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 785 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 785 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 790 FUNCTION newOrd,integer,INPUT pBeforeItemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 790 STRING "NEWORD" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 794 STRING "pItemId1" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 795 STRING "pItemId2" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 797 STRING "vTmpOrd" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 798 STRING "vTmpOrd2" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 800 STRING "bfitem1" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 800 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 800 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 801 STRING "bfitem2" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 801 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 801 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 802 STRING "tItem1" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 803 STRING "tItem2" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 805 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 805 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 806 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 806 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 808 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 809 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 810 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 810 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 811 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 811 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 812 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 812 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 814 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 815 SEARCH tItem ord TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 821 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 821 PROCEDURE switchOrd,,INPUT pItemId1 INTEGER,INPUT pItemId2 INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 821 STRING "SWITCHORD" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 825 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 826 STRING "pAfterId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 827 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 828 STRING "pBatchId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 830 STRING "btOk" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 831 STRING "btCancel" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "fItemEdit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem idesc 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem contpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 ACCESS indigo.bfitem deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(25)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "list" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "parallel" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(50)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "cont" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "retry" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "log" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "warn" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 833 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 851 STRING "fItemEdit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem idesc 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem contpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 ACCESS indigo.bfitem deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem iname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem itype
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem idesc
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem contpol
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem defres
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 854 UPDATE indigo.bfitem deflbl
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 861 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 862 STRING "fItemEdit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 864 ACCESS indigo.bfitem contpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 864 ACCESS indigo.bfitem defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 864 ACCESS indigo.bfitem deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 864 STRING "TAB" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 864 STRING "fItemEdit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 869 CREATE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 870 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 870 UPDATE indigo.bfitem parid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 871 ACCESS indigo.bfitem bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 871 UPDATE indigo.bfitem bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 872 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 872 STRING "_Sequence" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 872 ACCESS indigo.bfitem-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 872 UPDATE indigo.bfitem-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 872 UPDATE indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 873 ACCESS indigo.bfitem ord 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 873 UPDATE indigo.bfitem ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 875 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 877 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 877 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 878 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 879 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 879 STRING "x(255)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem idesc 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem contpol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 880 ACCESS indigo.bfitem deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Name................." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "iname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "itype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Description.........." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "idesc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Continuation policy.." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "contpol" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Def. execution result" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "defres" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Default output label." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "deflbl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Save" 4 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "Cancel" 6 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "fItemEdit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 PROCEDURE editItem,,INPUT-OUTPUT pItemId INTEGER,INPUT pAfterId INTEGER,INPUT pParentId INTEGER,INPUT pBatchId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 893 STRING "EDITITEM" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 896 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 897 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 899 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 899 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 900 STRING "bfItemChild" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 900 STRING "bfitem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 900 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 902 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 902 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 904 REFERENCE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 906 STRING "Can't delete task. Locked" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 910 STRING "bfipar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 910 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 910 SEARCH indigo.bfipar iid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 913 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 918 ACCESS indigo.bfitem itype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 918 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 920 DELETE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 924 ACCESS indigo.bfitem parid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 924 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 924 SEARCH indigo.bfitem par-ord
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 925 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 931 DELETE indigo.bfitem 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 933 PROCEDURE deleteItem,,INPUT pItemId INTEGER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 933 STRING "DELETEITEM" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 940 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 944 STRING "brParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 944 STRING "x(16)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 944 STRING "x(30)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 951 STRING "fParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 951 STRING "CTRL-N - new, ENTER - edit, DEL/CTRL-D  - delete" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 957 STRING "vRow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 958 STRING "vName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 966 STRING "for each tParam" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 968 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 969 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 970 STRING "brParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 970 STRING "fParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 970 STRING "qParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 974 STRING "vRow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 975 STRING "vName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 976 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 977 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 979 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 989 STRING "for each tParam" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 994 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 995 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 996 STRING "brParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 996 STRING "fParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 996 STRING "qParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1000 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1002 STRING "bNextParam" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1003 STRING "vName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1004 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1007 STRING "vAns" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1007 STRING "Do you really want to delete parameter '&1'?" 44 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1013 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1015 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1027 STRING "for each tParam" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1031 SEARCH tParam default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1032 REFERENCE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1034 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1034 STRING "fParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1034 STRING "qParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1036 ACCESS indigo.bfitem iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1036 SEARCH indigo.bfitem iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1038 ACCESS indigo.bfitem iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1038 STRING " Parameters of '&1' " 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1042 STRING "for each tParam" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "Value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "brParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "fParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "qParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 PROCEDURE displayParams,,INPUT pItemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1049 STRING "DISPLAYPARAMS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1052 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1056 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1056 SEARCH indigo.bfipar iid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1057 CREATE tParam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1058 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1059 ACCESS indigo.bfipar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1061 PROCEDURE loadParams,,INPUT pItemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1061 STRING "LOADPARAMS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1064 STRING "pParamName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1065 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1066 STRING "pRow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 STRING "fParamEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 ACCESS indigo.bfipar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 STRING "x(100)" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 STRING "x(100)" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1067 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1074 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1074 ACCESS indigo.bfipar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1074 UPDATE indigo.bfipar pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1074 UPDATE indigo.bfipar pvalue
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1075 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1076 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1077 STRING "fParamEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1080 STRING "fParamEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1088 CREATE indigo.bfipar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1089 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1089 UPDATE indigo.bfipar iid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1091 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1091 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1091 SEARCH indigo.bfipar iid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1094 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1094 ACCESS indigo.bfipar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1098 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1098 STRING "pvalue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1098 STRING "fParamEdit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1098 PROCEDURE editParam,,INPUT-OUTPUT pParamName CHARACTER,INPUT pItemId INTEGER,INPUT pRow INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1098 STRING "EDITPARAM" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1101 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1102 STRING "pItemId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1103 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1105 ACCESS indigo.bfipar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1105 ACCESS indigo.bfipar iid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1105 SEARCH indigo.bfipar iid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1108 REFERENCE indigo.bfipar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1110 STRING "Can't delete parameter. Locked" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1114 DELETE indigo.bfipar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1115 PROCEDURE deleteParam,,INPUT pName CHARACTER,INPUT pItemId INTEGER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1115 STRING "DELETEPARAM" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1122 STRING "hWidget" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1126 PROCEDURE setMaxSize,,INPUT hWidget HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1126 STRING "SETMAXSIZE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1129 STRING "bBatches" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1132 STRING "tBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1136 STRING "bSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1136 STRING "*/" 2 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1136 STRING "x(15)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1143 STRING "btOk" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1145 STRING "fSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1145 STRING "Select batches" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1145 STRING "SPACE - select batch, F1 - continue, F4 - cancel" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1152 STRING "vCount" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1154 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1164 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1169 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1170 STRING "fSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1174 REFERENCE tBatch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1180 STRING "bSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1180 STRING "fSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1182 SEARCH tBatch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1186 STRING "for each tBatch" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "bSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "Ok" 2 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "fSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "qSel" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 PROCEDURE selectBatches,,OUTPUT bBatches INTEGER EXTENT
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1192 STRING "SELECTBATCHES" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1195 STRING "vBatchIds" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1196 STRING "vFilename" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1197 STRING "vOk" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1198 STRING "vAction" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1199 STRING "btExp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1200 STRING "btImp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1203 STRING "fImpExp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1203 STRING " Choose action " 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1209 STRING "export" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1210 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1211 STRING "fImpExp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1215 STRING "import" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1216 STRING "CLOSE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1217 STRING "fImpExp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1223 STRING "export" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1233 STRING "Export as" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1245 STRING "Export complete. Batches saved to '&1'." 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1248 STRING "import" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1250 STRING "Open file" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1260 STRING "ask-overwrite" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1261 STRING "Import complete." 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Import" 6 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Export" 6 TRIM TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "fImpExp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 PROCEDURE manageImportExport,,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "MANAGEIMPORTEXPORT" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "qBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Act" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "MultInst" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Schedule" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Next run" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Modified by" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "Modified" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1265 STRING "fBatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 143 RUN bf/bfmkinst.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 144 RUN bf/bfstart.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 222 RUN bf/bfsched-next.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 305 RUN bf/bfsched-next.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1233 RUN adeedit/_dlggetf.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1243 RUN bf/bfxmlexp.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1250 RUN adeedit/_dlggetf.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfedit.p 1260 RUN bf/bfxmlimp.p

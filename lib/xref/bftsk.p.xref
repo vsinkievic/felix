@@ -1,0 +1,376 @@
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 6 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 10 INCLUDE bf/bfwrklib.i
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 10 STRING "bfwrklib-last-ping" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 11 STRING "bfwrklib-governor-wid" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 14 STRING "worker-type" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 15 STRING "bh-me" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 16 STRING "bh-conn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 17 STRING "tab-name" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "&1._MyConnection" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "&1._Connect" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 26 STRING "where _Connect-Usr = &1" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 27 STRING "BF_GOVERNOR" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 28 CREATE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk wtype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk stadt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk connid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk pid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk connts 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 STRING "_Sequence" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk wid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk wtype
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 STRING "start" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk sta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk stadt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk connid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk pid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk connts
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk gov
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 46 FUNCTION worker-init,integer,INPUT worker-type CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 46 STRING "WORKER-INIT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "claimed-nid" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "check-done" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 55 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 55 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 56 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 57 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 58 STRING "should-check-governor" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 59 STRING "governor-alive" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 60 STRING "target-nid" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 61 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 61 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 67 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 67 ACCESS indigo.bfwrk nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 80 ACCESS indigo.bfwrk wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 80 SEARCH indigo.bfwrk wid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 81 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 81 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 85 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 88 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 89 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk pingdt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk stadt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk pingdt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk sta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk stadt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 100 FUNCTION worker-ping3,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL,INPUT claimed-nid INTEGER,OUTPUT check-done LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 100 STRING "WORKER-PING3" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "claimed-nid" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 103 STRING "dummy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 105 FUNCTION worker-ping2,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL,INPUT claimed-nid INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 105 STRING "WORKER-PING2" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 107 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 107 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 108 STRING "dummy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 110 FUNCTION worker-ping,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 110 STRING "WORKER-PING" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 113 STRING "bfctl" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 113 REFERENCE indigo.bfctl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 ACCESS indigo.bfctl gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 ACCESS indigo.bfwrk gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 SEARCH indigo.bfctl gov
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 115 REFERENCE indigo.bfctl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 115 ACCESS indigo.bfctl phase 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 119 FUNCTION worker-gff,character,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 119 STRING "WORKER-GFF" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 121 STRING "e1" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 122 STRING "e1a" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 123 STRING "e1i" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 ACCESS PUBLIC-PROPERTY Progress.Lang.Class:TypeName
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 STRING "Error:" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 STRING "Class:" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 126 CAST FROM Progress.Lang.Error TO Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 ACCESS PUBLIC-PROPERTY Progress.Lang.AppError:ReturnValue
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 ACCESS PUBLIC-PROPERTY Progress.Lang.AppError:ReturnValue
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 STRING "ReturnValue:" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 130 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:NumMessages
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 133 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:CallStack
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 133 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:CallStack
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 135 FUNCTION worker-dump-error,integer,INPUT e1 PROGRESS.LANG.ERROR
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 135 STRING "WORKER-DUMP-ERROR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 12 STRING "stdst" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 13 STRING "wrklog" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 22 STRING "tee-log" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 23 STRING "out-node" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 24 STRING "out-name" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 25 STRING "out-line" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 26 STRING "iter-mark" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 32 STRING "log-file" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 33 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 34 STRING "BF_WRKLOG" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 39 FUNCTION my-init,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 39 STRING "MY-INIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 42 STRING "bfque" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 42 REFERENCE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 43 STRING "bf-queue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 43 STRING "bfque" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 43 REFERENCE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 44 STRING "bfnode" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 44 REFERENCE indigo.bfnode 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 45 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 45 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 46 STRING "bfnpar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 46 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 48 STRING "node-id" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 49 STRING "node-tp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 50 STRING "iter-no" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 51 STRING "exec-sta" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 52 STRING "exec-mode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 53 STRING "exec-params" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 54 STRING "exec-cond" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 55 STRING "def-lbl" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 56 STRING "empty-loop" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 57 STRING "glb-ctl" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 59 STRING "idle" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 63 STRING "idle" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 66 STRING "hold" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 74 ACCESS indigo.bfque que 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 74 STRING "ready" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 74 SEARCH indigo.bfque que-nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 87 REFERENCE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 87 REFERENCE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 87 SEARCH indigo.bfque RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 88 SEARCH indigo.bfque RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 89 REFERENCE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 91 ACCESS indigo.bfque que 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 91 STRING "ready" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 93 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 93 ACCESS indigo.bfque nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 93 SEARCH indigo.bfnode nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 94 REFERENCE indigo.bfnode 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 95 REFERENCE indigo.bfnode 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 95 DELETE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 99 ACCESS indigo.bfnode sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 99 STRING "ready" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 100 DELETE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 104 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 104 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 104 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 105 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 107 DELETE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 108 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 108 STRING "work" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode startdt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode findt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode iter 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode iter 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfwrk wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode ntype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode iter 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode defres 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 ACCESS indigo.bfnode deflbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 STRING "work" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 UPDATE indigo.bfnode sta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 UPDATE indigo.bfnode startdt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 UPDATE indigo.bfnode findt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 UPDATE indigo.bfnode iter
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 UPDATE indigo.bfnode wid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 109 STRING "err" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 122 ACCESS indigo.bfnode ctlsta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 122 STRING "skip" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 122 STRING "skip" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 125 STRING "done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 125 STRING "log" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 125 STRING "pro" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 133 ACCESS indigo.bfnpar nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 133 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 133 ACCESS indigo.bfnpar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 133 STRING "wrapper" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 133 SEARCH indigo.bfnpar nid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 134 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 135 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 136 STRING "shell" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 136 STRING "shell-remote" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 137 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 138 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 138 STRING "shell-remote" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 139 ACCESS indigo.bfnpar nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 139 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 139 ACCESS indigo.bfnpar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 139 STRING "exec-host" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 139 SEARCH indigo.bfnpar nid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 140 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 140 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 140 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 142 STRING "exec-host-unset" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 145 ACCESS indigo.bfnpar nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 145 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 145 ACCESS indigo.bfnpar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 145 STRING "proc" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 145 SEARCH indigo.bfnpar nid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 146 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 146 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 146 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 148 ACCESS indigo.bfnode iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 148 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 153 ACCESS indigo.bfnpar nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 153 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 153 ACCESS indigo.bfnpar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 153 STRING "exec-params" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 153 SEARCH indigo.bfnpar nid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 154 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 154 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 154 STRING "&1 &2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 156 ACCESS indigo.bfnpar nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 156 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 156 ACCESS indigo.bfnpar pname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 156 STRING "exec-condition" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 156 SEARCH indigo.bfnpar nid-pname
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 157 REFERENCE indigo.bfnpar 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 157 ACCESS indigo.bfnpar pvalue 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 165 CREATE indigo.bfque 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 ACCESS indigo.bfque nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 ACCESS indigo.bfque finsta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 ACCESS indigo.bfque que 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 UPDATE indigo.bfque nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 UPDATE indigo.bfque finsta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 STRING "fin" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 166 UPDATE indigo.bfque que
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 179 STRING "exit" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 181 FUNCTION worker-poll,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 181 STRING "WORKER-POLL" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 186 STRING "hold" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 188 STRING "hold" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 192 FUNCTION worker-hold,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 192 STRING "WORKER-HOLD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "node-id" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "node-tp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "iter-no" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "def-lbl" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "exec-mode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "exec-params" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "exec-cond" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 194 STRING "exec-sta" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 195 STRING "input-ln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 196 STRING "input-lbl" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 197 STRING "have-errors" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 198 STRING "have-warnings" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 199 STRING "have-finish" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 200 STRING "cond-pass" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 202 STRING "skip" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 202 STRING "sync" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 202 STRING "finish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 203 STRING "done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 205 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 209 STRING "ctl" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 209 STRING "---------- Execution &1 ----------" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 214 STRING "ctl" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 214 STRING "TASK SKIP (condition &1 returned &2)" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 215 STRING "done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 219 STRING "ncsbfexe.sh &1 &2 &3" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 220 STRING "log" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 220 STRING "TASK START" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 235 STRING "warn" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 236 STRING "err" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 239 STRING "exit" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 241 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 245 STRING "ctl" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 245 STRING "Task exit status: &1. Message: &2" 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 245 STRING "(none)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 246 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 246 STRING "done,error,retry" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 247 STRING "err" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 247 STRING "bftsk.p: bf-exit() call returned unsupported exit status" 56 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 251 STRING "finish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 255 STRING "work" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 258 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 260 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 262 STRING "warn" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 267 STRING "e1" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 269 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 272 STRING "log" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 272 STRING "TASK FINISH (&1)" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 275 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 278 FUNCTION worker-exec,integer,INPUT node-id INTEGER,INPUT node-tp CHARACTER,INPUT iter-no INTEGER,INPUT def-lbl CHARACTER,INPUT exec-mode CHARACTER,INPUT exec-params CHARACTER,INPUT exec-cond CHARACTER,INPUT-OUTPUT exec-sta CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 278 STRING "WORKER-EXEC" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 280 STRING "node-id" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 280 STRING "msg-label" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 280 STRING "msg-line" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 280 STRING "task-out" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 281 STRING "bfout" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 281 REFERENCE indigo.bfout 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 282 STRING "bfnode" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 282 REFERENCE indigo.bfnode 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 283 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 284 STRING "msg-safe" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 286 ACCESS indigo.bfout nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 286 SEARCH indigo.bfout nid-ln
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 287 REFERENCE indigo.bfout 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 287 ACCESS indigo.bfout ln 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 292 ACCESS indigo.bfnode nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 292 SEARCH indigo.bfnode nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 293 REFERENCE indigo.bfnode 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 293 ACCESS indigo.bfnode iname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 295 STRING "(!node)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 300 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 307 CREATE indigo.bfout 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 ACCESS indigo.bfout nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 ACCESS indigo.bfout ln 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 ACCESS indigo.bfout dt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 ACCESS indigo.bfout lbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 ACCESS indigo.bfout msg 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 UPDATE indigo.bfout nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 UPDATE indigo.bfout ln
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 UPDATE indigo.bfout dt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 STRING "ctl" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 UPDATE indigo.bfout lbl
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 308 UPDATE indigo.bfout msg
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 318 CREATE indigo.bfout 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 ACCESS indigo.bfout nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 ACCESS indigo.bfout ln 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 ACCESS indigo.bfout dt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 ACCESS indigo.bfout lbl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 ACCESS indigo.bfout msg 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 UPDATE indigo.bfout nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 UPDATE indigo.bfout ln
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 UPDATE indigo.bfout dt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 STRING "log" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 UPDATE indigo.bfout lbl
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 319 UPDATE indigo.bfout msg
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 329 STRING "[&1] N-&2 &3 &4 | &5" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 331 FUNCTION worker-out,integer,INPUT node-id INTEGER,INPUT msg-label CHARACTER,INPUT msg-line CHARACTER,INPUT task-out LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 331 STRING "WORKER-OUT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 333 STRING "input-ln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 333 STRING "msg-label" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 334 STRING "*BF* " 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 335 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 339 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 339 STRING "ping,exit,finish" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 343 FUNCTION analyze-input,logical,INPUT-OUTPUT input-ln CHARACTER,INPUT-OUTPUT msg-label CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 343 STRING "ANALYZE-INPUT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 131 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 212 RUN "value(exec-cond) ("
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bftsk.p 268 DELETE-INSTANCE Progress.Lang.Error

@@ -1,0 +1,109 @@
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 8 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 8 NEW-SHR-VARIABLE objContext
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 9 STRING "platConnect" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 11 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 12 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 14 STRING "vTotalBal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 15 STRING "vPreviousYearBal" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 16 STRING "vImpairedBal" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 21 INCLUDE bf/bfapi.i
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 11 STRING "bfapi-last-ping" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 14 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 15 STRING "pvalue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 STRING "batchframe-get-par" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 PUBLISH "batchframe-get-par "
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 PRIVATE-FUNCTION bf-get-par,character,INPUT pname CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 STRING "BF-GET-PAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 24 STRING "keep-running" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 25 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 26 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 28 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 STRING "batchframe-ping" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 PUBLISH "batchframe-ping "
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 PRIVATE-FUNCTION bf-ping,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 STRING "BF-PING" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 44 STRING "*BF* &1 &2" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 PRIVATE-FUNCTION bf-msg,integer,INPUT lbl CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 STRING "BF-MSG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 48 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 49 STRING "*BF* ERR" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 PRIVATE-FUNCTION bf-err,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 STRING "BF-ERR" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 53 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 54 STRING "*BF* WARN" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 PRIVATE-FUNCTION bf-warn,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 STRING "BF-WARN" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 58 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 59 STRING "*BF* LOG" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 PRIVATE-FUNCTION bf-log,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 STRING "BF-LOG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 64 STRING "*BF* EXIT DONE" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 PRIVATE-FUNCTION bf-success,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 STRING "BF-SUCCESS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "exit-state" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 72 STRING "*BF* EXIT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 PRIVATE-FUNCTION bf-exit,integer,INPUT exit-state CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 STRING "BF-EXIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 ACCESS indigo.loancomp bamtyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 STRING "MANUAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 STRING "AccruedAmt" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 27 SEARCH indigo.loancomp provtrans
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 31 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 32 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 33 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 38 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 43 STRING "err" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 49 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 56 STRING "wUser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 56 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 56 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 57 STRING "vUsrID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 58 STRING "vUser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 59 STRING "indigo" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 61 ACCESS indigo.wuser username 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 61 ACCESS indigo.wuser sts 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 61 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 61 SEARCH indigo.wuser username
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 62 INCLUDE "core/businessErr.i &id='ADM0047'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 62 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0047" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 65 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 68 FUNCTION getUserID,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 68 STRING "GETUSERID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 71 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 71 UPDATE SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 72 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 75 FUNCTION initContext,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 75 STRING "INITCONTEXT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 24 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 25 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 31 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 32 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 33 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 34 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 34 INVOKE ops.ProvAmtManager:getPrnPrvImpCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 38 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 39 INVOKE ops.ProvAmtManager:transCurrYearProvToPrevYearProv
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 44 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 45 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 49 DELETE-INSTANCE core.Context
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 50 DELETE-INSTANCE sys2plt.src.PlatonConnect
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 51 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 52 DELETE-INSTANCE ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 71 NEW core.Context
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 72 INVOKE core.Context:setUsrID,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p /u1/env/bankcp/indigo/svn-trunk/system/trx/provTrans.p 74 NEW sys2plt.src.PlatonConnect

@@ -1,0 +1,578 @@
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 23 CLASS trx.Book,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 23 STRING "trx.Book" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 24 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 25 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 26 STRING "prAutoBookRules" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 26 STRING "STOP90OVE,TECHNICAL,START91OVE,ONPAYMENT,CONTINUOUSLY" 53 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 27 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 28 STRING "trxRet" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 29 STRING "prCorrSts" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 30 STRING "prRemark" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 31 STRING "prAllowNegativeBal" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 33 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 37 CONSTRUCTOR PUBLIC,,,,Book,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 37 STRING "BOOK" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 39 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 40 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 40 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 43 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 43 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 45 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 46 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 46 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 48 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 49 METHOD PUBLIC,,,,,init,void,INPUT pLon CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 49 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 58 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 58 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 60 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 60 ACCESS indigo.loancomp bookret 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 60 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 60 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 64 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 68 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 68 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 68 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 68 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 68 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 72 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 76 METHOD PUBLIC,,,,,autoBook,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 76 STRING "AUTOBOOK" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 84 STRING "pCmpType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 85 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 85 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 86 STRING "vActiveComp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 89 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 94 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 96 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 102 METHOD PUBLIC,,,,,getActiveComp,character,INPUT pCmpType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 102 STRING "GETACTIVECOMP" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 111 STRING "vActiveComp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 112 STRING "vBsheet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 114 STRING "INTEREST" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 119 STRING "OFF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 120 METHOD PUBLIC,,,,,isIntOffBal,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 120 STRING "ISINTOFFBAL" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 128 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 129 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 129 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 130 STRING "vBsheet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 133 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 133 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 135 REFERENCE indigo.comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 135 ACCESS indigo.comp bsheet 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 139 METHOD PUBLIC,,,,,getCompBsheet,character,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 139 STRING "GETCOMPBSHEET" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 148 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 149 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 150 STRING "vMustBook" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 151 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 151 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 160 STRING "COMPRETURN" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 169 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 171 METHOD PUBLIC,,,,,setCorrSts,void,INPUT pSts LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 171 STRING "SETCORRSTS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 179 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 180 STRING "vMustBook" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 182 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 182 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 183 STRING "bloancomp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 183 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 185 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 185 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 185 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 188 INCLUDE "core/businessErr.i &id='BOK0001' &p1=pComp &p2=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 188 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 191 INCLUDE "core/businessErr.i &id='BOK0002' &p1=pComp &p2=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 191 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 194 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 197 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 202 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 204 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 213 STRING "MUSTBOOK" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 221 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 222 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 223 STRING "vMustBook" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 224 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 224 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 226 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 226 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 226 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 229 INCLUDE "core/businessErr.i &id='BOK0001' &p1=pComp &p2=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 229 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 232 INCLUDE "core/businessErr.i &id='BOK0002' &p1=pComp &p2=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 232 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 235 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 236 STRING "STOP90OVE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 238 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 238 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 240 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 242 STRING "TECHNICAL" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 244 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 244 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 246 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 248 STRING "START91OVE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 250 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 250 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 252 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 254 STRING "ONPAYMENT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 256 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 256 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 258 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 260 STRING "CONTINUOUSLY" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 270 STRING "MUSTBOOKCOMP" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 282 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 283 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 283 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 285 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 285 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 285 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 288 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 291 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 291 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 291 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 294 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 299 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 303 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 303 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 303 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 303 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 307 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 312 METHOD PUBLIC,,,,,autoBookComp,void,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 312 STRING "AUTOBOOKCOMP" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 320 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 321 STRING "vMustBook" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 322 STRING "vAcrAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 323 STRING "vBookedAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 324 STRING "vPaidAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 325 STRING "vAcrBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 326 STRING "vBookedBal" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 327 STRING "vAmtToBook" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 328 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 328 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 330 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 330 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 330 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 STRING "PRN-OFF-BALANCE" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 334 STRING "MODIFICATION" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 349 STRING "BOOKCOMP" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 358 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 363 STRING "SETBOOK" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 372 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 373 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 373 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 374 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 374 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 374 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 377 INCLUDE "core/businessErr.i &id='BOK0005' &p1=prLid &p2=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 377 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 380 INCLUDE "core/businessErr.i &id='BOK0007' &p1=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 380 ACCESS indigo.loancomp bookrule 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 380 STRING "ONOPERATION" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 385 METHOD PUBLIC,,,,,bookOnOp,void,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 385 STRING "BOOKONOP" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 394 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 394 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 395 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 395 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 396 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 397 STRING "vRemainAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 398 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 399 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 400 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 400 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 400 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 403 INCLUDE "core/businessErr.i &id='BOK0005' &p1=prLid &p2=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 403 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "BOK0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 406 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 408 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 409 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 409 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 409 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 409 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 409 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 416 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 421 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 441 STRING "RETURNBOOKEDAMT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 450 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 450 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 451 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 451 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 456 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 456 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 458 ACCESS indigo.comp ctype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 459 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 461 STRING "PRN-OFF-BALANCE" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 463 STRING "MODIFICATION" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 467 STRING "ADDTRXLINE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 476 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 476 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 477 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 477 STRING "Auto debt increase." 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 483 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 484 STRING "ADDTRXLINEDEBT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 493 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 493 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 494 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 494 STRING "Provisions increase" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 495 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 499 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 501 STRING "AssetGL" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 502 STRING "ADDTRXLINEPROV" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 511 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 511 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 512 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 512 STRING "Principal amount off-balance increase" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 514 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 515 STRING "ADDTRXLINEPRNOFF" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 525 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 525 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 526 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 526 STRING "FV adjustment for non-substantial modification" 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 528 STRING "modMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 531 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 533 STRING "AssetGL" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 535 STRING "ADDTRXLINEMODAMT" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 544 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 544 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 545 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 545 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 550 STRING "CORRECTION" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 553 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 553 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 555 ACCESS indigo.comp ctype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 556 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 558 STRING "PRN-OFF-BALANCE" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 562 STRING "ADDTRXLINERET" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 571 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 571 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 572 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 572 STRING "Debt return" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 577 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 578 STRING "ADDTRXLINERETDEBT" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 587 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 587 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 588 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 588 STRING "Provisions decrease" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 589 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 593 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 596 STRING "AssetGL" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 597 STRING "ADDTRXLINERETPROV" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 606 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 606 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 607 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 607 STRING "Principal amount off-balance decrease" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 609 STRING "LiabilityGL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 610 STRING "ADDTRXLINERETPRNOFF" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 624 STRING "GENBOOKTRX" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 640 STRING "GENRETTRX" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 648 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 649 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 650 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 651 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 651 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 652 STRING "acrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 652 STRING "acrbal" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 653 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 653 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 654 STRING "bloancomp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 654 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 657 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 657 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 657 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 660 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 662 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 662 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 662 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 662 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 665 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 665 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 665 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 667 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 669 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 671 ACCESS indigo.acrbal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 671 ACCESS indigo.acrbal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 671 SEARCH indigo.acrbal PK_acrbal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 674 REFERENCE indigo.acrbal 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 674 ACCESS indigo.acrbal amt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 678 METHOD PUBLIC,,,,,getCompAcrAmt,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 678 STRING "GETCOMPACRAMT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 686 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 687 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 688 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 689 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 689 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 695 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 695 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 695 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 698 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 698 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 707 METHOD PUBLIC,,,,,getCompBookedAmt,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 707 STRING "GETCOMPBOOKEDAMT" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 715 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 716 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 717 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 718 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 718 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 724 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 724 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 724 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 727 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 727 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 727 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 730 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 737 STRING "GETCOMPBOOKEDBAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 746 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 747 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 748 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 760 METHOD PUBLIC,,,,,getBal,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 760 STRING "GETBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 768 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 768 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 769 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 770 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 771 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 771 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 777 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 777 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 777 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 780 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 780 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 789 METHOD PUBLIC,,,,,getCompBookedAmt,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 789 STRING "GETCOMPBOOKEDAMT" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 797 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 798 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 799 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 800 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 800 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 806 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 806 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 806 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 809 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 811 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 811 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 821 METHOD PUBLIC,,,,,getCompPaidAmt,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 821 STRING "GETCOMPPAIDAMT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 829 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 829 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 830 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 831 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 832 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 832 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 838 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 838 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 838 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 841 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 843 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 843 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 853 METHOD PUBLIC,,,,,getCompPaidAmt,decimal,INPUT pComp CHARACTER,INPUT pDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 853 STRING "GETCOMPPAIDAMT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 861 STRING "pBaseComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 862 STRING "vDays" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 863 STRING "vBook" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 866 STRING "ARPUSBIL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 874 STRING "CHECKSTOP90OVE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 882 STRING "pBaseComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 883 STRING "vDays" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 884 STRING "vBook" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 887 STRING "ARPUSBIL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 895 STRING "CHECKSTART91OVE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 903 STRING "pBaseComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 904 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 905 STRING "clnInf" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 906 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 930 STRING "CHECKTECHNICAL" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 938 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 939 STRING "schedHelp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 940 STRING "vBook" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 956 STRING "CHECKONPAYMENT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 964 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 965 STRING "vOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 966 STRING "debt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 977 STRING "GETOVERDUE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 985 STRING "pRemark" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 989 METHOD PUBLIC,,,,,setAdditionalRemark,void,INPUT pRemark CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 989 STRING "SETADDITIONALREMARK" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 998 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 999 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1003 STRING "ARPUSBIL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1004 STRING "ISLOANMARKSET" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1012 STRING "pAllowNegativeBal" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1014 METHOD PUBLIC,,,,,allowNegativeBal,void,INPUT pAllowNegativeBal LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1014 STRING "ALLOWNEGATIVEBAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 36 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 36 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 64 INVOKE trx.Book:compReturn,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 66 INVOKE trx.Book:genRetTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 72 INVOKE trx.Book:setBook,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 74 INVOKE trx.Book:genBookTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 75 INVOKE trx.Book:genRetTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 94 INVOKE trx.Book:mustBookComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 114 INVOKE trx.Book:getActiveComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 116 INVOKE trx.Book:getCompBsheet,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 153 INVOKE trx.Book:mustBook,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 156 INVOKE trx.Book:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 157 INVOKE trx.Book:addTrxLineRet,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 202 INVOKE trx.Book:mustBookComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 210 INVOKE trx.Book:mustBookComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 238 INVOKE trx.Book:checkStop90Ove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 240 INVOKE trx.Book:checkStop90Ove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 244 INVOKE trx.Book:checkTechnical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 246 INVOKE trx.Book:checkTechnical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 250 INVOKE trx.Book:checkStart91Ove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 252 INVOKE trx.Book:checkStart91Ove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 256 INVOKE trx.Book:checkOnPayment,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 258 INVOKE trx.Book:checkOnPayment,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 299 INVOKE trx.Book:setBook,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 307 INVOKE trx.Book:setBook,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 310 INVOKE trx.Book:genBookTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 311 INVOKE trx.Book:genRetTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 333 INVOKE trx.Book:getCompAcrAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 339 INVOKE trx.Book:getCompPaidAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 342 INVOKE trx.Book:getCompBookedBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 345 INVOKE trx.Book:addTrxLine,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 347 INVOKE trx.Book:returnBookedAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 359 INVOKE trx.Book:mustBook,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 362 INVOKE trx.Book:bookComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 383 INVOKE trx.Book:bookComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 384 INVOKE trx.Book:genBookTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 416 INVOKE trx.Book:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 421 INVOKE trx.Book:addTrxLineRet,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 431 INVOKE trx.Book:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 436 INVOKE trx.Book:addTrxLineRet,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 453 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 459 INVOKE trx.Book:addTrxLineProv,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 461 INVOKE trx.Book:addTrxLinePrnOff,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 463 INVOKE trx.Book:addTrxLineModAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 465 INVOKE trx.Book:addTrxLineDebt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 483 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 497 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 499 INVOKE ops.ProvAmtManager:getPrnPrvPrevCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 499 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 501 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 514 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 529 NEW loan.ModificationManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 531 INVOKE loan.ModificationManager:getModIncrCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 531 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 533 INVOKE loan.ModificationManager:getModDecrCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 533 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 549 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 550 INVOKE trx.GenTrx:setCorrSts,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 556 INVOKE trx.Book:addTrxLineRetProv,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 558 INVOKE trx.Book:addTrxLineRetPrnOff,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 560 INVOKE trx.Book:addTrxLineRetDebt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 577 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 591 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 593 INVOKE ops.ProvAmtManager:getPrnPrvPrevCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 593 INVOKE ops.ProvAmtManager:getIntPrvCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 593 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 596 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 609 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 621 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 622 DELETE-INSTANCE trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 635 INVOKE trx.GenTrx:setOnlyPositiveBal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 637 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 638 DELETE-INSTANCE trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 691 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 692 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 698 INVOKE trx.TrxBal:getDebitCpxAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 700 INVOKE trx.TrxBal:getDebitAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 705 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 720 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 721 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 727 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 730 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 735 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 750 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 751 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 753 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 758 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 773 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 774 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 780 INVOKE trx.TrxBal:getDebitCpxAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 782 INVOKE trx.TrxBal:getDebitAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 787 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 802 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 803 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 811 INVOKE trx.TrxBal:getCreditCpxAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 813 INVOKE trx.TrxBal:getCreditAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 819 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 834 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 835 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 843 INVOKE trx.TrxBal:getCreditCpxAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 845 INVOKE trx.TrxBal:getCreditAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 851 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 866 INVOKE trx.Book:isLoanMarkSet,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 869 INVOKE trx.Book:getOverdue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 887 INVOKE trx.Book:isLoanMarkSet,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 890 INVOKE trx.Book:getOverdue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 909 INVOKE trx.Book:checkStart91Ove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 913 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 914 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 916 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 917 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 917 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 919 INVOKE core.ClnInfo:isClnMaterial
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 923 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 924 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 926 INVOKE ops.ProvAmtManager:getIndividualProv
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 945 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 946 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 948 INVOKE sched.SchedUtil:isPayDay,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 954 DELETE-INSTANCE sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 967 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 968 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 970 INVOKE dbt.DebtManager:getOverdueCached,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 975 DELETE-INSTANCE dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1000 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1001 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/Book.cls 1003 INVOKE mark.MarkUtil:isMarkEmpty,INPUT character

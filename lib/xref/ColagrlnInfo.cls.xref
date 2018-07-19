@@ -1,0 +1,315 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 10 CLASS clt.ColagrlnInfo,,,USE-WIDGET-POOL,,,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 10 STRING "clt.ColagrlnInfo" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 15 INCLUDE "clt/ind-convfunc.i &visibility=""private"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 8 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 8 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 10 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 16 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 18 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 22 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 26 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 27 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 33 STRING "CRC2NAT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 38 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 38 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 40 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 46 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 48 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 51 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 56 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 61 STRING "NAT2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 66 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 68 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 74 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 76 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 79 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 83 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 84 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 91 STRING "ACRC9" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pCrcFrom" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pCrcTo" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 98 STRING "vResult" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 112 STRING "CRC2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 17 STRING "oColagrlnInfo" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 19 STRING "colcalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 20 STRING "oCrobjManager" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 22 STRING "dCrcRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 23 STRING "nCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 26 STRING "colagrlnRid" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 27 STRING "colagrlnId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "m_colagrln" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "secamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "ltvamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "colrank" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "parentln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "corrborr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 29 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 44 CONSTRUCTOR PUBLIC,,,,ColagrlnInfo,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 44 STRING "COLAGRLNINFO" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 46 STRING "pcolagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 51 CONSTRUCTOR PUBLIC,,,,ColagrlnInfo,void,INPUT pcolagrln INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 51 STRING "COLAGRLNINFO" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 60 DESTRUCTOR PUBLIC,,,,ColagrlnInfo,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 60 STRING "COLAGRLNINFO" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 71 METHOD PUBLIC,STATIC,,,,getInst,clt.ColagrlnInfo,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 71 STRING "GETINST" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 74 STRING "pcolagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 75 STRING "bcolagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 75 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 79 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 79 SEARCH indigo.colagrln colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 80 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 80 STRING "not found colagrln colagrln=&1  @#81" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 82 SEARCH DATA-MEMBER clt.ColagrlnInfo:m_colagrln issynd TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 REFERENCE m_colagrln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln colagr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln colagrln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln colobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln colrank TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln coltyp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln corrborr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln corrborr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln crobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln ltvamt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln ltvamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln parentln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln parentln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln secamt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln sts 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln whn 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 ACCESS indigo.colagrln who 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 83 UPDATE m_colagrln who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 85 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 88 METHOD PUBLIC,,,,,setid,clt.ColagrlnInfo,INPUT pcolagrln INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 88 STRING "SETID" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 98 METHOD PUBLIC,,,,,unsetid,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 98 STRING "UNSETID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 102 REFERENCE m_colagrln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 103 METHOD PUBLIC,,,,,isSetid,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 103 STRING "ISSETID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 106 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 106 STRING "bcolagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 106 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 106 STRING "bcolagrln" 9 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 107 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 107 SEARCH indigo.colagrln RECID
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 108 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 108 STRING "not found colagrln colagrln=&1  @#109" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 110 METHOD PUBLIC,,,,,buff,void,BUFFER bcolagrln indigo.colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 110 STRING "BUFF" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 119 STRING "bcolobj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 119 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 120 STRING "bcurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 120 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 123 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 123 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 124 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 124 STRING "not found colobj where colobj=&1,  colagrln.colagrln=&2  @#125" 62 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 126 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 128 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 131 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 131 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 131 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 STRING "not found curr crc=&1, colobj.colobj=&2  @#133" 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 134 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 137 STRING "INITCRCRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 144 STRING "pround" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 144 STRING "pamt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 144 STRING "pcrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 144 STRING "pErrMsg" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 145 STRING "bcurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 145 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 149 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 149 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 150 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 150 STRING "not found curr crc=&1, &2  @#151" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 153 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 154 METHOD PUBLIC,,,,,amtCrcToNac,decimal,INPUT pround INTEGER,INPUT pamt DECIMAL,INPUT pcrc INTEGER,INPUT pErrMsg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 154 STRING "AMTCRCTONAC" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 158 STRING "pround" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 158 STRING "pcrcCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 158 STRING "pamt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 159 STRING "bcurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 159 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 161 ACCESS indigo.curr code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 161 SEARCH indigo.curr IDX_currency_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 162 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 162 STRING "not found curr where code='&1',  crobj.crobj=&2  @#163" 54 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 168 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 172 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 173 METHOD PUBLIC,,,,,amtToCrcCode,decimal,INPUT pround INTEGER,INPUT pcrcCode CHARACTER,INPUT pamt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 173 STRING "AMTTOCRCCODE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 176 STRING "pround" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 176 STRING "pamt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 180 METHOD PUBLIC,,,,,amtNac,decimal,INPUT pround INTEGER,INPUT pamt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 180 STRING "AMTNAC" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 183 STRING "pround" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 185 METHOD PUBLIC,,,,,amtLtv2%,decimal,INPUT pround INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 185 STRING "AMTLTV2%" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 189 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 191 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 191 SEARCH indigo.colagr colagr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 192 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 192 STRING "not found colagr colagr=&1,  colagrln.colagrln=&2  @#193" 56 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 196 ACCESS indigo.colagr agrnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 197 METHOD PUBLIC,,,,,agrNum,character,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 197 STRING "AGRNUM" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 202 METHOD PUBLIC,,,,,fcmcType,character,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 202 STRING "FCMCTYPE" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 206 STRING "pround" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 207 STRING "bcrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 207 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 209 STRING "lsecamt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 210 STRING "lcrbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 212 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 212 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 213 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 213 STRING "not found crobj where crobj=&1,  colagrln.colagrln=&2  @#214" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 216 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 STRING "crobj.crobj=&2" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 223 METHOD PUBLIC,,,,,amtCreditCover%,decimal,INPUT pround INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 223 STRING "AMTCREDITCOVER%" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 228 METHOD PUBLIC,,,,,isActive,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 228 STRING "ISACTIVE" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "lsufixes" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "st" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "nd" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "rd" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 232 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 234 STRING "lsuf" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 237 STRING "th" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 242 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 243 METHOD PUBLIC,,,,,colrankName,character,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 243 STRING "COLRANKNAME" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 246 STRING "COLAGRLNINFO" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 246 STRING "issynd" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 102 INVOKE clt.ColagrlnInfo:crc2Nat,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 104 INVOKE clt.ColagrlnInfo:nat2Crc,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 107 INVOKE clt.ColagrlnInfo:crc2Nat,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 108 INVOKE clt.ColagrlnInfo:nat2Crc,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 42 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 43 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 48 INVOKE clt.ColagrlnInfo:setid,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 50 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 54 DELETE-INSTANCE clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 57 DELETE-INSTANCE clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 66 NEW clt.ColagrlnInfo
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 68 INVOKE clt.ColagrlnInfo:unsetid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 77 INVOKE clt.ColagrlnInfo:unsetid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 80 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 108 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 124 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 132 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 134 INVOKE clt.ColagrlnInfo:acrc9,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 150 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 153 INVOKE clt.ColagrlnInfo:crc2nat,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 162 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 166 INVOKE clt.ColagrlnInfo:initCrcRate
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 172 INVOKE clt.ColagrlnInfo:nat2crc,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 177 INVOKE clt.ColagrlnInfo:initCrcRate
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 184 INVOKE clt.ColCalc:getLTVAmt%,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 192 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 201 INVOKE clt.ColCalc:getFcmc,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 213 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 216 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 INVOKE clt.ColagrlnInfo:amtCrcToNac,INPUT integer,INPUT decimal,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 INVOKE clt.CrobjManager:getBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 218 INVOKE clt.CrobjManager:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 219 INVOKE clt.ColagrlnInfo:amtNac,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ColagrlnInfo.cls 227 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer

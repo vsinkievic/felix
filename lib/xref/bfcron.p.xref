@@ -1,0 +1,445 @@
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 7 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 11 INCLUDE bf/bfwrklib.i
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 8 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 10 STRING "bfwrklib-last-ping" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 11 STRING "bfwrklib-governor-wid" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 14 STRING "worker-type" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 15 STRING "bh-me" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 16 STRING "bh-conn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 17 STRING "tab-name" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "&1._MyConnection" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 18 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "&1._Connect" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "bf-worker" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 20 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 26 STRING "where _Connect-Usr = &1" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 27 STRING "BF_GOVERNOR" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 28 CREATE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk wtype 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk stadt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk connid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk pid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk connts 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 STRING "_Sequence" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 ACCESS indigo.bfwrk-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk-sqn SEQUENCE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk wid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk wtype
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 STRING "start" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk sta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk stadt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk connid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk pid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk connts
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 29 UPDATE indigo.bfwrk gov
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 46 FUNCTION worker-init,integer,INPUT worker-type CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 46 STRING "WORKER-INIT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "claimed-nid" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 54 STRING "check-done" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 55 STRING "bfwrk" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 55 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 56 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 57 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 58 STRING "should-check-governor" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 59 STRING "governor-alive" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 60 STRING "target-nid" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 61 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 61 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 67 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 67 ACCESS indigo.bfwrk nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 80 ACCESS indigo.bfwrk wid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 80 SEARCH indigo.bfwrk wid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 81 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 81 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 84 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 85 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 88 SEARCH indigo.bfwrk RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 89 REFERENCE indigo.bfwrk 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk pingdt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk stadt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk sta 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 ACCESS indigo.bfwrk nid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk pingdt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk sta
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk stadt
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 92 UPDATE indigo.bfwrk nid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 100 FUNCTION worker-ping3,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL,INPUT claimed-nid INTEGER,OUTPUT check-done LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 100 STRING "WORKER-PING3" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 102 STRING "claimed-nid" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 103 STRING "dummy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 105 FUNCTION worker-ping2,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL,INPUT claimed-nid INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 105 STRING "WORKER-PING2" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 107 STRING "state" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 107 STRING "block-if-necessary" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 108 STRING "dummy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 110 FUNCTION worker-ping,logical,INPUT state CHARACTER,INPUT block-if-necessary LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 110 STRING "WORKER-PING" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 113 STRING "bfctl" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 113 REFERENCE indigo.bfctl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 ACCESS indigo.bfctl gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 ACCESS indigo.bfwrk gov 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 114 SEARCH indigo.bfctl gov
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 115 REFERENCE indigo.bfctl 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 115 ACCESS indigo.bfctl phase 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 119 FUNCTION worker-gff,character,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 119 STRING "WORKER-GFF" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 121 STRING "e1" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 122 STRING "e1a" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 123 STRING "e1i" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 ACCESS PUBLIC-PROPERTY Progress.Lang.Class:TypeName
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 STRING "Error:" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 124 STRING "Class:" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 126 CAST FROM Progress.Lang.Error TO Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 ACCESS PUBLIC-PROPERTY Progress.Lang.AppError:ReturnValue
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 ACCESS PUBLIC-PROPERTY Progress.Lang.AppError:ReturnValue
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 127 STRING "ReturnValue:" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 130 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:NumMessages
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 133 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:CallStack
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 133 ACCESS PUBLIC-PROPERTY Progress.Lang.Error:CallStack
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 135 FUNCTION worker-dump-error,integer,INPUT e1 PROGRESS.LANG.ERROR
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 135 STRING "WORKER-DUMP-ERROR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 12 INCLUDE bf/bfsched.i
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 13 STRING "nNextRunTimeSearchLimit" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "ttp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "typ" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 44 FUNCTION initScheduler,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 44 STRING "INITSCHEDULER" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 46 STRING "pYear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 46 STRING "pMonth" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 48 STRING "1,3,5,7,8,10,12" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 49 STRING "4,6,9,11" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 51 STRING "Illegal month number pMonth=&1" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 52 FUNCTION getLastDayOfMonth,integer,INPUT pYear INTEGER,INPUT pMonth INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 52 STRING "GETLASTDAYOFMONTH" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 55 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 57 FUNCTION dttmHour,integer,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 57 STRING "DTTMHOUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 60 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 62 FUNCTION dttmMinute,integer,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 62 STRING "DTTMMINUTE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 66 STRING "lyear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 67 STRING "lmon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 68 STRING "lday" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 69 STRING "lhour" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 70 STRING "lmin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 71 STRING "lsec" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 72 STRING "lmil" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 73 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 87 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 92 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 92 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 94 STRING "4,6,9,11" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 99 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 100 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 101 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 101 STRING "minute" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 102 STRING "sec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 102 STRING "second" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 103 STRING "msec" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 103 STRING "millisecond" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 104 STRING "invalid field type '&1'" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 111 STRING "perr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 112 STRING "err-msg" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 113 STRING "datetime() failed, pdttm=&1  ptyp=&2  pval=&3: &4" 49 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 121 FUNCTION dttmSet,datetime,INPUT pdttm DATETIME,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 121 STRING "DTTMSET" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 124 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 124 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 133 FUNCTION dttmSetDate,datetime,INPUT pdttm DATETIME,INPUT pval DATE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 133 STRING "DTTMSETDATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 136 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 138 FUNCTION dttmTruncSec,datetime,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 138 STRING "DTTMTRUNCSEC" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 141 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 141 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 142 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 143 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 144 FUNCTION isPeriodSet,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 144 STRING "ISPERIODSET" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 147 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 147 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 148 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 149 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 150 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 151 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 152 FUNCTION findThisOrNextPeriod,integer,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 152 STRING "FINDTHISORNEXTPERIOD" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 155 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 156 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 157 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 158 STRING "min,hour" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 161 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 162 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 163 FUNCTION findFirstPeriod,integer,INPUT ptyp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 163 STRING "FINDFIRSTPERIOD" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 166 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 167 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 168 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 169 FUNCTION isAnyPeriodSet,logical,INPUT ptyp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 169 STRING "ISANYPERIODSET" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 172 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 172 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 173 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 174 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 175 CREATE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 179 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 182 FUNCTION setPeriod,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 182 STRING "SETPERIOD" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 212 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 212 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 213 STRING "lerr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 216 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 216 STRING "invalid minute value '&1'" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 219 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 219 STRING "invalid hour value '&1'" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 222 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 222 STRING "invalid day '&1', must be 1...31 or L" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 225 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 225 STRING "invalid week '&1', must be 1...7 (mon-sun)" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 228 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 228 STRING "invalid month value '&1'" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 231 STRING "invalid period type, ptyp='&1'" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 235 STRING "validatePeriod: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 239 FUNCTION validatePeriod,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 239 STRING "VALIDATEPERIOD" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 244 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 244 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 245 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 246 STRING "lv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 247 STRING "lc" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 253 STRING "*,?," 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 264 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 264 STRING "L" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 STRING "0" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 STRING "period value is not a number,  ptyp=&1  list_entry=&2  value='&3'" 65 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 281 FUNCTION parsePeriod,logical,INPUT ptyp CHARACTER,INPUT pval CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 281 STRING "PARSEPERIOD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 284 STRING "phol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 294 STRING "illegal 'hol' field value,  phol='&1'" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 298 FUNCTION parseHolField,logical,INPUT phol CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 298 STRING "PARSEHOLFIELD" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "pbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "pbfsched" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 303 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 303 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 304 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 304 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 305 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 305 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 306 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 306 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 307 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 307 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 308 ACCESS indigo.bfsched shol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 310 FUNCTION parseSchedule,logical,BUFFER pbfsched indigo.bfsched
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 310 STRING "PARSESCHEDULE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 313 STRING "pcl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 314 STRING "lmin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 315 STRING "lhour" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 316 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 317 STRING "ltmp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 323 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 324 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 333 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 334 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 342 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 349 FUNCTION getNextRunHour&Minute,datetime,INPUT pcl DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 349 STRING "GETNEXTRUNHOUR&MINUTE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 352 STRING "pAfterTime" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 353 STRING "lGotOne" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 354 STRING "lday" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 355 STRING "ldow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 356 STRING "lmon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 357 STRING "lcl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 359 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 360 STRING "llast" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 361 STRING "ltmp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 362 STRING "lm" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 363 STRING "lprev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 364 STRING "lDateLimit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 365 STRING "lLockDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 371 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 381 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING "Support for specifying both a day-of-week AND a day-of-month" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING " parameter is not implemented" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 388 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 390 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 406 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 414 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 415 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 421 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING "Support for specifying both a day-of-week AND a day-of-month" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING " parameter is not implemented" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 426 STRING "lCurrDow" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 427 STRING "lDaysToAdd" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 431 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 432 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 443 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 444 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 445 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 446 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 450 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 451 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 452 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 460 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 461 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 469 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 470 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 471 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 532 FUNCTION getNextRunTime,datetime,INPUT pAfterTime DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 532 STRING "GETNEXTRUNTIME" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 21 STRING "nMinDstJump" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 22 STRING "nCurrSid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 25 STRING "ttsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 25 STRING "sid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 25 STRING "whndt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 25 STRING "runat" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 44 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 57 STRING "cron" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 59 FUNCTION my-init,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 59 STRING "MY-INIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 62 STRING "psid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 62 STRING "pScheduledAt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 62 STRING "pNow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 63 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 65 STRING "bbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 65 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 65 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 66 STRING "bfbatch" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 66 REFERENCE indigo.bfbatch 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 67 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 67 SEARCH indigo.bfsched sid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 68 ACCESS indigo.bfbatch bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 68 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 68 SEARCH indigo.bfbatch bid
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 69 REFERENCE indigo.bfbatch 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 70 ACCESS indigo.bfsched bid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 70 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 70 STRING "not found bfbatch, bfsched.bid=&1  sid=&2" 41 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 76 ACCESS indigo.bfbatch bname 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 78 STRING "e1" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 87 FUNCTION runTask,logical,INPUT psid INTEGER,INPUT pScheduledAt DATETIME,INPUT pNow DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 87 STRING "RUNTASK" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 93 STRING "lm" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 96 FUNCTION getNow,datetime,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 96 STRING "GETNOW" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 STRING "pbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 STRING "pbfsched" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 100 STRING "pPrevCheck" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 103 STRING "bbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 103 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 103 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 106 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 106 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 106 SEARCH indigo.bfsched RECID
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 108 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 110 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 110 SEARCH ttsched sid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 111 ACCESS indigo.bfsched whndt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 111 REFERENCE ttsched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 112 REFERENCE ttsched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 112 CREATE ttsched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 114 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 115 ACCESS indigo.bfsched whndt 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 121 FUNCTION pos-refresh-ttsched,logical,BUFFER pbfsched indigo.bfsched,INPUT pPrevCheck DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 121 STRING "POS-REFRESH-TTSCHED" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 125 STRING "lPrevCheck" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 126 STRING "lNextCheck" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 127 STRING "lnow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 135 STRING "work" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 139 STRING "minute" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 140 STRING "minute" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 143 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 143 ACCESS indigo.bfsched act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 143 SEARCH indigo.bfsched sid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 158 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 162 ACCESS indigo.bfsched act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 186 STRING "work" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 209 STRING "lstart" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 210 STRING "lend" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 211 STRING "lnext" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 216 ACCESS indigo.bfsched act 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 216 SEARCH indigo.bfsched sid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 217 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 223 STRING "minute" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 225 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 225 SEARCH ttsched sid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 226 REFERENCE ttsched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 240 STRING "perr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 241 STRING "&1 [sid=&2]" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 246 STRING "exit" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 248 FUNCTION worker-poll,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 248 STRING "WORKER-POLL" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 250 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 250 STRING "pbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 250 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 250 STRING "pbfsched" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 250 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 256 FUNCTION parseScheduleSafe,logical,BUFFER pbfsched indigo.bfsched
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 256 STRING "PARSESCHEDULESAFE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 256 STRING "typ" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 256 STRING "sid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfwrklib.i 131 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 51 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 104 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 113 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 115 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 116 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 235 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 294 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 76 RUN bf/bfmkinst.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 77 RUN bf/bfstart.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 79 INVOKE Progress.Lang.ProError:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 79 DELETE-INSTANCE Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 82 INVOKE Progress.Lang.ProError:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 83 DELETE-INSTANCE Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 241 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfcron.p 241 NEW Progress.Lang.AppError

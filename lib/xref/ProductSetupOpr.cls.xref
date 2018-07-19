@@ -1,0 +1,318 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 16 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 18 CLASS testtool.ProductSetupOpr,,IMPLEMENTS testtool.iOperation,,,,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 18 STRING "testtool.ProductSetupOpr" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 18 STRING "testtool.iOperation" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 20 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 20 DATA-MEMBER PROTECTED,,,vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 21 STRING "productService" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 21 DATA-MEMBER PROTECTED,,,productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 23 INCLUDE setup/dsProduct.i
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 17 INCLUDE "setup/ttProduct.i &name=""ttProduct"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "ttProduct" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "prodgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "des" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "clntyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "trmunit" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "maxtrm" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "mintrm" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "deftrm" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "trmtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "lnumfrm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "lnumseq" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "idset" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProduct.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 18 INCLUDE "setup/ttProdCurr.i &name=""ttProdCurr"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "ttProdCurr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "prod" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "crcCode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdCurr.i 5 STRING "crcName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 19 INCLUDE "setup/ttProdComp.i &name=""ttProdComp"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "ttProdComp" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "prod" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "compType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttProdComp.i 5 STRING "compSheet" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 20 INCLUDE "setup/ttParSet.i &name=""ttParSet"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "ttParSet" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "masterid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "mastertable" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "prid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "prtb" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "advice" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "dtVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "chVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "inVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "deVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "isReadOnly" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "isMandatory" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "isVisible" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "calcProc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "valProc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "prKeys" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "parName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "dType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParSet.i 5 STRING "dFormat" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 21 INCLUDE "setup/ttPcRtype.i &name=""ttPcRtype"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "ttPcRtype" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "pcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "prod" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttPcRtype.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 22 INCLUDE "setup/ttParLim.i &name=""ttParLim"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "ttParLim" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "prtb" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "prid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "limt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "chVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "inVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "deVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "dtVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "parKey" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLim.i 5 STRING "dType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 23 INCLUDE "setup/ttParLov.i &name=""ttParLov"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "ttParLov" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "des" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "chVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "inVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "deVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "dtVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttParLov.i 5 STRING "dType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i 24 INCLUDE "setup/ttLovLink.i &name=""ttLovLink"" &options="
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttLovLink.i 5 STRING "ttLovLink" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttLovLink.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttLovLink.i 5 STRING "lovId" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttLovLink.i 5 STRING "prTb" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/dsProduct.i /u1/env/bankcp/indigo/svn-trunk/system/setup/ttLovLink.i 5 STRING "prId" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 25 STRING "ttParams" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 25 STRING "prodcod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 29 INCLUDE "testtool/ttTestProductSetup.i &visibility="" "" &name=""ttValues"""
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "ttValues" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "prodcod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "numfrm" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "termunit" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "minterm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "maxterm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "defterm" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "currencies" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "eurmin" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "eurmax" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "eurdef" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "usdmin" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "usdmax" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "usddef" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "nokmin" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "nokmax" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "nokdef" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "clntyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "plgrp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "dsbracctyp" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "dsbracctypdef" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "repayAccType" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ttTestProductSetup.i 1 STRING "repayAccTypedef" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 33 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 33 UPDATE DATA-MEMBER testtool.ProductSetupOpr:vProduct 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 34 ACCESS DATA-MEMBER testtool.ProductSetupOpr:productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 34 UPDATE DATA-MEMBER testtool.ProductSetupOpr:productService 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 35 CONSTRUCTOR PUBLIC,,,,ProductSetupOpr,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 35 STRING "PRODUCTSETUPOPR" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 38 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 38 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 40 ACCESS DATA-MEMBER testtool.ProductSetupOpr:productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 40 ACCESS DATA-MEMBER testtool.ProductSetupOpr:productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 42 DESTRUCTOR PUBLIC,,,,ProductSetupOpr,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 42 STRING "PRODUCTSETUPOPR" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 46 STRING "METHOD NOT IMPLEMENTED" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 48 METHOD PUBLIC,,,,,getParams,widget-handle,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 48 STRING "GETPARAMS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 50 STRING "hParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 51 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttValues default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 56 METHOD PUBLIC,,,,,getValues,widget-handle,INPUT hParams HANDLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 56 STRING "GETVALUES" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 58 STRING "hT" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 59 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 59 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 60 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 61 STRING "j" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 62 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 63 STRING "vMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 64 STRING "vBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 65 STRING "params" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 66 STRING "productValidator" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 67 STRING "vProductId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 68 STRING "vProdCurrId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 69 STRING "vProdCompId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 70 STRING "resolver" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 74 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttValues default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 77 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttValues default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 78 REFERENCE ttValues TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 78 STRING "Values not provided!" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 80 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttValues default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 81 REFERENCE ttValues TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 81 STRING "Values not provided!" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 86 INCLUDE "core/businessErr.i &id='TST0004' &p1='""Product code""'"
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TST0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Product code" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 93 ACCESS DATA-MEMBER testtool.ProductSetupOpr:productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 94 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProduct default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 105 STRING "TRMUNIT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 119 STRING " ," 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 123 STRING "USD,EUR,NOK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 125 INCLUDE "core/businessErr.i &id='TST0009' &p1=vStr &p2='""Currencies""'"
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TST0009" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Currencies" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 127 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProdCurr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 128 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 128 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 134 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProdCurr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 141 STRING "EUR" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 141 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProdCurr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 142 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 145 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 145 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 145 STRING "EUR" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 147 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 147 STRING "MIN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 149 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 149 STRING "MAX" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 151 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 151 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 154 STRING "USD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 154 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProdCurr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 155 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 158 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 158 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 158 STRING "USD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 160 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 160 STRING "MIN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 162 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 162 STRING "MAX" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 164 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 164 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 167 STRING "NOK" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 167 SEARCH DATA-MEMBER testtool.ProductSetupOpr:ttProdCurr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 168 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 171 REFERENCE ttProdCurr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 171 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 171 STRING "NOK" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 173 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 173 STRING "MIN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 175 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 175 STRING "MAX" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 177 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 177 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 180 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 187 STRING "DISBACCTYP" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 192 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 192 STRING "DISBACCTYP" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 197 STRING "REPACCTYP" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 202 ACCESS DATA-MEMBER testtool.ProductSetupOpr:vProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 202 STRING "REPACCTYP" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 217 METHOD PUBLIC,,,,,setValues,void,INPUT hT HANDLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 217 STRING "SETVALUES" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 219 STRING "wTbl1" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 219 STRING "wTbl2" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 220 STRING "wQue" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 224 STRING "FOR EACH " 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 236 METHOD PROTECTED,,,,,tth2tth,void,INPUT wTbl1 HANDLE,INPUT wTbl2 HANDLE
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 236 STRING "TTH2TTH" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 238 STRING "pFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 239 STRING "h" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 245 METHOD PROTECTED,,,,,getLabel,character,INPUT pFieldName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 245 STRING "GETLABEL" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 249 METHOD PUBLIC,,,,,getDatasetHandle,widget-handle,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 249 STRING "GETDATASETHANDLE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 253 ACCESS DATA-MEMBER testtool.ProductSetupOpr:productService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 255 METHOD PUBLIC,,,,,oprExecute,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 255 STRING "OPREXECUTE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "PK" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "PK" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "idx_prid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 256 STRING "dsProduct" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 32 INVOKE Progress.Lang.Object:Object
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 33 NEW setup.Product,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 34 NEW setup.ProductService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 38 DELETE-INSTANCE setup.Product
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 40 DELETE-INSTANCE setup.ProductService
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 46 NEW Progress.Lang.AppError,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 75 INVOKE testtool.ProductSetupOpr:tth2tth,INPUT widget-handle,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 78 NEW Progress.Lang.AppError,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 81 NEW Progress.Lang.AppError,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 89 NEW setup.TtParSet,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 90 NEW setup.TtResolver,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 91 NEW setup.ProductValidator,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 93 INVOKE setup.ProductService:getProductDs,INPUT character,OUTPUT DATASET dsProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 105 INVOKE setup.iParSet:setValue,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 105 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 128 INVOKE setup.Product:addProdCurr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 145 INVOKE setup.Product:addProdCurr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 147 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 149 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 151 INVOKE setup.Product:setParValue,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 151 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 158 INVOKE setup.Product:addProdCurr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 160 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 162 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 164 INVOKE setup.Product:setParValue,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 164 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 171 INVOKE setup.Product:addProdCurr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 173 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 175 INVOKE setup.ProductValidator:setParLimit,INPUT int64,INPUT character,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 177 INVOKE setup.Product:setParValue,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 177 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 180 INVOKE setup.Product:setClientType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 187 INVOKE setup.ProductValidator:setLovLinks,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 192 INVOKE setup.Product:setParValue,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 192 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 197 INVOKE setup.ProductValidator:setLovLinks,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 202 INVOKE setup.Product:setParValue,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 202 INVOKE setup.ModelConverter:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 205 INVOKE setup.ProductValidator:validateProductCnf
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 208 DELETE-INSTANCE setup.iParSet
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 211 DELETE-INSTANCE setup.iResolver
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 214 DELETE-INSTANCE setup.ProductValidator
+/u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls /u1/env/bankcp/indigo/svn-trunk/integration/testtool/ProductSetupOpr.cls 253 INVOKE setup.ProductService:saveProductDs,INPUT DATASET dsProduct

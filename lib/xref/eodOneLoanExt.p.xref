@@ -1,0 +1,36 @@
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 9 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 10 STRING "pSyncCrlBal" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 12 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 13 STRING "vOldBankDay" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 15 STRING "bankDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 16 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 17 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 18 STRING "crlBalMan" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 45 INCLUDE "core/businessErr.i &id='TRX0041' &p1=vErr"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0041" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 20 NEW core.BankDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 22 INVOKE core.BankDay:isEodActive
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 25 INVOKE core.BankDay:isItEod
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 28 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 28 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 29 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 29 INVOKE core.Context:setBankDay,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 29 INVOKE core.BankDay:getEodDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 31 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 32 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 34 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 35 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 35 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 37 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 39 NEW trx.CrlineBalMan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 40 INVOKE trx.CrlineBalMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 41 INVOKE trx.CrlineBalMan:syncCrlineBal
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 44 RUN loan/eodOneLoan.p
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 49 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoanExt.p 49 INVOKE core.Context:setBankDay,INPUT date

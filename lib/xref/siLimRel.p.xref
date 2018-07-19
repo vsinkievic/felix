@@ -1,0 +1,413 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 10 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 12 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 16 INCLUDE "indigo/src/ttLimRelUI.i &name=""ttLimRelUI"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "ttLimRelUI" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "rdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "limrelid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "agrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "covtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "trxamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "trxamtconverted" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "secamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "secamtconverted" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "parentpltprod" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntloan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntcrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntcragr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntduedt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntborrname" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntcif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntclnid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntlimit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntcrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "prntcrclbl" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldloan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldcrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldduedt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldborrname" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldcif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldclnid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldlimit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldcrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldcrclbl" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLimRelUI.i 1 STRING "chldlimitconverted" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 17 INCLUDE "limrel/ttLimRel.i &name=""ttLimRel"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "ttLimRel" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentcrobj" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "childcrobj" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "limrelid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "rdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "covtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "secamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "trxamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "agrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentcrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "childcrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentpltprod" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 21 STRING "GET-NEW-RELATION-DATA" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 26 STRING "GET-CREDIT-DATA" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 30 STRING "CREATE-RELATION" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 34 STRING "GET-RELATION" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 38 STRING "UPDATE-RELATION" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 42 STRING "DELETE-RELATION" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 46 STRING "RECALC-SECAMT" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 50 STRING "DEACTIVATE-RELATION" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 54 STRING "UPDATE-CREATION-DATE" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 59 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 69 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 71 STRING "limRelIDGen" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 72 STRING "vRelation" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 74 STRING "GET.id" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 80 STRING "rdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 81 STRING "limrelid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 82 STRING "agrnum" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 83 ACCESS PUBLIC-PROPERTY limrel.LimRelCovType:AUTO
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 83 STRING "covtype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 84 STRING "secamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 88 STRING "relation" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 94 STRING "childcrobj" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 STRING "agrnum" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 STRING "relation" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 STRING "agrnum" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 99 STRING "relation" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 101 PROCEDURE getNewRelationData,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 101 STRING "GETNEWRELATIONDATA" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 104 STRING "vObjChanged" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 106 STRING "vParentCrnum" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 107 STRING "vParentCrId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 108 STRING "vParentCrc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 109 STRING "vParentCrAgr" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 110 STRING "vParentObjType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 111 STRING "vParentSys" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 113 STRING "vChildCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 114 STRING "vChildCrId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 115 STRING "vChildCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 116 STRING "vChildAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 117 STRING "vChildObjType" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 118 STRING "vChildSys" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 120 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 121 STRING "conv" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 122 STRING "limRelIDGen" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 126 STRING "POST.object" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 127 STRING "POST.limrel.parentcrobj.crnum" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 128 STRING "POST.limrel.childcrobj.crnum" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 130 STRING "POST.limrel.parentcrobj.typ" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 131 STRING "POST.limrel.parentcrobj.system" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 132 STRING "POST.limrel.childcrobj.typ" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 133 STRING "POST.limrel.childcrobj.system" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 135 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 137 STRING "child" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 143 STRING "POST.limrel.parentcrobj.crc" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 144 STRING "POST.limrel.childcrobj.crc" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 146 STRING "POST.limrel.childcrobj.offbal" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 147 STRING "POST.limrel.parentcrobj.cragr" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 149 STRING "relationAgrId" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 157 STRING "childAmt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 159 STRING "childAmt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 161 STRING "parentAmt" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 163 STRING "parentAmt" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 165 STRING "chldlimitconverted" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 167 STRING "chldlimitconverted" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 171 PROCEDURE getCreditData,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 171 STRING "GETCREDITDATA" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 174 STRING "vParentCrc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 175 STRING "vChildCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 176 STRING "vSecAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 178 STRING "conv" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 181 STRING "POST.limrel.parentcrobj.crc" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 182 STRING "POST.limrel.childcrobj.crc" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 183 STRING "POST.limrel.relation.secamt" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 185 STRING "secAmtConverted" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 187 STRING "secAmtConverted" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 188 PROCEDURE recalcSecAmt,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 188 STRING "RECALCSECAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 191 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 193 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 194 STRING "vRelation" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 195 STRING "vGuarantee" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 196 STRING "vLimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 203 STRING "GET.id" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 206 STRING "POST.limrel.relation.id" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 210 REFERENCE ttLimRelUI TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 212 SEARCH ttLimRelUI default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 213 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 214 STRING "rdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 215 STRING "limrelid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 216 STRING "agrnum" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 217 STRING "colagr" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 218 STRING "covtype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 219 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 220 STRING "secamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 221 STRING "secAmtConverted" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 222 STRING "trxamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 223 STRING "trxamtconverted" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 224 STRING "version" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 225 STRING "parentpltprod" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 227 STRING "crnum" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 228 STRING "crobj" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 229 STRING "duedt" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 230 STRING "cragr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 231 STRING "borname" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 232 STRING "borcif" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 233 STRING "clnid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 234 STRING "bal" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 235 STRING "crc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 236 STRING "crclbl" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 238 STRING "crnum" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 239 STRING "crobj" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 240 STRING "duedt" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 241 STRING "borname" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 242 STRING "borcif" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 243 STRING "clnid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 244 STRING "bal" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 245 STRING "crc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 246 STRING "crclbl" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 247 STRING "limitconverted" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 249 STRING "relation" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 250 STRING "childcrobj" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 251 STRING "parentcrobj" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 252 PROCEDURE getRelation,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 252 STRING "GETRELATION" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 255 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 256 STRING "vParentCrobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 257 STRING "vChildCrobj" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 259 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 263 CREATE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 264 STRING "POST.limrel.relation.limrelid" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 265 STRING "POST.limrel.relation.rdt" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 266 STRING "POST.limrel.relation.covtype" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 267 STRING "POST.limrel.relation.secamt" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 268 STRING "POST.limrel.relation.agrnum" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 269 STRING "POST.limrel.parentcrobj.crc" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 270 STRING "POST.limrel.childcrobj.crc" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 272 STRING "POST.limrel.parentcrobj.crnum" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 273 STRING "POST.limrel.childcrobj.crnum" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 276 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 278 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 279 PROCEDURE createRelation,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 279 STRING "CREATERELATION" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 282 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 283 STRING "vCovType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 284 STRING "vSecAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 285 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 287 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 288 STRING "limRelHash" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 290 STRING "POST.limrel.relation.id" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 291 STRING "POST.limrel.relation.covtype" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 292 STRING "POST.limrel.relation.secamt" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 299 STRING "POST.limrel.relation.version" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 305 PROCEDURE chgRelationCoverage,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 305 STRING "CHGRELATIONCOVERAGE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 308 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 309 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 311 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 312 STRING "limRelHash" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 314 STRING "POST.limrel.relation.id" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 321 STRING "POST.limrel.relation.version" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 325 PROCEDURE deleteRelation,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 325 STRING "DELETERELATION" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 328 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 329 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 331 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 332 STRING "limRelHash" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 334 STRING "POST.limrel.relation.id" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 341 STRING "POST.limrel.relation.version" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 347 PROCEDURE deactivateRelation,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 347 STRING "DEACTIVATERELATION" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 350 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 351 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 352 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 354 STRING "limRelUI" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 355 STRING "limRelHash" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 357 STRING "POST.limrel.relation.id" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 358 STRING "POST.limrel.relation.rdt" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 365 STRING "POST.limrel.relation.version" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 371 PROCEDURE chgRelationDate,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 371 STRING "CHGRELATIONDATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 371 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 371 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 14 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 64 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 65 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 74 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 76 NEW limrel.LimRelIdGen
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 78 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 80 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 80 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 81 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 81 INVOKE limrel.LimRelIdGen:getNewRelationId
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 82 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 83 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 84 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 88 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 94 INVOKE Progress.Json.ObjectModel.JsonObject:remove,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 INVOKE Progress.Json.ObjectModel.JsonObject:set,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 INVOKE Progress.Json.ObjectModel.JsonObject:getJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 96 INVOKE Progress.Json.ObjectModel.JsonObject:getCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 99 INVOKE Progress.Json.ObjectModel.JsonObject:set,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 124 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 126 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 127 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 128 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 130 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 131 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 132 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 133 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 135 INVOKE indigo.src.LimRelUIHelper:validateParentCrobj,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 137 INVOKE indigo.src.LimRelUIHelper:validateChildCrobj,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 140 NEW core.Conv
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 141 NEW limrel.LimRelIdGen
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 143 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 144 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 146 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 147 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 149 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 149 INVOKE limrel.LimRelIdGen:getNewRelationColAgrNum,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 151 INVOKE indigo.src.LimRelUIHelper:updateCrobj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 154 INVOKE indigo.src.LimRelUIHelper:updateCrobj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 157 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 157 INVOKE indigo.src.LimRelUIHelper:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 159 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 161 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 161 INVOKE indigo.src.LimRelUIHelper:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 163 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 165 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 165 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 167 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 169 INVOKE indigo.src.LimRelUIHelper:validateCreationRules,INPUT int64,INPUT int64,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 179 NEW core.Conv
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 181 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 182 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 183 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 185 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 185 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 187 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 198 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 199 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 200 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 201 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 203 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 206 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 209 INVOKE indigo.src.LimRelUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 210 INVOKE indigo.src.LimRelUIHelper:getTTLimRelUI,OUTPUT TABLE ttLimRelUI
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 213 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 214 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 215 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 216 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 217 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 218 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 219 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 220 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 221 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 222 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 223 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 224 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 225 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 227 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 228 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 229 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 230 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 231 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 232 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 233 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 234 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 235 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 236 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 238 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 239 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 240 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 241 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 242 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 243 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 244 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 245 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 246 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 247 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 249 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 250 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 251 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 264 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 265 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 266 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 267 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 268 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 269 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 270 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 272 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 273 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 275 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 276 INVOKE indigo.src.LimRelUIHelper:createLimRel,INPUT character,INPUT character,INPUT TABLE ttLimRel
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 278 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 290 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 291 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 292 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 294 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 295 INVOKE indigo.src.LimRelUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 297 NEW limrel.LimRelHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 299 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 300 INVOKE limrel.LimRelHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 302 INVOKE indigo.src.LimRelUIHelper:chgCoverage,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 314 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 316 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 317 INVOKE indigo.src.LimRelUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 319 NEW limrel.LimRelHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 321 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 322 INVOKE limrel.LimRelHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 324 INVOKE indigo.src.LimRelUIHelper:deleteLimRel
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 334 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 336 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 337 INVOKE indigo.src.LimRelUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 339 NEW limrel.LimRelHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 341 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 342 INVOKE limrel.LimRelHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 344 INVOKE indigo.src.LimRelUIHelper:deactivateLimRel
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 357 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 358 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 360 NEW indigo.src.LimRelUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 361 INVOKE indigo.src.LimRelUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 363 NEW limrel.LimRelHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 365 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 366 INVOKE limrel.LimRelHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLimRel.p 368 INVOKE indigo.src.LimRelUIHelper:chgCreationDt,INPUT date

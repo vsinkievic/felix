@@ -1,0 +1,915 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 15 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "ttMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "path" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "pathID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "pageID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "menuid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "parentid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 17 STRING "isActive" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "ttMenuUp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "menuid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "parentid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "newMenu" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "newParent" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "fnid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "deleted" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 30 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "ttOldMenu" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "wmenu" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "menuid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "parentid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "pathid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "chgwho" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 STRING "chgwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 42 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 44 STRING "vCounter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 48 STRING "GET-ACTIVE-MENU" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 52 STRING "UPDATE-MENU" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 56 STRING "GET-MAP" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 60 STRING "GET-FULL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 75 STRING "vIsNewMenu" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 76 STRING "vIsNewParent" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 77 STRING "vMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 78 STRING "vParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 79 STRING "vPathID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 80 STRING "vIsEdited" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 81 STRING "vGrpPath" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 82 STRING "vNotFounPath" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 83 STRING "vReqWhn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 85 STRING "ttMenuUp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 86 STRING "bMenuUp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 87 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 87 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 87 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 88 STRING "bPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 88 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 88 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 89 STRING "wPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 89 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 89 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 90 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 90 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 90 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 91 STRING "bwMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 91 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 91 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 92 STRING "wModuleLink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 92 STRING "wmodulelink" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 92 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 93 STRING "bLink" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 93 STRING "wmodulelink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 93 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 95 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 98 STRING "objMenu" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 99 STRING "objItem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 101 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 101 STRING "menusetup" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 103 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 108 STRING "menuid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 109 STRING "new_" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 113 STRING "parentid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 114 STRING "new_" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 119 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 124 STRING "function" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 124 STRING "function" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 126 STRING "del" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 127 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 128 STRING "order" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 138 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 144 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 150 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 153 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 153 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 154 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 157 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 160 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 163 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 166 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 169 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 169 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 173 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 176 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 176 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 179 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 179 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 179 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 180 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 183 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 197 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 197 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 199 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 201 INCLUDE "core/businessErr.i &id='ADM0031' &p1=""ttMenuUp.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 206 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 206 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 210 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 210 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 211 INCLUDE "core/businessErr.i &id='ADM0032' &p1=""ttMenuUp.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 211 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 214 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 214 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 214 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 216 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 216 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 216 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 219 INCLUDE "core/businessErr.i &id='ADM0033' &p1=""ttMenuUp.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 224 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 225 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 226 INCLUDE "core/businessErr.i &id='ADM0034' &p1=""ttMenuUp.name"" &p2=""bMenuUp.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0034" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 232 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 232 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 233 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 233 ACCESS indigo.wpage type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 233 STRING "MENU" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 233 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 234 INCLUDE "core/businessErr.i &id='ADM0035' &p1=""ttMenuUp.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 234 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0035" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 239 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 239 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 241 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 241 SEARCH indigo.wpath menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 242 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 242 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 242 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 242 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 242 SEARCH indigo.wmodulelink typeto
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 244 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 244 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 244 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 245 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 245 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 251 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 251 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 251 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 252 INCLUDE "core/businessErr.i &id='ADM0036' &p1=""ttMenuUp.name"" &p2=""wMenu.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0036" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 259 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 259 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 260 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 260 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 261 INCLUDE "core/businessErr.i &id='ADM0037' &p1=""ttMenuUp.name"" &p2=""wPage.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 261 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 266 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 266 STRING "HIDDEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 266 SEARCH indigo.wmenu menu WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 268 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 268 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 270 INCLUDE "core/businessErr.i &id='ADM0053'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0053" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 279 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 280 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 280 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 280 STRING "HIDDEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 280 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 281 INCLUDE "core/businessErr.i &id='ADM0052'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 281 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 288 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 298 STRING "0" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 301 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 301 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 301 SEARCH indigo.wmenu menu WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 302 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 302 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 302 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 303 INCLUDE "core/businessErr.i &id='ADM0039' &p1=""wMenu.name"" &p2=""wMenu.pathID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 303 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0039" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 315 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 315 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 315 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 316 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 316 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 316 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 317 INCLUDE "core/businessErr.i &id='ADM0040' &p1=""wModuleLink.toID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 317 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0040" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 320 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 320 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 320 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 321 INCLUDE "core/businessErr.i &id='ADM0041' &p1=""wModuleLink.fromID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 321 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0041" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 325 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 325 STRING "PAGE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 325 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 326 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 326 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 326 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 327 INCLUDE "core/businessErr.i &id='ADM0042' &p1=""wModuleLink.toID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 327 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0042" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 338 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 338 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 338 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 339 INCLUDE "core/businessErr.i &id='ADM0044' &p1=""wModuleLink.fromID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 339 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 342 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 342 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 342 SEARCH indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 343 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 343 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 343 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 343 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 343 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 344 INCLUDE "core/businessErr.i &id='ADM0045' &p1=""wPage.pageID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 344 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0045" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 349 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 349 PROCEDURE updateMenu,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 349 STRING "UPDATEMENU" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 353 STRING "vtMpArr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 359 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 364 STRING "linkArr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 365 PROCEDURE getFullMenu,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 365 STRING "GETFULLMENU" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 368 STRING "pCheckSec" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 369 STRING "pMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 370 STRING "pPathID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 372 STRING "vPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 374 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 374 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 374 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 376 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 376 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 378 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 379 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 382 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 384 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 390 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 390 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 390 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 392 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 394 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 396 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 402 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 402 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 402 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 405 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 410 PROCEDURE menuPath,,INPUT pCheckSec LOGICAL,INPUT pMenuID INTEGER,OUTPUT pPathID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 410 STRING "MENUPATH" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 414 STRING "pCheckSec" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 415 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 416 STRING "pPathID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 418 STRING "vPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 420 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 420 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 420 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 423 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 423 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 423 SEARCH indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 424 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 424 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 427 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 438 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 438 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 441 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 447 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 454 PROCEDURE childPath,,INPUT pCheckSec LOGICAL,INPUT pParentID INTEGER,OUTPUT pPathID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 454 STRING "CHILDPATH" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 457 STRING "pCheckSec" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 459 STRING "vPathID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 460 STRING "vNotFoundID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 462 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 462 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 462 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 463 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 463 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 463 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 464 STRING "wPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 464 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 464 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 469 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 469 STRING "notfound" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 469 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 470 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 470 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 470 SEARCH indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 471 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 475 SEARCH indigo.wmenu menu TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 476 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 490 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 490 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 492 CREATE ttMenu TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 493 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 494 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 495 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 496 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 497 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 498 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 499 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 500 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 501 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 502 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 504 PROCEDURE copyMenu,,INPUT pCheckSec LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 504 STRING "COPYMENU" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 507 STRING "vPagePath" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 508 STRING "vActMenuId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 509 STRING "objSys" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 510 STRING "vPathID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 512 STRING "vTmpObj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 513 STRING "vSubMenuArr" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 515 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 515 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 515 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 516 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 516 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 516 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 518 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 520 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 520 SEARCH indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 521 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 524 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 524 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 524 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 524 STRING "home" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 524 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 525 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 525 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 525 SEARCH indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 528 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 530 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 530 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 530 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 533 ACCESS indigo.wpage head 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 533 STRING "head" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 534 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 535 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 542 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 551 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 551 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 552 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 552 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 552 STRING "admin" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 557 STRING "settings" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 566 STRING "profile" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 573 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 573 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 574 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 574 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 574 STRING "userset" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 577 STRING "sysmenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 578 PROCEDURE getActiveMenu,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 578 STRING "GETACTIVEMENU" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 582 STRING "pMenuId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 584 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 585 REFERENCE ttMenu TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 592 PROCEDURE markActive,,INPUT pMenuId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 592 STRING "MARKACTIVE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 596 STRING "pObjArr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 597 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 599 STRING "vTmpObj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 601 STRING "vPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 602 STRING "vTmpArr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 604 STRING "ttMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 605 STRING "bMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 608 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 610 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 611 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 612 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 613 STRING "isActive" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 615 STRING "isActive" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 618 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 624 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 628 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 633 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 633 PROCEDURE add2Active,,INPUT pObjArr PROGRESS.JSON.OBJECTMODEL.JSONARRAY,INPUT pParentId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 633 STRING "ADD2ACTIVE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 637 STRING "pObjArr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 638 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 640 STRING "vPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 641 STRING "vMenuEntry" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 642 STRING "vMenuArr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 644 STRING "ttMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 645 STRING "bMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 648 STRING "HIDDEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 648 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 654 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 655 STRING "pageid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 656 STRING "pathid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 657 STRING "menuid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 658 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 659 STRING "parentid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 660 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 661 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 662 STRING "prior" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 663 STRING "cnt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 665 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 671 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 674 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 678 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 678 PROCEDURE add2Full,,INPUT pObjArr PROGRESS.JSON.OBJECTMODEL.JSONARRAY,INPUT pParentId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 678 STRING "ADD2FULL" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 682 STRING "pObjArr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 683 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 684 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 686 STRING "vOrigPath" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 688 STRING "ttMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 689 STRING "bMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 691 STRING "vMenuEntry" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 695 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 695 STRING "HIDDEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 695 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 702 STRING "&1 -> &2" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 704 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 709 STRING "pathid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 710 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 715 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 721 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 721 PROCEDURE add2PathArr,,INPUT pObjArr PROGRESS.JSON.OBJECTMODEL.JSONARRAY,INPUT pPath CHARACTER,INPUT pParentId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 721 STRING "ADD2PATHARR" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 725 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 727 STRING "vRealMenuID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 729 STRING "ttMenuUp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 730 STRING "bMenuUp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 731 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 731 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 731 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 734 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 741 SEARCH ttMenuUp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 750 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 750 PROCEDURE relocateMenu,,INPUT pParentId CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 750 STRING "RELOCATEMENU" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 753 STRING "pMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 755 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 755 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 755 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 757 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 757 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 758 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 758 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 758 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 761 DELETE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 762 PROCEDURE deleteMenuItem,,INPUT pMenuID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 762 STRING "DELETEMENUITEM" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 765 STRING "parentID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 766 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 767 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 768 STRING "pPrior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 769 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 770 STRING "pRealMenuID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 772 STRING "vModID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 774 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 774 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 774 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 775 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 775 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 775 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 776 STRING "wPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 776 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 776 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 778 CREATE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 779 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 779 UPDATE indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 780 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 780 UPDATE indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 781 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 781 UPDATE indigo.wmenu prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 782 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 782 UPDATE indigo.wmenu type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 783 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 783 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 783 UPDATE indigo.wmenu sts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 784 ACCESS indigo.wmenu who 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 784 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 784 UPDATE indigo.wmenu who
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 785 ACCESS indigo.wmenu whn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 785 UPDATE indigo.wmenu whn
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 786 ACCESS indigo.wmenu chgwho 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 786 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 786 UPDATE indigo.wmenu chgwho
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 787 ACCESS indigo.wmenu chgwhn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 787 UPDATE indigo.wmenu chgwhn
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 789 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 791 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 791 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 793 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 795 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 795 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 797 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 799 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 802 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 803 PROCEDURE createMenuItem,,INPUT parentID CHARACTER,INPUT pId INTEGER,INPUT pType CHARACTER,INPUT pPrior INTEGER,INPUT pName CHARACTER,OUTPUT pRealMenuID CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 803 STRING "CREATEMENUITEM" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 807 STRING "pMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 808 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 809 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 810 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 811 STRING "pPrior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 812 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 814 STRING "vOldMenuType" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 815 STRING "vIsEqual" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 817 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 817 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 817 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 818 STRING "wPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 818 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 818 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 819 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 819 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 819 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 821 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 821 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 823 CREATE ttOldMenu TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 REFERENCE ttOldMenu TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu chgwhn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu chgwhn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu chgwho 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu chgwho TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu menuid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu parentid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu pathid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu whn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 ACCESS indigo.wmenu who 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 824 UPDATE ttOldMenu who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 827 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 827 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 827 UPDATE indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 832 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 834 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 834 UPDATE indigo.wmenu prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 838 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 838 STRING "FIXED" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 842 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 842 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 842 UPDATE indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 846 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 847 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 849 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 849 UPDATE indigo.wmenu type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 851 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 851 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 855 STRING "LINK" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 857 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 857 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 857 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 860 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 862 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 862 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 864 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 866 STRING "WINDOW" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 866 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 870 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 870 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 870 SEARCH indigo.wpath pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 871 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 873 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 874 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 880 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 880 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 REFERENCE ttOldMenu TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu chgwhn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu chgwhn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu chgwho 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu chgwho TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu menuid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu parentid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu pathid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu whn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS indigo.wmenu who 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 ACCESS ttOldMenu who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "pathid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "parentid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "menuid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "chgwho" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 881 STRING "chgwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 885 ACCESS indigo.wmenu chgwho 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 885 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 885 UPDATE indigo.wmenu chgwho
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 886 ACCESS indigo.wmenu chgwhn 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 886 UPDATE indigo.wmenu chgwhn
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 889 PROCEDURE updateMenuItem,,INPUT pMenuID INTEGER,INPUT pParentID INTEGER,INPUT pId INTEGER,INPUT pType CHARACTER,INPUT pPrior INTEGER,INPUT pName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 889 STRING "UPDATEMENUITEM" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 892 STRING "pMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 894 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 894 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 894 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 895 STRING "wMenuPerm" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 895 STRING "wmenuperm" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 895 REFERENCE indigo.wmenuperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 897 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 897 SEARCH indigo.wpath menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 898 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 899 DELETE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 902 ACCESS indigo.wmenuperm menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 902 SEARCH indigo.wmenuperm menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 903 DELETE indigo.wmenuperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 905 PROCEDURE deletePath,,INPUT pMenuID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 905 STRING "DELETEPATH" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 908 STRING "pPageID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 909 STRING "pMenuID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 911 STRING "vModID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 913 STRING "wPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 913 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 913 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 914 STRING "wMenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 914 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 914 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 915 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 915 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 915 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 917 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 917 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 918 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 920 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 920 SEARCH indigo.wmenu menu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 921 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 921 SEARCH indigo.wpage moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 922 CREATE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 923 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 923 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 923 UPDATE indigo.wpath menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 924 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 924 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 924 UPDATE indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 925 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 925 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 925 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 925 STRING "&1_&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 925 UPDATE indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 927 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 927 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 927 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 927 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 930 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 930 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 932 PROCEDURE createPath,,INPUT pPageID INTEGER,INPUT pMenuID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 932 STRING "CREATEPATH" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 935 STRING "pNewPageID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 936 STRING "pNewPathID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 938 STRING "wModuleLink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 938 STRING "wmodulelink" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 938 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 939 STRING "bLink" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 939 STRING "wmodulelink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 939 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 940 STRING "wPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 940 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 940 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 942 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 942 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 942 STRING "PAGE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 942 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 945 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 945 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 945 SEARCH indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 946 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 948 CREATE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 949 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 949 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 949 UPDATE indigo.wmodulelink type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 950 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 950 UPDATE indigo.wmodulelink fromid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 951 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 951 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 951 UPDATE indigo.wmodulelink toid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 954 PROCEDURE createModuleLink,,INPUT pNewPageID INTEGER,INPUT pNewPathID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 954 STRING "CREATEMODULELINK" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 957 STRING "pDelPathID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 959 STRING "wModuleLink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 959 STRING "wmodulelink" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 959 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 961 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 961 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 961 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 961 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 964 DELETE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 966 PROCEDURE deleteModuleLink,,INPUT pDelPathID INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 966 STRING "DELETEMODULELINK" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 970 STRING "objRootArr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 971 STRING "objChildrenArr" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 972 STRING "objItem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 979 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 979 SORT-ACCESS ttMenu prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 979 SORT-ACCESS ttMenu menuid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 979 SORT-ACCESS ttMenu parentid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 980 STRING "HIDDEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 984 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 985 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 991 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 991 STRING "menuitemlist" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 997 STRING "menulist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 999 PROCEDURE getMap,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 999 STRING "GETMAP" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1003 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1004 STRING "objArr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1006 STRING "objChildrenArr" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1007 STRING "objItem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1008 STRING "ttMenu" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1013 SEARCH ttMenu default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1016 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1017 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1023 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1023 STRING "menuitemlist" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1028 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1028 PROCEDURE getChild,,INPUT pParentID INTEGER,OUTPUT objArr PROGRESS.JSON.OBJECTMODEL.JSONARRAY
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1028 STRING "GETCHILD" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "menu" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "menuprior" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "parentid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1033 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 101 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 101 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 104 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 108 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 113 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 119 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 124 INVOKE Progress.Json.ObjectModel.JsonObject:Has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 124 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 126 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 127 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 128 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 356 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 359 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 361 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 364 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 390 INVOKE core.Context:userCanAccess,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 402 INVOKE core.Context:userCanAccess,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 438 INVOKE core.Context:userCanAccess,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 518 INVOKE core.Context:getPath
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 532 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 533 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 534 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 535 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 540 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 542 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 545 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 552 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 555 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 557 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 564 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 566 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 574 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 577 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 609 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 610 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 611 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 612 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 613 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 615 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 622 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 624 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 627 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 628 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 631 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 651 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 654 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 655 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 656 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 657 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 658 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 659 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 660 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 661 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 662 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 663 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 669 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 671 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 674 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 674 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 676 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 707 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 709 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 710 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 711 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 784 INVOKE core.Context:getUsrID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 786 INVOKE core.Context:getUsrID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 885 INVOKE core.Context:getUsrID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 974 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 982 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 984 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 985 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 987 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 991 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 994 INVOKE Progress.Json.ObjectModel.JsonArray:add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 997 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1010 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1014 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1016 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1017 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1019 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1023 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1026 INVOKE Progress.Json.ObjectModel.JsonArray:add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1031 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMenu.p 1032 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject

@@ -1,0 +1,1095 @@
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 6 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 26 CLASS rate.RateManager,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 26 STRING "rate.RateManager" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 27 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 28 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 29 STRING "prChangeDay" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 30 STRING "prFixedBor" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 31 STRING "prFixedBorCode" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 31 STRING "F" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 32 STRING "prFixedRateType" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 32 STRING "fixed" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 33 STRING "prFixedCorrRateType" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 33 STRING "fixedcorr" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 34 STRING "prFloatingRateType" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 34 STRING "bor" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 35 STRING "prSeq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 36 STRING "prSchedUtil" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 37 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 39 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 40 INCLUDE "loan/ttLcRate.i &name=""ttLcRate"""
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "ttLcRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "currate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxincr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxdecr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "chgdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "nextDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeC" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeDes" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borC" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateChngDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 41 INCLUDE "rate/ttFixedRates.i &name=""ttFixedRates"""
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttFixedRates.i 1 STRING "ttFixedRates" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttFixedRates.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttFixedRates.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 42 INCLUDE "core/ttHisfld.i &name=""ttHisfld"""
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "ttHisfld" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "newval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 44 STRING "ttLcRateDt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 44 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 48 STRING "ttDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 48 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 56 CONSTRUCTOR PUBLIC,,,,RateManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 56 STRING "RATEMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 64 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 65 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 65 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 67 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 67 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 71 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 71 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 73 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 84 STRING "INITINTERNAL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 92 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 93 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 93 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 95 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 95 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 98 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 99 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 99 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 107 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 107 STRING "pSchUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 111 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64,INPUT ttLcRate TABLE,INPUT pSchUtil SCHED.SCHEDUTIL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 111 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 114 STRING "lcrate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 115 STRING "vNextDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 117 ACCESS indigo.lcrate lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 117 ACCESS indigo.lcrate nextdt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 117 ACCESS indigo.lcrate bor 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 117 SEARCH indigo.lcrate FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 121 ACCESS indigo.lcrate bor 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 123 ACCESS indigo.lcrate comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 123 ACCESS indigo.lcrate bor 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 123 ACCESS indigo.lcrate borchgday 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 123 ACCESS indigo.lcrate borrule 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 124 ACCESS indigo.lcrate id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 126 METHOD PUBLIC,,,,,autoRateChange,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 126 STRING "AUTORATECHANGE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 133 STRING "compRateRanges" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 134 STRING "zeroPeriodManager" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 135 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 136 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 137 STRING "vCommitedAmountPercentage" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 STRING "commfee" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 139 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 144 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 149 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 159 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 STRING "FIXED" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 STRING "F" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 167 METHOD PUBLIC,,,,,autoRateChangeByRange,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 167 STRING "AUTORATECHANGEBYRANGE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 169 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 172 INCLUDE "core/businessErr.i &id='LON0044' &p1=loan.opndt"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 172 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 175 METHOD PUBLIC,,,,,setChangeDate,void,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 175 STRING "SETCHANGEDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 177 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 178 STRING "vDay" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 179 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 186 STRING "GETCOMPPAYDAY" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 188 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 188 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 189 STRING "rateData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 194 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 195 STRING "GETLCRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 197 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 199 STRING "GETLCRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 201 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 203 METHOD PUBLIC,,,,,getLcRate,void,INPUT pComp CHARACTER,OUTPUT ttLcRate TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 203 STRING "GETLCRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 205 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 208 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 210 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 213 METHOD PUBLIC,,,,,compRateExists,logical,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 213 STRING "COMPRATEEXISTS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 215 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 216 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 219 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 223 METHOD PUBLIC,,,,,getCompRate,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 223 STRING "GETCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 225 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 226 STRING "vFixedRateTypeId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 232 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 235 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 238 METHOD PUBLIC,,,,,getLcFixedRate,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 238 STRING "GETLCFIXEDRATE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 240 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 241 STRING "vFixedRateTypeId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 247 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 250 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 253 METHOD PUBLIC,,,,,getLcFixedNextDt,date,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 253 STRING "GETLCFIXEDNEXTDT" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 255 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 255 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 257 METHOD PUBLIC,,,,,getLcRate,void,INPUT pComp CHARACTER,INPUT pDate DATE,OUTPUT ttLcRate TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 257 STRING "GETLCRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 259 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 259 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 263 STRING "GETBORVAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 265 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 265 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 269 STRING "GETBORVAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 271 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 271 STRING "pBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 271 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 271 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 271 STRING "pNextChgDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 273 STRING "vBorCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 275 INCLUDE "core/businessErr.i &id='LON0050' &p1='""rate type""'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0050" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "rate type" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 278 INCLUDE "core/businessErr.i &id='LON0057' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0057" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 289 INCLUDE "core/businessErr.i &id='LON0051'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 291 INCLUDE "core/businessErr.i &id='LON0060' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0060" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 295 INCLUDE "core/businessErr.i &id='LON0062' &p1=vBorCode"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0062" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 297 INCLUDE "core/businessErr.i &id='LON0072' &p1=pBorDate &p2=vBorCode &p3=prChangeDay"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0072" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 299 INCLUDE "core/businessErr.i &id='RAT0026' &p1=pNextChgDate &p2=prChangeDay"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0026" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 302 STRING "INT" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 304 STRING "VALIDRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 306 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 306 STRING "pBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 307 STRING "vIntFreq" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 312 METHOD PUBLIC,,,,,validateBorTerm,void,INPUT pComp CHARACTER,INPUT pBorId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 312 STRING "VALIDATEBORTERM" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 314 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 314 STRING "pBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 314 STRING "pIntFreqUnit" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 315 STRING "vIntFreq" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 320 STRING "MONTHLY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 321 STRING "QUARTERLY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 322 STRING "HALF-YEAR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 323 STRING "YEARLY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 328 METHOD PUBLIC,,,,,validateBorTerm,void,INPUT pComp CHARACTER,INPUT pBorId INT64,INPUT pIntFreqUnit CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 328 STRING "VALIDATEBORTERM" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 330 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 330 STRING "pBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 330 STRING "pIntFreq" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 331 STRING "vBorTerm" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 332 STRING "vBorTermMonths" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 333 STRING "vBorTermUnit" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 335 STRING "vIntFreqCurrent" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 336 STRING "vIntFreqUnit" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 336 STRING "MONTHS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 338 STRING "vBorError" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 339 STRING "vFreqError" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 341 INCLUDE "core/businessErr.i &id='SCH0031' &p1=pIntFreq &p2=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 349 STRING "MONTHS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 349 STRING "YEARS" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 351 STRING "&1: &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 352 STRING "&1: &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 354 INCLUDE "core/businessErr.i &id='RAT0027' &p1=vBorError &p2=vFreqError"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0027" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 356 STRING "VALIDATEBORTERM" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 358 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 358 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 358 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 358 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 358 STRING "pNextChgDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 360 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 362 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 364 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 364 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 366 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 366 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 372 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 373 STRING "VALIDRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 375 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 378 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 378 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 384 METHOD PUBLIC,,,,,delCompRateAll,void,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 384 STRING "DELCOMPRATEALL" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 386 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 386 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 386 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 387 STRING "chg-rate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 390 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 392 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 397 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 409 STRING "DELCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 411 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 411 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 413 METHOD PUBLIC,,,,,delCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 413 STRING "DELCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 415 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 415 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 416 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 418 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 418 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 420 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 420 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 423 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 424 METHOD PUBLIC,,,,,delCompRate,void,INPUT pComp CHARACTER,INPUT pRateType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 424 STRING "DELCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 432 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 433 STRING "loanValid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 436 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 436 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 437 STRING "VALIDRATESPROD" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 439 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 439 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 440 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 440 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 442 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 444 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 444 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 444 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 447 INCLUDE "core/businessErr.i &id='LON0046' &p1=pComp &p2=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 447 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0046" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 450 INCLUDE "core/businessErr.i &id='RAT0003' &p1=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 450 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 450 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 454 ACCESS indigo.loancomp id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 456 ACCESS indigo.loancomp rate 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 456 UPDATE indigo.loancomp rate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 458 STRING "loancomp.rate" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 459 METHOD PUBLIC,,,,,chgLoanCompRate,void,INPUT pComp CHARACTER,INPUT pRate DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 459 STRING "CHGLOANCOMPRATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 461 STRING "pLcRateID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 461 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 461 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 461 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 461 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 462 STRING "lcrate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 464 ACCESS indigo.lcrate id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 464 SEARCH indigo.lcrate UQ_lcrate_id
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 466 INCLUDE "core/businessErr.i &id='LON0071' &p1=pLcRateID"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 466 REFERENCE indigo.lcrate 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0071" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 469 ACCESS indigo.lcrate comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 469 ACCESS indigo.lcrate ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 469 ACCESS indigo.lcrate bor 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 470 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pLcRateID INT64,INPUT pBor CHARACTER,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 470 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 472 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 474 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 476 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 478 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 478 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 480 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 480 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 486 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 487 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pComp CHARACTER,INPUT pRateType CHARACTER,INPUT pBor CHARACTER,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 487 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 489 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 492 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64,INPUT pBor INT64,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 492 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 494 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 496 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 498 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 500 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 500 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 502 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 502 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 508 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 509 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 511 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 514 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64,INPUT pBor INT64,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE,INPUT pRecalc LOGICAL,INPUT pProdValidate LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 514 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 516 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 519 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64,INPUT pBor INT64,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pBorChgDay INTEGER,INPUT pNextChange DATE,INPUT pBorRule CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 519 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 521 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 523 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 527 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 527 SEARCH indigo.ratetype UQ_PK_ratetype_id
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 529 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 529 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 532 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 532 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 537 METHOD PUBLIC,,,,,chgCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64,INPUT pBor INT64,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pBorChgDay INTEGER,INPUT pNextChange DATE,INPUT pBorRule CHARACTER,INPUT pRecalc LOGICAL,INPUT pProdValidate LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 537 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pNextChgDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 551 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 553 STRING "vFromDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 554 STRING "vRegenDate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 555 STRING "vNextDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 556 STRING "vBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 578 STRING "CHGCOMPRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 580 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 582 STRING "chg-rate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 587 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 590 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 622 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 622 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 629 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 629 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 642 STRING "SAVECOMPRATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 645 STRING "rateData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 652 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 653 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 655 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 668 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 669 METHOD PUBLIC,,,,,saveLcRate,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 669 STRING "SAVELCRATE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 671 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 673 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 675 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 677 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 677 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 679 INCLUDE "core/businessErr.i &id='LON0067' &p1=pRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 679 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 685 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 686 METHOD PUBLIC,,,,,validateCompRate,void,INPUT pComp CHARACTER,INPUT pRateType CHARACTER,INPUT pBor CHARACTER,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 686 STRING "VALIDATECOMPRATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 688 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 691 METHOD PUBLIC,,,,,validateCompRate,void,INPUT pComp CHARACTER,INPUT pRateType INT64,INPUT pBor INT64,INPUT pRate DECIMAL,INPUT pBorDate DATE,INPUT pNextChange DATE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 691 STRING "VALIDATECOMPRATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pBorDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pNextChange" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 693 STRING "pRecalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 695 STRING "chg-rate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 699 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 702 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 736 STRING "VALIDATECOMPRATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 739 STRING "loanPast" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 741 INCLUDE "core/businessErr.i &id='LON0140' &p1=loan.migdt"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 741 ACCESS indigo.loan migdt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 741 ACCESS indigo.loan migdt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan migdt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0140" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 747 STRING "LOANRECALC" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 749 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 749 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 749 STRING "pChangeDate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 749 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 749 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 750 STRING "vNextDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 751 STRING "vBorTermVal" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 752 STRING "vBorTermUnit" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 753 STRING "vBorTermMonths" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 754 STRING "vBorError" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 755 STRING "vFreqError" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 756 STRING "vIntFreq" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 758 STRING "dates" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 766 STRING "MONTHS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 766 STRING "YEARS" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 768 STRING "&1: &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 769 STRING "Months: &1" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 771 INCLUDE "core/businessErr.i &id='RAT0027' &p1=vBorError &p2=vFreqError"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0027" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 774 STRING "YEARS" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 779 STRING "BYPAYMENTDAY" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 787 STRING "BYPERIOD" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 792 INCLUDE "core/businessErr.i &id='RAT0010' &p1=pBorRule"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 797 METHOD PUBLIC,,,,,getBorNextDate,date,INPUT pComp CHARACTER,INPUT pBor INT64,INPUT pChangeDate DATE,INPUT pBorChgDay INTEGER,INPUT pBorRule CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 797 STRING "GETBORNEXTDATE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 799 STRING "pChangeDate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 799 STRING "pTermInMonths" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 799 STRING "pHolTr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 799 STRING "pPayDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 800 STRING "vNextDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 802 STRING "dates" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 808 STRING "GETNEXTDATEAFTERPERIOD" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pBor" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pChangeDate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pBorChgDay" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pBorRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 810 STRING "pSchUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 811 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 817 METHOD PUBLIC,,,,,getBorNextDate,date,INPUT pComp CHARACTER,INPUT pBor CHARACTER,INPUT pChangeDate DATE,INPUT pBorChgDay INTEGER,INPUT pBorRule CHARACTER,INPUT pSchUtil SCHED.SCHEDUTIL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 817 STRING "GETBORNEXTDATE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 819 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 819 STRING "pIntervalStart" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 819 STRING "pIntervalEnd" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 819 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 820 STRING "vStartDt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 821 STRING "vNextChgDt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 822 STRING "vHasFloatingPart" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 824 STRING "vFixedRateTypeId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 825 STRING "vFixedCorrRateTypeId" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 826 STRING "vFloatigRateTypeId" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 828 STRING "vFixedPart" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 829 STRING "vFixedCorrPart" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 830 STRING "vFloatingPart" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 832 STRING "bFixedRates" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 833 STRING "bLcRateDt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 836 INCLUDE "core/businessErr.i &id='ACR0010'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ACR0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 839 SEARCH DATA-MEMBER rate.RateManager:ttFixedRates fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 840 REFERENCE ttFixedRates TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 853 REFERENCE ttFixedRates TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 856 SEARCH DATA-MEMBER rate.RateManager:ttFixedRates fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 859 SEARCH DATA-MEMBER rate.RateManager:ttFixedRates fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 865 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 871 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 874 INCLUDE "core/businessErr.i &id='RAT0013' &p1=prFixedRateType &p2=pComp &p3=prLid"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 882 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 899 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 902 REFERENCE ttLcRateDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 904 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 909 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 922 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 922 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 922 METHOD PUBLIC,,,,,chgFixedCorrInterval,void,INPUT pComp CHARACTER,INPUT pIntervalStart DATE,INPUT pIntervalEnd DATE,INPUT pProdValidate LOGICAL,INPUT ttFixedRates TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 922 STRING "CHGFIXEDCORRINTERVAL" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 924 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 924 STRING "pIntervalStart" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 924 STRING "pIntervalEnd" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 924 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 924 STRING "pProdValidate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 925 STRING "vFixedRateTypeId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 926 STRING "vFixedCorrRateTypeId" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 927 STRING "vReturnRate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 935 REFERENCE ttFixedRates TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 955 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 958 REFERENCE ttLcRateDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 960 SEARCH DATA-MEMBER rate.RateManager:ttLcRateDt fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 965 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 981 STRING "CHGFIXEDINTERVAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 992 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 992 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 992 STRING "pTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 995 SEARCH DATA-MEMBER rate.RateManager:ttFixedRates fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1006 REFERENCE ttDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1007 METHOD PUBLIC,,,,,loadRatesHist,void,INPUT pComp CHARACTER,INPUT pFdt DATE,INPUT pTdt DATE,INPUT ttFixedRates TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1007 STRING "LOADRATESHIST" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1017 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1017 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1017 STRING "pTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1018 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1020 STRING "lcrate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1025 ACCESS indigo.lcrate lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1025 ACCESS indigo.lcrate comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1025 SEARCH indigo.lcrate FK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1025 SEARCH indigo.lcrate FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1028 ACCESS indigo.lcrate id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1028 REFERENCE ttHisfld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1030 SEARCH DATA-MEMBER rate.RateManager:ttHisfld fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1037 SEARCH DATA-MEMBER rate.RateManager:ttDate dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1039 REFERENCE ttDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1046 SEARCH DATA-MEMBER rate.RateManager:ttDate dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1048 REFERENCE ttDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1053 STRING "COLLECTPERIODCHGDATES" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1062 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1062 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1062 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1063 STRING "vRateTypeId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1064 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1066 STRING "lcrate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1072 ACCESS indigo.lcrate lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1072 ACCESS indigo.lcrate comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1072 ACCESS indigo.lcrate ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1072 SEARCH indigo.lcrate PK_lcrate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1076 ACCESS indigo.lcrate id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1076 REFERENCE ttHisfld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1078 SEARCH DATA-MEMBER rate.RateManager:ttHisfld fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1083 STRING "COLLECTRATEPARTCHGDATES" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1091 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1094 SEARCH DATA-MEMBER rate.RateManager:ttDate dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1098 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1099 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 REFERENCE ttLcRateDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate bor TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt bor TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate borC TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt borC TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate borchgday TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt borchgday TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate borDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt borDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate borrule TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt borrule TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate chgdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt chgdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate currate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt currate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate lcid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt lcid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate lid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt lid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate maxdecr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt maxdecr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate maxincr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt maxincr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate nextDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt nextDt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate rateChngDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt rateChngDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate rateType TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt rateType TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate rateTypeC TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt rateTypeC TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate rateTypeDes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt rateTypeDes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate version TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt version TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 ACCESS ttLcRate who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1102 UPDATE ttLcRateDt who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1106 STRING "LOADSPECIFIEDRATESHIST" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1108 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1108 STRING "pFrom" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1108 STRING "pTo" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1108 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1109 INCLUDE "core/businessErr.i &id='RAT0005' &p1=loan.opndt"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1109 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1112 INCLUDE "core/businessErr.i &id='RAT0006' &p1=prBankDay"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1115 INCLUDE "core/businessErr.i &id='RAT0007'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1119 INCLUDE "core/businessErr.i &id='RAT0008'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "RAT0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1123 METHOD PUBLIC,,,,,chgRate,void,INPUT pComp CHARACTER,INPUT pFrom DATE,INPUT pTo DATE,INPUT pRate DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1123 STRING "CHGRATE" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1125 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1126 STRING "vHolTr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1127 STRING "loanComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1135 STRING "GETCOMPHOLTR" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1137 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1137 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1138 STRING "vBorId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1142 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1145 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1149 STRING "GETCURRENTBOR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1151 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1152 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1154 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1154 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1156 INCLUDE "core/businessErr.i &id='LON0067' &p1=prFloatingRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1156 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1159 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1160 METHOD PUBLIC,,,,,getCurrentFloatingBor,int64,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1160 STRING "GETCURRENTFLOATINGBOR" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1163 STRING "vBorCurr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1164 STRING "vIntCompCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1166 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1167 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1169 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1171 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1171 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1173 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1182 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1182 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1186 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1194 METHOD PUBLIC,,,,,getLoanBorCurr,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1194 STRING "GETLOANBORCURR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1202 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1202 STRING "pChgDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1203 STRING "vMatchRepSched" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1203 STRING "BYPAYMENTDAY" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1208 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1210 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1210 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1212 INCLUDE "core/businessErr.i &id='LON0067' &p1=prFloatingRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1212 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1217 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1217 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1219 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1232 METHOD PUBLIC,,,,,chgBorChgDay,void,INPUT pComp CHARACTER,INPUT pChgDay INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1232 STRING "CHGBORCHGDAY" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1236 METHOD PUBLIC,,,,,getFloatingRateType,character,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1236 STRING "GETFLOATINGRATETYPE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1244 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1245 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1250 STRING "GETRATETYPEID" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1258 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1259 STRING "vFixedBor" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1260 STRING "vFloatingType" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1261 STRING "vProd" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1263 STRING "borMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1264 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1265 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1267 STRING "pcrtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1270 STRING "F" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1274 STRING "bor" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1281 ACCESS indigo.pcrtype prod 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1281 ACCESS indigo.pcrtype comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1281 ACCESS indigo.pcrtype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1281 ACCESS indigo.pcrtype bor 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1281 SEARCH indigo.pcrtype FK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1286 REFERENCE indigo.pcrtype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1289 STRING "HASFLOATINGRATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1298 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1298 STRING "pRateType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1299 STRING "vFixedRateTypeId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1300 STRING "vFixedCorrRateTypeId" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1307 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1310 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1312 STRING "DISABLED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1321 STRING "DISABLEFIXEDCORRRATE" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1329 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1329 STRING "pNewMaxIncr" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1330 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1331 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1336 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1336 STRING "chg-max-incr" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1338 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1338 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1340 INCLUDE "core/businessErr.i &id='LON0067' &p1=prFixedRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1340 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1346 INCLUDE "core/businessErr.i &id='LON0166' &p1=vCompName"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0166" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1351 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1351 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1353 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1363 METHOD PUBLIC,,,,,chgCompMaxIncr,void,INPUT pComp CHARACTER,INPUT pNewMaxIncr DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1363 STRING "CHGCOMPMAXINCR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1371 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1371 STRING "pNewMaxDecr" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1372 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1373 STRING "ratetype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1378 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1378 STRING "chg-max-decr" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1380 ACCESS indigo.ratetype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1380 SEARCH indigo.ratetype PK_ratetype
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1382 INCLUDE "core/businessErr.i &id='LON0067' &p1=prFixedRateType"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1382 REFERENCE indigo.ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1388 INCLUDE "core/businessErr.i &id='LON0167' &p1=vCompName"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0167" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1393 ACCESS indigo.ratetype id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1393 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1395 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1405 METHOD PUBLIC,,,,,chgCompMaxDecr,void,INPUT pComp CHARACTER,INPUT pNewMaxDecr DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1405 STRING "CHGCOMPMAXDECR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1413 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1414 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1415 STRING "compUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1421 STRING "GETCOMPNAME" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1430 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1431 STRING "vMaxIncr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1435 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1442 METHOD PUBLIC,,,,,getCompMaxIncr,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1442 STRING "GETCOMPMAXINCR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1451 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1452 STRING "vMaxDecr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1456 SEARCH DATA-MEMBER rate.RateManager:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1463 METHOD PUBLIC,,,,,getCompMaxDecr,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1463 STRING "GETCOMPMAXDECR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1465 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1465 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1465 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 53 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 53 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 55 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 70 INVOKE rate.RateManager:initInternal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 78 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 79 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 82 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 83 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 98 INVOKE rate.RateManager:initInternal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 110 INVOKE rate.RateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 121 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 123 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 124 INVOKE rate.RateManager:chgCompRate,INPUT int64,INPUT character,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 124 INVOKE rate.Bor:getBorDateSilent,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 148 NEW futsk.ZeroPeriodManager
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 149 INVOKE futsk.ZeroPeriodManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 151 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 151 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 155 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 156 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 158 NEW rate.CompRateRanges
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 159 INVOKE rate.CompRateRanges:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 161 INVOKE loan.LoanUtil:getCommittedAmountPercentage
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 163 INVOKE rate.CompRateRanges:getCurrentRate,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 INVOKE rate.RateManager:getCompRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 165 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 180 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 181 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 183 INVOKE loan.LoanManager:getCompPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 190 NEW rate.RateData
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 191 INVOKE rate.RateData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 193 INVOKE rate.RateData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 194 INVOKE rate.RateData:getLcRate,INPUT character,OUTPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 198 INVOKE rate.RateManager:getLcRate,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 202 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 206 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 218 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 228 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 230 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 243 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 245 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 256 INVOKE rate.RateManager:getLcRate,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 260 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 262 INVOKE rate.Bor:getBorVal,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 266 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 268 INVOKE rate.Bor:getBorVal,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 281 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 282 INVOKE rate.Bor:getBorCode
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 285 INVOKE rate.Bor:hasBorType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 302 INVOKE rate.RateManager:validateBorTerm,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 309 INVOKE sched.SchedUtil:getPayPy,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 311 INVOKE rate.RateManager:validateBorTerm,INPUT character,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 327 INVOKE rate.RateManager:validateBorTerm,INPUT character,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 344 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 346 INVOKE rate.Bor:getBorTerm
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 347 INVOKE rate.Bor:getBorTermUnit
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 369 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 370 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 372 INVOKE rate.RateManager:validRate,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 376 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 380 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 383 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 387 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 389 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 395 INVOKE rate.RateManager:validRatesProd,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 406 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 407 INVOKE rate.RateManager:loanRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 412 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT int64,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 423 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 435 NEW setup.LoanCnfValidator
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 436 INVOKE setup.LoanCnfValidator:validateLcRate,INPUT int64,INPUT character,INPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 453 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 454 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 458 INVOKE core.History:insertItem,INPUT date,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 469 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 483 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 484 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 486 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 491 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 505 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 506 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 508 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 513 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 518 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 532 INVOKE rate.RateManager:saveCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 534 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 536 INVOKE rate.RateManager:saveCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 563 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 566 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 568 INVOKE rate.RateManager:saveCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 572 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 573 INVOKE rate.Bor:getBorDateSilent,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 576 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 577 INVOKE rate.RateManager:loanRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 582 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 584 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 618 INVOKE rate.RateManager:getBorVal,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 619 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 627 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 633 INVOKE rate.RateManager:disableFixedCorrRate,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 635 INVOKE rate.RateManager:validRatesProd,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 637 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 639 INVOKE rate.RateManager:loanRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 646 NEW rate.RateData
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 647 INVOKE rate.RateData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 649 INVOKE rate.RateData:setSeq,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 657 INVOKE rate.RateManager:validRate,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 661 INVOKE rate.RateManager:getBorVal,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 663 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 668 INVOKE rate.RateData:saveLcRate,INPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 682 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 683 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 685 INVOKE rate.RateManager:validateCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 690 INVOKE rate.RateManager:validateCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 695 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 697 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 730 INVOKE rate.RateManager:getBorVal,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 731 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 735 INVOKE rate.RateManager:validRatesProd,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 744 NEW loan.LoanPastRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 745 INVOKE loan.LoanPastRecalc:init,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 746 INVOKE loan.LoanPastRecalc:rebuildForDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 759 NEW core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 761 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 762 INVOKE rate.Bor:getBorTerm
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 763 INVOKE rate.Bor:getBorTermUnit
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 764 INVOKE sched.SchedUtil:getPayPy,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 781 INVOKE sched.SchedUtil:getNextLine,INPUT character,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 783 INVOKE rate.RateManager:getNextDateAfterPeriod,INPUT date,INPUT integer,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 783 INVOKE rate.RateManager:getCompHolTr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 787 INVOKE rate.RateManager:getNextDateAfterPeriod,INPUT date,INPUT integer,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 787 INVOKE rate.RateManager:getCompHolTr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 803 NEW core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 805 INVOKE core.Dates:nextPayDay,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 813 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 814 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 816 INVOKE rate.RateManager:getBorNextDate,INPUT character,INPUT int64,INPUT date,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 845 INVOKE rate.RateManager:hasFloatingRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 847 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 848 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 850 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 853 INVOKE rate.RateManager:loadRatesHist,INPUT character,INPUT date,INPUT date,INPUT TABLE ttFixedRates
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 892 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 893 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT date,INPUT date,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 907 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 909 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 911 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 915 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 916 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 920 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 921 INVOKE rate.RateManager:loanRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 929 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 930 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 935 INVOKE rate.RateManager:loadRatesHist,INPUT character,INPUT date,INPUT date,INPUT TABLE ttFixedRates
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 939 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 940 INVOKE rate.RateManager:getLcFixedRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 944 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 945 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT date,INPUT date,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 950 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 951 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT date,INPUT date,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 963 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 965 INVOKE rate.RateManager:chgCompRate,INPUT character,INPUT int64,INPUT int64,INPUT decimal,INPUT date,INPUT integer,INPUT date,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 967 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 973 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 974 INVOKE rate.RateManager:delCompRate,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 979 INVOKE rate.RateManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 980 INVOKE rate.RateManager:loanRecalc
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1001 INVOKE rate.RateManager:collectPeriodChgDates,INPUT character,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1004 INVOKE rate.RateManager:collectRatePartChgDates,INPUT character,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1006 INVOKE rate.RateManager:loadSpecifiedRatesHist,INPUT character,INPUT TABLE ttDate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1022 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1028 INVOKE core.History:getChanges,INPUT int64,INPUT date,INPUT date,OUTPUT TABLE ttHisfld
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1068 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1070 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1076 INVOKE core.History:getChanges,INPUT int64,INPUT date,INPUT date,OUTPUT TABLE ttHisfld
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1098 INVOKE rate.RateManager:getLcRate,INPUT character,INPUT date,OUTPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1122 INVOKE rate.RateManager:chgFixedInterval,INPUT character,INPUT date,INPUT date,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1129 NEW loan.LoanCompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1130 INVOKE loan.LoanCompUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1132 INVOKE loan.LoanCompUtil:getHolTr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1140 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1159 INVOKE rate.RateManager:getCurrentBor,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1176 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1177 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1178 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1180 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1189 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1190 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1191 INVOKE rate.Bor:getBorCurr
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1215 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1231 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1246 NEW rate.RateTypeInfo
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1247 INVOKE rate.RateTypeInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1249 INVOKE rate.RateTypeInfo:getRateTypeId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1269 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1270 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1271 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1273 NEW rate.RateTypeInfo
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1274 INVOKE rate.RateTypeInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1275 INVOKE rate.RateTypeInfo:getRateTypeId
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1277 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1278 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1279 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1302 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1303 INVOKE rate.RateManager:getRateTypeId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1336 INVOKE core.StsUtil:canProcessEx,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1345 INVOKE rate.RateManager:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1349 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1362 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1378 INVOKE core.StsUtil:canProcessEx,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1387 INVOKE rate.RateManager:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1391 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1404 INVOKE rate.RateManager:saveLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1417 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1418 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1433 INVOKE rate.RateManager:getLcRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/RateManager.cls 1454 INVOKE rate.RateManager:getLcRate,INPUT character

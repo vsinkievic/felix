@@ -1,0 +1,1086 @@
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 12 CLASS sched.SchedGen,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 12 STRING "sched.SchedGen" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 13 INCLUDE "sched/ttSch.i &visibility=""protected"" &name=""ttSch"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "bal" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "days" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttSch
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 14 INCLUDE "sched/ttSchConf.i &visibility=""protected"" &name=""ttSchConf"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "basecomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "bamtyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "method" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "firstdt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "payday" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "paypy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "holtr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "payamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "opnamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "final" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "lastpay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "advc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 STRING "lnmerge" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchConf.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttSchConf
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 15 INCLUDE "sched/ttFrozenLines.i &visibility=""protected"" &name=""ttFrozenLines"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 STRING "ttFrozenLines" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttFrozenLines.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttFrozenLines
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 17 INCLUDE "sched/ttRegenList.i &visibility=""protected"" &name=""ttRegenList"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttRegenList.i 1 STRING "ttRegenList" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttRegenList.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttRegenList.i 1 STRING "change" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/ttRegenList.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttRegenList
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 19 STRING "prGenDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 19 DATA-MEMBER PUBLIC,,,prGenDate
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 20 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 20 DATA-MEMBER PUBLIC,,,prLid
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 23 CONSTRUCTOR PUBLIC,,,,SchedGen,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 23 STRING "SCHEDGEN" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 26 DESTRUCTOR PUBLIC,,,,SchedGen,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 26 STRING "SCHEDGEN" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 36 METHOD PUBLIC,,,,,init,void,INPUT ttSchConf TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 36 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 45 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 45 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 45 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 47 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 47 STRING "INT" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 47 UPDATE DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 50 METHOD PUBLIC,,,,,init,void,INPUT ttSchConf TABLE,INPUT ttSch TABLE,INPUT ttFrozenLines TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 50 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 58 STRING "pLonID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 59 REFERENCE ttSchConf TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 60 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 61 REFERENCE ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 63 METHOD PUBLIC,,,,,init,void,INPUT pLonID INT64
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 63 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 70 STRING "bSchConf" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 72 STRING "vMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 73 STRING "vBaseDy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 75 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 76 INCLUDE "core/businessErr.i &id='SCH0001'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 76 REFERENCE ttSchConf TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 78 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 78 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 80 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 80 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 80 STRING "MANUAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 83 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 83 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 83 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 86 INCLUDE "core/businessErr.i &id='SCH0005' &p1=ttSchConf.basecomp"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 90 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 91 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 91 UPDATE DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 92 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basedy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 92 UPDATE DATA-MEMBER sched.SchedGen:ttSchConf basedy TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 93 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf lastpay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 93 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 93 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf lastpay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 93 UPDATE DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 96 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 96 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 96 STRING "ANNUITY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 96 STRING "LINEAR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 98 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf payamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 98 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf payamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 98 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf opnamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 98 UPDATE DATA-MEMBER sched.SchedGen:ttSchConf payamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 102 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 102 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 102 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 102 STRING "ANNUITY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 102 STRING "LINEAR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 104 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basedy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 104 STRING "360" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 106 INCLUDE "core/businessErr.i &id='SCH0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 106 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf paypy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 107 INCLUDE "core/businessErr.i &id='SCH0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 107 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf holtr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 108 INCLUDE "core/businessErr.i &id='SCH0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 108 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf payday TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 109 INCLUDE "core/businessErr.i &id='SCH0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 109 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 110 INCLUDE "core/businessErr.i &id='SCH0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 110 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf firstdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 113 INCLUDE "core/businessErr.i &id='SCH0006' &p1=""'Payment periodicity'"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 113 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf paypy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Payment periodicity" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 114 INCLUDE "core/businessErr.i &id='SCH0006' &p1=""'Holiday treatment'"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 114 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf holtr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Holiday treatment" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 115 INCLUDE "core/businessErr.i &id='SCH0006' &p1=""'Calculation method'"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 115 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Calculation method" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 116 INCLUDE "core/businessErr.i &id='SCH0006' &p1=""'Payment day'"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 116 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf payday TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Payment day" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 117 INCLUDE "core/businessErr.i &id='SCH0006' &p1=""'End date'"""
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 117 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "End date" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 120 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf method TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 120 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basecomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 120 STRING "ANNUITY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 122 INCLUDE "core/businessErr.i &id='SCH0002'"
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 122 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf basedy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 122 STRING "360" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 125 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 125 STRING "VALIDATEPARAMS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 133 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 134 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 135 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 142 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 142 SEARCH DATA-MEMBER sched.SchedGen:ttRegenList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 142 SORT-ACCESS ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 144 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 144 STRING "FREEZE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 144 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 147 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 149 METHOD PUBLIC,,,,,genAll,void,INPUT pFdt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 149 STRING "GENALL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 157 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 157 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 159 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 159 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 159 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 159 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 159 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 162 REFERENCE ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 162 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 165 STRING "CLEANUPFROZENLINES" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 167 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 167 STRING "pTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 168 STRING "vRegen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 171 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 172 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 175 SEARCH DATA-MEMBER sched.SchedGen:ttRegenList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 176 DELETE DATA-MEMBER sched.SchedGen:ttRegenList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 182 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 182 SEARCH DATA-MEMBER sched.SchedGen:ttRegenList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 182 SORT-ACCESS ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 184 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 184 STRING "FREEZE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 184 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 187 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 190 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 195 METHOD PUBLIC,,,,,genAll,logical,INPUT pFdt DATE,INPUT pTdt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 195 STRING "GENALL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 204 METHOD PUBLIC,,,,,genAll,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 204 STRING "GENALL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 212 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 SORT-ACCESS ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 213 SORT-ACCESS ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 217 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 219 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 219 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 222 CREATE DATA-MEMBER sched.SchedGen:ttRegenList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 223 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 223 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 223 UPDATE DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 224 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 224 STRING "CHANGE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 224 UPDATE DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 228 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 228 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 228 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 228 SORT-ACCESS ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 231 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 231 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 231 SEARCH DATA-MEMBER sched.SchedGen:ttRegenList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 232 REFERENCE ttRegenList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 234 CREATE DATA-MEMBER sched.SchedGen:ttRegenList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 235 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 235 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 235 UPDATE DATA-MEMBER sched.SchedGen:ttRegenList fdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 236 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 236 STRING "FREEZE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 236 UPDATE DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 238 ACCESS DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 238 STRING "FREEZE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 238 UPDATE DATA-MEMBER sched.SchedGen:ttRegenList change TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 240 STRING "GETREGENLIST" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 250 STRING "pBaseComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 250 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 251 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 253 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 262 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 262 STRING "GENDEPCOMP" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 271 STRING "pCompID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 271 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 272 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 273 STRING "bSchConf" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 275 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 280 STRING "ANNUITY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 282 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 288 STRING "LINEAR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 290 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 296 STRING "365" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 301 STRING "CREDITLINE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 303 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 312 STRING "PERCENTAGE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 316 STRING "1" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 319 STRING "FIXEDAMT" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 325 STRING "MANUAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 327 STRING "ANNUITY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 327 STRING "LINEAR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 327 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 336 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 336 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 338 REFERENCE ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 341 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 341 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 341 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 344 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 347 STRING "FROZEN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 350 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 350 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 350 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 353 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 353 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 353 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 353 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 353 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 356 REFERENCE ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 356 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 362 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 362 STRING "GENSCHED" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pCompID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pFirstDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pPayDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pHol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pLastDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pBeginDate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 378 STRING "pMergeDays" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 380 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 381 STRING "vDay" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 382 STRING "vPrev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 383 STRING "vFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 384 STRING "vLast" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 385 STRING "vDateCheck" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 387 STRING "dates" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 389 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 394 STRING "LAST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 399 STRING "MONTHLY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 400 STRING "QUARTERLY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 401 STRING "HALF-YEAR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 402 STRING "YEARLY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 418 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 418 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 420 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 427 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 427 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 429 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 429 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 429 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 429 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 432 REFERENCE ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 432 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 437 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 437 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 437 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 440 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 443 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 443 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 443 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 446 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 450 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 450 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 458 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 458 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 458 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 458 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 462 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 464 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 476 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 476 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 476 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 479 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 481 CREATE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 482 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 482 UPDATE DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 483 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 483 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 484 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 484 UPDATE DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 485 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 485 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 485 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 496 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 496 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 496 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 499 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 501 CREATE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 502 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 502 UPDATE DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 503 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 503 UPDATE DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 505 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 505 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 505 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 507 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 512 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 518 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 518 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 519 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 519 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 520 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 524 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 524 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 524 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 529 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 529 METHOD PUBLIC,,,,,genCalenda,void,INPUT pFdt DATE,INPUT pCompID CHARACTER,INPUT pFirstDay DATE,INPUT pPayDay CHARACTER,INPUT pFreq CHARACTER,INPUT pHol CHARACTER,INPUT pLastDay DATE,INPUT pBeginDate DATE,INPUT pMergeDays INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 529 STRING "GENCALENDA" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 539 STRING "pComp1" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 539 STRING "pComp2" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 539 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 540 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 542 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 542 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 542 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 545 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 549 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 549 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 549 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 552 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 554 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 554 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 557 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 557 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 562 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 562 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 562 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 562 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 566 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 566 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 572 UPDATE DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 573 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 573 UPDATE DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 574 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 574 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 575 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 579 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 579 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 581 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 581 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 584 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 584 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 590 UPDATE DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 591 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 591 UPDATE DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 592 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 592 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 593 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 596 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 596 STRING "CLONECALENDA" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 603 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 604 STRING "vPrev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 606 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 606 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 606 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 606 SORT-ACCESS ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 606 SORT-ACCESS ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 609 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 611 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 611 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 616 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 616 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 616 UPDATE DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 617 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 617 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 620 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 620 STRING "RECALCLENGTHS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 623 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 624 STRING "vPrev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 626 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 626 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 626 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 626 SORT-ACCESS ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 626 SORT-ACCESS ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 629 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 629 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 629 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 633 ACCESS DATA-MEMBER sched.SchedGen:ttSch rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 633 UPDATE DATA-MEMBER sched.SchedGen:ttSch rate TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 636 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 636 METHOD PUBLIC,,,,,recalcRates,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 636 STRING "RECALCRATES" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pPrcID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pIntID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pBegDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pFinalPay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pAdvPay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 653 STRING "pOpnAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 655 STRING "vSumPay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 656 STRING "vLinePay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 657 STRING "vLines" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 658 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 659 STRING "vYRate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 660 STRING "vCRate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 661 STRING "vFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 662 STRING "vBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 663 STRING "vFirstPay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 664 STRING "vLastPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 665 STRING "vLength" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 666 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 667 STRING "vExists" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 668 STRING "vIntExists" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 669 STRING "vLastLn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 670 STRING "vPartAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 671 STRING "vFirstLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 672 STRING "vIssuedAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 673 STRING "vSkippedLines" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 674 STRING "vFirstInt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 676 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 678 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 679 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 682 STRING "MONTHLY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 683 STRING "QUARTERLY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 684 STRING "HALF-YEAR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 685 STRING "YEARLY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 701 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 702 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 713 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 716 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 716 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 716 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 719 REFERENCE ttSchConf TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 722 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 726 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 731 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 737 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 749 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 795 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 799 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 803 UPDATE DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 808 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 809 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 812 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 814 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 816 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 829 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 830 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 832 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 833 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 836 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 843 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 855 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 858 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 861 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 861 STRING "GENANNUITY" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pPrcID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pIntID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pBaseAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pBegDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pFinalPay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pAdvPay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pBegDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 879 STRING "pOpnAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 881 STRING "vLinePay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 882 STRING "vLines" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 883 STRING "vLastPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 884 STRING "vFirstPay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 885 STRING "vFirstLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 886 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 887 STRING "vIssuedAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 892 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 892 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 894 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 894 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 897 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 897 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 897 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 900 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 901 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 903 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 904 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 907 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 907 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 909 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 912 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 912 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 915 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 915 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 939 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 939 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 939 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 939 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 943 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 945 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 945 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 945 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 947 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 947 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 949 ACCESS DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 949 UPDATE DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 950 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 953 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 953 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 954 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 954 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 954 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 959 STRING "GENLINEAR" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pBaseComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pNewComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pBaseAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 973 STRING "pBegDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 974 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 976 STRING "vBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 977 STRING "vLineDy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 978 STRING "vFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 979 STRING "vExists" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 980 STRING "vLastLn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 981 STRING "vPartAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 982 STRING "VLength" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 983 STRING "vPrev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 984 STRING "vLineBeg" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 985 STRING "vLineEnd" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 990 STRING "MONTHLY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 991 STRING "QUARTERLY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 992 STRING "HALF-YEAR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 993 STRING "YEARLY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 999 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 999 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 999 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1002 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1004 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1004 ACCESS DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1004 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1007 REFERENCE ttSchConf TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1010 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1010 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1010 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1010 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1016 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1016 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1026 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1026 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1026 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1027 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1027 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1027 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1031 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1031 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1032 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1032 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1032 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1033 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1033 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1033 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1040 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1040 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1040 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1040 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1044 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1044 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1052 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1052 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1052 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1052 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1057 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1057 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1062 ACCESS DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1067 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1067 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1075 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1076 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1083 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1083 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1084 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1085 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1085 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1085 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1087 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1087 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1087 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1088 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1089 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1089 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1089 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1091 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1095 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1095 STRING "GENPERCENT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1106 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1106 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1106 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1107 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1107 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1107 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1107 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1107 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1112 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1112 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1114 STRING "GENFIXED" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1116 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1116 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1116 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1116 STRING "pNew" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1117 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1117 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1117 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1119 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1121 CREATE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1122 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1122 UPDATE DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1123 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1123 UPDATE DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1124 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1124 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1127 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1127 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1129 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1129 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1129 UPDATE DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1130 METHOD PUBLIC,,,,,addNewLine,void,INPUT pComp CHARACTER,INPUT pDate DATE,INPUT pAmt DECIMAL,INPUT pNew LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1130 STRING "ADDNEWLINE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1132 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1132 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1133 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1133 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1133 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1136 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1136 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1138 METHOD PUBLIC,,,,,removeLine,void,INPUT pComp CHARACTER,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1138 STRING "REMOVELINE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1148 STRING "pMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1148 STRING "pMethodClean" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1148 STRING "pBaseDy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1149 STRING "vBasedy" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1150 STRING "vMethodClean" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1157 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1158 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1161 STRING "365" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1165 STRING "PERCENTAGE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1165 STRING "1" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1168 STRING "PARSEMETHOD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1177 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1177 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1178 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1180 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1182 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1188 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1196 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1196 STRING "GETCOMPBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1205 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1205 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1205 STRING "pBaseAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1206 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1210 STRING "OUTSTANDING" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1211 STRING "FINALBAL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1212 STRING "OpenAmt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1213 STRING "PaymentLine" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1218 STRING "GETBASEAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1227 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1227 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1228 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1230 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1233 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1240 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1240 STRING "GETOPENAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1249 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1249 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1250 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1252 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1255 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1262 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1262 STRING "GETSCHEDPAYMENT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1271 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1271 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1272 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1274 STRING "vMultip" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1275 STRING "vTdc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1276 STRING "vRdc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1277 STRING "vFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1278 STRING "vDateBeg" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1279 STRING "vDateEnd" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1280 STRING "dates" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1284 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1288 STRING "360" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1292 STRING "CREDITLINE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1295 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1295 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1295 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1298 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1300 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1303 STRING "MONTHLY" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1304 STRING "QUARTERLY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1305 STRING "HALF-YEAR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1306 STRING "YEARLY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1310 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1310 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1310 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1313 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1318 STRING "360" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1327 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1327 STRING "GETBASEPART" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1336 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1336 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1337 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1338 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1340 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1342 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1349 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1356 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1356 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1356 STRING "CALCCOMPBAL" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1366 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1366 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1367 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1368 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1370 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1372 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1379 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1386 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1386 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1386 STRING "CALCCOMPBALFINAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1394 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1394 STRING "pDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1395 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1396 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1398 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1402 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1407 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1414 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1418 UPDATE DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1421 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1421 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1421 STRING "RECALCBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1430 STRING "pIntComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1430 STRING "pChgLn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1431 STRING "ttSchConf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1432 STRING "bSchConf" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1433 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1434 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1436 STRING "vPartAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1437 STRING "vPrevLn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1438 STRING "vConf" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1439 STRING "vSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1440 STRING "vLnEnd" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1441 STRING "vLnBeg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1442 STRING "vBasePart" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1443 STRING "vPrevBasePart" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1447 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1452 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1458 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1468 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1476 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1495 STRING "CREDITLINE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1502 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1512 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1512 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1512 STRING "CALCPARTLINE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1522 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1522 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1522 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1523 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1523 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1523 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1524 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1526 ACCESS DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1526 UPDATE DATA-MEMBER sched.SchedGen:ttSch sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1528 METHOD PUBLIC,,,,,chgLineSts,void,INPUT pComp CHARACTER,INPUT pDate DATE,INPUT pSts CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1528 STRING "CHGLINESTS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1530 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1530 STRING "pStart" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1530 STRING "pEnd" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1531 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1536 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1536 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1536 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1536 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1540 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1544 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1544 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1544 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1547 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1551 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1551 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1551 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1554 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1558 STRING "GETPERIODAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1566 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1567 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1567 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1569 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1569 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1569 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1570 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1570 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1570 ACCESS DATA-MEMBER sched.SchedGen:ttFrozenLines sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1573 STRING "FREEZELINE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1582 METHOD PUBLIC,,,,,getSched,void,OUTPUT ttSch TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1582 STRING "GETSCHED" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1584 STRING "pCompID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1584 STRING "pIntID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1586 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1588 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1588 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1589 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1589 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 ACCESS DATA-MEMBER sched.SchedGen:ttSch bal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "99/99/99" 8 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1590 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "dt" 2 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "bal" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "amt" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "amt" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "days" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "-------- ---------- ---------- ----------            ----------" 63 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 METHOD PUBLIC,,,,,dispSched,void,INPUT pCompID CHARACTER,INPUT pIntID CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1592 STRING "DISPSCHED" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1595 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1596 DELETE DATA-MEMBER sched.SchedGen:ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1598 SEARCH DATA-MEMBER sched.SchedGen:ttRegenList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1599 DELETE DATA-MEMBER sched.SchedGen:ttRegenList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1601 SEARCH DATA-MEMBER sched.SchedGen:ttFrozenLines default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1602 DELETE DATA-MEMBER sched.SchedGen:ttFrozenLines TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1604 SEARCH DATA-MEMBER sched.SchedGen:ttSchConf fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1605 DELETE DATA-MEMBER sched.SchedGen:ttSchConf TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1607 METHOD PUBLIC,,,,,clearTT,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1607 STRING "CLEARTT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1609 STRING "pCompID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1609 STRING "pIntID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1611 STRING "bSch" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1613 ACCESS DATA-MEMBER sched.SchedGen:ttSch comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1613 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1614 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1614 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "99/99/99" 8 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "99/99/99" 8 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1617 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1620 ACCESS DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1620 ACCESS DATA-MEMBER sched.SchedGen:ttSch amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1620 ACCESS DATA-MEMBER sched.SchedGen:ttSch days TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "dt" 2 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "dt" 2 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "bal" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "amt" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "amt" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "days" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "days" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "-------- -------- ---------- ---------- ---------- ---------- ----------" 72 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 METHOD PUBLIC,,,,,dispSched2,void,INPUT pCompID CHARACTER,INPUT pIntID CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1623 STRING "DISPSCHED2" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1625 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1625 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1626 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1628 STRING ".csv" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1629 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "99/99/99" 8 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "->>,>>9.99" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1631 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1634 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1634 METHOD PUBLIC,,,,,dumpSched,void,INPUT pPath CHARACTER,INPUT pName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1634 STRING "DUMPSCHED" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1637 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1639 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1641 STRING "99/99/99" 8 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1641 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 STRING "dt" 2 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 STRING "days" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 STRING "-------- ----------" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 METHOD PUBLIC,,,,,dumpSched1,void,
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1644 STRING "DUMPSCHED1" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1658 STRING "pFirstDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1658 STRING "pPrevDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1658 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1658 STRING "pHol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1658 STRING "pPayDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1661 STRING "dates" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1665 STRING "GETNEXTPAYDAY" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pDir" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pCase" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pCompID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pFirstDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pPayDay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pFreq" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pHol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pLastDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pBeginDate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1668 STRING "pMergeDays" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1670 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1674 STRING "/SchedTestCase" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1674 STRING ".csv" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1675 STRING "sep=;" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1676 SEARCH DATA-MEMBER sched.SchedGen:ttSch dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1677 STRING "&1/&2/&3" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1677 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1677 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1682 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1682 METHOD PUBLIC,,,,,testCalenda,void,INPUT pDir CHARACTER,INPUT pCase INTEGER,INPUT pFdt DATE,INPUT pCompID CHARACTER,INPUT pFirstDay DATE,INPUT pPayDay CHARACTER,INPUT pFreq CHARACTER,INPUT pHol CHARACTER,INPUT pLastDay DATE,INPUT pBeginDate DATE,INPUT pMergeDays INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1682 STRING "TESTCALENDA" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1683 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1683 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 35 INVOKE sched.SchedGen:validateParams
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 49 INVOKE sched.SchedGen:validateParams
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 59 RUN sched/getSchedParHis.p
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 60 RUN sched/loadSched.p
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 61 RUN sched/getFrozenLines.p
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 62 INVOKE sched.SchedGen:validateParams
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 90 INVOKE sched.SchedGen:parseMethod,INPUT character,OUTPUT character,OUTPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 138 INVOKE sched.SchedGen:getRegenList,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 140 INVOKE sched.SchedGen:cleanupFrozenLines
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 144 INVOKE sched.SchedGen:freezeLine,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 147 INVOKE sched.SchedGen:genDepComp,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 178 INVOKE sched.SchedGen:getRegenList,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 180 INVOKE sched.SchedGen:cleanupFrozenLines
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 184 INVOKE sched.SchedGen:freezeLine,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 190 INVOKE sched.SchedGen:genDepComp,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 203 INVOKE sched.SchedGen:genAll,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 258 INVOKE sched.SchedGen:genSched,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 259 INVOKE sched.SchedGen:genDepComp,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 285 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 286 INVOKE sched.SchedGen:genAnnuity,INPUT date,INPUT character,INPUT character,INPUT decimal,INPUT decimal,INPUT character,INPUT character,INPUT date,INPUT decimal,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 294 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 296 INVOKE sched.SchedGen:cloneCalenda,INPUT character,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 298 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 299 INVOKE sched.SchedGen:genLinear,INPUT date,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT decimal,INPUT character,INPUT character,INPUT date,INPUT decimal,INPUT decimal,INPUT date,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 307 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 308 INVOKE sched.SchedGen:recalcRates
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 314 INVOKE sched.SchedGen:recalcBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 315 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 316 INVOKE sched.SchedGen:genPercent,INPUT date,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 321 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 322 INVOKE sched.SchedGen:genFixed,INPUT date,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 346 INVOKE sched.SchedGen:addNewLine,INPUT character,INPUT date,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 347 INVOKE sched.SchedGen:chgLineSts,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 391 NEW core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 407 INVOKE core.Dates:nextPayDay,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 448 INVOKE core.Dates:monthPayDay,INPUT date,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 465 INVOKE sched.SchedGen:getNextPayDay,INPUT date,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 468 INVOKE core.Dates:nextPayDay,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 471 INVOKE core.Dates:nextPayDay,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 489 INVOKE sched.SchedGen:getNextPayDay,INPUT date,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 508 INVOKE sched.SchedGen:getNextPayDay,INPUT date,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 528 INVOKE sched.SchedGen:recalcLengths
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 698 INVOKE sched.SchedGen:cloneCalenda,INPUT character,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 825 INVOKE sched.SchedGen:recalcBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 826 INVOKE sched.SchedGen:recalcLengths
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 841 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 854 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 956 INVOKE sched.SchedGen:recalcLengths
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 957 INVOKE sched.SchedGen:recalcBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 958 INVOKE sched.SchedGen:genPercent,INPUT date,INPUT character,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1026 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1032 INVOKE sched.SchedGen:getBaseAmt,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1063 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1072 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1085 INVOKE sched.SchedGen:getBaseAmt,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1089 INVOKE sched.SchedGen:getBaseAmt,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1210 INVOKE sched.SchedGen:calcCompBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1211 INVOKE sched.SchedGen:calcCompBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1212 INVOKE sched.SchedGen:getOpenAmt,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1213 INVOKE sched.SchedGen:getSchedPayment,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1282 NEW core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1308 INVOKE sched.SchedGen:getnextPayDay,INPUT date,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1325 DELETE-INSTANCE core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1465 INVOKE sched.SchedGen:getBasePart,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1490 INVOKE sched.SchedGen:getBasePart,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1495 INVOKE sched.SchedGen:getBaseAmt,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1547 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1554 INVOKE sched.SchedGen:calcPartLine,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1569 INVOKE sched.SchedGen:addNewLine,INPUT character,INPUT date,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1570 INVOKE sched.SchedGen:chgLineSts,INPUT character,INPUT date,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1571 INVOKE sched.SchedGen:recalcLengths
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1662 NEW core.Dates
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1664 INVOKE core.Dates:nextPayDay,INPUT date,INPUT integer,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls /u1/env/bankcp/indigo/svn-trunk/system/sched/SchedGen.cls 1672 INVOKE sched.SchedGen:genCalenda,INPUT date,INPUT character,INPUT date,INPUT character,INPUT character,INPUT character,INPUT date,INPUT date,INPUT integer

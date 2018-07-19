@@ -1,0 +1,246 @@
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 5 STRING "psched" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 5 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 5 STRING "psched" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 5 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 7 STRING "p-from" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 9 STRING "p-runsAt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 11 STRING "p-err" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 23 INCLUDE " bf/bfsched.i "
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 13 STRING "nNextRunTimeSearchLimit" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "ttp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "typ" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 15 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 44 FUNCTION initScheduler,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 44 STRING "INITSCHEDULER" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 46 STRING "pYear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 46 STRING "pMonth" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 48 STRING "1,3,5,7,8,10,12" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 49 STRING "4,6,9,11" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 51 STRING "Illegal month number pMonth=&1" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 52 FUNCTION getLastDayOfMonth,integer,INPUT pYear INTEGER,INPUT pMonth INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 52 STRING "GETLASTDAYOFMONTH" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 55 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 57 FUNCTION dttmHour,integer,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 57 STRING "DTTMHOUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 60 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 62 FUNCTION dttmMinute,integer,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 62 STRING "DTTMMINUTE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 65 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 66 STRING "lyear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 67 STRING "lmon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 68 STRING "lday" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 69 STRING "lhour" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 70 STRING "lmin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 71 STRING "lsec" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 72 STRING "lmil" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 73 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 87 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 92 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 92 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 94 STRING "4,6,9,11" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 99 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 100 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 101 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 101 STRING "minute" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 102 STRING "sec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 102 STRING "second" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 103 STRING "msec" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 103 STRING "millisecond" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 104 STRING "invalid field type '&1'" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 111 STRING "perr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 112 STRING "err-msg" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 113 STRING "datetime() failed, pdttm=&1  ptyp=&2  pval=&3: &4" 49 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 121 FUNCTION dttmSet,datetime,INPUT pdttm DATETIME,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 121 STRING "DTTMSET" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 124 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 124 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 133 FUNCTION dttmSetDate,datetime,INPUT pdttm DATETIME,INPUT pval DATE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 133 STRING "DTTMSETDATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 136 STRING "pdttm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 138 FUNCTION dttmTruncSec,datetime,INPUT pdttm DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 138 STRING "DTTMTRUNCSEC" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 141 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 141 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 142 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 143 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 144 FUNCTION isPeriodSet,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 144 STRING "ISPERIODSET" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 147 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 147 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 148 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 149 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 150 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 151 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 152 FUNCTION findThisOrNextPeriod,integer,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 152 STRING "FINDTHISORNEXTPERIOD" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 155 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 156 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 157 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 158 STRING "min,hour" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 161 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 162 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 163 FUNCTION findFirstPeriod,integer,INPUT ptyp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 163 STRING "FINDFIRSTPERIOD" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 166 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 167 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 168 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 169 FUNCTION isAnyPeriodSet,logical,INPUT ptyp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 169 STRING "ISANYPERIODSET" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 172 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 172 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 173 SEARCH ttp typ TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 174 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 175 CREATE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 179 REFERENCE ttp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 182 FUNCTION setPeriod,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 182 STRING "SETPERIOD" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 212 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 212 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 213 STRING "lerr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 216 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 216 STRING "invalid minute value '&1'" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 219 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 219 STRING "invalid hour value '&1'" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 222 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 222 STRING "invalid day '&1', must be 1...31 or L" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 225 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 225 STRING "invalid week '&1', must be 1...7 (mon-sun)" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 228 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 228 STRING "invalid month value '&1'" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 231 STRING "invalid period type, ptyp='&1'" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 235 STRING "validatePeriod: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 239 FUNCTION validatePeriod,logical,INPUT ptyp CHARACTER,INPUT pval INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 239 STRING "VALIDATEPERIOD" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 244 STRING "ptyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 244 STRING "pval" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 245 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 246 STRING "lv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 247 STRING "lc" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 253 STRING "*,?," 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 264 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 264 STRING "L" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 STRING "0" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 STRING "period value is not a number,  ptyp=&1  list_entry=&2  value='&3'" 65 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 281 FUNCTION parsePeriod,logical,INPUT ptyp CHARACTER,INPUT pval CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 281 STRING "PARSEPERIOD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 284 STRING "phol" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 294 STRING "illegal 'hol' field value,  phol='&1'" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 298 FUNCTION parseHolField,logical,INPUT phol CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 298 STRING "PARSEHOLFIELD" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "pbfsched" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "bfsched" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 STRING "pbfsched" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 301 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 303 ACCESS indigo.bfsched smin 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 303 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 304 ACCESS indigo.bfsched shour 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 304 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 305 ACCESS indigo.bfsched sday 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 305 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 306 ACCESS indigo.bfsched sweek 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 306 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 307 ACCESS indigo.bfsched smonth 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 307 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 308 ACCESS indigo.bfsched shol 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 310 FUNCTION parseSchedule,logical,BUFFER pbfsched indigo.bfsched
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 310 STRING "PARSESCHEDULE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 313 STRING "pcl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 314 STRING "lmin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 315 STRING "lhour" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 316 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 317 STRING "ltmp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 323 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 324 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 326 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 333 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 334 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 337 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 342 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 349 FUNCTION getNextRunHour&Minute,datetime,INPUT pcl DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 349 STRING "GETNEXTRUNHOUR&MINUTE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 352 STRING "pAfterTime" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 353 STRING "lGotOne" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 354 STRING "lday" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 355 STRING "ldow" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 356 STRING "lmon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 357 STRING "lcl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 359 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 360 STRING "llast" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 361 STRING "ltmp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 362 STRING "lm" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 363 STRING "lprev" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 364 STRING "lDateLimit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 365 STRING "lLockDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 371 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 381 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING "Support for specifying both a day-of-week AND a day-of-month" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 STRING " parameter is not implemented" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 388 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 390 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 402 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 406 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 409 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 414 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 415 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 421 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING "Support for specifying both a day-of-week AND a day-of-month" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 STRING " parameter is not implemented" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 426 STRING "lCurrDow" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 427 STRING "lDaysToAdd" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 431 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 432 STRING "dow" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 443 STRING "month" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 444 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 445 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 446 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 450 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 451 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 452 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 460 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 461 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 464 STRING "mon" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 469 STRING "min" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 470 STRING "hour" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 471 STRING "day" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 532 FUNCTION getNextRunTime,datetime,INPUT pAfterTime DATETIME
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 532 STRING "GETNEXTRUNTIME" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 30 REFERENCE indigo.bfsched 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 30 STRING "buffer psched not available" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 37 ACCESS indigo.bfsched sid 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 37 STRING "scheduler will not execute until &1, sid=&2" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 37 STRING "year" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 43 STRING "perr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 44 STRING "Error: &1" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 46 STRING "typ" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 51 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 104 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 113 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 115 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 116 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 235 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 271 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 294 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 382 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched.i 422 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 30 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 44 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfsched-next.p 45 DELETE-INSTANCE Progress.Lang.Error

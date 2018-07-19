@@ -1,0 +1,665 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 33 CLASS indigo.src.LoanReportGen,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 33 STRING "indigo.src.LoanReportGen" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 34 INCLUDE indigo/src/dsLoanDetails.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 1 INCLUDE "core/tCln.i &name=""ttCln"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "ttCln" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 2 INCLUDE "sched/ttSchView.i &name=""ttSchView"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "ttSchView" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "number" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "drawdown" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "principal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "interest" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "prnSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "intSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "other" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "totalAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "commFee" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "canExpand" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "hasAdHoc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "editable" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherCompCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 3 INCLUDE "loan/ttLoanCompBal.i &name=""ttLoanCompBal"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "ttLoanCompBal" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "acr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "acrDbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "booked" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "debit" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "credit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "paid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "dbt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "cdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "ccam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "nextPayDt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "bsheet" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 4 INCLUDE "indigo/src/ttHistoryDetails.i &name=ttHistoryDetails"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "ttHistoryDetails" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "newval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "additional" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 5 INCLUDE "indigo/src/ttLoanDetails.i &name=""ttLoanDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "ttLoanDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "agrNumber" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "loanNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "respManager" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "purpose" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "dueDate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "currencyCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "disburseAccount" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "disburseDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "repayAccount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "repayType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "approvedLimit" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "commitedLimit" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openLimit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 6 INCLUDE "indigo/src/ttCompDetails.i &name=""ttCompDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "ttCompDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "baseComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bamTyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "calcMethod" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "holTreat" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "baseAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "payFreq" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "payDay" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "firstDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "advcPay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "finalPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schHolTreat" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "priority" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "totalRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "accrualBase" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "accruingRule" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "gracePeriod" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookPriority" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookReturn" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schDueDate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schPaymentAmt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "debt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 7 INCLUDE "indigo/src/ttAccrualDetails.i &name=""ttAccrualDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "ttAccrualDetails" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "days" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "rdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "tdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "frozen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "totamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 8 INCLUDE "indigo/src/ttTrxDetails.i &name=""ttTrxDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ttTrxDetails" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "oh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "jh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "corrStatus" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohWho" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohWhen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "lineNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "loanNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "component" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "accountType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "account" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "debitAmount" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "creditAmount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "currency" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "accCurrency" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "remark" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olWho" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olWhen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 9 INCLUDE "indigo/src/ttBalChgDetails.i &name=""ttBalChgDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "ttBalChgDetails" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "dat" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "dam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "cdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "bdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "cam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "ccam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "bcam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 10 INCLUDE "indigo/src/ttCompRateDetails.i &name=""ttCompRateDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "ttCompRateDetails" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "rateTotal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "curRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "chgDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 11 INCLUDE "indigo/src/ttIntRateChanges.i &name=""ttIntRateChange"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "ttIntRateChange" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "validfrom" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "fixedMargin" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "fixedcorr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borType" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borVal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borChgDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borRule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borNextChgDate" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "whoName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "createdOn" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borDate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 35 INCLUDE "acr/ttAcr.i &visibility=""protected"" &name=""ttAcr"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "ttAcr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "rdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "tdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "frozen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "totamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttAcr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 36 INCLUDE "trx/ttOh.i &visibility=""protected"" &name=""ttOh"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "ttOh" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "oh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "odt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "whoname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "jh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 STRING "corrsts" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOh.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttOh
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 37 INCLUDE "trx/ttOl.i &visibility=""protected"" &name=""ttOl"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "ttOl" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "oh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "ln" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "dc" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "odt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "dam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "cam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "acurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "atyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "acrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "rem" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "whoname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 STRING "evlog" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttOl.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttOl
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 38 INCLUDE "trx/ttHOBal.i &visibility=""protected"" &name=""ttHOBal"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "ttHOBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "dat" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "dam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "cdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "cam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "ddam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "dcam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "ccam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "bdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "bcam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttHOBal.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttHOBal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 39 INCLUDE "loan/ttLcRate.i &visibility=""protected"" &name=""ttLcRate"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "ttLcRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "currate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxincr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxdecr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "chgdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "nextDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeC" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeDes" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borC" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateChngDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 DATA-MEMBER PROTECTED,,TEMPTABLE,ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 40 INCLUDE "indigo/src/ttHistoryView.i &name=ttHistoryView"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "ttHistoryView" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "newval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "additional" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryView.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 41 INCLUDE "lim/ttLimit.i &visibility=""protected"" &name=""ttLimit"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "ttLimit" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "alimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "climit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttLimit
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 42 INCLUDE "rate/ttRateHistView.i &name=""ttRateHistView"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "ttRateHistView" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "fixedmargin" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "fixedcorr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "borval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "borid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "borcode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "bordt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "nextchgdt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "whoname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ttRateHistView.i 5 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 44 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 45 STRING "prClnId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 46 STRING "prProduct" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 47 STRING "prAgrId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 49 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 50 STRING "clnInfo" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 51 STRING "schViewer" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 52 STRING "compInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 53 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 54 STRING "acrUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 55 STRING "loanCompUtil" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 56 STRING "schedConfUtil" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 57 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 58 STRING "historyView" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 59 STRING "loanOpData" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 60 STRING "balData" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 61 STRING "accrualConfUtil" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 62 STRING "rateData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 63 STRING "rateManager" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 64 STRING "compUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 65 STRING "limitData" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 84 CONSTRUCTOR PUBLIC,,,,LoanReportGen,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 84 STRING "LOANREPORTGEN" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 92 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 93 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 93 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 93 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 95 INCLUDE "core/businessErr.i &id='ACR0001' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 95 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ACR0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 99 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 100 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 101 ACCESS indigo.loan agrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 115 STRING "loan.lid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 116 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 116 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 136 METHOD PUBLIC,,,,,getData,void,OUTPUT dsLoanDetails DATASET ttCln ttSchView ttLoanCompBal ttHistoryDetails ttLoanDetails ttCompDetails ttAccrualDetails ttTrxDetails ttBalChgDetails ttCompRateDetails ttIntRateChange DATALINKS 0
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 136 STRING "GETDATA" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 153 STRING "GETCLIENTDATA" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 163 REFERENCE ttLimit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 186 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttLimit default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 187 REFERENCE ttLimit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 189 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLimit alimit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 189 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLimit climit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 189 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLimit olimit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 195 STRING "GETCREDITDATA" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 205 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 206 STRING "GETSCHEDULEDATA" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 216 REFERENCE ttLoanCompBal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 217 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttLoanCompBal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 220 STRING "GETBALANCEDATA" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 230 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 231 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttAcr toDate TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 REFERENCE ttAccrualDetails TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails amt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr basedy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails basedy TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr frozen TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails frozen TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr rdc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails rdc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr tdc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails tdc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 ACCESS ttAcr totamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 233 UPDATE ttAccrualDetails totamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 237 STRING "GETACCRUALDATA" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 246 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 248 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 248 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 252 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 252 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 254 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 282 STRING "GETCOMPONENTDATA" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 293 ACCESS PUBLIC-PROPERTY indigo.src.HistoryView:prDetailedInfoMode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 293 UPDATE PUBLIC-PROPERTY indigo.src.HistoryView:prDetailedInfoMode 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 294 REFERENCE ttHistoryView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 296 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttHistoryView fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 REFERENCE ttHistoryView whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 REFERENCE ttHistoryView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 REFERENCE ttHistoryDetails TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView additional TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails additional TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView histgrp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails histgrp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView newval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails newval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView par TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails par TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 ACCESS ttHistoryView who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 298 UPDATE ttHistoryDetails who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 301 STRING "GETCHANGESHISTORYDATA" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 310 STRING "vLoanNumber" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 312 STRING "ohUser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 313 STRING "olUser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 320 REFERENCE ttOh TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 320 REFERENCE ttOl TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 321 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttOl idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 321 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh oh TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 321 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl oh TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 321 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttOh idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 324 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 325 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl who TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh odt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh oh TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh jh TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh corrsts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl ln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl atyp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl acc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl dam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl cam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl crc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl acrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl rem TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOl odt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttOh whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 350 METHOD PUBLIC,,,,,getTransactionData,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 350 STRING "GETTRANSACTIONDATA" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 360 REFERENCE ttHOBal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 362 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttHOBal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 REFERENCE DATA-MEMBER indigo.src.LoanReportGen:ttHOBal comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 REFERENCE ttHOBal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 REFERENCE ttBalChgDetails TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal balance TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails balance TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal bcam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails bcam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal bdam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails bdam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal cam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails cam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal ccam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails ccam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal cdam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails cdam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal dam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails dam TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 ACCESS ttHOBal dat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 364 UPDATE ttBalChgDetails dat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 365 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttHOBal comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 367 STRING "GETBALANCECHGDATA" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 376 STRING "vRateTotal" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 378 STRING "rateTypeInfo" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 379 STRING "borman" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 384 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 386 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 386 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 386 SORT-ACCESS ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 387 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 389 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 391 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate rateType TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 392 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate bor TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate currate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 ACCESS DATA-MEMBER indigo.src.LoanReportGen:ttLcRate rateChngDate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 STRING "&1 (&2)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 404 STRING "GETCOMPRATEDATA" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 413 STRING "vNullValue" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 415 STRING "rateHist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 423 REFERENCE ttRateHistView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 425 SEARCH DATA-MEMBER indigo.src.LoanReportGen:ttRateHistView idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 425 SORT-ACCESS ttRateHistView fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 425 SORT-ACCESS ttRateHistView whn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 443 STRING "GETINTRATECHANGES" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "toDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "toDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 445 STRING "dsLoanDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 68 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 69 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 70 NEW sched.SchedViewer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 71 NEW loan.CompInfoHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 72 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 73 NEW acr.AcrUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 74 NEW loan.LoanCompUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 75 NEW sched.SchedConfUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 76 NEW indigo.src.HistoryView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 77 NEW trx.LoanOpData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 78 NEW trx.BalData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 79 NEW acr.AccrualConfUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 80 NEW rate.RateData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 81 NEW rate.RateManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 82 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 83 NEW lim.LimitData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 102 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 103 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 104 INVOKE sched.SchedViewer:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 105 INVOKE loan.CompInfoHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 106 INVOKE loan.LoanCompUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 107 INVOKE sched.SchedConfUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 108 INVOKE indigo.src.HistoryView:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 109 INVOKE trx.LoanOpData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 110 INVOKE acr.AccrualConfUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 111 INVOKE trx.BalData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 112 NEW core.Cln,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 113 INVOKE rate.RateData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 114 INVOKE rate.RateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 115 INVOKE lim.LimitData:init,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 125 INVOKE indigo.src.LoanReportGen:getClientData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 126 INVOKE indigo.src.LoanReportGen:getCreditData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 127 INVOKE indigo.src.LoanReportGen:getComponentData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 128 INVOKE indigo.src.LoanReportGen:getScheduleData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 129 INVOKE indigo.src.LoanReportGen:getAccrualData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 130 INVOKE indigo.src.LoanReportGen:getBalanceData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 131 INVOKE indigo.src.LoanReportGen:getChangesHistoryData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 132 INVOKE indigo.src.LoanReportGen:getTransactionData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 133 INVOKE indigo.src.LoanReportGen:getBalanceChgData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 134 INVOKE indigo.src.LoanReportGen:getCompRateData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 135 INVOKE indigo.src.LoanReportGen:getIntRateChanges
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 147 INVOKE core.ClnInfo:getCif
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 147 INVOKE core.ClnInfo:getCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 147 INVOKE core.ClnInfo:getFullName
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 147 INVOKE core.ClnInfo:getClnType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 163 INVOKE lim.LimitData:getLimits,OUTPUT TABLE ttLimit
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getContract
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getSts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.Cln:getRespOfcName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.ClnInfo:getCif
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getRegOfcUserName
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.IsoFormat:toString,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getWhn
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getPurpose
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getDisbDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 167 INVOKE loan.LoanUtil:getRepayType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 205 INVOKE sched.SchedViewer:getSchedule,OUTPUT TABLE ttSchView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 216 INVOKE loan.CompInfoHelper:getBal,INPUT character,OUTPUT TABLE ttLoanCompBal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 230 INVOKE acr.AcrUtil:getAcrLines,INPUT int64,OUTPUT TABLE ttAcr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getBaseComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getBamTyp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getCalcMethod,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getHolTr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getBaseAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getPayFrequency,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getPaymentDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getFirstDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getAdvancedPay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getFinalPay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getHolTr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getPriority,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE acr.AccrualConfUtil:getBaseAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE acr.AccrualConfUtil:getAccruingRule,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE acr.AccrualConfUtil:getGracePeriod,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getBookPriority,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getBookRule,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getBookRet,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getLastPayDay,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE sched.SchedConfUtil:getPaymentAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 256 INVOKE loan.LoanCompUtil:getDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 294 INVOKE indigo.src.HistoryView:getHistoryTable,OUTPUT TABLE ttHistoryView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 299 INVOKE core.IsoFormat:toString,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 314 NEW core.User
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 315 NEW core.User
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 318 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 320 INVOKE trx.LoanOpData:getLoanOperations,OUTPUT TABLE ttOh,OUTPUT TABLE ttOl
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 324 INVOKE core.User:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 325 INVOKE core.User:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.User:getUsrFullName
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.IsoFormat:toString,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.User:getUsrFullName
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 328 INVOKE core.IsoFormat:toString,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 360 INVOKE trx.BalData:getBalHistory,OUTPUT TABLE ttHOBal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 380 NEW rate.RateTypeInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 381 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 384 INVOKE rate.RateData:getLcRate,INPUT character,OUTPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 389 INVOKE rate.RateManager:getCompRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 391 INVOKE rate.RateTypeInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 392 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 INVOKE rate.RateTypeInfo:getRateType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 INVOKE rate.Bor:getBorCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 395 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 420 NEW rate.RateHistView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 421 INVOKE rate.RateHistView:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 422 INVOKE rate.RateHistView:collectIntRateHistAll
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 423 INVOKE rate.RateHistView:getRateHistView,OUTPUT TABLE ttRateHistView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 427 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 427 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 427 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/LoanReportGen.cls 427 INVOKE core.IsoFormat:toString,INPUT datetime

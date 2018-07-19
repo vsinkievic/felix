@@ -1,0 +1,512 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 8 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 10 INCLUDE loan/dsAgrPar.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 1 INCLUDE "loan/ttLoan.i &name=""ttAgrLoan"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "ttAgrLoan" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "opndt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "originfdt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "aed" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "opnAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "purpose" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "purposecode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "regparticipant" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "linkedcontractid" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "disbDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "repType" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "agrId" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "syndid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "repacctyp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "issacctyp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "signed" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "apr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "settlementdt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "fundstartdt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "fundenddt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "provType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "agrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "manager" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "disbtype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 2 INCLUDE "loan/ttLoanComp.i &name=""ttAgrComp"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "ttAgrComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "method" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "basecomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "parcomp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bamtyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "debt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "holtr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "paypy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookpy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "agrop" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "stopday" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookrule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookpri" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookret" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "ctprule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "provrule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "overule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "cmptype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "trxmode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 3 INCLUDE "loan/ttLcRate.i &name=""ttAgrRate"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "ttAgrRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "currate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxincr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxdecr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "chgdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "nextDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeC" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeDes" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borC" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateChngDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 4 INCLUDE "loan/ttLcAcr.i &name=""ttAgrAcr"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "ttAgrAcr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "acrbase" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "grc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "rlmaxamt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "freelines" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "exlamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "usebsched" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 5 INCLUDE "loan/ttLcSch.i &name=""ttAgrSch"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "ttAgrSch" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "firstdt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "advc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "baseamt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "final" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "payamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "paypy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "holtr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "payday" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lnmerge" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "freelines" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 6 INCLUDE "loan/ttLacc.i &name=""ttAgrAcc"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "ttAgrAcc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "priority" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "atyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 7 INCLUDE "loan/ttLoanAgr.i &name=""ttLoanAgr"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "ttLoanAgr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "dat" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "num" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "manager" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "limit" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "crclim" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanAgr.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 8 INCLUDE "loan/ttOpenLimit.i &name=""ttAgrOpenLimit"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "ttAgrOpenLimit" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "nr" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttOpenLimit.i 5 STRING "lock" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 9 INCLUDE "mark/ttMarkLink.i &name=""ttAgrMark"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "ttAgrMark" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "doValidate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 10 INCLUDE "core/tCln.i &name=""ttAgrCln"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "ttAgrCln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 11 INCLUDE "lim/ttLimit.i &name=""ttAgrLimit"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "ttAgrLimit" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "alimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "climit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 12 INCLUDE "penint/ttLoanPenint.i &name=""ttAgrPenint"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "ttAgrPenint" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/loan/dsAgrPar.i 17 DATASET dsAgrPar,,,,,ttAgrLoan ttAgrComp ttAgrRate ttAgrAcr ttAgrSch ttAgrAcc ttAgrCln ttAgrMark ttLoanAgr ttAgrOpenLimit ttAgrLimit ttAgrPenint DATALINKS 0
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 11 INCLUDE "mark/ttMarkValue.i &name=""ttMarkValue"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "ttMarkValue" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "readonly" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 12 INCLUDE "mark/ttMarks.i &name=""ttMarks"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "ttMarks" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "mark" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "order" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarks.i 1 STRING "multi" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 13 INCLUDE "mark/ttMarkLink.i &name=""ttMarkLink"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "ttMarkLink" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "doValidate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 15 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 20 STRING "GET-DEFAULT-MARKS" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 24 STRING "GET-MARKS" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 28 STRING "VALIDATE-MARK" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 32 STRING "GET-PROD-MARKS" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 40 STRING "CREATE-MARK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 44 STRING "EDIT-MARK" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 48 STRING "DELETE-MARK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 53 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 63 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 64 STRING "loanTplGenerator" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 65 STRING "markMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 67 STRING "vMarks" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 68 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 70 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 72 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 72 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 72 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 72 SEARCH indigo.product PK_product
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 74 INCLUDE "core/businessErr.i &id='PST0002' &p1=vProduct"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 74 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 80 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 80 REFERENCE ttAgrMark TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 81 REFERENCE ttAgrMark TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 81 REFERENCE ttMarkValue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 84 SEARCH ttMarkValue default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 86 STRING "markID" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 87 STRING "MarkName" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 88 STRING "MarkCode" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 89 STRING "From" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 90 STRING "Value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 93 STRING "defaultMarks" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 99 PROCEDURE getDefaultMarks,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 99 STRING "GETDEFAULTMARKS" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 103 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 104 STRING "markMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 105 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 106 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 107 STRING "vMultiVal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 108 STRING "vProd" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 110 STRING "vMarks" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 111 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 112 STRING "vMarkValues" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 114 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 119 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 126 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 126 REFERENCE ttMarkValue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 129 SEARCH ttMarkValue default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 129 SORT-ACCESS ttMarkValue par TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 132 STRING "isMulti" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 138 STRING "markID" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 139 STRING "MarkName" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 140 STRING "MarkCode" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 141 STRING "From" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 142 STRING "readonly" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 150 STRING "Value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 155 STRING "Value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 161 STRING "marks" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 168 PROCEDURE getMarks,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 168 STRING "GETMARKS" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 171 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 172 STRING "vMarkCode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 173 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 174 STRING "vMarkValues" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 178 STRING "POST.marks.product" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 179 STRING "POST.marks.MarkCode" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 180 STRING "POST.marks.value" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 187 PROCEDURE validateMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 187 STRING "VALIDATEMARK" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 190 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 191 STRING "markSetup" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 192 STRING "markManager" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 194 STRING "vMarks" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 195 STRING "vMarkValues" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 196 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 197 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 199 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 201 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 206 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 214 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 214 SEARCH indigo.product PK_product
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 216 INCLUDE "core/businessErr.i &id='PST0002' &p1=vProduct"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 216 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 221 REFERENCE ttMarks TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 226 SEARCH ttMarks idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 226 SORT-ACCESS ttMarks mark TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 226 SORT-ACCESS ttMarks order TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 230 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 235 STRING "mark" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 236 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 237 STRING "multival" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 243 STRING "values" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 247 STRING "prodMarks" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 252 PROCEDURE getProdMarks,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 252 STRING "GETPRODMARKS" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 255 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 256 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 257 STRING "vMarkVal" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 258 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 259 STRING "vOpenDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 260 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 262 STRING "markMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 263 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 265 STRING "vMarkValues" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 266 STRING "vMarkValue" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 268 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 270 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 272 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 273 STRING "GET.mark" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 274 STRING "GET.fdt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 280 INCLUDE "core/businessErr.i &id='LON0044' &p1=vOpenDate"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 286 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 294 STRING "POST.marks.values" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 296 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 298 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 306 PROCEDURE editMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 306 STRING "EDITMARK" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 310 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 311 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 312 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 313 STRING "vMarkVal" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 314 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 315 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 317 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 318 STRING "markMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 319 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 321 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 322 STRING "GET.mark" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 323 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 PROCEDURE deleteMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "DELETEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 344 STRING "dsAgrPar" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 17 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 58 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 59 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 70 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 77 NEW setup.LoanTplGenerator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 78 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 80 INVOKE setup.LoanTplGenerator:prepMarkTpl,INPUT int64,OUTPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 81 INVOKE mark.MarkManager:transformMarkTT,INPUT TABLE ttMarkLink,OUTPUT TABLE ttMarkValue
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 83 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 85 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 86 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 87 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 88 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 89 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 90 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 91 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 93 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 96 DELETE-INSTANCE setup.LoanTplGenerator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 97 DELETE-INSTANCE mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 114 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 116 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 117 INVOKE mark.MarkManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 118 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 119 INVOKE mark.MarkManager:getMarksTable,OUTPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 121 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 122 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 123 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 124 INVOKE loan.LoanUtil:getProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 126 INVOKE mark.MarkManager:transformMarkTT,INPUT TABLE ttMarkLink,OUTPUT TABLE ttMarkValue
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 128 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 132 INVOKE mark.MarkSetup:getAttribute,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 136 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 138 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 139 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 140 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 141 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 142 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 142 INVOKE mark.MarkManager:isMarkReadOnly,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 142 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 144 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 148 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 150 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 155 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 158 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 161 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 164 DELETE-INSTANCE mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 165 DELETE-INSTANCE mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 166 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 176 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 178 INVOKE indigo.src.JsonReader:getChar,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 179 INVOKE indigo.src.JsonReader:getChar,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 180 INVOKE indigo.src.JsonReader:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 182 INVOKE mark.MarkSetup:validateMark,INPUT character,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 185 DELETE-INSTANCE mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 201 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 206 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 208 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 209 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 211 INVOKE loan.LoanUtil:getProduct
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 219 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 220 INVOKE mark.MarkSetup:listAssignedMarkValues,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 221 INVOKE mark.MarkSetup:getMarksTable,OUTPUT TABLE ttMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 223 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 225 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 230 INVOKE mark.MarkManager:isMarkReadOnly,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 234 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 235 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 236 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 237 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 238 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 240 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 243 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 244 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 247 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 250 DELETE-INSTANCE mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 269 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 272 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 273 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 274 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 276 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 277 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 278 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 283 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 284 INVOKE mark.MarkManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 286 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 287 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 289 INVOKE mark.MarkManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 290 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 292 INVOKE mark.MarkManager:deleteMarkAllValues,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 294 INVOKE indigo.src.JsonReader:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 297 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 298 INVOKE mark.MarkManager:addMarkValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 298 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 301 INVOKE mark.MarkManager:saveMarkSingle,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 304 DELETE-INSTANCE mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 321 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 322 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 323 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 325 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 326 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 328 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 329 INVOKE mark.MarkManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 331 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 332 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 334 INVOKE mark.MarkManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 335 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 336 INVOKE mark.MarkManager:canDeleteMark,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 336 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 337 INVOKE mark.MarkManager:deleteMarkAllValues,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 339 INVOKE mark.MarkManager:saveMarkSingle,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siMarks.p 342 DELETE-INSTANCE mark.MarkManager

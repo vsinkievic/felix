@@ -1,0 +1,236 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 11 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 13 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 15 INCLUDE "repmnt/ttCompList.i &name=""ttCompList"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "repay" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "currdbt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "priText" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 16 INCLUDE "acr/ttAcr.i &name=""ttAcr"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "ttAcr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "rdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "tdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "frozen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcr.i 1 STRING "totamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 19 STRING "GET-COMPONENTS" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 23 STRING "GET-BALANCES" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 27 STRING "GET-PREVIEW" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 31 STRING "SET-AMOUNT" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 36 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 41 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 42 STRING "acrSI" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 43 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 44 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 46 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 51 REFERENCE ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 54 SEARCH ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 56 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 57 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 60 STRING "compList" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 61 PROCEDURE getComponents,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 61 STRING "GETCOMPONENTS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 64 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 65 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 67 STRING "vAccrued" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 68 STRING "vPaid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 69 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 70 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 71 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 72 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 73 STRING "vAmtSuggest" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 75 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 77 STRING "siUtil" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 78 STRING "debtMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 79 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 80 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 81 STRING "annulDbt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 83 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 84 STRING "POST.comp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 109 STRING "dateFrom" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 110 STRING "dateTo" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 111 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 114 STRING "accrued" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 115 STRING "paid" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 116 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 117 STRING "balance" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 118 STRING "dateFrom" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 119 STRING "item" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 120 PROCEDURE getBalances,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 120 STRING "GETBALANCES" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 123 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 124 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 125 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 126 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 127 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 128 STRING "vTotal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 129 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 130 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 131 STRING "acrChg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 133 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 134 STRING "POST.comp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 135 STRING "POST.amt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 136 STRING "POST.fdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 137 STRING "POST.tdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 145 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 149 SEARCH ttAcr toDate TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 151 STRING "fromDate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 152 STRING "toDate" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 153 STRING "days" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 154 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 155 STRING "rate" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 156 STRING "status" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 157 STRING "lineLengthReal" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 158 STRING "lineLengthTheory" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 159 STRING "yearlyBaseDay" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 160 STRING "totalAmount" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 161 STRING "frozen" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 165 STRING "accruals" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 169 STRING "totalAmount" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 170 STRING "aggregates" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 171 PROCEDURE getPreview,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 171 STRING "GETPREVIEW" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 174 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 175 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 176 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 177 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 178 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 180 STRING "acrChg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 182 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 184 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 186 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 187 STRING "POST.comp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 188 STRING "POST.amt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 189 STRING "POST.fdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 190 STRING "POST.tdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 195 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 202 PROCEDURE setAmount,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 202 STRING "SETAMOUNT" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 207 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 207 STRING "toDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 46 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 48 NEW indigo.src.AcrSIUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 49 INVOKE indigo.src.AcrSIUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 51 INVOKE indigo.src.AcrSIUtil:getAccruableComps,OUTPUT TABLE ttComp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 53 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 56 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 57 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 58 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 60 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 83 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 84 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 86 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 87 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 89 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 90 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 92 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 93 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 95 NEW indigo.src.AcrSIUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 96 INVOKE indigo.src.AcrSIUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 98 NEW dbt.AnnulDebt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 99 INVOKE dbt.AnnulDebt:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 101 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 102 INVOKE dbt.DebtManager:getAccruedAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 103 INVOKE trx.Book:getCompPaidAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 105 INVOKE dbt.AnnulDebt:suggestFdt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 106 INVOKE dbt.AnnulDebt:suggestTdt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 107 INVOKE dbt.AnnulDebt:suggestAmount
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 109 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 110 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 111 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 113 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 114 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 115 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 116 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 117 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 118 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 119 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 133 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 134 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 135 INVOKE indigo.src.JsonReader:getDec,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 136 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 137 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 139 NEW acr.AcrChanger
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 140 INVOKE acr.AcrChanger:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 141 INVOKE acr.AcrChanger:loadAccruals,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 143 INVOKE acr.AcrChanger:setPeriodAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 145 INVOKE acr.AcrChanger:getAcrTT,OUTPUT TABLE ttAcr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 147 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 150 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 151 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 152 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 153 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 154 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 155 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 156 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 157 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 158 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 159 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 160 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 161 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 163 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 165 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 167 INVOKE acr.AcrChanger:getSumAcr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 168 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 169 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 170 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 183 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 186 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 187 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 188 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 189 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 190 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 192 NEW acr.AcrChanger
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 193 INVOKE acr.AcrChanger:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 195 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 196 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 198 INVOKE acr.AcrChanger:loadAccruals,INPUT date,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 199 INVOKE acr.AcrChanger:setPeriodAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 201 INVOKE acr.AcrChanger:saveChanges,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 205 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAcrAmountChg.p 206 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject

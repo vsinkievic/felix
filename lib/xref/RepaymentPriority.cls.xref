@@ -1,0 +1,86 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 13 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 15 CLASS indigo.src.RepaymentPriority,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 15 STRING "indigo.src.RepaymentPriority" 28 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 16 INCLUDE "repmnt/ttCompList.i &visibility=""protected"" &name=ttCompList"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "repay" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "currdbt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "priText" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttCompList
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 18 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 26 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 27 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 28 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 28 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 30 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 30 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 33 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 33 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 41 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 42 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 43 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 43 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 45 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 45 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 47 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 48 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 48 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 58 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 58 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 59 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 59 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 61 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 63 STRING "debtMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 69 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 69 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 69 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 69 SORT-ACCESS indigo.loancomp pri
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 72 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 74 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 74 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 74 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 76 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 78 CREATE DATA-MEMBER indigo.src.RepaymentPriority:ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 79 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 79 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 79 UPDATE DATA-MEMBER indigo.src.RepaymentPriority:ttCompList comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 80 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 80 UPDATE DATA-MEMBER indigo.src.RepaymentPriority:ttCompList name TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 81 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList pri TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 81 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 81 UPDATE DATA-MEMBER indigo.src.RepaymentPriority:ttCompList pri TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 82 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList priText TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 82 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 82 UPDATE DATA-MEMBER indigo.src.RepaymentPriority:ttCompList priText TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 85 METHOD PUBLIC,,,,,getPrior,void,OUTPUT ttCompList TABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 85 STRING "GETPRIOR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 95 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 100 SEARCH DATA-MEMBER indigo.src.RepaymentPriority:ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 101 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 101 ACCESS DATA-MEMBER indigo.src.RepaymentPriority:ttCompList pri TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 104 METHOD PUBLIC,,,,,setPrior,void,INPUT ttCompList TABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 104 STRING "SETPRIOR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 105 CONSTRUCTOR PUBLIC,,,,RepaymentPriority,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 105 STRING "REPAYMENTPRIORITY" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 105 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 47 INVOKE indigo.src.RepaymentPriority:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 64 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 65 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 72 INVOKE dbt.DebtManager:canHaveDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 96 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 97 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/RepaymentPriority.cls 101 INVOKE loan.LoanManager:chgPayPri,INPUT character,INPUT integer

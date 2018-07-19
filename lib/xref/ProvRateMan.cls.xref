@@ -1,0 +1,165 @@
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 6 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 14 CLASS rate.ProvRateMan,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 14 STRING "rate.ProvRateMan" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 15 INCLUDE "loan/ttLcProv.i &visibility=""protected"" &name=""ttLcProv"""
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "ttLcProv" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcProv.i 5 DATA-MEMBER PROTECTED,,TEMPTABLE,ttLcProv
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 17 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 20 CONSTRUCTOR PUBLIC,,,,ProvRateMan,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 20 STRING "PROVRATEMAN" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 23 DESTRUCTOR PUBLIC,,,,ProvRateMan,void,
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 23 STRING "PROVRATEMAN" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 30 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 31 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 32 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 32 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 34 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 34 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 38 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 38 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 45 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 46 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 47 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 47 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 49 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 49 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 52 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 53 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 53 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 61 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 62 STRING "vProvRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 63 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 63 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 65 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 65 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 65 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 68 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 68 ACCESS indigo.loancomp rate 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 71 METHOD PUBLIC,,,,,getCurrProvRate,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 71 STRING "GETCURRPROVRATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 80 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 80 STRING "pOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 81 STRING "vProvRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 82 STRING "lcprov" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 82 STRING "lcprov" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 84 ACCESS indigo.lcprov lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 84 ACCESS indigo.lcprov comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 84 ACCESS indigo.lcprov overdue 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 84 SEARCH indigo.lcprov IDX_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 88 REFERENCE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 88 ACCESS indigo.lcprov rate 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 93 METHOD PUBLIC,,,,,getSettProvRate,decimal,INPUT pComp CHARACTER,INPUT pOverdue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 93 STRING "GETSETTPROVRATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 100 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 104 STRING "lcprov" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 104 STRING "lcprov" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 104 ACCESS indigo.lcprov lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 104 ACCESS indigo.lcprov comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 104 SEARCH indigo.lcprov IDX_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 107 CREATE DATA-MEMBER rate.ProvRateMan:ttLcProv TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 108 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 108 ACCESS indigo.lcprov comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 108 UPDATE DATA-MEMBER rate.ProvRateMan:ttLcProv comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 109 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv overdue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 109 ACCESS indigo.lcprov overdue 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 109 UPDATE DATA-MEMBER rate.ProvRateMan:ttLcProv overdue TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 110 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 110 ACCESS indigo.lcprov rate 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 110 UPDATE DATA-MEMBER rate.ProvRateMan:ttLcProv rate TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 112 METHOD PUBLIC,,,,,getRateList,void,INPUT pComp CHARACTER,OUTPUT ttLcProv TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 112 STRING "GETRATELIST" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 120 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 120 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 121 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 121 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 123 INCLUDE "core/businessErr.i &id='PRV0002'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 125 INCLUDE "core/businessErr.i &id='PRV0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 128 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 128 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 128 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 131 INCLUDE "core/businessErr.i &id='PRV0005' &1=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 131 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 134 INCLUDE "core/businessErr.i &id='PRV0004' &1=pComp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 134 ACCESS indigo.loancomp method 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 134 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 137 METHOD PUBLIC,,,,,validateRate,void,INPUT pComp CHARACTER,INPUT pRate DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 137 STRING "VALIDATERATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 146 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 146 STRING "pNewRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 147 STRING "rateMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 154 METHOD PUBLIC,,,,,chgProvRate,void,INPUT pComp CHARACTER,INPUT pNewRate DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 154 STRING "CHGPROVRATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 161 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 163 STRING "lcprov" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 163 STRING "lcprov" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 167 SEARCH DATA-MEMBER rate.ProvRateMan:ttLcProv default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 ACCESS indigo.lcprov lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 ACCESS indigo.lcprov comp 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 ACCESS indigo.lcprov overdue 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv overdue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 168 SEARCH indigo.lcprov IDX_ovd
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 172 REFERENCE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 174 INCLUDE "core/businessErr.i &id='LON0075' &p1=prLid &p2=prLid &p3=ttLcProv.comp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 174 REFERENCE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0075" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 176 INCLUDE "core/businessErr.i &id='LON0076' &p1=prLid &p2=prLid &p3=ttLcProv.comp"
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 176 REFERENCE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER rate.ProvRateMan:ttLcProv comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0076" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 178 CREATE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 180 ACCESS indigo.lcprov lid 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 180 UPDATE indigo.lcprov lid
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 REFERENCE DATA-MEMBER rate.ProvRateMan:ttLcProv lid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 REFERENCE DATA-MEMBER rate.ProvRateMan:ttLcProv id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 REFERENCE ttLcProv TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 REFERENCE indigo.lcprov 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 ACCESS ttLcProv comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 UPDATE indigo.lcprov comp
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 ACCESS ttLcProv overdue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 UPDATE indigo.lcprov overdue
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 ACCESS ttLcProv rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 182 UPDATE indigo.lcprov rate
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 184 ACCESS indigo.lcprov id 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 185 STRING "id,lid,comp,whn,who" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 187 STRING "SETLCPROV" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 189 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 52 INVOKE rate.ProvRateMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 149 NEW rate.RateManager
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 150 INVOKE rate.RateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 152 INVOKE rate.ProvRateMan:validateRate,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 153 INVOKE rate.RateManager:chgLoanCompRate,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 165 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 184 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls /u1/env/bankcp/indigo/svn-trunk/system/rate/ProvRateMan.cls 185 INVOKE core.History:saveSet,INPUT widget-handle,INPUT character,INPUT character

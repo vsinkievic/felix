@@ -1,0 +1,306 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 6 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 8 INCLUDE "mark/ttSetupMarks.i &name=""ttSetupMarks"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "ttSetupMarks" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "mark" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "ismandatory" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "ismulti" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "isreadonly" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "valprior" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "valcode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "valname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttSetupMarks.i 1 STRING "defval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 9 INCLUDE "mark/ttMarkVal.i &name=""ttMarkVal"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkVal.i 1 STRING "ttMarkVal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkVal.i 1 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkVal.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkVal.i 1 STRING "valname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 12 STRING "GET-MARKS-LIST" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 14 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 16 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 19 STRING "CREATE-MARK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 23 STRING "UPDATE-MARK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 27 STRING "DELETE-MARK" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 31 STRING "UPDATE-MARK-VALUE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 35 STRING "ASSIGN-MARK-TO-PROD" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 39 STRING "UPDATE-PROD-MARK" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 43 STRING "DELETE-PROD-MARK" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 47 STRING "GET-MARKS-FOR-PROD" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 51 STRING "GET-MARKS-FOR-COMP" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 57 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 67 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 69 STRING "prodService" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 70 STRING "vProductInfo" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 75 STRING "Product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 76 STRING "ProductName" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 77 STRING "ProductGroup" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 78 STRING "ProductInfo" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 79 PROCEDURE getProductInfo,,INPUT pProduct CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 79 STRING "GETPRODUCTINFO" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 82 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 84 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 85 STRING "prodService" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 87 STRING "vProductInfo" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 88 STRING "vMarks" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 89 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 90 STRING "vMarkValues" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 91 STRING "vMarkValue" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 98 REFERENCE ttSetupMarks TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 101 REFERENCE ttSetupMarks TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 104 STRING "bSetupMarks" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 107 SEARCH ttSetupMarks idx1 TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 107 SORT-ACCESS ttSetupMarks mark TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 107 SORT-ACCESS ttSetupMarks valprior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 113 STRING "MarkName" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 114 STRING "MarkCode" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 115 STRING "MarkIsMandatory" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 116 STRING "MarkIsMulti" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 117 STRING "MarkIsReadOnly" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 118 STRING "MarkDefault" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 124 STRING "Priority" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 125 STRING "Code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 126 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 132 STRING "ValueList" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 138 STRING "MarksSetup" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 139 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 139 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 139 PROCEDURE getSetupMarks,,INPUT pProduct CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 139 STRING "GETSETUPMARKS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 142 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 144 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 145 STRING "vMarkName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 146 STRING "vIsReadOnly" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 147 STRING "vIsMandatory" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 148 STRING "vIsMulti" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 152 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 153 STRING "POST.setupmarks.MarkName" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 154 STRING "POST.setupmarks.MarkIsReadOnly" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 155 STRING "POST.setupmarks.MarkIsMandatory" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 156 STRING "POST.setupmarks.MarkIsMulti" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 158 INCLUDE "core/businessErr.i &id='MRK0007' &p1=""vMark"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 161 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 161 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 162 PROCEDURE createMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 162 STRING "CREATEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 165 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 167 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 168 STRING "vMarkName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 169 STRING "vIsReadOnly" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 170 STRING "vIsMandatory" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 171 STRING "vIsMulti" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 175 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 176 STRING "POST.setupmarks.MarkName" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 177 STRING "POST.setupmarks.MarkIsReadOnly" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 178 STRING "POST.setupmarks.MarkIsMandatory" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 179 STRING "POST.setupmarks.MarkIsMulti" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 181 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 181 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 182 PROCEDURE updateMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 182 STRING "UPDATEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 185 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 187 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 191 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 194 PROCEDURE deleteMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 194 STRING "DELETEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 197 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 198 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 200 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 201 STRING "vArrVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 202 STRING "vReader" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 206 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 211 STRING "POST.setupmarks.ValueList" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 215 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 217 CREATE ttMarkVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 218 STRING "pri" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 219 STRING "val" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 220 STRING "valName" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 224 REFERENCE ttMarkVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 225 PROCEDURE updateMarkValue,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 225 STRING "UPDATEMARKVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 228 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 229 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 230 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 232 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 233 STRING "vArrVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 234 STRING "vReader" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 238 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 239 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 247 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 250 STRING "POST.setupmarks.ValueList" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 252 INCLUDE "core/businessErr.i &id='MRK0018'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0018" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 255 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 257 STRING "Code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 262 PROCEDURE assignMarkToProd,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 262 STRING "ASSIGNMARKTOPROD" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 265 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 266 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 268 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 269 STRING "vIsReadOnly" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 270 STRING "vIsMandatory" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 271 STRING "vIsMulti" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 272 STRING "vDefVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 276 STRING "POST.setupmarks.MarkIsReadOnly" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 277 STRING "POST.setupmarks.MarkIsMandatory" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 278 STRING "POST.setupmarks.MarkIsMulti" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 279 STRING "POST.setupmarks.MarkDefault" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 284 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 286 STRING "isMandatory" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 288 STRING "isMulti" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 291 PROCEDURE setupProdMark,,INPUT pProduct CHARACTER,INPUT pMark CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 291 STRING "SETUPPRODMARK" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 294 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 295 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 296 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 298 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 299 STRING "vArrVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 300 STRING "vReader" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 304 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 305 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 310 STRING "POST.setupmarks.ValueList" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 314 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 316 CREATE ttMarkVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 317 STRING "Code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 325 REFERENCE ttMarkVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 329 PROCEDURE updateProdMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 329 STRING "UPDATEPRODMARK" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 332 STRING "markSet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 333 STRING "vProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 334 STRING "vMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 338 STRING "GET.product" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 339 STRING "POST.setupmarks.MarkCode" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 342 PROCEDURE deleteProdMark,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 342 STRING "DELETEPRODMARK" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 342 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 16 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 62 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 63 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 72 NEW setup.ProductService
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 74 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 75 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 76 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 76 INVOKE setup.ProductService:getProductName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 77 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 77 INVOKE setup.ProductService:getProductType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 78 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 93 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 94 NEW setup.ProductService
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 98 INVOKE mark.MarkSetup:getProdSetupMarks,INPUT character,OUTPUT TABLE ttSetupMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 101 INVOKE mark.MarkSetup:getSetupMarks,OUTPUT TABLE ttSetupMarks
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 106 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 112 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 113 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 114 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 115 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 116 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 117 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 118 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 119 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 123 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 124 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 125 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 126 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 127 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 132 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 134 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 138 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 150 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 152 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 153 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 154 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 155 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 156 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 158 INVOKE mark.MarkSetup:doesMarkExist,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 161 INVOKE mark.MarkSetup:createMark,INPUT character,INPUT character,INPUT character,INPUT character,INPUT logical,INPUT logical,INPUT logical,INPUT logical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 173 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 175 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 176 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 177 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 178 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 179 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 181 INVOKE mark.MarkSetup:createMark,INPUT character,INPUT character,INPUT character,INPUT character,INPUT logical,INPUT logical,INPUT logical,INPUT logical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 189 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 191 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 193 INVOKE mark.MarkSetup:deleteMark,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 204 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 206 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 210 NEW indigo.src.JsonReader
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 211 INVOKE indigo.src.JsonReader:getJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 216 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 216 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 218 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 219 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 220 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 224 INVOKE mark.MarkSetup:updateMarkValues,INPUT character,INPUT TABLE ttMarkVal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 236 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 238 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 239 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 241 INVOKE mark.MarkSetup:canAssignToProd,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 247 INVOKE mark.MarkSetup:assignMark,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 249 NEW indigo.src.JsonReader
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 250 INVOKE indigo.src.JsonReader:getJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 256 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 256 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 257 INVOKE mark.MarkSetup:addPossibleValue,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 257 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 274 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 276 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 277 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 278 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 279 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 284 INVOKE mark.MarkSetup:setAttribute,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 286 INVOKE mark.MarkSetup:setAttribute,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 288 INVOKE mark.MarkSetup:setAttribute,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 290 INVOKE mark.MarkSetup:setDefaultValue,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 302 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 304 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 305 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 309 NEW indigo.src.JsonReader
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 310 INVOKE indigo.src.JsonReader:getJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 315 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 315 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 317 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 325 INVOKE mark.MarkSetup:updateProdMarkValues,INPUT character,INPUT character,INPUT TABLE ttMarkVal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 336 NEW mark.MarkSetup
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 338 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 339 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siSetupMarks.p 341 INVOKE mark.MarkSetup:detachFromProd,INPUT character,INPUT character

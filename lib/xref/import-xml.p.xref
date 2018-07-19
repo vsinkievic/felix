@@ -1,0 +1,798 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 9 STRING "p-file" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 10 STRING "p-cleanup" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 15 STRING "p-opt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 16 STRING "p-succ" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 19 INCLUDE indigo/src/wFunc.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 1 STRING "vModuleId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 2 STRING "vPageId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 3 STRING "vMenuId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 4 STRING "vUserId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 5 STRING "vRoleId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 6 STRING "vPageMenuId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 7 STRING "vPageMenuGroupId" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 10 STRING "pDtStr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 12 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 13 STRING "vYear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 14 STRING "vMonth" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 15 STRING "vDay" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 16 STRING "vTime" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 17 STRING "vSecStr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 18 STRING "vHrs" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 19 STRING "vMins" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 20 STRING "vSecs" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 21 STRING "vMsecs" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 28 STRING "T" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 29 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 30 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 31 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 34 FUNCTION isoDt2Date,date,INPUT pDtStr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 34 STRING "ISODT2DATE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 36 STRING "pDtStr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 38 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 39 STRING "vYear" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 40 STRING "vMonth" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 41 STRING "vDay" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 42 STRING "vTime" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 43 STRING "vSecStr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 44 STRING "vHrs" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 45 STRING "vMins" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 46 STRING "vSecs" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 47 STRING "vMsecs" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 54 STRING "T" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 55 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 56 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 57 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 59 STRING "T" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 61 STRING "T" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 62 STRING ":" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 63 STRING ":" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 65 STRING ":" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 66 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 67 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 67 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 72 FUNCTION isoDt2Datetime,datetime,INPUT pDtStr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 72 STRING "ISODT2DATETIME" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 104 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 104 STRING "pDesc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 104 STRING "pSystemId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 109 STRING "wmodule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 109 STRING "wmodule" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 109 REFERENCE indigo.wmodule 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 111 ACCESS indigo.wmodule name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 111 ACCESS indigo.wmodule descr 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 111 SEARCH indigo.wmodule moduleid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 112 REFERENCE indigo.wmodule 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 113 CREATE indigo.wmodule 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 114 ACCESS indigo.wmodule name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 114 UPDATE indigo.wmodule name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 115 ACCESS indigo.wmodule descr 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 115 UPDATE indigo.wmodule descr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 116 ACCESS indigo.wmodule moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 116 UPDATE indigo.wmodule moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 119 ACCESS indigo.wmodule moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 121 FUNCTION wModule_create,integer,INPUT pName CHARACTER,INPUT pDesc CHARACTER,INPUT pSystemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 121 STRING "WMODULE_CREATE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 123 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 123 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 123 STRING "pHeader" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 123 STRING "pDescription" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 129 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 129 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 129 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 130 STRING "bwpage" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 130 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 130 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 133 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 133 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 133 SEARCH indigo.wpage moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 134 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 135 STRING "MENU" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 136 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 136 ACCESS indigo.wpage type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 136 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 136 STRING "MENU" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 136 SEARCH indigo.wpage moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 ACCESS indigo.wpage type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 STRING "module allready have page with type='&1', moduleid=&2  existing='&3'  new='&4'  @#140" 85 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 144 CREATE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 145 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 145 UPDATE indigo.wpage moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 146 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 146 UPDATE indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 147 ACCESS indigo.wpage head 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 147 UPDATE indigo.wpage head
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 148 ACCESS indigo.wpage descr 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 148 UPDATE indigo.wpage descr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 149 ACCESS indigo.wpage type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 149 UPDATE indigo.wpage type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 152 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 154 FUNCTION wPage_create,integer,INPUT pName CHARACTER,INPUT pType CHARACTER,INPUT pHeader CHARACTER,INPUT pDescription CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 154 STRING "WPAGE_CREATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 156 STRING "pHelpText" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 159 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 159 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 159 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 159 SEARCH indigo.wpage pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 160 ACCESS indigo.wpage helptxt 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 160 UPDATE indigo.wpage helptxt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 161 FUNCTION wPage_setHelp,logical,INPUT pHelpText CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 161 STRING "WPAGE_SETHELP" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 163 STRING "pToPage" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 168 STRING "wtopage" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 168 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 168 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 170 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 170 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 STRING "wmodulelink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 STRING "wmodulelink" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 STRING "PAGE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 172 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 177 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 178 CREATE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 179 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 179 UPDATE indigo.wmodulelink fromid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 180 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 180 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 180 UPDATE indigo.wmodulelink toid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 181 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 181 STRING "PAGE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 181 UPDATE indigo.wmodulelink type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 183 FUNCTION wPageLink_create,logical,INPUT pToPage CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 183 STRING "WPAGELINK_CREATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 185 STRING "pMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 185 STRING "pVersion" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 185 STRING "pParamList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 STRING "wparam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 STRING "wparam" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 ACCESS indigo.wparam pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 ACCESS indigo.wparam method 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 ACCESS indigo.wparam ver 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 191 SEARCH indigo.wparam pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 194 REFERENCE indigo.wparam 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 195 CREATE indigo.wparam 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 196 ACCESS indigo.wparam pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 196 UPDATE indigo.wparam pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 197 ACCESS indigo.wparam method 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 197 UPDATE indigo.wparam method
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 198 ACCESS indigo.wparam ver 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 198 UPDATE indigo.wparam ver
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 199 ACCESS indigo.wparam parlist 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 199 UPDATE indigo.wparam parlist
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 201 FUNCTION wParam_create,logical,INPUT pMethod CHARACTER,INPUT pVersion INTEGER,INPUT pParamList CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 201 STRING "WPARAM_CREATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 204 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 204 STRING "pDescription" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 204 STRING "pSystemId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 209 STRING "wperm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 209 REFERENCE indigo.wperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 210 STRING "wmoduleperm" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 210 STRING "wmoduleperm" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 210 REFERENCE indigo.wmoduleperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 212 ACCESS indigo.wperm name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 212 SEARCH indigo.wperm perm WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 214 REFERENCE indigo.wperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 215 CREATE indigo.wperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 216 ACCESS indigo.wperm name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 216 UPDATE indigo.wperm name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 217 ACCESS indigo.wperm descr 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 217 UPDATE indigo.wperm descr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 218 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 218 UPDATE indigo.wperm permid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 222 ACCESS indigo.wmoduleperm moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 222 ACCESS indigo.wmoduleperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 222 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 222 SEARCH indigo.wmoduleperm moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 224 REFERENCE indigo.wmoduleperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 226 CREATE indigo.wmoduleperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 227 ACCESS indigo.wmoduleperm moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 227 UPDATE indigo.wmoduleperm moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 228 ACCESS indigo.wmoduleperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 228 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 228 UPDATE indigo.wmoduleperm permid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 230 FUNCTION wModulePerm_create,logical,INPUT pName CHARACTER,INPUT pDescription CHARACTER,INPUT pSystemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 230 STRING "WMODULEPERM_CREATE" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 232 STRING "pObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 232 STRING "pContent" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 237 STRING "wcontent" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 237 STRING "wcontent" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 237 ACCESS indigo.wcontent obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 237 ACCESS indigo.wcontent pcode 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 237 SEARCH indigo.wcontent obj
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 238 REFERENCE indigo.wcontent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 240 CREATE indigo.wcontent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 241 ACCESS indigo.wcontent obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 241 UPDATE indigo.wcontent obj
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 242 ACCESS indigo.wcontent pcode 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 242 UPDATE indigo.wcontent pcode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 245 FUNCTION wContent_create,logical,INPUT pObject CHARACTER,INPUT pContent CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 245 STRING "WCONTENT_CREATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 248 STRING "pObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 248 STRING "pOperation" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 248 STRING "pMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 248 STRING "pVersion" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 248 STRING "pPermissionName" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 255 STRING "wobj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 255 STRING "wobj" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 255 REFERENCE indigo.wobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 256 STRING "wperm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 256 REFERENCE indigo.wperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 258 ACCESS indigo.wperm name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 258 SEARCH indigo.wperm perm WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 260 ACCESS indigo.wobj pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 260 ACCESS indigo.wobj obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 260 ACCESS indigo.wobj oper 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 260 ACCESS indigo.wobj method 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 260 SEARCH indigo.wobj pagemethod
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 263 REFERENCE indigo.wobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 264 CREATE indigo.wobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 265 ACCESS indigo.wobj pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 265 UPDATE indigo.wobj pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 266 ACCESS indigo.wobj obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 266 UPDATE indigo.wobj obj
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 267 ACCESS indigo.wobj oper 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 267 UPDATE indigo.wobj oper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 268 ACCESS indigo.wobj ver 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 268 UPDATE indigo.wobj ver
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 269 ACCESS indigo.wobj method 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 269 UPDATE indigo.wobj method
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 270 ACCESS indigo.wobj permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 270 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 270 UPDATE indigo.wobj permid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 272 FUNCTION wObj_create,logical,INPUT pObject CHARACTER,INPUT pOperation CHARACTER,INPUT pMethod CHARACTER,INPUT pVersion INTEGER,INPUT pPermissionName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 272 STRING "WOBJ_CREATE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 274 STRING "pTemplateName" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 274 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 274 STRING "pHolder" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 279 STRING "wtempl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 279 STRING "wtempl" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 279 REFERENCE indigo.wtempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 280 STRING "wpagetempl" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 280 STRING "wpagetempl" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 280 REFERENCE indigo.wpagetempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 282 ACCESS indigo.wtempl name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 282 SEARCH indigo.wtempl templateid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 283 REFERENCE indigo.wtempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 284 CREATE indigo.wtempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 285 ACCESS indigo.wtempl name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 285 UPDATE indigo.wtempl name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 286 ACCESS indigo.wtempl type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 286 UPDATE indigo.wtempl type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 289 ACCESS indigo.wpagetempl templid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 289 ACCESS indigo.wtempl templid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 289 ACCESS indigo.wpagetempl pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 289 ACCESS indigo.wpagetempl holder 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 289 SEARCH indigo.wpagetempl tempmapid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 293 REFERENCE indigo.wpagetempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 295 CREATE indigo.wpagetempl 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 296 ACCESS indigo.wpagetempl templid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 296 ACCESS indigo.wtempl templid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 296 UPDATE indigo.wpagetempl templid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 297 ACCESS indigo.wpagetempl pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 297 UPDATE indigo.wpagetempl pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 298 ACCESS indigo.wpagetempl holder 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 298 UPDATE indigo.wpagetempl holder
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 300 FUNCTION wPageTempl_create,logical,INPUT pTemplateName CHARACTER,INPUT pType CHARACTER,INPUT pHolder CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 300 STRING "WPAGETEMPL_CREATE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 302 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 305 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 305 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 305 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 307 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 307 SEARCH indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 309 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 310 CREATE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 311 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 311 UPDATE indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 312 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 312 UPDATE indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 314 FUNCTION wPagePath_create,logical,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 314 STRING "WPAGEPATH_CREATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 317 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 317 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 321 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 321 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 321 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 322 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 322 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 322 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 324 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 324 SEARCH indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 326 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 327 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 327 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 329 CREATE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 330 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 330 UPDATE indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 331 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 331 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 331 UPDATE indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 333 FUNCTION wPath_create,logical,INPUT pPageName CHARACTER,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 333 STRING "WPATH_CREATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pStatus" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 335 STRING "pSystemId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 343 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 343 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 343 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 344 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 344 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 344 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 345 STRING "wlastmenu" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 345 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 345 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 347 STRING "vPrior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 349 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 349 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 349 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 349 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 349 SEARCH indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 355 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 356 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 356 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 356 SEARCH indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 358 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 362 CREATE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 363 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 363 UPDATE indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 364 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 364 UPDATE indigo.wmenu sts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 365 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 365 UPDATE indigo.wmenu type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 366 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 366 UPDATE indigo.wmenu prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 368 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 368 UPDATE indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 369 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 369 UPDATE indigo.wmenu menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 374 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 374 SEARCH indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 375 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 375 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 375 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 380 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 383 FUNCTION wMenu_create,integer,INPUT pName CHARACTER,INPUT pParentId INTEGER,INPUT pPath CHARACTER,INPUT pType CHARACTER,INPUT pStatus CHARACTER,INPUT pSystemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 383 STRING "WMENU_CREATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pStatus" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 385 STRING "pSystemId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 393 STRING "vPrior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 395 STRING "wtopath" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 395 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 395 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 396 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 396 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 396 REFERENCE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 397 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 397 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 397 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 398 STRING "wmodule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 398 STRING "wmodule" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 398 REFERENCE indigo.wmodule 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 399 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 399 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 399 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 400 STRING "wlastmenu" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 400 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 400 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 401 STRING "wmodulepage" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 401 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 401 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 402 STRING "wpathlink" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 402 STRING "wmodulelink" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 402 REFERENCE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 404 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 404 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 404 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 404 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 404 SEARCH indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 411 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 412 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 412 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 412 SEARCH indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 415 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 417 CREATE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 418 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 418 UPDATE indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 419 ACCESS indigo.wmenu sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 419 UPDATE indigo.wmenu sts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 420 ACCESS indigo.wmenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 420 UPDATE indigo.wmenu type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 421 ACCESS indigo.wmenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 421 UPDATE indigo.wmenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 422 ACCESS indigo.wmenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 422 UPDATE indigo.wmenu prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 424 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 424 UPDATE indigo.wmenu menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 429 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 429 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 431 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 431 ACCESS indigo.wpage moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 431 SEARCH indigo.wpage moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 432 CREATE indigo.wpath 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 433 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 433 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 433 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 433 STRING "&1_&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 433 UPDATE indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 434 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 434 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 434 UPDATE indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 435 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 435 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 435 UPDATE indigo.wpath menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 437 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 437 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 437 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 437 STRING "PAGE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 437 SEARCH indigo.wmodulelink typefrom
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 441 ACCESS indigo.wpath pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 441 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 441 SEARCH indigo.wpath pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 443 CREATE indigo.wmodulelink 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 444 ACCESS indigo.wmodulelink type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 444 STRING "PATH" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 444 UPDATE indigo.wmodulelink type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 445 ACCESS indigo.wmodulelink fromid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 445 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 445 UPDATE indigo.wmodulelink fromid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 446 ACCESS indigo.wmodulelink toid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 446 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 446 UPDATE indigo.wmodulelink toid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 449 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 449 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 449 ACCESS indigo.wmenu pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 449 ACCESS indigo.wpath pathid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 449 UPDATE indigo.wmenu pathid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 455 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 458 FUNCTION wMenu_createForPage,integer,INPUT pName CHARACTER,INPUT pParentId INTEGER,INPUT pPage CHARACTER,INPUT pType CHARACTER,INPUT pStatus CHARACTER,INPUT pSystemId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 458 STRING "WMENU_CREATEFORPAGE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 461 STRING "pGroup" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 464 STRING "wmenugrp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 464 STRING "wmenugrp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 464 REFERENCE indigo.wmenugrp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 466 ACCESS indigo.wmenugrp moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 466 ACCESS indigo.wmenugrp grp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 466 SEARCH indigo.wmenugrp moduleid_grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 469 REFERENCE indigo.wmenugrp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 471 CREATE indigo.wmenugrp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 472 ACCESS indigo.wmenugrp moduleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 472 UPDATE indigo.wmenugrp moduleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 473 ACCESS indigo.wmenugrp grp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 473 UPDATE indigo.wmenugrp grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 476 ACCESS indigo.wmenugrp mgrpid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 478 FUNCTION wMenuGroup_create,integer,INPUT pGroup CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 478 STRING "WMENUGROUP_CREATE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 480 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 480 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 480 STRING "pPage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 480 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 486 STRING "wpagemenu" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 486 STRING "wpagemenu" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 486 REFERENCE indigo.wpagemenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 487 STRING "wlastpagemenu" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 487 STRING "wpagemenu" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 487 REFERENCE indigo.wpagemenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 488 STRING "wpage" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 488 STRING "wpage" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 488 REFERENCE indigo.wpage 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 490 STRING "vPrior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 491 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 493 ACCESS indigo.wpagemenu mgrpid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 493 ACCESS indigo.wpagemenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 493 ACCESS indigo.wpagemenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 493 ACCESS indigo.wpagemenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 493 SEARCH indigo.wpagemenu mgrpid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 498 REFERENCE indigo.wpagemenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 500 ACCESS indigo.wpagemenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 500 ACCESS indigo.wpagemenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 500 SEARCH indigo.wpagemenu parentid_prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 503 ACCESS indigo.wpagemenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 507 ACCESS indigo.wpage name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 507 SEARCH indigo.wpage name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 508 ACCESS indigo.wpage pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 512 CREATE indigo.wpagemenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 513 ACCESS indigo.wpagemenu mgrpid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 513 UPDATE indigo.wpagemenu mgrpid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 514 ACCESS indigo.wpagemenu parentid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 514 UPDATE indigo.wpagemenu parentid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 515 ACCESS indigo.wpagemenu pageid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 515 UPDATE indigo.wpagemenu pageid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 516 ACCESS indigo.wpagemenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 516 UPDATE indigo.wpagemenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 517 ACCESS indigo.wpagemenu prior 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 517 UPDATE indigo.wpagemenu prior
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 518 ACCESS indigo.wpagemenu type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 518 UPDATE indigo.wpagemenu type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 521 ACCESS indigo.wpagemenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 523 FUNCTION wPageMenu_create,integer,INPUT pName CHARACTER,INPUT pParentId INTEGER,INPUT pPage CHARACTER,INPUT pType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 523 STRING "WPAGEMENU_CREATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 526 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 529 STRING "wpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 529 STRING "wpath" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 529 ACCESS indigo.wpath path 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 529 SEARCH indigo.wpath path
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 530 ACCESS indigo.wpath menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 530 UPDATE indigo.wpath menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 531 FUNCTION wPath_attachMenu,logical,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 531 STRING "WPATH_ATTACHMENU" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 533 STRING "pUsername" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 533 STRING "pPassword" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 533 STRING "pFullname" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 533 STRING "pSuper" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 540 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 540 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 540 ACCESS indigo.wuser username 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 540 SEARCH indigo.wuser username
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 541 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 542 CREATE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 543 ACCESS indigo.wuser username 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 543 UPDATE indigo.wuser username
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 544 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 544 UPDATE indigo.wuser name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 545 ACCESS indigo.wuser pass 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 545 UPDATE indigo.wuser pass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 546 ACCESS indigo.wuser su 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 546 UPDATE indigo.wuser su
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 548 ACCESS indigo.wuser sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 548 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 548 UPDATE indigo.wuser sts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 551 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 554 FUNCTION wUser_create,integer,INPUT pUsername CHARACTER,INPUT pPassword CHARACTER,INPUT pFullname CHARACTER,INPUT pSuper LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 554 STRING "WUSER_CREATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 556 STRING "pRoleName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 559 STRING "wrole" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 559 STRING "wrole" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 559 REFERENCE indigo.wrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 560 STRING "wuserrole" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 560 STRING "wuserrole" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 560 REFERENCE indigo.wuserrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 562 ACCESS indigo.wrole name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 562 SEARCH indigo.wrole name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 564 ACCESS indigo.wuserrole usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 564 ACCESS indigo.wuserrole roleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 564 ACCESS indigo.wrole roleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 564 SEARCH indigo.wuserrole userrole
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 565 REFERENCE indigo.wuserrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 566 CREATE indigo.wuserrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 567 ACCESS indigo.wuserrole usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 567 UPDATE indigo.wuserrole usrid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 568 ACCESS indigo.wuserrole roleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 568 ACCESS indigo.wrole roleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 568 UPDATE indigo.wuserrole roleid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 570 FUNCTION wUser_assignRole,logical,INPUT pRoleName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 570 STRING "WUSER_ASSIGNROLE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 572 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 572 STRING "pDescription" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 576 STRING "wrole" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 576 STRING "wrole" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 576 REFERENCE indigo.wrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 577 ACCESS indigo.wrole name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 577 SEARCH indigo.wrole name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 578 REFERENCE indigo.wrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 579 CREATE indigo.wrole 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 580 ACCESS indigo.wrole name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 580 UPDATE indigo.wrole name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 581 ACCESS indigo.wrole descr 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 581 UPDATE indigo.wrole descr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 584 ACCESS indigo.wrole roleid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 586 FUNCTION wRole_create,integer,INPUT pName CHARACTER,INPUT pDescription CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 586 STRING "WROLE_CREATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 588 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 588 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 588 STRING "pMenuName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 588 STRING "pPerm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 594 STRING "wmenu" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 594 STRING "wmenu" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 594 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 595 STRING "wperm" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 595 REFERENCE indigo.wperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 596 STRING "wmenuperm" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 596 STRING "wmenuperm" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 596 REFERENCE indigo.wmenuperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 598 ACCESS indigo.wmenu name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 598 SEARCH indigo.wmenu name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 599 REFERENCE indigo.wmenu 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 599 STRING "wmenu.name='&1' not found  @#599" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 600 ACCESS indigo.wperm name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 600 SEARCH indigo.wperm perm WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wmenuperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wmenuperm menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wmenuperm type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 ACCESS indigo.wmenuperm id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 602 SEARCH indigo.wmenuperm typeidmenu
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 608 REFERENCE indigo.wmenuperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 609 CREATE indigo.wmenuperm 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 610 ACCESS indigo.wmenuperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 610 ACCESS indigo.wperm permid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 610 UPDATE indigo.wmenuperm permid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 611 ACCESS indigo.wmenuperm menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 611 ACCESS indigo.wmenu menuid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 611 UPDATE indigo.wmenuperm menuid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 612 ACCESS indigo.wmenuperm type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 612 UPDATE indigo.wmenuperm type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 613 ACCESS indigo.wmenuperm id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 613 UPDATE indigo.wmenuperm id
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 616 FUNCTION wMenuPerm_create,logical,INPUT pId INTEGER,INPUT pType CHARACTER,INPUT pMenuName CHARACTER,INPUT pPerm CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 616 STRING "WMENUPERM_CREATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 618 STRING "pErrorId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 618 STRING "pGroup" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 618 STRING "pMessage" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 623 STRING "werror" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 623 ACCESS indigo.werror errorid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 623 SEARCH indigo.werror errorid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 624 REFERENCE indigo.werror 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 625 CREATE indigo.werror 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 626 ACCESS indigo.werror errorid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 626 UPDATE indigo.werror errorid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 628 ACCESS indigo.werror grp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 628 UPDATE indigo.werror grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 629 ACCESS indigo.werror msg 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 629 UPDATE indigo.werror msg
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 630 REFERENCE indigo.werror 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 631 FUNCTION wError_update,logical,INPUT pErrorId CHARACTER,INPUT pGroup CHARACTER,INPUT pMessage CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 631 STRING "WERROR_UPDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 21 STRING "vFilename" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 22 STRING "vOk" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 23 STRING "vText" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 26 STRING "vParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 27 STRING "vParentIds" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 28 STRING "vStackHead" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 31 STRING "vSubParentId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 32 STRING "vSubParentIds" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 33 STRING "vSubStackHead" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 35 STRING "vPermFor" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 36 STRING "vPermForId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 37 STRING "vLastElement" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 38 STRING "hSax" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 39 STRING "fLoadSuccess" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 41 STRING "vDevPath" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 43 STRING "choose" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 44 STRING "win32" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 44 STRING "XML files (*.xml)" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 44 STRING "*.xml" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 44 STRING "All files (*.*)" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 44 STRING "*.*" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 53 STRING "Open file" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 65 STRING "leave" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 66 STRING "clean" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 72 STRING "FILE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 81 STRING "silent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 82 STRING "Import completed successfully" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 84 STRING "Import failed" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 94 STRING "namespaceURI" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 95 STRING "localName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 96 STRING "qName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 97 STRING "pAttr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 99 STRING "lf" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 115 STRING "interface" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 116 STRING "obj" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 116 STRING "pcode" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 121 STRING "module" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 122 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 122 STRING "descr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 122 STRING "systemid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 128 STRING "modpermission" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 129 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 129 STRING "descr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 129 STRING "systemid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 135 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 136 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 136 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 136 STRING "head" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 136 STRING "descr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 143 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 143 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 147 STRING "help" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 150 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 151 STRING "method" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 151 STRING "ver" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 151 STRING "parlist" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 157 STRING "object" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 158 STRING "obj" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 158 STRING "oper" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 158 STRING "method" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 158 STRING "ver" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 158 STRING "permission" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 166 STRING "template" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 167 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 167 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 167 STRING "holder" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 173 STRING "link" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 174 STRING "to" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 176 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 180 STRING "menuitem" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 182 STRING "parentid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 182 STRING "parentid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 186 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 188 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 188 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 188 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 188 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 188 STRING "systemid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 198 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 198 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 198 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 198 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 198 STRING "systemid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 206 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 206 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 210 STRING "menugroup" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 211 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 213 STRING "pagemenu" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 216 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 216 STRING "page" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 216 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 223 STRING "subpagemenu" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 227 STRING "user" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 228 STRING "username" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 228 STRING "password" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 228 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 228 STRING "super" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 234 STRING "USER" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 236 STRING "userrole" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 237 STRING "role" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 241 STRING "role" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 242 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 242 STRING "descr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 246 STRING "ROLE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 248 STRING "menupermission" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 249 STRING "menu" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 249 STRING "permission" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 256 STRING "error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 257 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 257 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 257 STRING "message" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 263 STRING "development" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 282 PROCEDURE StartElement,,INPUT namespaceURI CHARACTER,INPUT localName CHARACTER,INPUT qName CHARACTER,INPUT pAttr HANDLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 282 STRING "STARTELEMENT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 285 STRING "namespaceURI" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 286 STRING "localName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 287 STRING "qName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 290 STRING "help" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 293 STRING "submenu" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 297 STRING "subpagemenu" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 301 STRING "development" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 305 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 307 PROCEDURE EndElement,,INPUT namespaceURI CHARACTER,INPUT localName CHARACTER,INPUT qName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 307 STRING "ENDELEMENT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 310 STRING "charData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 311 STRING "numChars" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 313 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 314 PROCEDURE Characters,,INPUT charData LONGCHAR,INPUT numChars INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 314 STRING "CHARACTERS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 317 STRING "errMessage" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 320 PROCEDURE Error,,INPUT errMessage CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 320 STRING "ERROR" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 323 STRING "errMessage" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 326 PROCEDURE FatalError,,INPUT errMessage CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 326 STRING "FATALERROR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 330 STRING "pask" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 331 STRING "psucc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 333 STRING "lsucc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 336 STRING "Do you want to clean existing data in web system tables?" 56 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 343 STRING "All data tables which are filled when data" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 343 STRING "is loaded from XML will be cleared. Continue?" 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 376 PROCEDURE CleanupExistingData,,INPUT pask LOGICAL,OUTPUT psucc LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 376 STRING "CLEANUPEXISTINGDATA" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 139 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/wFunc.i 599 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/import-xml.p 53 RUN adeedit/_dlggetf

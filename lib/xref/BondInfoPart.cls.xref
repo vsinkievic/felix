@@ -1,0 +1,164 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 6 CLASS clt.BondInfoPart,INHERITS clt.CollateralPart,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 6 STRING "clt.BondInfoPart" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 6 STRING "clt.CollateralPart" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 8 INCLUDE "clt/ttBond.i &visibility=""private"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "ttBond" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "company" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "cpncrc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "cpnval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "crerat" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttBond.i 1 STRING "isin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 10 STRING "ISIN" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 10 PROPERTY PUBLIC,,,,,ISIN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 13 STRING "pColType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 14 STRING "bond" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 16 CONSTRUCTOR PUBLIC,,,,BondInfoPart,void,INPUT pColType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 16 STRING "BONDINFOPART" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 20 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 22 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 22 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 22 SEARCH indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 23 INCLUDE "core/businessErr.i &id='COL0080' &p1=""ColObjId"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 23 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0080" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 REFERENCE ttBond TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond company 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond company TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond country 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond cpncrc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond cpncrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond cpnval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond cpnval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond crerat 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond crerat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 ACCESS indigo.bond isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 26 UPDATE ttBond isin TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 28 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColType
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 28 STRING "3-L-1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 35 METHOD PROTECTED,,OVERRIDE,,,Load,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 35 STRING "LOAD" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 39 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColType
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 39 STRING "3-L-1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 46 INCLUDE "core/businessErr.i &id='COL0106' &p1='Bonds'"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0106" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Bonds" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 50 METHOD PROTECTED,,OVERRIDE,,,Valid,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 50 STRING "VALID" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 53 STRING "vDiff" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 54 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 56 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 56 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 56 SEARCH indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 REFERENCE ttBond TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond company 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond company TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond country 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond cpncrc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond cpncrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond cpnval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond cpnval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond crerat 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond crerat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS indigo.bond isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 ACCESS ttBond isin TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "isin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "crerat" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "cpnval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "cpncrc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 58 STRING "company" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 61 METHOD PUBLIC,,OVERRIDE,,,Changed,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 61 STRING "CHANGED" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 64 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 66 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 66 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 66 SEARCH indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 67 INCLUDE "core/businessErr.i &id='COL0080' &p1=""ColObjId"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 67 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0080" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 70 DELETE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 71 METHOD PUBLIC,,OVERRIDE,,,Delete,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 71 STRING "DELETE" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 75 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 77 CREATE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 78 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 78 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 78 UPDATE indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 REFERENCE ttBond TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond company TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond company
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond country
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond cpncrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond cpncrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond cpnval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond cpnval
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond crerat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond crerat
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond duedt
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 ACCESS ttBond isin TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 79 UPDATE indigo.bond isin
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 80 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 81 METHOD PROTECTED,,OVERRIDE,,,CreateValidated,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 81 STRING "CREATEVALIDATED" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 85 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 87 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 87 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 87 SEARCH indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 88 INCLUDE "core/businessErr.i &id='COL0080' &p1=""ColObjId"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 88 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0080" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 REFERENCE ttBond TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond company TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond company
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond country
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond cpncrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond cpncrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond cpnval TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond cpnval
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond crerat TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond crerat
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond duedt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond duedt
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 ACCESS ttBond isin TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 91 UPDATE indigo.bond isin
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 92 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 93 METHOD PROTECTED,,OVERRIDE,,,UpdateValidated,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 93 STRING "UPDATEVALIDATED" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 97 METHOD PUBLIC,,,,,GetData,void,OUTPUT ttBond TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 97 STRING "GETDATA" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 100 SEARCH DATA-MEMBER clt.BondInfoPart:ttBond default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 101 METHOD PUBLIC,,,,,SetData,void,INPUT ttBond TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 101 STRING "SETDATA" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 103 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls 14 INVOKE clt.CollateralPart:CollateralPart,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/BondInfoPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer

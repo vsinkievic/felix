@@ -1,0 +1,534 @@
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 8 CLASS loan.LoanSearch,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 8 STRING "loan.LoanSearch" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 9 STRING "prEntityID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 10 STRING "prFilterList" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 11 STRING "prEntityList" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 12 STRING "prIsFilter" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 13 STRING "prIsEntity" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 14 STRING "prBegRec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 15 STRING "prEndRec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 16 STRING "prRecCnt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 18 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 19 STRING "trxbal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 20 STRING "nameSearch" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 22 STRING "DONE_EXCEPTION" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 24 INCLUDE "core/ttSearchFilter.i &visibility=""private"" &name=""ttFilter"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "ttFilter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fDtVal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 25 INCLUDE "core/ttSearchFilter.i &visibility=""private"" &name=""ttEntity"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "ttEntity" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fDtVal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 26 INCLUDE "loan/ttLoanSearch.i &visibility=""private"" &name=""ttSearchResult"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "opnamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "bal" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "opndt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "agremno" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "productid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "crccode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "clname" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanSearch.i 1 STRING "clncode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 28 STRING "ttSecGrps" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 28 STRING "grp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 35 CONSTRUCTOR PUBLIC,,,,LoanSearch,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 35 STRING "LOANSEARCH" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 41 DESTRUCTOR PUBLIC,,,,LoanSearch,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 41 STRING "LOANSEARCH" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 44 STRING "secgrpusr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 44 STRING "secgrpusr" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 45 STRING "vUsr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 63 ACCESS indigo.secgrpusr usrid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 63 SEARCH indigo.secgrpusr FK_usrid_secgrpusr
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 66 ACCESS indigo.secgrpusr secgrp 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 68 METHOD PUBLIC,,,,,init,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 68 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 70 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 70 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 71 STRING "ttFilter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 76 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx2 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 88 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 88 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 88 METHOD PUBLIC,,,,,setFilter,void,INPUT pName CHARACTER,INPUT pVal DATE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 88 STRING "SETFILTER" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 90 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 90 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 91 STRING "ttFilter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 96 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 108 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 108 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 108 METHOD PUBLIC,,,,,setFilter,void,INPUT pName CHARACTER,INPUT pVal CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 108 STRING "SETFILTER" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 110 STRING "pEntity" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 113 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 115 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 122 METHOD PUBLIC,,,,,setSearchEntity,void,INPUT pEntity CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 122 STRING "SETSEARCHENTITY" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 124 STRING "pSearchID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 127 INCLUDE "core/businessErr.i &id='LON0084'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0084" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 129 METHOD PUBLIC,,,,,setEntityID,void,INPUT pSearchID CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 129 STRING "SETENTITYID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 131 STRING "pFrom" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 131 STRING "pTo" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 135 INCLUDE "core/businessErr.i &id='LON0085'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0085" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 137 METHOD PUBLIC,,,,,setSearchRange,void,INPUT pFrom INTEGER,INPUT pTo INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 137 STRING "SETSEARCHRANGE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 140 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 141 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 141 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 143 STRING "vContainsSearch" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 144 STRING "vFilterClient" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 146 INCLUDE "core/businessErr.i &id='LON0084'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0084" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 153 STRING "loan_crnum" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 153 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 155 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 157 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 157 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 157 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 157 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 167 STRING "cif" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 167 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 169 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 171 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 171 SEARCH indigo.cln IDX_cif
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 180 STRING "agreement" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 180 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 182 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 184 STRING "loanagr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 184 STRING "loanagr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 184 ACCESS indigo.loanagr num 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 184 SEARCH indigo.loanagr IDX_num
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 186 REFERENCE indigo.loanagr 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 188 ACCESS indigo.loan agrid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 188 ACCESS indigo.loanagr id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 188 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 188 SEARCH indigo.loan FK_loanagr
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 188 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 199 STRING "client_regnr" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 199 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 201 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 203 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 203 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 211 STRING "client_name" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 211 SEARCH DATA-MEMBER loan.LoanSearch:ttEntity idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 213 REFERENCE ttEntity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 219 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 219 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 219 SEARCH indigo.cln IDX_name
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 226 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 232 STRING "Invalid search query (non character symbols used): &1" 53 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 250 STRING "client_type" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 250 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 253 ACCESS indigo.cln type 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 253 SEARCH indigo.cln IDX_type
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 265 STRING "loan_status" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 265 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 267 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 267 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 267 SEARCH indigo.loan IDX_sts
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 267 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 277 STRING "loan_product" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 277 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 279 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 279 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 279 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 279 SEARCH indigo.product PK_product
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 281 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 284 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 284 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 284 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 284 SEARCH indigo.loan FK_product
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 284 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 294 STRING "loan_created_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 294 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 296 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 296 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 296 SEARCH indigo.loan IDX_opndt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 296 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 306 STRING "loan_created_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 306 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 308 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 308 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 308 SEARCH indigo.loan IDX_opndt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 308 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 318 STRING "loan_expires_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 318 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 320 ACCESS indigo.loan duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 320 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 320 SEARCH indigo.loan IDX_duedt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 320 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 330 STRING "loan_expires_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 330 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 332 ACCESS indigo.loan duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 332 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 332 SEARCH indigo.loan IDX_duedt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 332 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 344 STRING "err1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 354 METHOD PUBLIC,,,,,getResults,void,OUTPUT ttSearchResult TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 354 STRING "GETRESULTS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 356 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 361 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 367 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 374 STRING "NEED2FILTER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 376 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 378 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 380 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 382 STRING "FILLSEARCHRESULTS" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "ttSearchResult" 14 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 384 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 386 STRING "bResults" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 387 STRING "secobjgrp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 387 STRING "secobjgrp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 390 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 390 SEARCH DATA-MEMBER loan.LoanSearch:ttSearchResult lid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 395 ACCESS indigo.secobjgrp objid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 395 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 395 SEARCH indigo.secobjgrp PK_secobjgrp
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 397 REFERENCE indigo.secobjgrp 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 400 ACCESS indigo.secobjgrp secgrp 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 400 SEARCH DATA-MEMBER loan.LoanSearch:ttSecGrps default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 402 REFERENCE ttSecGrps TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 410 STRING "Done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 418 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 418 STRING "CREATERESULTRECORD" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 420 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 420 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 420 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 421 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 421 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 422 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 424 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 424 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 424 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 426 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 437 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 437 STRING "FOUNDLOAN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 439 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 439 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 439 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 439 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 439 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 440 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 441 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 443 STRING "vLoansFound" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 445 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 445 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 445 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 445 SEARCH indigo.loan FK_client
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 445 SORT-ACCESS indigo.loan lid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 475 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 475 STRING "FOUNDCLIENT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "ttSearchResult" 14 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 477 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 478 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 478 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 479 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 479 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 480 STRING "loanagr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 480 STRING "loanagr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 482 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 482 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 482 SEARCH indigo.product UQ_product_id
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 484 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 487 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 487 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 487 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 489 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 492 ACCESS indigo.loanagr id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 492 ACCESS indigo.loan agrid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 492 SEARCH indigo.loanagr PK_lonagr
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 494 REFERENCE indigo.loanagr 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 497 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 498 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 500 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 501 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 502 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 503 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 504 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 505 ACCESS indigo.curr code 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 508 ACCESS indigo.loanagr num 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 509 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 511 STRING "PRN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 512 STRING "COPYLOAN" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "ttSearchResult" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "ttSearchResult" 14 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 514 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 515 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 516 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 517 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 518 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 519 STRING "COPYCLIENT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 521 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 521 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 521 STRING "loan" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 522 STRING "ttFilter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 523 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 523 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 525 STRING "loan_status" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 525 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 529 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 529 STRING "loan_status" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 529 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 536 STRING "loan_product" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 536 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 540 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 540 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 540 SEARCH indigo.product UQ_product_id
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 542 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 545 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 545 STRING "loan_product" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 545 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 552 STRING "loan_created_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 552 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 556 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 556 STRING "loan_created_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 556 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx2 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 563 STRING "loan_created_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 563 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 567 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 567 STRING "loan_created_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 567 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx2 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 574 STRING "loan_expires_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 574 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 578 ACCESS indigo.loan duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 578 STRING "loan_expires_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 578 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx2 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 585 STRING "loan_expires_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 585 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 589 ACCESS indigo.loan duedt 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 589 STRING "loan_expires_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 589 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx2 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 597 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 597 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 597 STRING "APPLYLOANFILTER" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 599 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 599 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 599 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 599 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 599 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 600 STRING "ttFilter" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 602 STRING "client_type" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 602 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 606 ACCESS indigo.cln type 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 606 STRING "client_type" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 606 SEARCH DATA-MEMBER loan.LoanSearch:ttFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 614 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 614 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 614 STRING "APPLYCLIENTFILTER" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 617 STRING "client_type" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 619 STRING "loan_status" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 620 STRING "loan_product" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 621 STRING "loan_created_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 622 STRING "loan_created_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 623 STRING "loan_expires_from" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 624 STRING "loan_expires_to" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 626 STRING "loan_crnum" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 627 STRING "client_regnr" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 628 STRING "client_name" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 629 STRING "cif" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 630 STRING "agreement" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 631 STRING "INITVALIDATORS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 633 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 634 STRING "&1" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 636 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 637 STRING "SETPOSIBLEFILTERNAME" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 639 STRING "pEntity" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 640 STRING "&1" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 642 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 643 STRING "SETPOSIBLEENTITYNAME" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 645 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 646 INCLUDE "core/businessErr.i &id='LON0086' &p1=pName"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0086" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 648 STRING "VALIDATEFILTER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 650 STRING "pEntity" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 651 INCLUDE "core/businessErr.i &id='LON0087' &p1=pEntity"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0087" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 653 STRING "VALIDATEENTITY" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 655 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 655 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 656 INCLUDE "core/businessErr.i &id='LON0088'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0088" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 658 STRING "VALIDATEFILTERVALUE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 660 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 660 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 661 STRING "stsfunc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 661 STRING "stsfunc" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 662 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 662 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 664 STRING "client_type" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 666 INCLUDE "core/businessErr.i &id='LON0083' &p1=pName &p2=pVal"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 666 STRING "private,juridical" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0083" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 669 STRING "loan_status" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 671 ACCESS indigo.stsfunc sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 671 SEARCH indigo.stsfunc UQ_sts_func
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 673 INCLUDE "core/businessErr.i &id='LON0083' &p1=pName &p2=pVal"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 673 REFERENCE indigo.stsfunc 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0083" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 676 STRING "loan_product" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 678 ACCESS indigo.product product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 678 SEARCH indigo.product PK_product
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 680 INCLUDE "core/businessErr.i &id='LON0083' &p1=pName &p2=pVal"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 680 REFERENCE indigo.product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0083" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 683 STRING "VALIDATEFILTERVALUE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 686 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 687 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 687 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 691 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 691 SEARCH indigo.loan PK_loan WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 693 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 693 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 693 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 695 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 700 REFERENCE ttSearchResult TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 709 STRING "err1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 719 METHOD PUBLIC,,,,,getRecentLoans,void,OUTPUT ttSearchResult TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 719 STRING "GETRECENTLOANS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 721 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 721 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 721 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 32 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 33 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 34 NEW core.NameSearch
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 38 DELETE-INSTANCE trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 39 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 40 DELETE-INSTANCE core.NameSearch
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 59 INVOKE loan.LoanSearch:initValidators
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 61 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 61 INVOKE core.Context:getUsrID
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 73 INVOKE loan.LoanSearch:validateFilter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 74 INVOKE loan.LoanSearch:validateFilterValue,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 93 INVOKE loan.LoanSearch:validateFilter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 94 INVOKE loan.LoanSearch:validateFilterValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 111 INVOKE loan.LoanSearch:validateEntity,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 160 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 163 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 173 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 176 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 191 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 194 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 204 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 207 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 215 INVOKE core.NameSearch:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 217 INVOKE core.NameSearch:getContainsStr
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 220 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 223 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 227 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 229 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 232 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 232 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 255 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 258 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 270 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 273 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 287 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 290 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 299 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 302 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 311 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 314 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 323 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 326 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 335 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 338 INVOKE loan.LoanSearch:fillSearchResults,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 345 INVOKE Progress.Lang.ProError:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 347 DELETE-INSTANCE Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 363 INVOKE loan.LoanSearch:applyLoanFilter,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 369 INVOKE loan.LoanSearch:applyClientFilter,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 378 INVOKE loan.LoanSearch:foundLoan,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 380 INVOKE loan.LoanSearch:foundClient,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 410 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 429 INVOKE loan.LoanSearch:createResultRecord,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 432 INVOKE loan.LoanSearch:copyClient,BUFFER ttSearchResult,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 433 INVOKE loan.LoanSearch:copyLoan,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 448 INVOKE loan.LoanSearch:need2filter,BUFFER loan,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 451 INVOKE loan.LoanSearch:createResultRecord,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 454 INVOKE loan.LoanSearch:copyClient,BUFFER ttSearchResult,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 455 INVOKE loan.LoanSearch:copyLoan,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 497 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 498 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 506 INVOKE loan.LoanUtil:getRegDt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 507 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 510 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 511 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 617 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 619 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 620 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 621 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 622 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 623 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 624 INVOKE loan.LoanSearch:setPosibleFilterName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 626 INVOKE loan.LoanSearch:setPosibleEntityName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 627 INVOKE loan.LoanSearch:setPosibleEntityName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 628 INVOKE loan.LoanSearch:setPosibleEntityName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 629 INVOKE loan.LoanSearch:setPosibleEntityName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 630 INVOKE loan.LoanSearch:setPosibleEntityName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 699 INVOKE loan.LoanSearch:createResultRecord,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 702 INVOKE loan.LoanSearch:copyClient,BUFFER ttSearchResult,BUFFER cln
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 703 INVOKE loan.LoanSearch:copyLoan,BUFFER ttSearchResult,BUFFER loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 710 INVOKE Progress.Lang.ProError:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/LoanSearch.cls 712 DELETE-INSTANCE Progress.Lang.AppError

@@ -1,0 +1,336 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 12 CLASS indigo.src.CrlDetailsReport,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 12 STRING "indigo.src.CrlDetailsReport" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 14 INCLUDE indigo/src/dsLoanDetails.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 1 INCLUDE "core/tCln.i &name=""ttCln"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "ttCln" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 2 INCLUDE "sched/ttSchView.i &name=""ttSchView"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "ttSchView" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "number" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "drawdown" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "principal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "interest" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "prnSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "intSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "other" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "totalAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "commFee" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "canExpand" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "hasAdHoc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "editable" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherCompCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 3 INCLUDE "loan/ttLoanCompBal.i &name=""ttLoanCompBal"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "ttLoanCompBal" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "acr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "acrDbt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "booked" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "debit" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "credit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "paid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "dbt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "cdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "ccam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "nextPayDt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanCompBal.i 1 STRING "bsheet" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 4 INCLUDE "indigo/src/ttHistoryDetails.i &name=ttHistoryDetails"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "ttHistoryDetails" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "newval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttHistoryDetails.i 1 STRING "additional" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 5 INCLUDE "indigo/src/ttLoanDetails.i &name=""ttLoanDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "ttLoanDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "agrNumber" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "loanNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "respManager" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "purpose" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "dueDate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "currencyCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "disburseAccount" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "disburseDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "repayAccount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "repayType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "approvedLimit" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "commitedLimit" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttLoanDetails.i 1 STRING "openLimit" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 6 INCLUDE "indigo/src/ttCompDetails.i &name=""ttCompDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "ttCompDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "baseComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bamTyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "calcMethod" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "holTreat" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "baseAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "payFreq" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "payDay" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "firstDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "advcPay" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "finalPay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schHolTreat" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "priority" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "totalRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "accrualBase" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "accruingRule" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "gracePeriod" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookPriority" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookRule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "bookReturn" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schDueDate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "schPaymentAmt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompDetails.i 1 STRING "debt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 7 INCLUDE "indigo/src/ttAccrualDetails.i &name=""ttAccrualDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "ttAccrualDetails" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "days" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "rdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "tdc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "frozen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccrualDetails.i 1 STRING "totamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 8 INCLUDE "indigo/src/ttTrxDetails.i &name=""ttTrxDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ttTrxDetails" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "oh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "jh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "corrStatus" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohWho" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "ohWhen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "lineNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "loanNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "component" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "accountType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "account" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "debitAmount" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "creditAmount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "currency" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "accCurrency" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "remark" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olWho" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttTrxDetails.i 1 STRING "olWhen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 9 INCLUDE "indigo/src/ttBalChgDetails.i &name=""ttBalChgDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "ttBalChgDetails" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "dat" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "dam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "cdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "bdam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "cam" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "ccam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "bcam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttBalChgDetails.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 10 INCLUDE "indigo/src/ttCompRateDetails.i &name=""ttCompRateDetails"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "ttCompRateDetails" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "rateTotal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "curRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttCompRateDetails.i 1 STRING "chgDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i 11 INCLUDE "indigo/src/ttIntRateChanges.i &name=""ttIntRateChange"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "ttIntRateChange" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "validfrom" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "fixedMargin" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "fixedcorr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borType" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borVal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borChgDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borRule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borNextChgDate" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "whoName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "createdOn" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/dsLoanDetails.i /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttIntRateChanges.i 1 STRING "borDate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 16 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 17 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 19 STRING "prReport" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 20 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 21 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 22 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 27 CONSTRUCTOR PUBLIC,,,,CrlDetailsReport,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 27 STRING "CRLDETAILSREPORT" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 36 STRING "report" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 36 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 37 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 37 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 37 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 39 INCLUDE "core/businessErr.i &id='ACR0001' &p1=vLid"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 39 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ACR0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 43 METHOD PUBLIC,,,,,init,void,INPUT report INDIGO.SRC.XLSXREPORT,INPUT vLid INT64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 43 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 52 STRING "loanReportGen" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 65 METHOD PUBLIC,,,,,prepareData,void,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 65 STRING "PREPAREDATA" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 74 METHOD PUBLIC,,,,,getReport,indigo.src.XlsxReport,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 74 STRING "GETREPORT" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 82 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 83 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 87 STRING "bankDayContract" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 91 STRING "ttCln" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 95 STRING "ttLoanDetails" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 98 STRING "ttCompDetails" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 100 STRING "Contract" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 101 STRING "ADDCONTRACTINFO" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 109 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 110 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 114 STRING "bankDayRates" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 118 STRING "ttIntRateChange" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 120 STRING "Interest Rate Changes" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 121 STRING "ADDINTERESTRATECHANGES" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 129 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 130 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 136 STRING "ttAccrualDetails" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 138 STRING "Accrued Lines" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 139 STRING "ADDACCRUALSINFO" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 147 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 148 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 154 STRING "ttHistoryDetails" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 156 STRING "Contract Changes History" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 157 STRING "ADDCHANGESHISTORYINFO" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 165 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 166 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 172 STRING "ttTrxDetails" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 174 STRING "Transactions" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 175 STRING "ADDTRANSACTIONINFO" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 183 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 184 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 187 STRING "bankDayBalances" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 191 STRING "ttLoanCompBal" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 193 STRING "Balances" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 194 STRING "ADDBALANCEINFO" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 202 STRING "vObject" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 203 STRING "vArray" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 209 STRING "ttBalChgDetails" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 211 STRING "Balance Change" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 212 STRING "ADDBALANCECHANGESINFO" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 220 STRING "penIntReportData" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 226 STRING "Interest penalties" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 227 STRING "ADDPENINTREPORTDATA" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "histgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "toDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 228 STRING "dsLoanDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 25 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 26 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 26 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 54 NEW indigo.src.LoanReportGen
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 55 INVOKE indigo.src.LoanReportGen:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 56 INVOKE indigo.src.LoanReportGen:getData,OUTPUT DATASET dsLoanDetails
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 57 INVOKE indigo.src.CrlDetailsReport:addContractInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 58 INVOKE indigo.src.CrlDetailsReport:addInterestRateChanges
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 59 INVOKE indigo.src.CrlDetailsReport:addAccrualsInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 60 INVOKE indigo.src.CrlDetailsReport:addChangesHistoryInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 61 INVOKE indigo.src.CrlDetailsReport:addTransactionInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 62 INVOKE indigo.src.CrlDetailsReport:addBalanceInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 63 INVOKE indigo.src.CrlDetailsReport:addBalanceChangesInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 64 INVOKE indigo.src.CrlDetailsReport:addPenIntReportData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 85 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 87 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 87 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 89 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 90 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 91 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 93 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 94 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 95 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 96 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 97 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 98 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 100 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 112 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 114 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 114 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 116 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 117 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 118 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 120 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 132 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 133 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 135 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 136 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 138 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 150 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 151 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 153 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 154 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 156 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 168 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 169 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 171 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 172 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 174 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 186 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 187 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 187 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 189 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 190 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 191 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 193 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 205 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 206 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 208 INVOKE Progress.Json.ObjectModel.JsonArray:read,INPUT handle
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 209 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 211 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 222 NEW indigo.src.PenIntReportData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 224 INVOKE indigo.src.PenIntReportData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 226 INVOKE indigo.src.XlsxReport:addPage,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/CrlDetailsReport.cls 226 INVOKE indigo.src.PenIntReportData:getReportData

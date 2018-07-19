@@ -1,0 +1,114 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 9 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 10 INCLUDE "repmnt/ttCompList.i &name=""ttCompList"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "repay" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "currdbt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "priText" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 12 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 13 STRING "repayPrior" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 18 STRING "GET-REPAY-PRIOR" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 22 STRING "SET-REPAY-PRIOR" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 27 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 36 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 38 STRING "vArrComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 39 STRING "vObjComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 41 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 44 REFERENCE ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 47 SEARCH ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 49 STRING "compName" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 50 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 51 STRING "priText" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 52 STRING "pri" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 55 STRING "priorityList" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 56 PROCEDURE getRepayPrior,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 56 STRING "GETREPAYPRIOR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 59 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 60 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 61 STRING "vArrComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 62 STRING "vReader" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 64 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 66 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 68 STRING "[Dev] SET-REPAY-PRIOR : Start" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 70 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 72 STRING "[Dev] SET-REPAY-PRIOR : vLid=&1" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 77 STRING "POST.priorityList" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 78 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 81 STRING "[Dev] SET-REPAY-PRIOR : &1 &2" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 81 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 81 STRING "pri" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 83 CREATE ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 84 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 85 STRING "pri" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 88 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 91 REFERENCE ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 93 STRING "[Dev] SET-REPAY-PRIOR : Finish" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 94 PROCEDURE setRepayPrior,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 94 STRING "SETREPAYPRIOR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 94 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 14 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 15 NEW indigo.src.RepaymentPriority
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 32 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 41 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 43 INVOKE indigo.src.RepaymentPriority:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 44 INVOKE indigo.src.RepaymentPriority:getPrior,OUTPUT TABLE ttCompList
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 46 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 48 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 49 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 52 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 53 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 55 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 65 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 70 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 74 INVOKE indigo.src.RepaymentPriority:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 76 NEW indigo.src.JsonReader
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 77 INVOKE indigo.src.JsonReader:getJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 79 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 79 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 81 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 81 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 84 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 85 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 88 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 89 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siRepaymentPriority.p 91 INVOKE indigo.src.RepaymentPriority:setPrior,INPUT TABLE ttCompList

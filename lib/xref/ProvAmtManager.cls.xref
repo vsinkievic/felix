@@ -1,0 +1,369 @@
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 6 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 23 CLASS ops.ProvAmtManager,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 23 STRING "ops.ProvAmtManager" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 24 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 25 STRING "prCollectiveProvType" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 25 STRING "COLLECTIVE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 26 STRING "prIndividualProvType" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 26 STRING "INDIVIDUAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 27 STRING "prProvisionsCmpType" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 27 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 29 STRING "PRNPRV" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 29 STRING "PRNPRV" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 33 STRING "PRNPRVCURR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 33 STRING "PRNPRVCURR" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 37 STRING "PRNPRVPREV" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 37 STRING "PRNPRVPREV" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 41 STRING "PRNPRVIMP" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 41 STRING "PRNPRVIMP" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 45 STRING "PRNOFFPRV" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 45 STRING "PRNOFFPRV" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 49 STRING "INTPRV" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 49 STRING "INTPRV" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 56 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 57 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 59 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 59 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 61 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 61 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 65 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 65 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 67 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 68 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 70 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 70 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 72 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 72 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 75 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 76 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 76 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 85 METHOD PUBLIC,,,,,getPrnPrvCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 85 STRING "GETPRNPRVCODE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 94 METHOD PUBLIC,,,,,getPrnPrvCurrCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 94 STRING "GETPRNPRVCURRCODE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 103 METHOD PUBLIC,,,,,getPrnPrvPrevCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 103 STRING "GETPRNPRVPREVCODE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 112 METHOD PUBLIC,,,,,getPrnPrvImpCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 112 STRING "GETPRNPRVIMPCODE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 121 METHOD PUBLIC,,,,,getPrnOffPrvCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 121 STRING "GETPRNOFFPRVCODE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 130 METHOD PUBLIC,,,,,getIntPrvCode,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 130 STRING "GETINTPRVCODE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 137 STRING "vZeroConst" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 138 STRING "acrBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 140 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 140 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 141 STRING "bloancomp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 141 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 145 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 145 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 145 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 145 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 145 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 150 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 156 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 159 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 163 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 163 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 163 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 163 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 168 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 170 METHOD PUBLIC,,,,,zeroAllProvisions,void,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 170 STRING "ZEROALLPROVISIONS" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 177 STRING "vCloseStatus" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 178 STRING "stsManager" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 185 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 187 METHOD PUBLIC,,,,,cancelProvOnClose,void,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 187 STRING "CANCELPROVONCLOSE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 196 STRING "bookNonStand" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 200 METHOD PUBLIC,,,,,transCurrYearProvToPrevYearProv,void,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 200 STRING "TRANSCURRYEARPROVTOPREVYEARPROV" 31 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 209 STRING "vProdGrp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 210 STRING "vMater" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 211 STRING "vCif" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 212 STRING "vWatch" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 213 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 214 STRING "vProdId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 216 STRING "prdService" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 217 STRING "clsCln" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 218 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 219 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 236 STRING "EXP" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 236 STRING "OVD" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 236 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 240 STRING "matmark" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 241 STRING "nenozimigs" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 243 STRING "LOANIND" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 243 STRING "IEAI" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 243 STRING "INDIVIDUAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 245 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 248 STRING "watch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 249 STRING "aw" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 249 STRING "INDIVIDUAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 252 STRING "INDIVIDUAL" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 255 STRING "GROUP" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 256 STRING "CALCASSESSTMETH" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 264 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 265 STRING "mrkMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 270 STRING "LOANMETH" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 271 STRING "LOANMETH" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 272 STRING "SAVEASSESSTMETH" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 281 STRING "vOldVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 282 STRING "vNewVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 284 STRING "LOANMETH" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 290 METHOD PUBLIC,,,,,recalcAssesstMeth,void,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 290 STRING "RECALCASSESSTMETH" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 298 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 299 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 304 STRING "GETMARKVAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 312 STRING "pClnID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 313 STRING "vProv" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 314 STRING "vMax" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 316 STRING "myDbt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 317 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 319 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 324 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 324 SEARCH indigo.loan FK_client
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 326 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 327 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 332 STRING "REST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 332 STRING "R" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 335 STRING "KREREHA" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 338 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 345 STRING "HASCLNLOSSES" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 352 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 353 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 354 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 354 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 356 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 356 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 356 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 356 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 360 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 364 METHOD PUBLIC,,,,,getTotalProv,decimal,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 364 STRING "GETTOTALPROV" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 368 METHOD PUBLIC,,,,,getTotalProv,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 368 STRING "GETTOTALPROV" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 375 STRING "vProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 376 STRING "vCollectiveProvTotal" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 384 METHOD PUBLIC,,,,,getCollectiveProv,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 384 STRING "GETCOLLECTIVEPROV" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 391 STRING "vProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 392 STRING "vIndividualProvTotal" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 400 METHOD PUBLIC,,,,,getIndividualProv,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 400 STRING "GETINDIVIDUALPROV" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 410 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 410 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 410 STRING "pIsNonStandUpd" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 411 STRING "vCurrentBal" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 412 STRING "vDelta" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 414 STRING "acrBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 416 STRING "chg-prov-amt" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 461 METHOD PUBLIC,,,,,updProvAmt,void,INPUT pComp CHARACTER,INPUT pAmt DECIMAL,INPUT pIsNonStandUpd LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 461 STRING "UPDPROVAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 463 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 463 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 465 METHOD PUBLIC,,,,,updProvAmt,void,INPUT pComp CHARACTER,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 465 STRING "UPDPROVAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 474 STRING "pSubComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 474 STRING "pDelta" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 475 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 476 STRING "vNewBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 477 STRING "vDelta" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 490 STRING "DECREASESUBCOMPBAL" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 500 STRING "pSubComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 500 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 501 STRING "bookNonStand" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 505 METHOD PUBLIC,,,,,updProvSubCompAmt,void,INPUT pSubComp CHARACTER,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 505 STRING "UPDPROVSUBCOMPAMT" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 514 STRING "pPrnAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 514 STRING "pImpAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 514 STRING "pOffbalAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 514 STRING "pForce" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 528 METHOD PUBLIC,,,,,updProvisions,void,INPUT pPrnAmt DECIMAL,INPUT pImpAmt DECIMAL,INPUT pOffbalAmt DECIMAL,INPUT pForce LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 528 STRING "UPDPROVISIONS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 537 STRING "pPrnPrvAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 537 STRING "pImpAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 537 STRING "pOffbalAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 538 STRING "vTotalAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 542 INCLUDE "core/businessErr.i &id='PRV0016' &p1=pPrnPrvAmt &p2=pImpAmt &p3=pOffbalAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0016" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 545 INCLUDE "core/businessErr.i &id='PRV0017' &p1=pPrnPrvAmt &p2=pImpAmt &p3=pOffbalAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0017" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 547 METHOD PUBLIC,,,,,validatePrnProvTotal,character,INPUT pPrnPrvAmt DECIMAL,INPUT pImpAmt DECIMAL,INPUT pOffbalAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 547 STRING "VALIDATEPRNPROVTOTAL" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 554 STRING "pImpAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 555 STRING "vCurrentImpAmt" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 558 INCLUDE "core/businessErr.i &id='PRV0012' &p1=vCurrentImpAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 561 STRING "VALIDATEIMPPROV" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 568 STRING "pOffBalAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 570 STRING "VALIDATEOFFBALPROV" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 572 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 572 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 573 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 574 STRING "compUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 581 INCLUDE "core/businessErr.i &id='PRV0014' &p1=vCompName"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 589 INCLUDE "core/businessErr.i &id='PRV0008' &p1=vCompName"
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PRV0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 591 METHOD PUBLIC,,,,,validateCompAmt,character,INPUT pComp CHARACTER,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 591 STRING "VALIDATECOMPAMT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 598 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 604 METHOD PUBLIC,,,,,getProvType,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 604 STRING "GETPROVTYPE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 610 STRING "pProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 611 STRING "vCurrType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 612 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 627 METHOD PUBLIC,,,,,setProvType,void,INPUT pProvType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 627 STRING "SETPROVTYPE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 635 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 636 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 637 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 644 STRING "GETCOMPBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 653 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 653 STRING "pProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 654 STRING "vIsCompValid" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 679 METHOD PUBLIC,,,,,isCompValid,logical,INPUT pComp CHARACTER,INPUT pProvType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 679 STRING "ISCOMPVALID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 687 STRING "vCurrentProvType" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 694 METHOD PUBLIC,,,,,isIndividualProvType,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 694 STRING "ISINDIVIDUALPROVTYPE" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 702 STRING "vCurrentProvType" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 709 METHOD PUBLIC,,,,,isCollectiveProvType,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 709 STRING "ISCOLLECTIVEPROVTYPE" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 718 METHOD PUBLIC,,,,,getCollectiveProvType,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 718 STRING "GETCOLLECTIVEPROVTYPE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 727 METHOD PUBLIC,,,,,getIndividualProvType,character,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 727 STRING "GETINDIVIDUALPROVTYPE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 736 METHOD PUBLIC,,,,,getPrnPrvCurrBal,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 736 STRING "GETPRNPRVCURRBAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 745 METHOD PUBLIC,,,,,getPrnPrvPrevBal,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 745 STRING "GETPRNPRVPREVBAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 747 CONSTRUCTOR PUBLIC,,,,ProvAmtManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 747 STRING "PROVAMTMANAGER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 143 NEW acr.AcrBal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 156 INVOKE ops.ProvAmtManager:updProvSubCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 159 INVOKE acr.AcrBal:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 160 INVOKE acr.AcrBal:setAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 168 INVOKE ops.ProvAmtManager:updProvAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 180 NEW core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 181 INVOKE core.StsManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 183 INVOKE core.StsManager:checkLoanClose
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 185 INVOKE ops.ProvAmtManager:zeroAllProvisions
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 197 NEW trx.BookNonStandard
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 198 INVOKE trx.BookNonStandard:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 199 INVOKE trx.BookNonStandard:transCurrYearProvToPrevYearProv
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 221 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 222 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 224 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 225 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 227 NEW setup.ProductService
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 228 NEW core.Cln,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 230 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 231 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 233 INVOKE core.Cln:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 235 INVOKE setup.ProductService:getProductGrp,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 240 RUN sys2plt/api/v1/getClnMarkVal.p
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 243 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 248 RUN sys2plt/api/v1/getClnMarkVal.p
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 252 INVOKE ops.ProvAmtManager:hasClnLosses,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 266 NEW mark.MarkManager
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 267 INVOKE mark.MarkManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 269 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 270 INVOKE mark.MarkManager:setMarkValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 271 INVOKE mark.MarkManager:saveMarkSingle,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 284 INVOKE ops.ProvAmtManager:getMarkVal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 286 INVOKE ops.ProvAmtManager:calcAssesstMeth
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 288 INVOKE ops.ProvAmtManager:saveAssesstMeth,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 300 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 301 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 303 INVOKE mark.MarkUtil:getMarkValue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 321 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 322 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 326 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 327 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 329 INVOKE dbt.DebtManager:getOverdueMax
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 332 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 335 INVOKE mark.MarkUtil:isMarkEmpty,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 338 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 339 INVOKE ops.ProvAmtManager:getIndividualProv
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 360 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 367 INVOKE ops.ProvAmtManager:getTotalProv,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 378 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 380 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 394 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 396 INVOKE ops.ProvAmtManager:getTotalProv
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 416 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 419 INVOKE ops.ProvAmtManager:isCompValid,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 419 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 419 INVOKE ops.ProvAmtManager:validateCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 423 NEW acr.AcrBal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 424 INVOKE acr.AcrBal:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 430 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 438 INVOKE ops.ProvAmtManager:decreaseSubCompBal,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 443 INVOKE ops.ProvAmtManager:decreaseSubCompBal,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 448 INVOKE ops.ProvAmtManager:decreaseSubCompBal,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 451 INVOKE acr.AcrBal:allowNegativeBal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 456 INVOKE acr.AcrBal:allowNegativeBal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 460 INVOKE acr.AcrBal:overrideAcrBal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 464 INVOKE ops.ProvAmtManager:updProvAmt,INPUT character,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 481 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 485 INVOKE ops.ProvAmtManager:updProvSubCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 502 NEW trx.BookNonStandard
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 503 INVOKE trx.BookNonStandard:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 504 INVOKE trx.BookNonStandard:updProvSubCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 515 INVOKE ops.ProvAmtManager:validateCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 516 INVOKE ops.ProvAmtManager:validateOffBalProv,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 517 INVOKE ops.ProvAmtManager:validatePrnProvTotal,INPUT decimal,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 519 INVOKE ops.ProvAmtManager:validateImpProv,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 523 INVOKE ops.ProvAmtManager:updProvAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 524 INVOKE ops.ProvAmtManager:updProvSubCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 525 INVOKE ops.ProvAmtManager:updProvSubCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 526 INVOKE ops.ProvAmtManager:updProvAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 557 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 569 INVOKE ops.ProvAmtManager:validateCompAmt,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 578 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 579 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 586 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 587 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 600 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 601 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 603 INVOKE loan.LoanUtil:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 614 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 615 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 617 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 619 INVOKE loan.LoanManager:chgProvType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 639 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 640 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 641 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 689 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 704 INVOKE ops.ProvAmtManager:getProvType
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 735 INVOKE ops.ProvAmtManager:getCompBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls /u1/env/bankcp/indigo/svn-trunk/system/ops/ProvAmtManager.cls 744 INVOKE ops.ProvAmtManager:getCompBal,INPUT character

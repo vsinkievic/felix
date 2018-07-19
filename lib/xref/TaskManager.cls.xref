@@ -1,0 +1,610 @@
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 7 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 13 CLASS futsk.TaskManager,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 13 STRING "futsk.TaskManager" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 14 STRING "prObj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 15 STRING "prObjId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 16 STRING "prParId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 17 STRING "prDataType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 19 INCLUDE "futsk/ttTaskList.i &visibility=""protected"" &name=""ttTaskList"""
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "ttTaskList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "task" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "sched" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 STRING "changed" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttTaskList.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttTaskList
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 20 INCLUDE "futsk/ttParVal.i &visibility=""protected"" &name=""ttParVal"""
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "ttParVal" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "task" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/ttParVal.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttParVal
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 31 STRING "pObj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 31 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 38 METHOD PUBLIC,,,,,init,void,INPUT pObj CHARACTER,INPUT pObjId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 38 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 47 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 51 METHOD PUBLIC,,,,,init,void,INPUT pTaskListId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 51 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 60 STRING "pObj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 60 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 61 STRING "tasklist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 61 STRING "tasklist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 62 STRING "parval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 62 STRING "parval" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 67 ACCESS indigo.tasklist obj 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 67 ACCESS indigo.tasklist objid 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 67 SEARCH indigo.tasklist FK_tasklist_obj
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 70 CREATE DATA-MEMBER futsk.TaskManager:ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist obj 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist objid 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList objid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist sched 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist sts 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 ACCESS indigo.tasklist tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 71 UPDATE ttTaskList tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 74 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 75 ACCESS indigo.parval task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 75 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 75 SEARCH indigo.parval FK_parval_task
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 77 CREATE DATA-MEMBER futsk.TaskManager:ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval obj 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval parset 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 ACCESS indigo.parval val 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 78 UPDATE ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 81 STRING "GETTASKS" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 89 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 90 STRING "tasklist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 90 STRING "tasklist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 91 STRING "parval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 91 STRING "parval" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 96 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 96 SEARCH indigo.tasklist UQ_tasklist_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 98 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 98 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 101 CREATE DATA-MEMBER futsk.TaskManager:ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist obj 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist objid 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList objid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist sched 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist sts 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 ACCESS indigo.tasklist tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 102 UPDATE ttTaskList tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 104 ACCESS indigo.parval task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 104 SEARCH indigo.parval FK_parval_task
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 106 CREATE DATA-MEMBER futsk.TaskManager:ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval obj 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval parset 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 ACCESS indigo.parval val 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 107 UPDATE ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 109 STRING "GETTASK" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 119 METHOD PUBLIC,,,,,loadTasks,void,OUTPUT ttTaskList TABLE,OUTPUT ttParVal TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 119 STRING "LOADTASKS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 128 STRING "pTaskName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 129 STRING "vTaskId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 133 STRING "task" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 133 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 133 ACCESS indigo.task name 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 133 SEARCH indigo.task PK_task_name
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 136 REFERENCE indigo.task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 136 ACCESS indigo.task id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 139 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 139 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 142 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 142 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 142 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 144 DELETE DATA-MEMBER futsk.TaskManager:ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 147 DELETE DATA-MEMBER futsk.TaskManager:ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 149 METHOD PUBLIC,,,,,loadTasks,void,INPUT pTaskName CHARACTER,OUTPUT ttTaskList TABLE,OUTPUT ttParVal TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 149 STRING "LOADTASKS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 158 METHOD PUBLIC,,,,,loadTaskPars,void,OUTPUT ttParVal TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 158 STRING "LOADTASKPARS" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 166 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 169 STRING "tasklist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 169 STRING "tasklist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 170 STRING "parval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 170 STRING "parval" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 174 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 175 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 175 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 175 SEARCH indigo.tasklist UQ_tasklist_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 177 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 179 INCLUDE "core/businessErr.i &id='TSK0001'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 179 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 181 INCLUDE "core/businessErr.i &id='TSK0002'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 181 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 184 CREATE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 186 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 186 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 188 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 188 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 188 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 REFERENCE DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist fdt
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist obj
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList objid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist objid
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist sched
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist sts
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist task
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 ACCESS ttTaskList tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 192 UPDATE indigo.tasklist tdt
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 194 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 195 STRING "id,task,objid,whn,who,version" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 197 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 197 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 197 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 199 ACCESS indigo.parval id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 199 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 199 SEARCH indigo.parval UQ_parval_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 201 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 203 INCLUDE "core/businessErr.i &id='TSK0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 203 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 205 INCLUDE "core/businessErr.i &id='TSK0004'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 205 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 208 CREATE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 REFERENCE DATA-MEMBER futsk.TaskManager:ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 REFERENCE indigo.parval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 ACCESS ttParVal dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 UPDATE indigo.parval dtype
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 ACCESS ttParVal obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 UPDATE indigo.parval obj
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 ACCESS ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 UPDATE indigo.parval parset
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 ACCESS ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 UPDATE indigo.parval task
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 ACCESS ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 211 UPDATE indigo.parval val
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 213 ACCESS indigo.parval id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 214 STRING "id,task,parset,whn,who,version" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 219 METHOD PUBLIC,,,,,saveTasks,void,
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 219 STRING "SAVETASKS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 228 STRING "pTask" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 228 STRING "pSched" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 228 STRING "pFromDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 229 STRING "task" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 229 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 231 ACCESS indigo.task name 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 231 SEARCH indigo.task PK_task_name
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 233 INCLUDE "core/businessErr.i &id='TSK0009' &p1=pTask"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 233 REFERENCE indigo.task 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0009" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 236 ACCESS indigo.task id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 237 METHOD PUBLIC,,,,,addTask,void,INPUT pTask CHARACTER,INPUT pSched CHARACTER,INPUT pFromDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 237 STRING "ADDTASK" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 247 STRING "pTaskId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 247 STRING "pSched" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 247 STRING "pFromDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 250 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 255 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 257 CREATE DATA-MEMBER futsk.TaskManager:ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 258 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 258 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 259 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 259 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 260 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 260 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList obj TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 261 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList objid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 261 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList objid TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 262 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 262 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList sched TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 263 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 263 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 266 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 266 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 266 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 267 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 267 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 268 METHOD PUBLIC,,,,,addTask,void,INPUT pTaskId INT64,INPUT pSched CHARACTER,INPUT pFromDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 268 STRING "ADDTASK" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 276 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 276 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 277 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 277 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 279 INCLUDE "core/businessErr.i &id='TSK0012'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 279 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 283 METHOD PUBLIC,,,,,addTaskPar,void,INPUT pPar CHARACTER,INPUT pVal CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 283 STRING "ADDTASKPAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 293 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 293 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 293 STRING "pVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 294 STRING "vTaskId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 295 STRING "vParsetId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 297 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 297 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 299 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 299 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 302 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 308 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 308 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 308 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 311 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 313 CREATE DATA-MEMBER futsk.TaskManager:ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 314 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 314 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal id TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 315 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 315 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 316 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 316 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 317 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal dtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 317 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal dtype TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 320 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 320 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 321 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal obj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 321 STRING "task" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 321 UPDATE DATA-MEMBER futsk.TaskManager:ttParVal obj TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 323 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 323 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 324 METHOD PUBLIC,,,,,addTaskPar,void,INPUT pTaskListId INT64,INPUT pPar CHARACTER,INPUT pVal CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 324 STRING "ADDTASKPAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 331 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 332 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 334 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 334 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 336 INCLUDE "core/businessErr.i &id='TSK0007' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 336 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 339 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 340 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 341 STRING "GETPARID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 349 STRING "pTaskId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 349 STRING "pParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 350 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 350 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 352 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 352 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 352 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 355 INCLUDE "core/businessErr.i &id='TSK0010' &p1=pParId &p2=pTaskId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 355 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 358 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 359 STRING "GETPARSETID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 366 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 367 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 367 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 369 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 369 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 372 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 372 STRING "CANCELED" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 372 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 373 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 373 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 374 METHOD PUBLIC,,,,,cancelTask,void,INPUT pTaskListId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 374 STRING "CANCELTASK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 382 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 382 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 383 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 383 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 385 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 385 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 388 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 388 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 389 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 389 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 390 METHOD PUBLIC,,,,,updtTaskSts,void,INPUT pTaskListId INT64,INPUT pSts CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 390 STRING "UPDTTASKSTS" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 398 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 398 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 399 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 400 STRING "tasklist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 400 STRING "tasklist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 404 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 404 SEARCH indigo.tasklist UQ_tasklist_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 406 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 406 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 409 ACCESS indigo.tasklist sts 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 409 UPDATE indigo.tasklist sts
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 411 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 412 STRING "sts" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 413 METHOD PUBLIC,,,,,updtTaskStsDb,void,INPUT pTaskListId INT64,INPUT pSts CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 413 STRING "UPDTTASKSTSDB" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 421 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 421 STRING "pSched" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 422 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 422 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 424 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 424 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 427 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList sched TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 427 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList sched TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 428 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 428 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 429 METHOD PUBLIC,,,,,updtTaskSched,void,INPUT pTaskListId INT64,INPUT pSched CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 429 STRING "UPDTTASKSCHED" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 437 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 437 STRING "pFromDt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 438 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 438 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 440 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 440 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 443 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 443 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 444 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 444 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 445 METHOD PUBLIC,,,,,updtTaskFDt,void,INPUT pTaskListId INT64,INPUT pFromDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 445 STRING "UPDTTASKFDT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 453 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 453 STRING "pToDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 454 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 454 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 456 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 456 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 459 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList tdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 459 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList tdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 460 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 460 UPDATE DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 461 METHOD PUBLIC,,,,,updtTaskTDt,void,INPUT pTaskListId INT64,INPUT pToDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 461 STRING "UPDTTASKTDT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 469 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 469 STRING "pToDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 470 STRING "hist" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 471 STRING "tasklist" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 471 STRING "tasklist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 475 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 475 SEARCH indigo.tasklist UQ_tasklist_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 477 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 477 REFERENCE indigo.tasklist 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 480 ACCESS indigo.tasklist tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 480 UPDATE indigo.tasklist tdt
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 482 ACCESS indigo.tasklist id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 483 STRING "tdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 484 METHOD PUBLIC,,,,,updtTaskTDtDb,void,INPUT pTaskListId INT64,INPUT pToDt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 484 STRING "UPDTTASKTDTDB" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 493 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 493 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 495 INCLUDE "core/businessErr.i &id='TSK0006'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 495 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 497 STRING "FINDUNSAVED" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 504 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 504 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 506 INCLUDE "core/businessErr.i &id='TSK0005'"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 506 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0005" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 508 STRING "FINDUNSAVEDTASK" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 516 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList changed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 516 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 518 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 519 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 521 METHOD PUBLIC,,,,,validateTasks,void,
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 521 STRING "VALIDATETASKS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 529 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 530 STRING "vVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 531 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 531 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 532 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 534 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList id TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 534 SEARCH DATA-MEMBER futsk.TaskManager:ttTaskList fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 536 INCLUDE "core/businessErr.i &id='TSK0008' &p1=pTaskListId"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 536 REFERENCE ttTaskList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 539 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 539 ACCESS DATA-MEMBER futsk.TaskManager:ttTaskList task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 539 SEARCH indigo.parset UQ_prid_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 542 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 542 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 542 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 544 INCLUDE "core/businessErr.i &id='TSK0007' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 544 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 547 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 547 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 547 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 547 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 550 REFERENCE ttParVal TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 552 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 553 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 553 ACCESS indigo.parset chval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 555 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 555 ACCESS indigo.parset inval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 557 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 557 ACCESS indigo.parset deval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 559 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 559 ACCESS indigo.parset dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 562 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 565 STRING "FILLDEFAULTS" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 572 STRING "pTaskListId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 573 STRING "parValid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 574 STRING "/lists/credit/parameters/task" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 576 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal task TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 576 SEARCH DATA-MEMBER futsk.TaskManager:ttParVal default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 578 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 578 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 578 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 578 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 578 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 580 INCLUDE "core/businessErr.i &id='TSK0013' &p1=ttParVal.parset"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 580 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal parset TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 583 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 583 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 583 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 583 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 585 INCLUDE "core/businessErr.i &id='TSK0007' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 585 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TSK0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 588 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 589 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 589 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 589 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 591 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 591 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 591 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 593 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 593 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 593 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 595 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 595 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 595 ACCESS DATA-MEMBER futsk.TaskManager:ttParVal val TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 599 STRING "VALIDATEPARSET" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 601 CONSTRUCTOR PUBLIC,,,,TaskManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 601 STRING "TASKMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 601 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 601 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 32 INVOKE futsk.TaskManager:findUnsaved
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 37 INVOKE futsk.TaskManager:getTasks,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 48 INVOKE futsk.TaskManager:findUnsaved
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 50 INVOKE futsk.TaskManager:getTask,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 118 INVOKE futsk.TaskManager:findUnsaved
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 131 INVOKE futsk.TaskManager:findUnsaved
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 157 INVOKE futsk.TaskManager:findUnsaved
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 167 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 172 INVOKE futsk.TaskManager:validateTasks
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 194 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 195 INVOKE core.History:saveSet,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 213 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 214 INVOKE core.History:saveSet,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 218 INVOKE futsk.TaskManager:getTasks,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 236 INVOKE futsk.TaskManager:addTask,INPUT int64,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 248 INVOKE futsk.TaskManager:findUnsavedTask
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 282 INVOKE futsk.TaskManager:addTaskPar,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 304 INVOKE futsk.TaskManager:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 306 INVOKE futsk.TaskManager:getParsetId,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 402 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 411 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 412 INVOKE core.History:saveSet,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 473 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 482 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 483 INVOKE core.History:saveSet,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 491 INVOKE futsk.TaskManager:findUnsavedTask
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 518 INVOKE futsk.TaskManager:fillDefaults,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 519 INVOKE futsk.TaskManager:validateParset,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 555 INVOKE core.IsoFormat:toString,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 557 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 559 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 562 INVOKE futsk.TaskManager:addTaskPar,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 574 NEW setup.DbParValidator,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 589 INVOKE setup.DbParValidator:validateValue,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 591 INVOKE setup.DbParValidator:validateValue,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 591 INVOKE core.IsoFormat:toInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 593 INVOKE setup.DbParValidator:validateValue,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 593 INVOKE core.IsoFormat:toDecimal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 595 INVOKE setup.DbParValidator:validateValue,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls /u1/env/bankcp/indigo/svn-trunk/system/futsk/TaskManager.cls 595 INVOKE core.IsoFormat:toDate,INPUT character

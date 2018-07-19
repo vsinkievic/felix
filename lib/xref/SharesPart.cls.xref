@@ -1,0 +1,143 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 7 CLASS clt.SharesPart,INHERITS clt.CollateralPart,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 7 STRING "clt.SharesPart" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 7 STRING "clt.CollateralPart" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 9 INCLUDE "clt/ttShares.i &visibility=""private"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttShares.i 1 STRING "ttShares" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttShares.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttShares.i 1 STRING "caproc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttShares.i 1 STRING "isin" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ttShares.i 1 STRING "ntyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 11 STRING "ISIN" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 11 PROPERTY PUBLIC,,,,,ISIN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 14 STRING "pColType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 15 STRING "shares" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 18 CONSTRUCTOR PUBLIC,,,,SharesPart,void,INPUT pColType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 18 STRING "SHARESPART" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 21 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 22 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 23 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 23 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 25 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 25 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 25 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 26 INCLUDE "core/businessErr.i &id='COL0077' &p1=ColObjId"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 26 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0077" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 29 ACCESS indigo.own colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 29 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 29 ACCESS indigo.own owntype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 29 STRING "issuer" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 29 SEARCH indigo.own colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 31 REFERENCE indigo.own 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 37 ACCESS indigo.own clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 42 ACCESS indigo.shr caproc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 43 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColType
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 43 ACCESS indigo.shr isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 43 STRING "3-K-4" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 44 METHOD PROTECTED,,OVERRIDE,,,Load,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 44 STRING "LOAD" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 48 INCLUDE "core/businessErr.i &id='COL0110' &p1='Shares' &p2='issuer'"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0110" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Shares" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "issuer" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 51 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 51 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 51 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 51 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 52 INCLUDE "core/businessErr.i &id='COL0138' &p1=cln.code &p2='issuer' &p3='legal-entity'"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 52 ACCESS indigo.cln type 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 52 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 52 STRING "juridical" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0138" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "issuer" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "legal-entity" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 55 INCLUDE "core/businessErr.i &id='COL0106' &p1='Shares'"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 55 STRING "3-K-4" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0106" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "Shares" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 59 METHOD PROTECTED,,OVERRIDE,,,Valid,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 59 STRING "VALID" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 62 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 64 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 64 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 64 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 65 ACCESS indigo.shr caproc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 65 ACCESS indigo.shr isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 69 METHOD PUBLIC,,OVERRIDE,,,Changed,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 69 STRING "CHANGED" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 72 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 73 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 75 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 75 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 75 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 76 INCLUDE "core/businessErr.i &id='COL0076' &p1=ColObjId"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 76 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0076" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 79 DELETE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 80 METHOD PUBLIC,,OVERRIDE,,,Delete,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 80 STRING "DELETE" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 84 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 85 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 87 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 87 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 87 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 88 INCLUDE "core/businessErr.i &id='COL0076' &p1=ColObjId"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 88 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0076" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 91 CREATE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 92 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 92 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 92 UPDATE indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 93 ACCESS indigo.shr caproc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 93 UPDATE indigo.shr caproc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 94 ACCESS indigo.shr isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 94 STRING "3-K-4" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 94 UPDATE indigo.shr isin
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 95 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 96 METHOD PROTECTED,,OVERRIDE,,,CreateValidated,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 96 STRING "CREATEVALIDATED" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 100 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 102 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 102 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 102 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 103 INCLUDE "core/businessErr.i &id='COL0077' &p1=ColObjId"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 103 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS INHERITED-PROPERTY clt.CollateralPart:ColObjId
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0077" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 106 ACCESS indigo.shr caproc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 106 UPDATE indigo.shr caproc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 107 ACCESS indigo.shr isin 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 107 STRING "3-K-4" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 107 UPDATE indigo.shr isin
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 108 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 109 METHOD PROTECTED,,OVERRIDE,,,UpdateValidated,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 109 STRING "UPDATEVALIDATED" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 113 METHOD PUBLIC,,,,,GetData,void,OUTPUT ttShares TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 113 STRING "GETDATA" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 117 SEARCH DATA-MEMBER clt.SharesPart:ttShares default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 118 METHOD PUBLIC,,,,,SetData,void,INPUT ttShares TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 118 STRING "SETDATA" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 121 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls 15 INVOKE clt.CollateralPart:CollateralPart,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/SharesPart.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer

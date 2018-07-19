@@ -1,0 +1,801 @@
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 10 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 24 CLASS limrel.LimRel,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 24 STRING "limrel.LimRel" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 25 STRING "prObjId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 26 STRING "prChangeDay" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 27 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 28 STRING "conv" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 30 STRING "prARPprod" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 30 STRING "ARP" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 31 STRING "prCREDITLINEprod" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 31 STRING "CREDITLINE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 32 STRING "prPlatonSys" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 32 STRING "PLATON" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 33 STRING "prCLIcrtype" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 33 STRING "CLI" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 34 STRING "prGUARcrtype" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 34 STRING "GUAR" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 36 INCLUDE "limrel/ttLimRel.i &visibility=""protected"" &name=""ttLimRel"""
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "ttLimRel" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentcrobj" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "childcrobj" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "limrelid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "rdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "covtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "secamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "trxamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "agrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentcrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "childcrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 STRING "parentpltprod" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/ttLimRel.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 43 CONSTRUCTOR PUBLIC,,,,LimRel,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 43 STRING "LIMREL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 50 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 51 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 53 ACCESS indigo.limrel id 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 53 SEARCH indigo.limrel PK_id
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 55 INCLUDE "core/businessErr.i &id='REL0003' &p1=pObjId"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 55 REFERENCE indigo.limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 63 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 64 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 64 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 65 METHOD PUBLIC,,,,,init,void,INPUT pObjId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 65 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 73 METHOD PUBLIC,,,,,init,void,INPUT ttLimRel TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 73 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 81 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 82 INCLUDE "core/businessErr.i &id='REL0039'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 82 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0039" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 84 INCLUDE "core/businessErr.i &id='REL0040'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 84 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0040" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 86 STRING "CHECKLIMRELINIT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 93 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 95 METHOD PUBLIC,,,,,setChangeDate,void,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 95 STRING "SETCHANGEDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 106 METHOD PUBLIC,,,,,getLimRelId,int64,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 106 STRING "GETLIMRELID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 113 STRING "limRelDat" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 120 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 121 STRING "GETLIMREL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 129 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 130 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 130 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 131 METHOD PUBLIC,,,,,getLimRel,void,OUTPUT ttLimRel TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 131 STRING "GETLIMREL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 138 STRING "vIsParentARP" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 139 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 142 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 143 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 143 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 143 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 148 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 151 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 151 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 159 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 159 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 159 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 162 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 164 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 165 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 166 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 170 METHOD PUBLIC,,,,,createLimRel,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 170 STRING "CREATELIMREL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 177 STRING "limRelDat" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 179 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 181 STRING "NEWLIMREL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 188 STRING "deleted" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 191 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 197 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 197 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 197 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 201 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 203 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 204 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 204 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 205 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 205 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 209 METHOD PUBLIC,,,,,deleteLimRel,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 209 STRING "DELETELIMREL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 216 STRING "limRelDat" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 220 STRING "REMOVELIMREL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 227 STRING "limRelDat" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 234 REFERENCE ttLimRel TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 235 STRING "SAVELIMREL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 242 STRING "vChildCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 243 STRING "vParentCrnum" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 244 STRING "vChildType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 245 STRING "vParentType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 248 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 250 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 251 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 252 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 253 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 255 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel limrelid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 258 STRING "VALIDATECREATEPARAMS" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 265 STRING "vChildAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 268 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 270 INCLUDE "core/businessErr.i &id='REL0017' &p1=ttLimRel.parentcrobj"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 270 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0017" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 273 INCLUDE "core/businessErr.i &id='REL0018' &p1=ttLimRel.childcrobj"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 273 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0018" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 276 INCLUDE "core/businessErr.i &id='REL0010'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 276 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel limrelid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 276 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel limrelid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 279 INCLUDE "core/businessErr.i &id='REL0011'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 279 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 279 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0011" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 283 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 286 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel covtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 288 INCLUDE "core/businessErr.i &id='REL0014'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 288 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel rdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 291 INCLUDE "core/businessErr.i &id='REL0030'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 291 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel rdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 294 INCLUDE "core/businessErr.i &id='REL0012'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 294 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 297 INCLUDE "core/businessErr.i &id='REL0013'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 297 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 299 STRING "VALIDATEPARAMS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 307 STRING "pParentCrobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 307 STRING "pChildCrobj" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 307 STRING "pParentCrc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 307 STRING "pChildCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 308 STRING "vParentAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 309 STRING "vParentDueDate" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 311 STRING "vChildAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 312 STRING "vChildAmtConverted" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 313 STRING "vChildDueDate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 315 INCLUDE "core/businessErr.i &id='REL0036'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0036" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 328 STRING "Guarantee has assigned direct collaterals." 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 331 STRING "Available (uncommitted) limit does not cover guarantee amount." 62 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 334 STRING "Due date of limit is before due date of guarantee." 50 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 337 STRING "Due date of guarantee is already expired." 41 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 339 METHOD PUBLIC,,,,,validateCreationRules,void,INPUT pParentCrobj INT64,INPUT pChildCrobj INT64,INPUT pParentCrc INTEGER,INPUT pChildCrc INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 339 STRING "VALIDATECREATIONRULES" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 348 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 349 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 351 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 351 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 353 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 356 STRING "DOESCROBJEXIST" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 358 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 359 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 361 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 361 SEARCH indigo.crobj crnum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 363 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 366 STRING "DOESCROBJEXIST" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 374 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 375 STRING "colAgrLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 378 STRING "HASCOLAGRLN" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 386 STRING "vParentAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 387 STRING "vDiff" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 388 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 391 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 393 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 393 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 397 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 398 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 406 STRING "CALCTRXAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 414 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 420 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 421 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 421 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:CLOSED
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 421 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 422 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 422 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 424 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 427 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 427 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 434 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 434 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 434 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 437 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 439 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 440 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 441 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 445 METHOD PUBLIC,,,,,autoCloseLimRel,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 445 STRING "AUTOCLOSELIMREL" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 451 STRING "pParentCrnum" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 453 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 454 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 454 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 455 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 455 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 456 METHOD PUBLIC,,,,,setParentCrobj,void,INPUT pParentCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 456 STRING "SETPARENTCROBJ" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 462 STRING "pChildCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 464 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 465 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 465 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 466 METHOD PUBLIC,,,,,setChildCrobj,void,INPUT pChildCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 466 STRING "SETCHILDCROBJ" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 476 STRING "pCrobjNum" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 476 STRING "pForceUpdate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 477 STRING "vCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 482 METHOD PUBLIC,,,,,updateCrObj,int64,INPUT pCrobjNum CHARACTER,INPUT pForceUpdate LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 482 STRING "UPDATECROBJ" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 484 STRING "pCrobjNum" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 486 METHOD PUBLIC,,,,,updateCrObj,int64,INPUT pCrobjNum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 486 STRING "UPDATECROBJ" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 495 STRING "pParentObj" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 495 STRING "pChildObj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 495 STRING "pAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 496 STRING "colAgrLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 500 STRING "COPYCOLAGRLINES" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 509 STRING "pParentObj" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 509 STRING "pChildObj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 509 STRING "pAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 510 STRING "colAgrLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 514 STRING "DELETECOLAGRLINES" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 522 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 523 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 525 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 527 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 527 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 529 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 533 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 536 STRING "ISCREDITLINE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 544 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 545 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 546 STRING "lim" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 552 STRING "loan.lid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 555 STRING "GETUNCOMMITTEDLIMIT" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 563 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 565 METHOD PUBLIC,,,,,getCreditAmt,decimal,INPUT pCrobjId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 565 STRING "GETCREDITAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 567 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 567 STRING "pSys" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 567 STRING "pProd" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 568 STRING "vCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 569 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 586 METHOD PUBLIC,,,,,getCreditAmt,decimal,INPUT pCrobjId INT64,INPUT pSys CHARACTER,INPUT pProd CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 586 STRING "GETCREDITAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 594 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 595 STRING "vDueDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 597 STRING "crobjMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 604 STRING "GETCREDITDUEDATE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 612 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 613 STRING "vOffBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 615 STRING "crobjMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 622 STRING "GETCREDITOFFBAL" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 630 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 631 STRING "vOpnAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 633 STRING "crobjMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 640 STRING "GETCREDITOPNAMT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 648 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 651 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel covtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 ACCESS PUBLIC-PROPERTY limrel.LimRelCovType:AUTO
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 657 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 660 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 660 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 660 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 669 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 671 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 672 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 673 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 677 METHOD PUBLIC,,,,,autoCalcCoverage,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 677 STRING "AUTOCALCCOVERAGE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 684 STRING "crobjMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 686 STRING "closed" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 691 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 692 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 698 STRING "SHOULDCLOSE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 707 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 707 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 708 STRING "vCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 709 STRING "vARPTrxAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 710 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 720 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 721 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel limrelid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 721 STRING "Limit relation ID: &1." 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 726 STRING "GENARPGUARTRX" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 734 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 735 STRING "vCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 736 STRING "crobjMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 744 STRING "GETCREDITNUMBER" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 752 STRING "pCovType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 752 STRING "pSecAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 753 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 755 STRING "updated" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 758 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 759 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel covtype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 759 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel covtype TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 760 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 760 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 762 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 765 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 765 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 765 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 774 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 776 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 777 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 778 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 782 METHOD PUBLIC,,,,,chgCoverage,void,INPUT pCovType CHARACTER,INPUT pSecAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 782 STRING "CHGCOVERAGE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 791 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 793 STRING "deactivated" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 796 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 797 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 797 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:INACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 797 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 798 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 798 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel secamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 800 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 803 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 803 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel trxamt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 810 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 810 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 810 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel agrnum TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 814 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 816 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentpltprod TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 817 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 818 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 822 METHOD PUBLIC,,,,,deactivateLimRel,void,
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 822 STRING "DEACTIVATELIMREL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 829 STRING "pMode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 830 INCLUDE "core/businessErr.i &id='REL0019' &p1=pMode"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 832 STRING "CANUPDATELIMREL" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 840 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 842 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 842 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 845 STRING "ISLIMRELACTIVE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 854 STRING "pParentObj" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 854 STRING "pChildObj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 854 STRING "pAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 855 STRING "colAgrLn" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 859 STRING "DEACTIVATECOLAGRLINES" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 866 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 867 STRING "updated" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 870 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 871 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel rdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 871 UPDATE DATA-MEMBER limrel.LimRel:ttLimRel rdt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 874 METHOD PUBLIC,,,,,chgCreationDt,void,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 874 STRING "CHGCREATIONDT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 883 STRING "pParentCrnum" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 884 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 885 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 887 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 887 SEARCH indigo.crobj crnum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 889 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 891 ACCESS indigo.limrel parentcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 891 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 891 ACCESS indigo.limrel sts 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 891 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 891 SEARCH indigo.limrel FK_parentcrobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 894 ACCESS indigo.limrel id 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 899 METHOD PUBLIC,,,,,updateAllChildObjects,void,INPUT pParentCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 899 STRING "UPDATEALLCHILDOBJECTS" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 909 STRING "pUpdateParent" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 910 STRING "vChildCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 911 STRING "vParentCrnum" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 914 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 915 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel sts TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 915 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 917 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 922 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 929 METHOD PUBLIC,,,,,updateLimRelData,void,INPUT pUpdateParent LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 929 STRING "UPDATELIMRELDATA" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 938 STRING "pColagr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 939 STRING "limagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 940 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 942 ACCESS indigo.limagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 942 SEARCH indigo.limagr FK_colagr
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 944 REFERENCE indigo.limagr 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 947 ACCESS indigo.limrel id 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 947 ACCESS indigo.limagr limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 947 SEARCH indigo.limrel PK_id
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 949 REFERENCE indigo.limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 953 METHOD PUBLIC,,,,,hasLimRel,logical,INPUT pColagr INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 953 STRING "HASLIMREL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 962 STRING "pGuaranteeNum" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 962 STRING "pCrlineAgrNum" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 962 STRING "pArpNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 964 STRING "CHGGUARANTEELIMAGRNUM" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 973 STRING "vIsParentARP" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 974 STRING "vGuaranteeNum" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 975 STRING "vCreditlineAgrNum" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 976 STRING "vArpNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 979 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 981 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 982 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 984 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 986 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 989 STRING "SETGUARANTEELIMAGRNUM" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 997 STRING "vGuaranteeNum" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1000 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1002 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel childcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1005 STRING "DELETEGUARANTEELIMAGRNUM" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1013 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1014 STRING "vAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1016 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1018 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1018 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1020 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1020 ACCESS indigo.crobj cragr 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1024 STRING "GETCREDITAGRNUM" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1032 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1033 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1035 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1045 ACCESS indigo.limrel parentcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1045 ACCESS indigo.limrel sts 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1045 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1045 SEARCH indigo.limrel FK_parentcrobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1048 ACCESS indigo.limrel id 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1051 METHOD PUBLIC,,,,,updateLimitGuarLimAgrNum,void,INPUT pCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1051 STRING "UPDATELIMITGUARLIMAGRNUM" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1059 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1059 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1060 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1061 STRING "vLimitCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1063 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1067 INCLUDE "core/businessErr.i &id='REL0032'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1069 INCLUDE "core/businessErr.i &id='REL0031'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1078 ACCESS indigo.limrel childcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1078 ACCESS indigo.limrel sts 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1078 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1078 SEARCH indigo.limrel FK_childcrobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1081 REFERENCE indigo.limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1083 ACCESS indigo.limrel parentcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1086 INCLUDE "core/businessErr.i &id='REL0037' &p1=pCrnum &p2=vLimitCrnum"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1088 METHOD PUBLIC,,,,,validateParentCrobj,void,INPUT pType CHARACTER,INPUT pCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1088 STRING "VALIDATEPARENTCROBJ" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1096 STRING "pType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1096 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1097 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1098 STRING "vLimitCrnum" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1099 STRING "vGuaranteeCrnum" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1101 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1103 INCLUDE "core/businessErr.i &id='REL0033'"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1111 ACCESS indigo.limrel childcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1111 ACCESS indigo.limrel parentcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1111 ACCESS indigo.limrel sts 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1111 ACCESS PUBLIC-PROPERTY limrel.LimRelStatus:ACTIVE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1111 SEARCH indigo.limrel PK_id WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1115 REFERENCE indigo.limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1117 ACCESS indigo.limrel childcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1119 ACCESS indigo.limrel parentcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1122 INCLUDE "core/businessErr.i &id='REL0020' &p1=pCrnum &p2=vLimitCrnum"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1125 ACCESS indigo.limrel childcrobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1128 INCLUDE "core/businessErr.i &id='REL0035' &p1=pCrnum &p2=vGuaranteeCrnum"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0035" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1131 METHOD PUBLIC,,,,,validateChildCrobj,void,INPUT pType CHARACTER,INPUT pCrnum CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1131 STRING "VALIDATECHILDCROBJ" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1139 STRING "pCrtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1143 STRING "ISCREDITLINECRTYPE" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1151 STRING "pCrtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1155 STRING "ISGUARANTEE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1163 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1164 STRING "vIsARPGuarantee" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1169 STRING "ISARPGUARANTEE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1177 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1178 STRING "vCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1183 STRING "ISARPGUARANTEE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1191 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1192 STRING "crobjManager" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1193 STRING "vCrtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1202 STRING "GETCROBJTYPE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1210 STRING "pCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1211 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1213 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1215 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1215 SEARCH indigo.crobj crnum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1217 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1217 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1221 STRING "GETCROBJ" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1228 STRING "pLimRelId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1229 STRING "limrel" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1231 ACCESS indigo.limrel limrelid 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1231 SEARCH indigo.limrel IDX_limrelid
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1233 INCLUDE "core/businessErr.i &id='REL0046' &p1=limrel.limrelid"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1233 REFERENCE indigo.limrel 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.limrel limrelid 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0046" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1235 STRING "VALIDATELIMRELID" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1243 SEARCH DATA-MEMBER limrel.LimRel:ttLimRel default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1245 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1248 ACCESS DATA-MEMBER limrel.LimRel:ttLimRel parentcrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1252 STRING "GETPARENTPLTPROD" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1258 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1259 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1260 STRING "sys" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1262 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1262 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1264 INCLUDE "core/businessErr.i &id='REL0017' &p1=pCrobj"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1264 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REL0017" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1267 ACCESS indigo.sys id 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1267 ACCESS indigo.crobj sys 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1267 SEARCH indigo.sys id_sys
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1269 INCLUDE "core/businessErr.i &id='COL0001' &p1=crobj.sys"
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1269 REFERENCE indigo.sys 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.crobj sys 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1272 ACCESS indigo.sys sys 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1273 STRING "GETSYS" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1279 STRING "pCrobjId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1279 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1280 STRING "vCrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1281 STRING "vOldOpnAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1282 STRING "vNewOpnAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1295 STRING "CHGPLTCREDITLINEOPENAMT" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1297 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 40 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 40 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 42 NEW core.Conv
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 60 INVOKE limrel.LimRel:getLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 62 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 64 INVOKE limrel.LimRel:getParentPltProd
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 117 NEW limrel.LimRelData
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 118 INVOKE limrel.LimRelData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 119 INVOKE limrel.LimRelData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 120 INVOKE limrel.LimRelData:getLimRel,OUTPUT TABLE ttLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 128 INVOKE limrel.LimRel:getLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 130 INVOKE limrel.LimRel:getParentPltProd
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 141 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 145 INVOKE limrel.LimRel:validateCreateParams
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 146 INVOKE limrel.LimRel:validateParams
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 150 INVOKE limrel.LimRel:calcTrxAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 158 INVOKE limrel.LimRel:newLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 159 INVOKE limrel.LimRel:copyColAgrLines,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 160 INVOKE limrel.LimRel:setGuaranteeLimAgrNum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 165 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 166 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 178 NEW limrel.LimRelData
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 179 INVOKE limrel.LimRelData:newLimRel,INPUT TABLE ttLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 180 INVOKE limrel.LimRelData:getLimRelId
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 188 INVOKE limrel.LimRel:canUpdateLimRel,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 190 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 197 INVOKE limrel.LimRel:deleteColAgrLines,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 198 INVOKE limrel.LimRel:removeLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 199 INVOKE limrel.LimRel:deleteGuaranteeLimAgrNum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 204 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 205 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 217 NEW limrel.LimRelData
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 218 INVOKE limrel.LimRelData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 219 INVOKE limrel.LimRelData:deleteLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 229 INVOKE limrel.LimRel:validateParams
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 231 NEW limrel.LimRelData
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 232 INVOKE limrel.LimRelData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 233 INVOKE limrel.LimRelData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 234 INVOKE limrel.LimRelData:saveLimRel,INPUT TABLE ttLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 247 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 250 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 251 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 252 INVOKE limrel.LimRel:getCrobjType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 253 INVOKE limrel.LimRel:getCrobjType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 255 INVOKE limrel.LimRel:validateLimRelId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 256 INVOKE limrel.LimRel:validateChildCrobj,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 257 INVOKE limrel.LimRel:validateParentCrobj,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 267 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 270 INVOKE limrel.LimRel:doesCrobjExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 273 INVOKE limrel.LimRel:doesCrobjExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 283 INVOKE limrel.LimRelStatus:getEnum,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 286 INVOKE limrel.LimRelCovType:getEnum,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 318 INVOKE limrel.LimRel:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 319 INVOKE limrel.LimRel:getCreditDueDate,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 321 INVOKE limrel.LimRel:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 322 INVOKE limrel.LimRel:getCreditDueDate,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 324 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 328 INVOKE limrel.LimRel:hasColAgrLn,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 328 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 328 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 331 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 331 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 334 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 334 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 337 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 337 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 376 NEW clt.ColAgrLnHelper
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 377 INVOKE clt.ColAgrLnHelper:hasColAgrLn,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 390 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 397 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 397 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 398 INVOKE limrel.LimRel:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 416 INVOKE limrel.LimRel:shouldClose
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 419 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 426 INVOKE limrel.LimRel:calcTrxAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 434 INVOKE limrel.LimRel:deactivateColAgrLines,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 435 INVOKE limrel.LimRel:saveLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 440 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 441 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 452 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 454 INVOKE limrel.LimRel:updateCrObj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 455 INVOKE limrel.LimRel:getParentPltProd
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 463 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 465 INVOKE limrel.LimRel:updateCrObj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 479 RUN clt/crobjUpdateHelper.p
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 485 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 497 NEW clt.ColAgrLnHelper
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 498 INVOKE clt.ColAgrLnHelper:init,INPUT integer,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 499 INVOKE clt.ColAgrLnHelper:copyColAgrLines
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 511 NEW clt.ColAgrLnHelper
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 512 INVOKE clt.ColAgrLnHelper:init,INPUT integer,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 513 INVOKE clt.ColAgrLnHelper:deleteColAgrLines
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 532 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 533 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 535 INVOKE setup.ProductUtil:isCrlineProduct
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 548 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 549 INVOKE loan.LoanUtil:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 551 NEW lim.Limits
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 552 INVOKE lim.Limits:init,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 552 INVOKE loan.LoanUtil:getLid
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 553 INVOKE lim.Limits:loadLimits
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 554 INVOKE lim.Limits:getUncommittedLimit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 564 INVOKE limrel.LimRel:getCreditAmt,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 564 INVOKE limrel.LimRel:getSys,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 564 INVOKE limrel.LimRel:getCrobjType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 575 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 576 INVOKE limrel.LimRel:getUncommittedLimit,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 580 INVOKE limrel.LimRel:getCreditOpnAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 582 INVOKE limrel.LimRel:getCreditOffBal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 599 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 600 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 601 INVOKE clt.CrobjManager:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 617 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 618 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 619 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 635 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 636 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 637 INVOKE clt.CrobjManager:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 650 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 654 INVOKE limrel.LimRel:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 659 INVOKE limrel.LimRel:calcTrxAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 667 INVOKE limrel.LimRel:saveLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 672 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 673 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 686 INVOKE limrel.LimRel:canUpdateLimRel,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 688 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 690 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 692 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 694 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 694 INVOKE clt.CrobjManager:isClosed
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 715 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 719 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 723 RUN sys2plt/api/v1/chgARPGuaranteeBal.p
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 725 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 738 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 739 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 741 INVOKE clt.CrobjManager:getCrNum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 755 INVOKE limrel.LimRel:canUpdateLimRel,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 757 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 764 INVOKE limrel.LimRel:calcTrxAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 772 INVOKE limrel.LimRel:saveLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 777 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 778 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 793 INVOKE limrel.LimRel:canUpdateLimRel,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 795 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 802 INVOKE limrel.LimRel:calcTrxAmt
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 810 INVOKE limrel.LimRel:deactivateColAgrLines,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 811 INVOKE limrel.LimRel:saveLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 812 INVOKE limrel.LimRel:deleteGuaranteeLimAgrNum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 817 INVOKE limrel.LimRel:genARPGuarTrx,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 818 INVOKE limrel.LimRel:chgPltCreditlineOpenAmt,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 830 INVOKE limrel.LimRel:isLimRelActive
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 839 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 856 NEW clt.ColAgrLnHelper
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 857 INVOKE clt.ColAgrLnHelper:init,INPUT integer,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 858 INVOKE clt.ColAgrLnHelper:deactivateColAgrLines
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 867 INVOKE limrel.LimRel:canUpdateLimRel,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 869 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 873 INVOKE limrel.LimRel:saveLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 894 INVOKE limrel.LimRel:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 896 INVOKE limrel.LimRel:updateLimRelData,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 913 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 917 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 918 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 922 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 923 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 926 INVOKE limrel.LimRel:autoCalcCoverage
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 927 INVOKE limrel.LimRel:autoCloseLimRel
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 963 RUN sys2plt/api/v1/chgGuaranteeLimAgrNum.p
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 978 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 981 INVOKE limrel.LimRel:isARPGuarantee,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 982 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 984 INVOKE limrel.LimRel:getCreditAgrNum,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 986 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 988 INVOKE limrel.LimRel:chgGuaranteeLimAgrNum,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 999 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1002 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1004 INVOKE limrel.LimRel:chgGuaranteeLimAgrNum,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1037 INVOKE limrel.LimRel:isCreditline,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1040 INVOKE limrel.LimRel:doesCrobjExist,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1043 INVOKE limrel.LimRel:updateCrObj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1048 INVOKE limrel.LimRel:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1049 INVOKE limrel.LimRel:setGuaranteeLimAgrNum
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1065 INVOKE limrel.LimRel:isCreditlineCrtype,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1067 INVOKE limrel.LimRel:isGuarantee,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1069 INVOKE limrel.LimRel:isARPGuarantee,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1073 INVOKE limrel.LimRel:getCrobj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1083 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1103 INVOKE limrel.LimRel:isGuarantee,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1106 INVOKE limrel.LimRel:getCrobj,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1119 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1125 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1166 RUN sys2plt/api/v1/isARPGuarantee.p
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1180 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1182 INVOKE limrel.LimRel:isARPGuarantee,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1195 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1197 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1199 INVOKE clt.CrobjManager:getCrobjType
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1242 INVOKE limrel.LimRel:checkLimRelInit
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1245 INVOKE limrel.LimRel:getSys,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1248 INVOKE limrel.LimRel:isARPGuarantee,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1287 INVOKE limrel.LimRel:getCreditNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1289 INVOKE limrel.LimRel:getCreditAmt,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1292 RUN sys2plt/api/v1/chgPltLonOpnAmt.p
+/u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls /u1/env/bankcp/indigo/svn-trunk/system/limrel/LimRel.cls 1294 INVOKE limrel.LimRel:updateCrObj,INPUT character,INPUT logical

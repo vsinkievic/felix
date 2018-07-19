@@ -1,0 +1,413 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 6 STRING "query_xml" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 7 STRING "res_xml" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 9 INCLUDE core/xmlfunc.i
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 7 STRING "hRoot" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 7 STRING "elName" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 8 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 9 STRING "hNoderef" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 10 STRING "hResNode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 25 FUNCTION GetElementByName,widget-handle,INPUT hRoot HANDLE,INPUT elName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 25 STRING "GETELEMENTBYNAME" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 32 STRING "hRoot" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 32 STRING "elName" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 33 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 34 STRING "hNoderef" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 44 FUNCTION GetChildByName,widget-handle,INPUT hRoot HANDLE,INPUT elName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 44 STRING "GETCHILDBYNAME" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 48 STRING "hNode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 49 STRING "v-res" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 50 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 51 STRING "hNoderef" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 57 STRING "#text" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 63 FUNCTION GetNodeText,character,INPUT hNode HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 63 STRING "GETNODETEXT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 68 STRING "hRoot" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 68 STRING "elName" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 69 STRING "hRes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 70 STRING "tRes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 78 FUNCTION GetNodeTextByName,character,INPUT hRoot HANDLE,INPUT elName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 78 STRING "GETNODETEXTBYNAME" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 84 STRING "hRoot" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 84 STRING "elName" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 85 STRING "hRes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 86 STRING "tRes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 94 FUNCTION GetChildTextByName,character,INPUT hRoot HANDLE,INPUT elName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 94 STRING "GETCHILDTEXTBYNAME" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 100 STRING "hNode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 101 STRING "vText" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 103 STRING "tmp_node" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 106 STRING "TEXT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 111 PROCEDURE AddNodeText,,INPUT hNode HANDLE,INPUT vText CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 111 STRING "ADDNODETEXT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 117 STRING "hNode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 118 STRING "vName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 119 STRING "vText" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 120 STRING "outNode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 122 STRING "tmp_node" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 124 STRING "ELEMENT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 126 STRING "ELEMENT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 131 PROCEDURE AddNode,,INPUT hNode HANDLE,INPUT vName CHARACTER,INPUT vText CHARACTER,INPUT outNode HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/xmlfunc.i 131 STRING "ADDNODE" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 10 STRING "LOGFILE" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 10 STRING "cln-sync.log" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 12 INCLUDE "core/ba-log.i LOGFILE"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 5 STRING "vLogNotEnabled" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 6 STRING "vLogFile" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 8 STRING "LOGFILE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 8 STRING "LOGFILE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 10 STRING "BALOGFILE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 17 STRING "vTip" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 17 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 21 STRING "vOut" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING " [" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "9999" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "99" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "99" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "HH:MM:SS" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 23 STRING "]: " 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 35 STRING "\\" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 35 STRING "\" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 44 FUNCTION log2File,logical,INPUT vTip CHARACTER,INPUT vMsg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 44 STRING "LOG2FILE" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 46 STRING "vType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 46 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 50 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 56 FUNCTION logMsg,logical,INPUT vType CHARACTER,INPUT vMsg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/ba-log.i 56 STRING "LOGMSG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 13 INCLUDE "clt/tAddr2.i &name=""tAddr"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "tAddr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "addrtype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "munic" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "town" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "village" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "street" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "zip" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "fullAddr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "looseFields" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 STRING "reqwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddr2.i 1 REFERENCE indigo.addr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 14 INCLUDE "core/tCln.i &name=""tCln"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "tCln" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 15 INCLUDE "core/tCln.i &name=""tClnNew"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "tClnNew" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 17 STRING "v-errtxt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 19 STRING "hRoot" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 20 STRING "Level2" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 22 STRING "vText" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 23 STRING "vClnCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 24 STRING "vErrLg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 25 STRING "vInfLg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 26 STRING "vErrNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 28 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 31 STRING "Unrecognized query structure!" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 32 STRING "Wrong query type: must be ClientRegistration, ClientUpdate, ProspectiveClientUpdate or CustomerIDChange!" 104 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 33 STRING "Mandatory field not present!" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 34 STRING "Cannot change customer personal code!" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 35 STRING "Cannot find client with this personal code!" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 36 STRING "Unhandled error caught!" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 37 STRING "Cannot register new client!" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 38 STRING "Xml loading error!" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 42 STRING "/constants/general/INDIGO_DIR" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 43 ACCESS indigo.gls chval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 43 STRING "&1/logs/&2" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 43 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 48 STRING "Query" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 54 STRING "QueryHeader" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 60 STRING "QueryName" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 62 STRING "ClientUpdate" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 63 STRING "ClientRegistration" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 64 STRING "CustomerIDChange" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 65 STRING "ProspectiveClientUpdate" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 75 STRING "Client &1, operation &2 : finished" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 76 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 79 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 80 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 82 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 84 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 98 STRING "pErrNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 99 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 101 STRING "parseCustXml" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 111 REFERENCE tClnNew TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 111 REFERENCE tAddr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 121 SEARCH tClnNew default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 124 STRING "Client &1, operation &2 : data received" 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 125 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 126 PROCEDURE parseClientData,,OUTPUT pErrNr INTEGER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 126 STRING "PARSECLIENTDATA" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 129 STRING "vError" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 131 STRING "Missing client code" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 134 SEARCH tClnNew default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 135 REFERENCE tClnNew TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 137 STRING "Missing client name" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 140 STRING "Missing client country" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 143 STRING "Missing client record" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 145 SEARCH tAddr obj TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 146 REFERENCE tAddr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 146 STRING "Missing address record." 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 148 PROCEDURE validateClientData,,OUTPUT vError CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 148 STRING "VALIDATECLIENTDATA" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 151 STRING "pErrNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 152 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 154 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 154 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 154 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 160 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 160 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 162 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 177 SEARCH tClnNew default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 178 SEARCH tAddr obj TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 180 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 180 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 183 ACCESS indigo.cln bankcln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 185 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 185 STRING "Client with code &1 marked as non bank client" 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 186 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 190 CREATE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 REFERENCE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln bankcln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln bankcln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln birth 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln birth TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln borrcmt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln borrcmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln cif TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln clnid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln code TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln country 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln docnr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln docnr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln esa 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln esa TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln regdt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln regdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln resid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln resid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 ACCESS indigo.cln type 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 191 UPDATE tCln type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tClnNew clnid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tClnNew code TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tClnNew cif TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tClnNew borrcmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tClnNew TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 REFERENCE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew bankcln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln bankcln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew birth TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln birth TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew docnr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln docnr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew esa TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln esa TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew regdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln regdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew resid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln resid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 ACCESS tClnNew type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 192 UPDATE tCln type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 194 REFERENCE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 198 STRING "Client &1: information changed" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 199 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 207 PROCEDURE clientUpdate,,OUTPUT pErrNr INTEGER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 207 STRING "CLIENTUPDATE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 212 STRING "v-err" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 213 STRING "v-err2" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 215 STRING "ResEl" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 216 STRING "Tmp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 217 STRING "hExt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 219 STRING "v-msg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 226 STRING " (" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 226 STRING ")" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 231 STRING "Result" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 232 STRING "ResultInfo" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 235 STRING "Code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 238 STRING "CodeInfo" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 240 STRING "ERR" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 247 PROCEDURE ReportResult,,INPUT v-err INTEGER,INPUT v-err2 CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 247 STRING "REPORTRESULT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 251 STRING "pErrNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 252 STRING "pError" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 253 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 254 STRING "vCifList" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 255 STRING "vIter" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 256 STRING "vIgnoredError" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 258 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 258 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 258 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 264 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 264 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 266 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 269 STRING "Client with code &1 already exist." 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 283 SEARCH tAddr obj TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 284 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 287 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 287 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 289 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 294 CREATE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 REFERENCE tClnNew TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 REFERENCE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew bankcln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln bankcln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew birth TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln birth TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew borrcmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln borrcmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew cif TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln cif TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew clnid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln clnid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew code TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln code TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln country TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew docnr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln docnr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew esa TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln esa TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew regdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln regdt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew resid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln resid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 ACCESS tClnNew type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 295 UPDATE tCln type TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 298 REFERENCE tCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 305 STRING "Client &1: registration successful." 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 306 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 315 PROCEDURE clientRegistration,,OUTPUT pErrNr INTEGER,OUTPUT pError CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 315 STRING "CLIENTREGISTRATION" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 319 STRING "pErrNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 320 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 322 STRING "vNewCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 323 STRING "vOldCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 324 STRING "vValidChange" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 325 STRING "hTmp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 327 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 331 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 331 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 331 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 333 STRING "QueryBody" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 340 STRING "QueryCriteria" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 341 STRING "NewCustomerID" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 345 STRING "Client &1, operation &2 : data received" 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 346 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 351 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 351 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 353 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 353 UPDATE indigo.cln code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 355 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 356 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 356 STRING "cln.code" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 358 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 358 STRING "Client &1 with cif &2 : personal code changed to &3" 51 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 359 STRING "INF" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 363 PROCEDURE customerCodeChange,,OUTPUT pErrNr INTEGER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 363 STRING "CUSTOMERCODECHANGE" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 366 STRING "pNewCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 367 STRING "pOldCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 368 STRING "pValidChange" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 369 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 387 PROCEDURE validateClnCodes,,INPUT pNewCode CHARACTER,INPUT pOldCode CHARACTER,OUTPUT pValidChange LOGICAL,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 387 STRING "VALIDATECLNCODES" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 390 STRING "pNewCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 391 STRING "pOldCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 392 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 394 STRING "New client personal code is empty" 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 397 STRING "New client personal code matches old client code" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 399 PROCEDURE isCodeValid,,INPUT pNewCode CHARACTER,INPUT pOldCode CHARACTER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 399 STRING "ISCODEVALID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 402 STRING "pCode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 403 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 405 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 405 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 405 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 407 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 407 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 409 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 409 STRING "Client with code &1 was not found or is not registered" 54 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 411 PROCEDURE isClientAvail,,INPUT pCode CHARACTER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 411 STRING "ISCLIENTAVAIL" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 414 STRING "pCode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 415 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 417 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 417 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 417 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 419 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 419 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 421 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 421 STRING "Client with this &1 personal code already exists" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 423 PROCEDURE isCodeUsed,,INPUT pCode CHARACTER,OUTPUT pErr CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 423 STRING "ISCODEUSED" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 423 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 423 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 423 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 42 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 82 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 82 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 82 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 84 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 87 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 103 NEW core.ParseCustXml
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 104 INVOKE core.ParseCustXml:loadXml,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 111 INVOKE core.ParseCustXml:getCustData,OUTPUT TABLE tCln,OUTPUT TABLE tAddr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 112 INVOKE core.ParseCustXml:getCustCode
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 194 NEW core.Cln,INPUT TABLE tCln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 195 INVOKE core.Cln:saveClientInfo,BUFFER tAddr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 273 RUN sys2plt/src/getClnCifListSilent.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 298 NEW core.Cln,INPUT TABLE tCln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 299 INVOKE core.Cln:saveData
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 302 INVOKE core.Cln:saveClientInfo,BUFFER tAddr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 329 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 355 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p /u1/env/bankcp/indigo/svn-trunk/system/clt/clnSonicSync.p 356 INVOKE core.History:saveItem,INPUT character,INPUT character

@@ -1,0 +1,586 @@
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 12 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 28 CLASS mark.MarkManager,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 28 STRING "mark.MarkManager" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 29 STRING "prID" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 30 STRING "prModule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 31 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 32 STRING "prChangeDay" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 33 STRING "prForceMode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 35 STRING "parMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 36 STRING "cnfValidator" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 37 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 39 INCLUDE "mark/ttMarkLink.i &name=""ttMarkLink"""
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "ttMarkLink" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "doValidate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 40 INCLUDE "mark/ttMarkValue.i &name=""ttMarkValue"""
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "ttMarkValue" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkValue.i 1 STRING "readonly" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 48 STRING "module" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 48 STRING "module" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 48 ACCESS indigo.module module 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 48 STRING "CODIFICATOR" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 48 SEARCH indigo.module IDX_mcode
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 50 ACCESS indigo.module id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 51 CONSTRUCTOR PUBLIC,,,,MarkManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 51 STRING "MARKMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 56 DESTRUCTOR PUBLIC,,,,MarkManager,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 56 STRING "MARKMANAGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 58 STRING "pID" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 60 METHOD PUBLIC,,,,,init,void,INPUT pID INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 60 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 62 STRING "pID" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 65 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 66 STRING "marklink" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 68 METHOD PUBLIC,,,,,init,void,INPUT pID INT64,INPUT ttMarkLink TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 68 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 70 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 71 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 71 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 71 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 73 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 73 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 75 INCLUDE "core/businessErr.i &id='MRK0001' &p1=pLon"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 76 METHOD PUBLIC,,,,,init,void,INPUT pLon CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 76 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 78 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 79 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 79 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 81 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 81 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 81 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 83 INCLUDE "core/businessErr.i &id='MRK0001' &p1=pLon"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 84 METHOD PUBLIC,,,,,init,void,INPUT pLon CHARACTER,INPUT ttMarkLink TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 84 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 91 STRING "pMode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 93 METHOD PUBLIC,,,,,setForceMode,void,INPUT pMode LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 93 STRING "SETFORCEMODE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 95 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 96 INCLUDE "core/businessErr.i &id='MRK0013'"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 102 METHOD PUBLIC,,,,,setChangeDate,void,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 102 STRING "SETCHANGEDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 104 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 104 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 105 STRING "lovMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 106 STRING "vGlsID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 107 STRING "vMarkLinkID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 111 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 111 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 111 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 113 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 113 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 STRING "modpar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 STRING "modpar" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 ACCESS indigo.modpar par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 ACCESS indigo.modpar mod 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 116 SEARCH indigo.modpar PK_modpar
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 119 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 119 REFERENCE indigo.modpar 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 122 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 123 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 123 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 125 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 125 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 127 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 127 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 129 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 129 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 133 STRING "marklink" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 133 ACCESS indigo.marklink objid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 133 ACCESS indigo.marklink par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 133 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 133 SEARCH indigo.marklink QU_PK_marklink_objid
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 136 REFERENCE indigo.marklink 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 138 ACCESS indigo.marklink id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 140 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 145 METHOD PUBLIC,,,,,addMarkValue,void,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 145 STRING "ADDMARKVALUE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 147 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 147 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 149 STRING "lovMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 150 STRING "vGlsID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 151 STRING "vMarkLinkID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 155 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 155 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 157 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 157 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 160 ACCESS indigo.modpar par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 160 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 160 ACCESS indigo.modpar mod 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 160 SEARCH indigo.modpar PK_modpar
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 163 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 163 REFERENCE indigo.modpar 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 166 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 167 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 167 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 169 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 169 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 171 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 171 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 173 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 173 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 177 ACCESS indigo.marklink objid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 177 ACCESS indigo.marklink par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 177 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 177 SEARCH indigo.marklink QU_PK_marklink_objid
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 180 REFERENCE indigo.marklink 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 182 ACCESS indigo.marklink id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 184 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 189 METHOD PUBLIC,,,,,setMarkValue,void,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 189 STRING "SETMARKVALUE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 191 STRING "pMarklinkId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 191 STRING "pGls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 191 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 192 STRING "marklink" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 192 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 199 STRING "marklink" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 205 STRING "SETMARKVALUE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 207 STRING "pMarklinkId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 207 STRING "pGls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 207 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 208 STRING "marklink" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 208 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 212 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 215 STRING "marklink" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 222 STRING "ADDMARKVALUE" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 224 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 225 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 225 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 227 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 227 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 230 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 231 METHOD PUBLIC,,,,,deleteMark,void,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 231 STRING "DELETEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 233 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 234 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 238 METHOD PUBLIC,,,,,deleteMark,void,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 238 STRING "DELETEMARK" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 240 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 240 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 241 STRING "lovMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 242 STRING "vGlsID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 246 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 246 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 248 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 248 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 251 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 252 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 252 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 254 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 254 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 256 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 256 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 258 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 258 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 262 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 267 METHOD PUBLIC,,,,,deleteMarkValue,void,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 267 STRING "DELETEMARKVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 269 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 270 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 272 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 272 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 274 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 274 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 277 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 277 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 281 METHOD PUBLIC,,,,,deleteMarkAllValues,void,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 281 STRING "DELETEMARKALLVALUES" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 283 STRING "pGls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 283 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 284 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 287 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 289 METHOD PUBLIC,,,,,deleteMarkValue,void,INPUT pGls INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 289 STRING "DELETEMARKVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 297 STRING "pMarkName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 298 STRING "vPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 300 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 300 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 302 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 302 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 307 METHOD PUBLIC,,,,,getMarkValueDesc,character,INPUT pMarkName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 307 STRING "GETMARKVALUEDESC" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 315 STRING "pMarkId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 316 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 318 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 325 METHOD PUBLIC,,,,,getMarkValueDesc,character,INPUT pMarkId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 325 STRING "GETMARKVALUEDESC" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 328 STRING "markdata" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 333 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 338 METHOD PUBLIC,,,,,loadMarks,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 338 STRING "LOADMARKS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 341 STRING "markdata" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 342 STRING "stsMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 344 STRING "man-mark" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 347 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 347 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 349 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 351 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 351 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 357 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 366 METHOD PUBLIC,,,,,saveMarks,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 366 STRING "SAVEMARKS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 368 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 369 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 371 STRING "markdata" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 372 STRING "stsMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 374 STRING "man-mark" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 376 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 376 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 378 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pMark"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 378 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 384 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 384 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 391 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 391 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 393 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 395 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 395 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 402 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 415 METHOD PUBLIC,,,,,saveMarkSingle,void,INPUT pMark CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 415 STRING "SAVEMARKSINGLE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 418 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 420 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 420 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 422 INCLUDE "core/businessErr.i &id='MRK0001' &p1=prID"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 422 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 428 STRING "AFINKA" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 428 STRING "AFINKA" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 432 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 433 STRING "COMPLET" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 433 STRING "COMPLET" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 433 STRING "10" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 439 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 440 METHOD PUBLIC,,,,,updOnLoanClose,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 440 STRING "UPDONLOANCLOSE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 443 STRING "vDebtLettGlsPath" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 443 STRING "/lists/credit/parameters/LETTER/DBT1" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 444 STRING "vGuarLettGlsPath" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 444 STRING "/lists/credit/parameters/LETTER/DBTG1" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 445 STRING "vSecownLettGlsPath" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 445 STRING "/lists/credit/parameters/LETTER/DBTO1" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 446 STRING "vLetterMarkId" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 447 STRING "vLettetMarkValueId" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 449 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 449 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 451 INCLUDE "core/businessErr.i &id='MRK0001' &p1=prID"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 451 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 458 STRING "LETTER" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 462 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 465 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 467 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 477 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 478 METHOD PUBLIC,,,,,updOnLoanOpen,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 478 STRING "UPDONLOANOPEN" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 481 STRING "penint" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 483 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 483 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 485 INCLUDE "core/businessErr.i &id='MRK0001' &p1=prID"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 485 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 491 STRING "COMPLET" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 492 STRING "COMPLET" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 500 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 501 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 505 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 506 METHOD PUBLIC,,,,,updOnLoanReopen,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 506 STRING "UPDONLOANREOPEN" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 509 METHOD PUBLIC,,,,,getMarksTable,void,OUTPUT ttMarkLink TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 509 STRING "GETMARKSTABLE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 512 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 516 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 517 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 517 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 519 ACCESS indigo.par isvisible 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 519 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 527 STRING "glslinkh" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 527 STRING "glslinkh" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 527 ACCESS indigo.glslinkh objid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 527 SEARCH indigo.glslinkh FK_objid
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 529 REFERENCE indigo.glslinkh 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 531 ACCESS indigo.glslinkh fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 534 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 534 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 542 METHOD PUBLIC,,,,,transformMarkTT,void,INPUT ttMarkLink TABLE,OUTPUT ttMarkValue TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 542 STRING "TRANSFORMMARKTT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 545 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 545 REFERENCE ttMarkValue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 546 METHOD PUBLIC,,,,,transformMarkTT,void,OUTPUT ttMarkValue TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 546 STRING "TRANSFORMMARKTT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 549 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 550 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 550 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 550 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 550 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 550 STRING "yes/no" 6 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "obj" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "objid" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "par" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "gls" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "doValidate" 10 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "-------- ---------- ---------- ---------- ----------" 52 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 METHOD PUBLIC,,,,,dispMarksTT,void,
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 552 STRING "DISPMARKSTT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 561 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 561 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 562 STRING "marklink" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 564 ACCESS indigo.marklink objid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 564 ACCESS indigo.marklink par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 564 SEARCH indigo.marklink QU_PK_marklink_objid
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 567 REFERENCE indigo.marklink 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 570 METHOD PUBLIC,,,,,doesMarkLinkExist,logical,INPUT pObjId INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 570 STRING "DOESMARKLINKEXIST" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 579 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 579 STRING "pFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 580 STRING "vDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 582 STRING "markdata" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 584 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 585 STRING "glslinkh" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 585 STRING "glslinkh" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 586 STRING "glslinkhd" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 586 STRING "glslinkhd" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 588 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 588 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 590 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pMark"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 590 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 596 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 596 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 598 SEARCH DATA-MEMBER mark.MarkManager:ttMarkLink idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 599 REFERENCE ttMarkLink TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 602 ACCESS indigo.glslinkh objid 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 602 ACCESS indigo.glslinkh fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 602 ACCESS indigo.glslinkh fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 602 SEARCH indigo.glslinkh FK_objid
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 602 SORT-ACCESS indigo.glslinkh fdt
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 606 ACCESS indigo.glslinkhd id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 606 ACCESS indigo.glslinkh id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 606 SEARCH indigo.glslinkhd PK_id_gls
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 608 ACCESS indigo.glslinkhd key 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 608 REFERENCE indigo.glslinkhd 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 610 ACCESS indigo.glslinkh fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 616 METHOD PUBLIC,,,,,getMarkFdt,date,INPUT pMark CHARACTER,INPUT pFdt DATE
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 616 STRING "GETMARKFDT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 623 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 623 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 624 STRING "validator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 626 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 628 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 628 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 630 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 630 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 634 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 634 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 637 METHOD PUBLIC,,,,,isMarkReadOnly,logical,INPUT pPar CHARACTER,INPUT pParentId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 637 STRING "ISMARKREADONLY" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 644 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 644 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 645 STRING "validator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 647 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 649 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 649 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 651 INCLUDE "core/businessErr.i &id='MRK0003' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 651 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "MRK0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 655 INCLUDE "core/businessErr.i &id='PST0052' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 655 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 655 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 657 METHOD PUBLIC,,,,,canDeleteMark,void,INPUT pPar CHARACTER,INPUT pParentId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 657 STRING "CANDELETEMARK" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 667 STRING "pObj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 667 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 667 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 667 STRING "pGls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 673 STRING "CREATETTMARKLINK" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 681 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 682 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 689 STRING "ISCRLPRODTYPE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 698 STRING "pMark" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 698 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 699 STRING "vOriginationMark" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 699 STRING "ORIGIN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 700 STRING "vSyndicationMark" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 700 STRING "SYND" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 702 STRING "markUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 703 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 718 STRING "20" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 722 STRING "30" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 731 STRING "SYND" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 736 STRING "UPDATERELATEDLOANPARAMS" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 738 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 738 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 43 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 43 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 45 NEW setup.ParManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 46 NEW setup.LoanCnfValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 54 DELETE-INSTANCE setup.ParManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 55 DELETE-INSTANCE setup.LoanCnfValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 73 INVOKE mark.MarkManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 81 INVOKE mark.MarkManager:init,INPUT int64,INPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 109 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 123 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 125 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 127 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 129 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 140 INVOKE mark.MarkManager:addMarkValue,INPUT int64,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 143 DELETE-INSTANCE setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 153 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 167 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 169 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 171 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 173 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 184 INVOKE mark.MarkManager:setMarkValue,INPUT int64,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 187 DELETE-INSTANCE setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 230 INVOKE mark.MarkManager:deleteMark,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 244 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 252 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 254 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 256 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 258 INVOKE setup.DbLovValidator:getLovId,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 262 INVOKE mark.MarkManager:deleteMarkValue,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 265 DELETE-INSTANCE setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 306 INVOKE mark.MarkManager:getMarkValueDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 321 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 322 INVOKE core.GlsUtil:getDes,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 330 NEW mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 331 INVOKE mark.MarkData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 332 INVOKE mark.MarkData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 333 INVOKE mark.MarkData:getMarkLink,OUTPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 336 DELETE-INSTANCE mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 344 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 351 INVOKE setup.LoanCnfValidator:validateMarkParamsFull,INPUT int64,INPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 354 NEW mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 355 INVOKE mark.MarkData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 356 INVOKE mark.MarkData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 357 INVOKE mark.MarkData:saveMarkLink,INPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 359 NEW core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 360 INVOKE core.StsManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 361 INVOKE core.StsManager:setLoanSts
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 364 DELETE-INSTANCE mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 374 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 395 INVOKE setup.LoanCnfValidator:validateMarkParamsFull,INPUT int64,INPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 399 NEW mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 400 INVOKE mark.MarkData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 401 INVOKE mark.MarkData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 402 INVOKE mark.MarkData:saveMarkLink,INPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 405 INVOKE mark.MarkManager:updateRelatedLoanParams,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 408 NEW core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 409 INVOKE core.StsManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 410 INVOKE core.StsManager:setLoanSts
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 413 DELETE-INSTANCE mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 425 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 428 INVOKE mark.MarkManager:deleteMarkValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 431 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 432 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 433 INVOKE mark.MarkUtil:isMarkEmpty,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 433 INVOKE mark.MarkManager:addMarkValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 436 INVOKE mark.MarkManager:saveMarks
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 439 RUN mark/afinkaClnUpdate.p
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 454 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 458 INVOKE setup.ParManager:getParId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 459 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 460 INVOKE core.GlsUtil:getGlsId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 467 INVOKE mark.MarkManager:isCrlProdtype,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 469 INVOKE mark.MarkManager:createTTMarklink,INPUT character,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 469 INVOKE core.GlsUtil:getGlsId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 470 INVOKE mark.MarkManager:createTTMarklink,INPUT character,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 470 INVOKE core.GlsUtil:getGlsId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 474 INVOKE mark.MarkManager:saveMarks
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 477 RUN mark/afinkaClnUpdate.p
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 488 INVOKE mark.MarkManager:loadMarks
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 491 INVOKE mark.MarkManager:deleteMarkAllValues,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 492 INVOKE mark.MarkManager:saveMarkSingle,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 495 NEW penint.PenintManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 496 INVOKE penint.PenintManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 498 INVOKE penint.PenintManager:canHavePenint
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 500 INVOKE mark.MarkManager:deleteMark,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 501 INVOKE mark.MarkManager:saveMarkSingle,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 505 RUN mark/afinkaClnUpdate.p
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 522 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 523 INVOKE core.GlsUtil:doesExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 534 INVOKE core.GlsUtil:getKey,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 545 INVOKE mark.MarkManager:transformMarkTT,INPUT TABLE ttMarkLink,OUTPUT TABLE ttMarkValue
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 593 NEW mark.MarkData
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 594 INVOKE mark.MarkData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 595 INVOKE mark.MarkData:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 596 INVOKE mark.MarkData:getMarkLink,INPUT int64,OUTPUT TABLE ttMarkLink
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 633 NEW setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 634 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 654 NEW setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 655 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 683 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 684 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 686 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 709 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 710 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 712 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 713 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 718 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 720 INVOKE loan.LoanManager:chgOriginFdt,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 722 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 724 INVOKE loan.LoanManager:chgRegParticipant,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 725 INVOKE loan.LoanManager:chgLinkedContractId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 731 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls /u1/env/bankcp/indigo/svn-trunk/system/mark/MarkManager.cls 731 INVOKE loan.LoanManager:chgSyndId,INPUT character

@@ -1,0 +1,1047 @@
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 13 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 40 CLASS setup.LoanTplFetcher,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 40 STRING "setup.LoanTplFetcher" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 41 INCLUDE loan/dsLoanCnf.i
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 1 INCLUDE "loan/ttLoan.i &name=""ttLoan"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "ttLoan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "opndt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "originfdt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "aed" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "opnAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "purpose" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "purposecode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "regparticipant" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "linkedcontractid" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "disbDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "repType" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "agrId" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "syndid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "repacctyp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "issacctyp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "signed" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "apr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "settlementdt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "fundstartdt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "fundenddt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "provType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "agrnum" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "manager" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoan.i 5 STRING "disbtype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 2 INCLUDE "loan/ttLaPar.i &name=""ttLaPar"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "ttLaPar" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "dtVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "chVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "inVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "deVal" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "parName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "dType" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "dFormat" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "prodParId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "advice" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "isReadOnly" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "isMandatory" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "isVisible" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "calcProc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLaPar.i 5 STRING "valProc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 3 INCLUDE "loan/ttLoanComp.i &name=""ttLoanComp"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "ttLoanComp" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "method" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "basecomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "parcomp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "basedy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bamtyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "debt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "holtr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "paypy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookpy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "agrop" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "stopday" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookrule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookpri" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "bookret" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "ctprule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "provrule" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "overule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "cmptype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "trxmode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLoanComp.i 5 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 4 INCLUDE "loan/ttLcRate.i &name=""ttLcRate"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "ttLcRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "bor" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borrule" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "currate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxincr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "maxdecr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "chgdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borDt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borchgday" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "nextDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeC" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateTypeDes" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "borC" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcRate.i 5 STRING "rateChngDate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 5 INCLUDE "loan/ttLcAcr.i &name=""ttLcAcr"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "ttLcAcr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "acrbase" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "grc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "rlmaxamt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "freelines" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "exlamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "usebsched" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcAcr.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 6 INCLUDE "loan/ttLcSch.i &name=""ttLcSch"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "ttLcSch" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lcid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "firstdt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "duedt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "advc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "baseamt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "final" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "payamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "paypy" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "holtr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "payday" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "lnmerge" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "freelines" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLcSch.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 7 INCLUDE "loan/ttLacc.i &name=""ttLacc"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "ttLacc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "priority" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLacc.i 1 STRING "atyp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 8 INCLUDE "mark/ttMarkLink.i &name=""ttMarkLink"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "ttMarkLink" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttMarkLink.i 5 STRING "doValidate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 9 INCLUDE "core/tCln.i &name=""ttCln"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "ttCln" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "clnid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "resid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "bankcln" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "borrcmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "docnr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "regdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "esa" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/core/tCln.i 1 STRING "birth" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 10 INCLUDE "lett/ttLlet.i &name=""ttLlet"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "ttLlet" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "lettype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "ovefrom" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "oveto" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lett/ttLlet.i 5 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 11 INCLUDE "mark/ttLoanRest.i &name=""ttLoanRest"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "ttLoanRest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "setdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "readonly" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 12 INCLUDE "mark/ttLoanRest.i &name=""ttAgrRest"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "ttAgrRest" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "setdt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "tdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "readonly" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/mark/ttLoanRest.i 1 STRING "version" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 13 INCLUDE "lim/ttLimit.i &name=""ttLimit"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "ttLimit" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "alimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "climit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/lim/ttLimit.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i 14 INCLUDE "penint/ttLoanPenint.i &name=""ttLoanPenint"""
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "ttLoanPenint" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/dsLoanCnf.i /u1/env/bankcp/indigo/svn-trunk/system/penint/ttLoanPenint.i 1 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 42 INCLUDE "indigo/src/ttParamList.i &name=""ttPar"""
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "ttPar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "compname" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "defval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "deftext" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "readonly" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "visibility" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "valList" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "module" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "des" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "method" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "propList" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttParamList.i 1 STRING "showsched" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 44 STRING "loanData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 45 STRING "rateData" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 46 STRING "limData" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 47 STRING "mapping" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 48 STRING "params" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 49 STRING "penintData" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 51 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 53 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 54 STRING "prProdType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 55 STRING "prLonTypeCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 56 STRING "prCrlTypeCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 58 STRING "prSkipInvis" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 58 PROPERTY PUBLIC,,,,,prSkipInvis
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 69 CONSTRUCTOR PUBLIC,,,,LoanTplFetcher,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 69 STRING "LOANTPLFETCHER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 76 DESTRUCTOR PUBLIC,,,,LoanTplFetcher,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 76 STRING "LOANTPLFETCHER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 78 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 79 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 82 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 82 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 84 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 84 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 89 STRING "loan.lid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 91 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 97 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 97 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 99 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 100 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 101 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 101 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 103 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 103 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 106 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 107 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 107 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 112 REFERENCE ttLcRate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 113 REFERENCE ttLimit TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 114 REFERENCE ttLoanPenint TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 126 METHOD PUBLIC,,,,,getDynamicParams,void,OUTPUT ttPar TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 126 STRING "GETDYNAMICPARAMS" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 128 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 128 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 129 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 131 STRING "AGREEMENT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 134 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 137 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 141 METHOD PUBLIC,,,,,getDynamicParValue,character,INPUT pComp CHARACTER,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 141 STRING "GETDYNAMICPARVALUE" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 144 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 145 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 146 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 147 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 148 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 149 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 150 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 157 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLoan default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 164 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 170 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 170 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 170 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 STRING "Agreement parameter" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 STRING "AGREEMENT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 188 STRING "GETLOANAGR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 191 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 192 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 193 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 194 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 195 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 196 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 197 STRING "vProdComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 198 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 205 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLoanComp default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 206 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 206 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 206 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 206 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 208 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 220 ACCESS PUBLIC-PROPERTY setup.LoanTplFetcher:prSkipInvis
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 220 STRING "isVisible" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 225 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 225 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 ACCESS indigo.par des 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 243 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 243 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 249 STRING "GETLOANCOMP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 256 STRING "GETADDITIONALPARAMS" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 259 STRING "vString" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 260 STRING "zeroPeriod" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 261 STRING "bPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 263 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 263 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 263 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 266 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 266 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 266 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 269 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 272 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 STRING "&1^date^ - ^char^&2^date^, restore to ^char^&3^dec2" 51 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING " - " 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 STRING ", restore to " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 STRING "dec2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "DEFAULT INTEREST" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "Zero period" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "charComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 285 STRING "showDelete" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 300 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 300 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 300 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 303 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 303 STRING "COMP_AMT" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 303 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 306 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "ISSUING FEE" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "Fixed rate" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 309 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 324 STRING "SCH_FIRSTDT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 324 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 326 STRING "dateMY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 328 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 328 STRING "GETLONADDITIONALPARAMS" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 331 STRING "vString" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 332 STRING "zeroPeriod" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 333 STRING "bPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 335 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 335 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 335 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 338 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 338 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 338 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 341 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 346 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 STRING "&1^date^ - ^char^&2^date^, restore to ^char^&3^dec2" 51 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING " - " 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 STRING ", restore to " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 STRING "dec2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "DEFAULT INTEREST" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "Zero period" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "charComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 359 STRING "showDelete" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 373 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 373 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 373 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 376 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 376 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 376 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 379 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 384 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 STRING "&1^date^ - ^char^&2^date^, restore to ^char^&3^dec2" 51 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING " - " 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 STRING ", restore to " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 STRING "dec2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "INTEREST PENALTIES" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "Zero period" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "charComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 397 STRING "showDelete" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 411 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 411 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 411 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 414 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 414 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 414 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 417 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 422 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 STRING "&1^date^ - ^char^&2^date^, restore to ^char^&3^dec2" 51 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING " - " 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 STRING ", restore to " 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 STRING "dec2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "COMMITMENT FEE" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "COMP_ZERO_PERIOD" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "Zero period" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "charComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 435 STRING "showDelete" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 450 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 450 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 450 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 453 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 456 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 456 STRING "COMP_AMT" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 456 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 459 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 463 STRING "SCH_FIRSTDT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 463 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 465 STRING "dateMY" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 469 STRING "AGREEMENT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 469 STRING "LON_OPNDT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 469 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 472 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 474 STRING "INT" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 474 STRING "COMP_METHOD" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 474 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 477 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 479 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 479 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 479 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 482 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 484 STRING "issfee" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 484 STRING "COMP_AMT" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 484 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 487 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 489 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 489 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 489 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttPar idx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 492 REFERENCE ttPar TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 494 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 494 STRING "GETCRLADDITIONALPARAMS" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 497 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 498 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 499 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 500 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 501 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 502 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 503 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 504 STRING "vProdComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 506 STRING "vBorCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 507 STRING "vFixedBor" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 508 STRING "vTotalRate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 510 STRING "vParNameForUI" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 511 STRING "vDType" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 512 STRING "vDefVal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 513 STRING "vMethod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 514 STRING "vPropList" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 516 STRING "bLcRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 518 STRING "borMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 519 STRING "compUtl" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 527 STRING "F" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 530 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 530 SORT-ACCESS ttLcRate comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 535 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 548 ACCESS PUBLIC-PROPERTY setup.LoanTplFetcher:prSkipInvis
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 548 STRING "isVisible" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 554 STRING "currate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 560 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLcRate default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 569 STRING "Rate" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 576 STRING "charComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 577 STRING "&1^dec5^ ^space5^&2^char" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 578 STRING "floatingRate" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 582 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 585 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 588 STRING "maxincr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 593 STRING "Max possible rate increment" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 594 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 597 STRING "showMainValue" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 599 STRING "maxdecr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 604 STRING "Max possible rate decrement" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 605 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 608 STRING "showMainValue" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 614 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 629 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 629 STRING "GETLCRATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 631 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 632 STRING "vFixedBor" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 633 STRING "vFloatingType" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 634 STRING "vProd" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 636 STRING "borMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 637 STRING "rateType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 638 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 640 STRING "pcrtype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 643 STRING "F" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 647 STRING "bor" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 654 ACCESS indigo.pcrtype prod 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 654 ACCESS indigo.pcrtype comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 654 ACCESS indigo.pcrtype ratetype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 654 ACCESS indigo.pcrtype bor 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 654 SEARCH indigo.pcrtype FK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 659 REFERENCE indigo.pcrtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 662 STRING "HASFLOATINGRATE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 665 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 666 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 667 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 668 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 669 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 670 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 671 STRING "vProdComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 672 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 679 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLcSch default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 680 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 680 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 682 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 694 ACCESS PUBLIC-PROPERTY setup.LoanTplFetcher:prSkipInvis
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 694 STRING "isVisible" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 699 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 699 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 ACCESS indigo.par des 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 717 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 717 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 723 STRING "GETLCSCH" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 726 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 727 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 728 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 729 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 730 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 731 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 732 STRING "vProdComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 733 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 740 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLcAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 741 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 741 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 743 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 755 ACCESS PUBLIC-PROPERTY setup.LoanTplFetcher:prSkipInvis
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 755 STRING "isVisible" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 760 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 760 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 ACCESS indigo.par des 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 STRING "showMainValue,showSchedule" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 778 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 778 STRING "dec5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 784 STRING "GETLCACR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 786 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 786 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 787 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 788 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 789 STRING "clnUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 790 STRING "vValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 791 STRING "objSec" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 792 STRING "loanAgr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 793 STRING "currInf" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 794 STRING "lim" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 806 STRING "loan.lid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 810 STRING "LOAN_CRC" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 815 STRING "LOAN_SIGN" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 817 STRING "Yes/No" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 819 STRING "rep_acc" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 823 STRING "CRLINE_ACC" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 827 STRING "ISSFEE_AMT" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 STRING "ISSFEE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 830 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 833 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 835 ACCESS indigo.loancomp rate 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 837 STRING "cln_code" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 840 REFERENCE ttCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 841 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttCln default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 844 STRING "cln_id" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 849 STRING "permission_group" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 854 STRING "man_name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 858 STRING "contr_num" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 862 STRING "LOAN_ALIMIT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 866 STRING "LOAN_CLIMIT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 874 METHOD PUBLIC,,,,,getParCurrentValue,character,INPUT pComp CHARACTER,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 874 STRING "GETPARCURRENTVALUE" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 876 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 876 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 877 STRING "vValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 878 STRING "vAccOwn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 879 STRING "vAccCif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 880 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 881 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 882 STRING "clnUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 883 STRING "objSec" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 884 STRING "currInf" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 885 STRING "custAccMng" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 893 STRING "rep_acc" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 896 REFERENCE ttCln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 897 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttCln default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 910 STRING "&1 (&2) &3" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 912 STRING "permission_group" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 921 METHOD PUBLIC,,,,,getParCurrentText,character,INPUT pComp CHARACTER,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 921 STRING "GETPARCURRENTTEXT" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 924 STRING "vOriginationMark" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 924 STRING "ORIGIN" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 925 STRING "vSyndicationMark" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 925 STRING "SYND" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 927 STRING "markUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 928 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 930 STRING "hisfld" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 930 STRING "hisfld" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 938 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 ACCESS indigo.hisfld obj 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 ACCESS indigo.hisfld objid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 ACCESS indigo.hisfld fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 STRING "loan.clnid" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 SEARCH indigo.hisfld UQ_objid_obj_fdt_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 944 REFERENCE indigo.hisfld 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 944 STRING "Please check if repayment account is selected correctly." 56 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 ACCESS indigo.hisfld obj 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 ACCESS indigo.hisfld objid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 ACCESS indigo.hisfld fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 STRING "loan.clnid" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 SEARCH indigo.hisfld UQ_objid_obj_fdt_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 952 REFERENCE indigo.hisfld 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 952 STRING "Please check if repayment account is selected correctly." 56 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 956 STRING "20" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 958 STRING "Loan is ceded. Origination valid from date should be entered for ceded loans." 77 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 961 STRING "Loan is ceded. Register participant involved should be entered for ceded loans." 79 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 965 STRING "Loan is ceded. Linked contract ID should be entered for ceded loans." 68 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 969 STRING "30" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 971 STRING "Loan is refinanced. Register participant involved should be entered for refinanced loans." 89 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 975 STRING "Loan is refinanced. Linked contract ID should be entered for refinanced loans." 78 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 980 STRING "SYND" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 982 STRING "Loan is syndicated. Syndicated contract ID should be entered for syndicated loans." 82 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 986 STRING "GETWARNING" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 989 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 990 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 991 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 992 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 993 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 994 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 995 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1002 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLimit default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1009 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1015 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1015 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 STRING "Agreement parameter" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 STRING "AGREEMENT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 STRING "showMainValue" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1034 STRING "GETLOANLIMITS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1037 STRING "hB" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1038 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1039 STRING "vFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1040 STRING "vParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1041 STRING "vParName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1042 STRING "vParSetID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1043 STRING "modUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1050 SEARCH DATA-MEMBER setup.LoanTplFetcher:ttLoanPenint default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1057 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1063 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1063 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 ACCESS indigo.par des 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 STRING "INTEREST PENALTIES" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 STRING "Start date" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 STRING "isReadonly" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 STRING "showMainValue" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1083 STRING "GETPENINT" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1085 STRING "dsLoanCnf" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 63 NEW loan.LoanData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 64 NEW setup.ModelConverter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 65 NEW setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 66 NEW rate.RateData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 67 NEW lim.LimitData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 68 NEW penint.PenintData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 72 DELETE-INSTANCE loan.LoanData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 73 DELETE-INSTANCE setup.ModelConverter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 74 DELETE-INSTANCE setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 75 DELETE-INSTANCE rate.RateData
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 80 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 87 INVOKE loan.LoanData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 88 INVOKE rate.RateData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 89 INVOKE lim.LimitData:init,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 90 INVOKE penint.PenintData:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 91 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 94 INVOKE setup.ProductUtil:getProdType
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 95 INVOKE setup.ProductUtil:getLonTypeCode
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 96 INVOKE setup.ProductUtil:getCrlTypeCode
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 106 INVOKE setup.LoanTplFetcher:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 111 INVOKE loan.LoanData:getAllLoanData,OUTPUT DATASET dsLoanCnf
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 112 INVOKE rate.RateData:getLcRate,INPUT character,OUTPUT TABLE ttLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 113 INVOKE lim.LimitData:getLimits,OUTPUT TABLE ttLimit
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 114 INVOKE penint.PenintData:getLoanPenint,OUTPUT TABLE ttPenint
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 116 INVOKE setup.LoanTplFetcher:getLoanAgr
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 117 INVOKE setup.LoanTplFetcher:getLoanComp
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 118 INVOKE setup.LoanTplFetcher:getLoanLimits
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 119 INVOKE setup.LoanTplFetcher:getLcSch
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 120 INVOKE setup.LoanTplFetcher:getLcAcr
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 121 INVOKE setup.LoanTplFetcher:getPenint
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 122 INVOKE setup.LoanTplFetcher:getLcRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 123 INVOKE setup.LoanTplFetcher:getWarning
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 125 INVOKE setup.LoanTplFetcher:getAdditionalParams
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 129 INVOKE setup.LoanTplFetcher:getDynamicParams,OUTPUT TABLE ttPar
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 152 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 160 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 164 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 168 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 174 INVOKE setup.ModUtil:getParModId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 200 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 208 INVOKE setup.DbParSet:getProdcompID,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 212 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 216 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 220 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 223 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 229 INVOKE setup.ModUtil:getParModId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 245 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 252 INVOKE setup.LoanTplFetcher:getLonAdditionalParams
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 254 INVOKE setup.LoanTplFetcher:getCrlAdditionalParams
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 271 NEW futsk.ZeroPeriodManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 272 INVOKE futsk.ZeroPeriodManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 274 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 276 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 279 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 280 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 281 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 345 NEW futsk.ZeroPeriodManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 346 INVOKE futsk.ZeroPeriodManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 348 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 350 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 353 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 354 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 355 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 383 NEW futsk.ZeroPeriodManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 384 INVOKE futsk.ZeroPeriodManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 386 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 388 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 391 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 392 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 393 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 421 NEW futsk.ZeroPeriodManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 422 INVOKE futsk.ZeroPeriodManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 424 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 426 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 429 INVOKE futsk.ZeroPeriodManager:getPeriodStart
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 430 INVOKE futsk.ZeroPeriodManager:getPeriodEnd
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 431 INVOKE futsk.ZeroPeriodManager:getFutureRate
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 524 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 526 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 527 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 528 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 534 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 535 INVOKE setup.DbParSet:getProdcompID,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 540 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 544 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 548 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 551 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 571 INVOKE setup.LoanTplFetcher:hasFloatingRate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 573 INVOKE rate.Bor:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 574 INVOKE rate.Bor:getBorCode
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 577 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 583 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 595 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 606 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 614 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 642 NEW rate.Bor
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 643 INVOKE rate.Bor:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 644 INVOKE rate.Bor:getBorId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 646 NEW rate.RateTypeInfo
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 647 INVOKE rate.RateTypeInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 648 INVOKE rate.RateTypeInfo:getRateTypeId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 650 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 651 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 652 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 674 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 682 INVOKE setup.DbParSet:getProdcompID,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 686 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 690 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 694 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 697 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 703 INVOKE setup.ModUtil:getParModId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 719 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 735 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 743 INVOKE setup.DbParSet:getProdcompID,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 747 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 751 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 755 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 758 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 764 INVOKE setup.ModUtil:getParModId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 780 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 796 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 797 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 799 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 800 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 801 INVOKE loan.LoanManager:getLoanAgr
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 803 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 805 NEW lim.Limits
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 806 INVOKE lim.Limits:init,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 807 INVOKE lim.Limits:loadLimits
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 812 INVOKE setup.LoanTplFetcher:getDynamicParValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 813 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 817 INVOKE loan.LoanUtil:isLoanSigned
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 821 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 825 INVOKE loan.LoanUtil:getCrlineAcc
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 835 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 835 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 839 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 839 NEW core.Cln
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 840 INVOKE core.Cln:getData,OUTPUT TABLE tCln
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 846 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 846 NEW core.Cln
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 847 INVOKE core.Cln:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 851 NEW sec.ObjAccessSec
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 852 INVOKE sec.ObjAccessSec:getObjSecGrpId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 856 INVOKE loan.LoanUtil:getManagerId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 860 INVOKE loan.LoanAgr:getAgreementNumber,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 864 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 864 INVOKE lim.Limits:getApprovedLimit
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 868 INVOKE core.IsoFormat:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 868 INVOKE lim.Limits:getCommittedLimit
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 870 INVOKE setup.LoanTplFetcher:getDynamicParValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 887 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 889 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 890 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 895 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 895 NEW core.Cln
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 896 INVOKE core.Cln:getData,OUTPUT TABLE tCln
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 899 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 901 NEW sys2plt.src.CustAccManager
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 902 INVOKE sys2plt.src.CustAccManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 904 INVOKE sys2plt.src.CustAccManager:getPltAccOwn
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 905 INVOKE sys2plt.src.CustAccManager:getPltAccCif
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 906 INVOKE sys2plt.src.CustAccManager:getPltAccCrc
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 910 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 914 NEW sec.ObjAccessSec
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 915 INVOKE sec.ObjAccessSec:getObjSecGrpName,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 917 INVOKE setup.LoanTplFetcher:getParCurrentValue,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 932 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 933 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 935 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 936 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 938 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 938 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 940 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 944 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 944 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 948 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 952 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 952 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 956 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 958 INVOKE loan.LoanUtil:getOriginFdt
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 958 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 958 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 961 INVOKE loan.LoanUtil:getRegParticipant
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 961 INVOKE loan.LoanUtil:getRegParticipant
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 961 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 961 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 965 INVOKE loan.LoanUtil:getLinkedContractId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 965 INVOKE loan.LoanUtil:getLinkedContractId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 965 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 965 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 969 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 971 INVOKE loan.LoanUtil:getRegParticipant
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 971 INVOKE loan.LoanUtil:getRegParticipant
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 971 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 971 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 975 INVOKE loan.LoanUtil:getLinkedContractId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 975 INVOKE loan.LoanUtil:getLinkedContractId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 975 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 975 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 980 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 982 INVOKE loan.LoanUtil:getSyndId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 982 INVOKE loan.LoanUtil:getSyndId
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 982 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 982 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 997 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1005 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1009 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1013 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1019 INVOKE setup.ModUtil:getParModId,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1045 NEW setup.ModUtil
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1053 INVOKE setup.ModelConverter:getParamId,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1057 INVOKE setup.DbParSet:getParameterIdSilent,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1061 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 INVOKE setup.DbParSet:getDType,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 INVOKE core.IsoFormat:toString,INPUT RUNTYPE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 INVOKE setup.DbParSet:getAttr,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/LoanTplFetcher.cls 1067 INVOKE setup.ModUtil:getParModId,INPUT int64
