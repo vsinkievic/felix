@@ -5,6 +5,7 @@
         <title>Felix XREF analyser</title>
         <link rel="stylesheet" href="/felix/master.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <SCRIPT LANGUAGE="SpeedScript">
             CREATE WIDGET-POOL.
@@ -17,7 +18,7 @@
             define variable cName as character no-undo.
             define variable iType as integer no-undo.
             define temp-table ttOutput like files.
-            
+
                 cName = get-field('name':U).
                 iType = integer(get-field('type':U)).
 
@@ -52,7 +53,8 @@
                         Please enter name.
                     </div>
                     <br>
-                    <button id="xrefFormButton" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="xrefFormButton" type="submit" 
+                        class="xrefbutton btn btn-primary">Submit</button>
                 </form>
                 <div class="outputMessage">
                 </div>
@@ -63,20 +65,34 @@
         <!--WSS else do: run runquery.p (input cName, iType, output table ttOutput). -->
         <div class="container">
             <div class="form-container">
-                <h3>Output of <em>`cName`</em> references:</h3>
+
+                <form class="form-group" action="front.html" method="POST">
+                    <input type="hidden" name="name" value="">
+                    <input type="hidden" name="type" value="">
+                    <br>
+                    <button class="xrefbutton btn btn-primary" type="submit">
+                        <i class="fa fa-chevron-left"></i> Back</button>
+                </form>
+
+                <h3>Output of <em>`cName`</em> references (XREF):</h3>
                <table>
                     <thead><th>Source Name</th><th>Source Path</th><th class="right">Line</th>
-		            <!--WSS for each ttOutput: -->
-		            <tr>
-			            <td> `ttOutput.sourceName` </td>
-			            <td> `ttOutput.sourcePath` </td>
-			            <td class="right"> `ttOutput.line` </td>
-		            </tr>
-		            <!--WSS END. -->
-		        </table>
-		   </div>
+                        <th>Type</th><th>Info</th>
+                    <!--WSS for each ttOutput: -->
+                    <tr>
+                        <td> `ttOutput.sourceName` </td>
+                        <td> `ttOutput.sourcePath` </td>
+                        <td class="right"> `ttOutput.line` </td>
+                        <td> `ttOutput.type` </td>
+                        <td> `ttOutput.info` </td>
+                    </tr>
+                    <!--WSS END. -->
+                </table>
+           </div>
         </div>
-         <!--WSS end. -->    
+         <!--WSS end. -->
+         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+
     </body>
 </html>
 
@@ -130,6 +146,22 @@ $(document).ready(function(){
 
         }
     });
+
+    // scroll back to top arrow
+
+    $(window).scroll(function() {
+        if ($(this).scrollTop() >= 200) {
+            $('#return-to-top').fadeIn(200);
+        } else {
+            $('#return-to-top').fadeOut(200);
+        }
+    });
+    $('#return-to-top').click(function() {
+        $('body,html').animate({
+            scrollTop : 0
+        }, 500);
+    });
+
 })
 
 </script>
