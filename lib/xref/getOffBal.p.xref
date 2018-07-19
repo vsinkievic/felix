@@ -1,0 +1,23 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 6 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 7 STRING "pOffBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 8 STRING "pError" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 10 STRING "currUser" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 11 STRING "contextMan" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 15 STRING "indigo" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 20 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 21 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 23 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 25 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 12 NEW core.User
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 13 NEW core.ContextManager
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 15 INVOKE core.User:initByDbName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 16 INVOKE core.ContextManager:initUsrContext,INPUT core.User
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 18 RUN plt2sys/src/getOffBal4Plt.p
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 23 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 23 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 23 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 25 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/api/v1/getOffBal.p 28 DELETE-INSTANCE Progress.Lang.Error

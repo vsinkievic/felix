@@ -1,0 +1,25 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 7 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 8 STRING "pApprovedLimit" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 10 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 11 STRING "limits" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 14 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 14 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 14 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 16 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLon"
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 16 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 20 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 25 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 19 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 20 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 22 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 24 NEW lim.Limits
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 25 INVOKE lim.Limits:initLoan,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 26 INVOKE lim.Limits:loadLimits
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/getApprovedLimit4Plt.p 27 INVOKE lim.Limits:getApprovedLimit

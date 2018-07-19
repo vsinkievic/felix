@@ -1,0 +1,608 @@
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 19 CLASS trx.GenTrx,,,USE-WIDGET-POOL,,,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 19 STRING "trx.GenTrx" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 20 INCLUDE "trx/ttTrx.i &name=""ttTrx"""
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ttTrx" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ln" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "datyp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dacc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dlid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dcomp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dcrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "damt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "catyp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cacc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "clid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ccomp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ccrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "camt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "rem" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dtrxmode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ctrxmode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cdamt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cdcrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dcurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "ccurr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dpltacc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dpltatyp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cpltacc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cpltatyp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "daccmand" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "caccmand" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dbaltyp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cbaltyp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "dbalsh" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/ttTrx.i 1 STRING "cbalsh" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 21 STRING "prLn" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 22 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 23 STRING "prOpID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 24 STRING "prCorrSts" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 25 STRING "prCorrComp" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 26 STRING "prCheckPltBals" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 27 STRING "prGenTrx" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 28 STRING "prGenPltTrx" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 29 STRING "prMode" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 29 STRING "force1^force3^force5" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 30 STRING "prOfflineMode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 30 STRING "OFFLINE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 31 STRING "prExternalMode" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 31 STRING "EXTERNAL" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 32 STRING "prMultiInstance" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 33 STRING "prOnlyPositiveBal" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 36 CONSTRUCTOR PUBLIC,,,,GenTrx,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 36 STRING "GENTRX" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pDlid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pDcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pDamt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pCatyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pCacc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pCcrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 45 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 49 STRING "Credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 60 METHOD PUBLIC,,,,,init,void,INPUT pDlid INT64,INPUT pDcomp CHARACTER,INPUT pDamt DECIMAL,INPUT pCatyp CHARACTER,INPUT pCacc CHARACTER,INPUT pCcrc INTEGER,INPUT pRem CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 60 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pDlid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pDcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pDamt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pClid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pCcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 70 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 74 STRING "Credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 74 STRING "Credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 85 METHOD PUBLIC,,,,,init,void,INPUT pDlid INT64,INPUT pDcomp CHARACTER,INPUT pDamt DECIMAL,INPUT pClid INT64,INPUT pCcomp CHARACTER,INPUT pRem CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 85 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 94 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 96 METHOD PUBLIC,,,,,setCorrSts,void,INPUT pSts CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 96 STRING "SETCORRSTS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 105 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 105 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 108 METHOD PUBLIC,,,,,setCorrParams,void,INPUT pSts CHARACTER,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 108 STRING "SETCORRPARAMS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 117 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 119 STRING "SETCORRCOMP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 127 STRING "pGenPltTrx" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 129 METHOD PUBLIC,,,,,setGenPltTrx,void,INPUT pGenPltTrx LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 129 STRING "SETGENPLTTRX" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 138 STRING "pGenTrx" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 140 METHOD PUBLIC,,,,,setGenTrx,void,INPUT pGenTrx LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 140 STRING "SETGENTRX" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 148 STRING "pOnlyPositiveBal" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 150 METHOD PUBLIC,,,,,setOnlyPositiveBal,void,INPUT pOnlyPositiveBal LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 150 STRING "SETONLYPOSITIVEBAL" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pDatyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pDacc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pDcrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pDamt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pClid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pCcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 160 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 164 STRING "Credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 175 METHOD PUBLIC,,,,,init,void,INPUT pDatyp CHARACTER,INPUT pDacc CHARACTER,INPUT pDcrc INTEGER,INPUT pDamt DECIMAL,INPUT pClid INT64,INPUT pCcomp CHARACTER,INPUT pRem CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 175 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pDatyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pDacc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pDcrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pCamt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pClid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pCcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 185 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 189 STRING "Credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 200 METHOD PUBLIC,,,,,initByCrAmt,void,INPUT pDatyp CHARACTER,INPUT pDacc CHARACTER,INPUT pDcrc INTEGER,INPUT pCamt DECIMAL,INPUT pClid INT64,INPUT pCcomp CHARACTER,INPUT pRem CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 200 STRING "INITBYCRAMT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 210 METHOD PUBLIC,,,,,init,void,INPUT ttTrx TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 210 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 220 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 230 STRING "vLn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 234 STRING "GETNEXTLN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 242 STRING "vAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 244 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 245 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 245 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 247 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 273 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 273 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 275 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 275 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 278 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 278 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 278 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 281 ACCESS indigo.loancomp trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 281 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 281 ACCESS indigo.loancomp trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 287 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 287 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 289 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 289 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 292 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 292 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 292 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 295 ACCESS indigo.loancomp trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 295 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 295 ACCESS indigo.loancomp trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 315 STRING "D" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 317 STRING "C" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 319 STRING "D" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 321 STRING "C" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 328 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 331 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 333 STRING "INITTT" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 343 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 348 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 349 INCLUDE "core/businessErr.i &id='TRX0003'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 349 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0003" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 356 STRING "dumpTrxtt.p" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 356 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 356 STRING "BEFORE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 374 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 375 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 377 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 381 INCLUDE "core/businessErr.i &id='TRX0063' &p1=vMsg"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0063" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 386 STRING "dumpTrxtt.p" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 386 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 386 STRING "AFTER" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 389 METHOD PUBLIC,,,,,generateTrx,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 389 STRING "GENERATETRX" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 397 STRING "opMan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 405 METHOD PUBLIC,,,,,markTrxAsCorr,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 405 STRING "MARKTRXASCORR" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 414 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 415 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 416 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 418 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 420 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 433 STRING "C" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 440 STRING "D" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 455 STRING "L" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 462 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 462 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 464 INCLUDE "core/businessErr.i &id='TRX0014' &p1=loan.loan &p2=ttTrx.dcomp &p3=vBal &p4='debit' &p5=vAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 470 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 470 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 472 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 474 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 476 INCLUDE "core/businessErr.i &id='TRX0015' &p1=ttTrx.dacc &p2=ttTrx.datyp &p3=vBal &p4='debit' &p5=vAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 487 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 494 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 494 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 496 INCLUDE "core/businessErr.i &id='TRX0014' &p1=loan.loan &p2=ttTrx.ccomp &p3=vBal &p4='credit' &p5=vAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 502 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 502 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 504 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 506 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 508 INCLUDE "core/businessErr.i &id='TRX0015' &p1=ttTrx.cacc &p2=ttTrx.catyp &p3=vBal &p4='credit' &p5=vAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 520 METHOD PUBLIC,,,,,validBals,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 520 STRING "VALIDBALS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 528 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 528 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 529 STRING "obal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 529 STRING "obal" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 530 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 530 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 531 STRING "vBal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 534 ACCESS indigo.obal lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 534 ACCESS indigo.obal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 534 SEARCH indigo.obal PK_obal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 537 REFERENCE indigo.obal 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 539 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 539 ACCESS indigo.obal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 539 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 541 INCLUDE "core/businessErr.i &id='TRX0013' &p1=obal.comp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 541 REFERENCE indigo.comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.obal comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 543 ACCESS indigo.comp btype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 543 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 543 ACCESS indigo.obal dam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 543 ACCESS indigo.obal cam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 545 ACCESS indigo.obal cam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 545 ACCESS indigo.obal dam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 549 STRING "GETBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 558 STRING "vCoreAcc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 559 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 560 STRING "lacc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 560 STRING "lacc" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 562 STRING "laccMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 565 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 568 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 568 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 570 INCLUDE "core/businessErr.i &id='LON0008' &p1=ttTrx.clid"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 570 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 576 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 577 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 580 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 583 INCLUDE "core/businessErr.i &id='TRX0007' &p1=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 585 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 595 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 595 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 597 INCLUDE "core/businessErr.i &id='LON0008' &p1=ttTrx.dlid"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 597 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 603 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 604 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 607 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 610 INCLUDE "core/businessErr.i &id='TRX0007' &p1=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0007" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 612 ACCESS indigo.loan crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 633 STRING "AUTOPARAMFILL" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 644 STRING "bTrx" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 645 STRING "acctyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 645 STRING "acctyp" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 646 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 646 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 648 REFERENCE indigo.acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 649 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 649 SORT-ACCESS ttTrx datyp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 652 ACCESS indigo.acctyp acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 652 SEARCH indigo.acctyp PK_acctyp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 654 INCLUDE "core/businessErr.i &id='TRX0006' &p1=ttTrx.datyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 654 REFERENCE indigo.acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 657 ACCESS indigo.acctyp accmand 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 657 ACCESS indigo.acctyp baltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 662 REFERENCE indigo.acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 663 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 663 SORT-ACCESS ttTrx catyp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 666 ACCESS indigo.acctyp acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 666 SEARCH indigo.acctyp PK_acctyp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 668 INCLUDE "core/businessErr.i &id='TRX0006' &p1=ttTrx.catyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 668 REFERENCE indigo.acctyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0006" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 671 ACCESS indigo.acctyp accmand 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 671 ACCESS indigo.acctyp baltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 676 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 677 INCLUDE "core/businessErr.i &id='TRX0009'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0009" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 683 INCLUDE "core/businessErr.i &id='TRX0011' &p1='debit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0011" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 685 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 685 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 687 INCLUDE "core/businessErr.i &id='TRX0013' &p1=ttTrx.dcomp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 687 REFERENCE indigo.comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 689 ACCESS indigo.comp btype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 689 ACCESS indigo.comp bsheet 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 692 INCLUDE "core/businessErr.i &id='TRX0012'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 698 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 701 INCLUDE "core/businessErr.i &id='TRX0057' &p1=ttTrx.dtrxmode &p2='debit' &p3='ONLINE' &p4='credit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0057" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ONLINE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 704 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 707 INCLUDE "core/businessErr.i &id='TRX0057' &p1=ttTrx.dtrxmode &p2='debit' &p3='ONLINE' &p4='debit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0057" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ONLINE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 712 INCLUDE "core/businessErr.i &id='TRX0018' &p1=ttTrx.datyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0018" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 718 INCLUDE "core/businessErr.i &id='TRX0011' &p1='credit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0011" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 720 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 720 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 722 INCLUDE "core/businessErr.i &id='TRX0013' &p1=ttTrx.ccomp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 722 REFERENCE indigo.comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 724 ACCESS indigo.comp btype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 724 ACCESS indigo.comp bsheet 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 730 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 733 INCLUDE "core/businessErr.i &id='TRX0057' &p1=ttTrx.ctrxmode &p2='credit' &p3='ONLINE' &p4='debit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0057" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ONLINE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "debit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 736 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 739 INCLUDE "core/businessErr.i &id='TRX0057' &p1=ttTrx.ctrxmode &p2='credit' &p3='ONLINE' &p4='credit'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0057" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ONLINE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "credit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 744 INCLUDE "core/businessErr.i &id='TRX0018' &p1=ttTrx.catyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0018" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 748 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 758 INCLUDE "core/businessErr.i &id='TRX0001' &p1=ttTrx.datyp &p2=ttTrx.dacc &p3=ttTrx.dcomp &p4=ttTrx.dcrc                                                     &p5=ttTrx.catyp &p6=ttTrx.cacc &p7=ttTrx.ccomp &p8=ttTrx.ccrc"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 771 INCLUDE "core/businessErr.i &id='TRX0017' &p1=ttTrx.datyp &p2=ttTrx.dacc"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0017" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 775 INCLUDE "core/businessErr.i &id='TRX0017' &p1=ttTrx.catyp &p2=ttTrx.cacc"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0017" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 779 INCLUDE "core/businessErr.i &id='TRX0002'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 782 INCLUDE "core/businessErr.i &id='TRX0004' &p1=ttTrx.damt &p2=ttTrx.camt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 786 INCLUDE "core/businessErr.i &id='TRX0008' &p1=ttTrx.datyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 790 INCLUDE "core/businessErr.i &id='TRX0016' &p1=ttTrx.datyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0016" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 794 INCLUDE "core/businessErr.i &id='TRX0016' &p1=ttTrx.catyp"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0016" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 798 STRING "main" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 798 STRING "VALIDINCONS" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 809 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 809 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 809 STRING "pDam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 809 STRING "pCam" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 810 STRING "trxBalMan" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 815 STRING "SAVEBAL" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 824 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 825 STRING "vPltOpID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 826 STRING "vLnId" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 827 STRING "vLn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 828 STRING "oh" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 828 STRING "oh" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 829 STRING "ol" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 829 STRING "ol" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 830 STRING "obal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 830 STRING "obal" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 834 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 838 CREATE indigo.oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 839 ACCESS indigo.oh odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 839 ACCESS indigo.oh sts 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 839 UPDATE indigo.oh odt
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 839 UPDATE indigo.oh sts
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 844 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 851 CREATE indigo.ol 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.oh oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol ln 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol lnid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.oh odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol dc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol dam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol cam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol rem 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol acc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol atyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol acrc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 ACCESS indigo.ol acomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol oh
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol ln
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol lnid
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol odt
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 STRING "D" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol dc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol lid
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol dam
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol cam
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol crc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol trxmode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol rem
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol acc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol atyp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol acrc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 852 UPDATE indigo.ol acomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 880 CREATE indigo.ol 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.oh oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol ln 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol lnid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.oh odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol dc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol cam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol dam 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol crc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol trxmode 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol rem 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol acc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol atyp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol acrc 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 ACCESS indigo.ol acomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol oh
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol ln
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol lnid
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol odt
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 STRING "C" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol dc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol lid
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol cam
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol dam
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol comp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol crc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol trxmode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol rem
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol acc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol atyp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol acrc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 881 UPDATE indigo.ol acomp
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 905 ACCESS indigo.oh oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 905 ACCESS indigo.oh odt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 905 REFERENCE ttTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 906 ACCESS indigo.oh jh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 906 UPDATE indigo.oh jh
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 908 ACCESS indigo.oh oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 909 REFERENCE indigo.oh 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 913 STRING "SAVEDATA" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 923 METHOD PUBLIC,,,,,getOpID,int64,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 923 STRING "GETOPID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 933 STRING "vSyncCrlBal" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 937 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 950 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 950 SORT-ACCESS ttTrx clid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 962 STRING "CLSLOANS" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 970 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 971 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 975 STRING "GETCRLINEACC" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 984 SEARCH DATA-MEMBER trx.GenTrx:ttTrx main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 994 STRING "ISALLTRXEXTERNAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 997 DESTRUCTOR PUBLIC,,,,GenTrx,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 997 STRING "GENTRX" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 998 STRING "GENTRX" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 47 INVOKE trx.GenTrx:init
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 49 INVOKE trx.GenTrx:getNextLn
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 72 INVOKE trx.GenTrx:init
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 74 INVOKE trx.GenTrx:getNextLn
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 106 INVOKE trx.GenTrx:setCorrSts,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 107 INVOKE trx.GenTrx:setCorrComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 162 INVOKE trx.GenTrx:init
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 164 INVOKE trx.GenTrx:getNextLn
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 187 INVOKE trx.GenTrx:init
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 189 INVOKE trx.GenTrx:getNextLn
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 209 INVOKE trx.GenTrx:init
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 219 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 219 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 302 INVOKE trx.GenTrx:getCrlineAcc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 309 INVOKE trx.GenTrx:getCrlineAcc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 314 INVOKE trx.GenTrx:getNextLn
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 331 INVOKE trx.GenTrx:setGenPltTrx,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 352 INVOKE trx.GenTrx:initTT
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 353 INVOKE trx.GenTrx:validIncons
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 354 INVOKE trx.GenTrx:autoParamFill
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 355 INVOKE trx.GenTrx:validBals
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 356 RUN dumpTrxtt.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 368 INVOKE trx.GenTrx:clsLoans
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 370 INVOKE trx.GenTrx:saveData
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 375 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 375 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 375 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 377 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 386 RUN dumpTrxtt.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 398 NEW trx.OpMan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 399 INVOKE trx.OpMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 401 INVOKE trx.OpMan:setCorrComp,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 404 INVOKE trx.OpMan:markTrxAsCorr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 423 RUN sys2plt/api/v1/getPltAccCrc.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 427 RUN sys2plt/api/v1/getPltAccCrc.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 437 RUN sys2plt/api/v1/pltConv.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 444 RUN sys2plt/api/v1/pltConv.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 459 INVOKE trx.GenTrx:getBal,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 474 RUN sys2plt/api/v1/getAccBalWithDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 491 INVOKE trx.GenTrx:getBal,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 506 RUN sys2plt/api/v1/getAccBalWithDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 563 NEW loan.LaccManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 575 INVOKE trx.GenTrx:getCrlineAcc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 580 INVOKE loan.LaccManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 581 INVOKE loan.LaccManager:getCoreAcc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 602 INVOKE trx.GenTrx:getCrlineAcc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 607 INVOKE loan.LaccManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 608 INVOKE loan.LaccManager:getCoreAcc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 812 NEW trx.TrxBalMan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 813 INVOKE trx.TrxBalMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 814 INVOKE trx.TrxBalMan:saveBal,INPUT character,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 832 INVOKE trx.GenTrx:isAllTrxExternal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 834 RUN sys2plt/api/v1/genPltTrx.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 870 INVOKE trx.GenTrx:saveBal,INPUT int64,INPUT character,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 899 INVOKE trx.GenTrx:saveBal,INPUT int64,INPUT character,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 905 RUN sys2plt/api/v1/genPltTrx.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 910 INVOKE trx.GenTrx:markTrxAsCorr
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 946 RUN loan/eodOneLoanExt.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 959 RUN loan/eodOneLoanExt.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 972 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 973 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/GenTrx.cls 974 INVOKE loan.LoanUtil:getCrlineAcc

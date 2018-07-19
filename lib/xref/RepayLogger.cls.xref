@@ -1,0 +1,215 @@
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 14 CLASS repmnt.RepayLogger,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 14 STRING "repmnt.RepayLogger" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 15 STRING "prLogFile" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 16 STRING "prLogNotEnabled" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 17 STRING "prLogNo" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 18 STRING "prRepGls" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 18 STRING "/constants/credit/dlq/replogfile" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 19 STRING "prRepErrLogEmails" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 19 STRING "/constants/credit/dlq/repErrLogEmails" 37 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 21 INCLUDE "repmnt/ttRepayLog.i &name=""ttRepayLog"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "ttRepayLog" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "grp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "clnName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "tran" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "sched" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "paid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayLog.i 1 STRING "leftAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 22 INCLUDE "repmnt/ttRepayErrLog.i &name=""ttRepayErrLog"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "ttRepayErrLog" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "grp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "clnName" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayErrLog.i 1 STRING "err" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 23 INCLUDE "repmnt/ttRepayTotalLog.i &name=""ttRepayTotalLog"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayTotalLog.i 1 STRING "ttRepayTotalLog" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayTotalLog.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayTotalLog.i 1 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayTotalLog.i 1 STRING "cnt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepayTotalLog.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 24 INCLUDE "repmnt/ttRepaySkipLog.i &name=""ttRepaySkipLog"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepaySkipLog.i 1 STRING "ttRepaySkipLog" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepaySkipLog.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepaySkipLog.i 1 STRING "gua" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttRepaySkipLog.i 1 STRING "reason" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 32 STRING "pFile" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 40 METHOD PUBLIC,,,,,init,void,INPUT pFile CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 40 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 48 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 48 STRING "pFile" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 49 STRING "vGlsId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 50 STRING "vFile" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 52 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 57 INCLUDE "core/businessErr.i &id='LOG0001' &p1=pPath"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LOG0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 60 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 63 METHOD PUBLIC,,,,,initFromGls,void,INPUT pPath CHARACTER,INPUT pFile CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 63 STRING "INITFROMGLS" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 72 STRING "vNum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 73 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 73 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 75 STRING "&1&2&3_&4" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 77 STRING "RepaymentOK_&1.csv" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 82 STRING "1257" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Nr" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(2)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Grp" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Client" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(6)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Account" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(7)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Crc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "By schedule" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(11)" 5 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Paid amt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "Left" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 84 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 86 SEARCH DATA-MEMBER repmnt.RepayLogger:ttRepayLog default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 87 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 99 SEARCH DATA-MEMBER repmnt.RepayLogger:ttRepayTotalLog default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 101 REFERENCE ttRepayTotalLog TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 105 STRING "1" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 108 ACCESS indigo.curr code 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 108 SEARCH indigo.curr IDX_currency_code
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 110 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 118 STRING "x(1)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "Crc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "Currency" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "Count" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "x(5)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "Amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 120 STRING "x(6)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 122 SEARCH DATA-MEMBER repmnt.RepayLogger:ttRepayTotalLog default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 123 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 123 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 123 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 123 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 130 METHOD PUBLIC,,,,,logTTRepayLog,void,INPUT ttRepayLog TABLE,INPUT ttRepayTotalLog TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 130 STRING "LOGTTREPAYLOG" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 138 REFERENCE ttRepayErrLog TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 139 METHOD PUBLIC,,,,,logTTRepayErrLog,void,INPUT ttRepayErrLog TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 139 STRING "LOGTTREPAYERRLOG" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 148 STRING "pSendEmail" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 149 STRING "vNum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 151 STRING "&1&2&3_&4" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 153 STRING "RepaymentErr_&1.csv" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 158 STRING "1257" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Nr." 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Grp" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Client" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(6)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Account" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(7)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "Error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 160 STRING "x(5)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 162 SEARCH DATA-MEMBER repmnt.RepayLogger:ttRepayErrLog default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "->,>>>,>>9" 10 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 163 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 175 STRING "Autorepayment error log for &1.&2.&3" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 178 METHOD PUBLIC,,,,,logTTRepayErrLog,void,INPUT ttRepayErrLog TABLE,INPUT pSendEmail LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 178 STRING "LOGTTREPAYERRLOG" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 186 STRING "&1&2&3_&4" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 188 STRING "RepaymentSkip_&1.csv" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 193 STRING "1257" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "Loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "x(4)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "gua" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "x(3)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "Reason" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 195 STRING "x(6)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 197 SEARCH DATA-MEMBER repmnt.RepayLogger:ttRepaySkipLog default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 198 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 198 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 198 STRING "x(8)" 4 NONE TRANSLATABLE  FORMAT 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 204 METHOD PUBLIC,,,,,logTTRepaySkipLog,void,INPUT ttRepaySkipLog TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 204 STRING "LOGTTREPAYSKIPLOG" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 214 STRING "pEmailToGls" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 214 STRING "pAttachFiles" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 214 STRING "pSubject" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 214 STRING "pBody" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 215 STRING "mailSend" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 218 STRING "text/html;charset=""1257""" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 221 METHOD PUBLIC,,,,,sendRepayLogMail,void,INPUT pEmailToGls CHARACTER,INPUT pAttachFiles CHARACTER,INPUT pSubject CHARACTER,INPUT pBody CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 221 STRING "SENDREPAYLOGMAIL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 229 STRING "pBody" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "<HTML> " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "<HEAD> " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "<META content=""text/html; charset=1257""" 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "http-equiv=""Content-Type""> " 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "</HEAD> " 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "<BODY> " 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "<FONT face=""Courier New"" >" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 230 STRING "</FONT> </BODY> </HTML>" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 242 STRING "FORMMAILBODY" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 250 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 251 STRING "vGlsId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 252 STRING "vEmailsList" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 254 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 259 INCLUDE "core/businessErr.i &id='LOG0001' &p1=pPath"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LOG0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 263 STRING "GETEMAILSLIST" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 CONSTRUCTOR PUBLIC,,,,RepayLogger,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 STRING "REPAYLOGGER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 264 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 53 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 55 INVOKE core.GlsUtil:getChVal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 62 INVOKE repmnt.RepayLogger:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 77 INVOKE repmnt.RepayLogger:initFromGls,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 138 INVOKE repmnt.RepayLogger:logTTRepayErrLog,INPUT TABLE ttRepayErrLog,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 153 INVOKE repmnt.RepayLogger:initFromGls,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 175 INVOKE repmnt.RepayLogger:sendRepayLogMail,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 188 INVOKE repmnt.RepayLogger:initFromGls,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 216 NEW core.MailSender
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 218 INVOKE core.MailSender:init,INPUT character,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 218 INVOKE repmnt.RepayLogger:getEmailsList,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 218 INVOKE repmnt.RepayLogger:formMailBody,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 220 INVOKE core.MailSender:sendMail
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 255 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls 257 INVOKE core.GlsUtil:getChVal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/RepayLogger.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer

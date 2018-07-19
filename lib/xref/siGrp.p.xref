@@ -1,0 +1,413 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 7 INCLUDE "grp/tGrp.i &name=""tGrp"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "tGrp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "chgwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "chgwho" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "gid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "gtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "gtypname" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "manager" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "mananame" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "viewhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "viewho" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "nxtrevdt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/grp/tGrp.i 1 STRING "reqwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 9 STRING "pAction" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 10 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 11 STRING "pResponse" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 12 STRING "pData" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 14 INCLUDE "indigo/src/nodeMigrate.i &name='group' &req=pParams"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 9 STRING "pInputJson" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 11 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 15 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "GET" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 16 STRING "rGrp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 17 STRING "doParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 18 STRING "doGroupArr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 19 STRING "doGrpSec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 20 STRING "dwData" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 22 STRING "vGid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 23 STRING "vGtypes" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 24 STRING "vSearchType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 25 STRING "vSearchValue" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 26 STRING "vUsrId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 34 STRING "pusrid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 34 STRING "plbl" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 34 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 35 STRING "ldwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 38 STRING "usrid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 39 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 39 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 39 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 39 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 ACCESS indigo.wuser username 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 STRING "username" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 STRING "username" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 STRING "?" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 STRING "?" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 48 FUNCTION fillWuserName,logical,INPUT pusrid INTEGER,INPUT plbl CHARACTER,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 48 STRING "FILLWUSERNAME" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 52 STRING "CREATE-GROUP" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 54 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 54 STRING "gtype" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 STRING "reqwhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 66 SEARCH tGrp gtype TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 68 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 68 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 71 INCLUDE "core/businessErr.i &id='GRP0081'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0081" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 73 STRING "UPDATE-GROUP" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 75 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 75 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 STRING "reqwhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 86 INCLUDE "core/businessErr.i &id='GRP0081'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0081" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 88 STRING "GET-GROUP" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 90 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 90 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 92 SEARCH tGrp gtype TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 95 STRING "group" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 99 STRING "GET-GROUP-NAME" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 101 STRING "grp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 101 REFERENCE indigo.grp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 103 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 103 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 108 ACCESS indigo.grp gid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 108 SEARCH indigo.grp gid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 110 REFERENCE indigo.grp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 112 ACCESS indigo.grp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 112 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 113 ACCESS indigo.grp gid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 113 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 116 INCLUDE "core/businessErr.i &id='GRP0082'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0082" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 118 STRING "GET-GROUP-RPT" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 122 STRING "GET-ALL-GROUPS" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 124 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 124 STRING "gtype" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 125 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 125 STRING "stype" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 126 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 126 STRING "svalue" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 129 STRING "groups" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 134 SEARCH tGrp gtype TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 140 STRING "GET-MY-GROUPS" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 144 STRING "groups" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 145 SEARCH tGrp gtype TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 149 STRING "DELETE-GROUP" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 153 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 153 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 156 INCLUDE "core/businessErr.i &id='GRP0081'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0081" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 158 STRING "UPDATE-GROUP-REVIEW" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 162 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 162 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 165 INCLUDE "core/businessErr.i &id='GRP0081'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0081" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 168 INCLUDE "core/businessErr.i &id='GRP0066' &p1=""pAction"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GRP0066" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 184 STRING "tGrp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 184 STRING "tGrp" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 185 STRING "pData" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 187 STRING "vCanEdit" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 188 STRING "vCanView" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 189 STRING "doGrpSec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "chgwhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "chgwho" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "gtype" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "gtypname" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "manager" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "mananame" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "viewhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "viewho" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "whn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "who" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 STRING "nxtrevdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 211 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 211 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 212 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 212 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 212 STRING "viewhoname" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 213 STRING "viewhoname" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 215 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 215 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 216 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 216 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 216 STRING "whoname" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 217 STRING "whoname" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 219 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 219 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 220 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 220 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 220 STRING "chgwhoname" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 221 STRING "chgwhoname" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 223 STRING "actions" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 225 STRING "EDIT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 228 STRING "VIEW" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 233 PROCEDURE toDataObject,,BUFFER tGrp tGrp,INPUT pData INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 233 STRING "TODATAOBJECT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 236 STRING "pData" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "head" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "gtypname" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "mananame" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "viewhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "nxtrevdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "chgwhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 STRING "actions" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 248 PROCEDURE addHead,,INPUT pData INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 248 STRING "ADDHEAD" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 251 STRING "tGrp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 251 STRING "tGrp" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 252 STRING "pData" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 254 STRING "vCanEdit" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 255 STRING "vCanView" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 256 STRING "doGrpSec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 268 STRING "EDIT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 270 STRING "VIEW" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 281 STRING "EDIT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 282 STRING "VIEW" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 287 PROCEDURE toDataObjectCompact,,BUFFER tGrp tGrp,INPUT pData INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 287 STRING "TODATAOBJECTCOMPACT" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 291 STRING "pData" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 292 STRING "pReqWhn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 293 STRING "tGrp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 293 STRING "tGrp" 4 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 295 STRING "chgwhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 296 STRING "chgwho" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 297 STRING "gid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 298 STRING "gtype" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 299 STRING "gtypname" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 300 STRING "manager" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 301 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 302 STRING "viewhn" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 303 STRING "viewho" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 304 STRING "whn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 305 STRING "who" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 306 STRING "nxtrevdt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 308 PROCEDURE toTempTable,,INPUT pData INDIGO.SRC.DATAOBJECT,INPUT pReqWhn DATETIME,BUFFER tGrp tGrp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 308 STRING "TOTEMPTABLE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 311 STRING "doGrpSec" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 315 STRING "EDIT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 316 STRING "VIEW" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 318 STRING "VIEW" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 320 PROCEDURE getActions,,INPUT doGrpSec INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 320 STRING "GETACTIONS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 320 STRING "gtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 13 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 15 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 19 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 INVOKE Progress.Json.ObjectModel.JsonObject:has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:Has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 40 INVOKE Progress.Json.ObjectModel.JsonObject:Write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 45 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 28 NEW indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 29 INVOKE indigo.src.DataObject:loadObject,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 30 NEW indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 31 INVOKE core.OfcInfo:getOfc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 37 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 38 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 40 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 43 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 46 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 54 INVOKE grp.GrpSec:canGtCreate,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 54 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 54 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 56 INVOKE indigo.src.DataObject:getDatetime,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 62 NEW grp.Grp,INPUT TABLE tGrp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 63 INVOKE grp.Grp:create
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 64 INVOKE grp.Grp:getData,OUTPUT TABLE tGrp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 68 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 68 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 75 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 75 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 77 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 80 INVOKE indigo.src.DataObject:getDatetime,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 83 NEW grp.Grp,INPUT TABLE tGrp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 84 INVOKE grp.Grp:update
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 90 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 90 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 90 NEW grp.Grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 91 INVOKE grp.Grp:getData,OUTPUT TABLE tGrp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 95 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 96 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 103 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 103 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 105 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 105 INVOKE grp.GrpSec:canGrpView,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 112 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 113 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 124 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 124 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 125 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 125 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 126 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 126 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 129 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 132 RUN grp/getGrpLst.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 142 INVOKE core.OfcInfo:getOfc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 142 RUN grp/getMyGrpLst.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 144 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 151 INVOKE core.OfcInfo:getOfc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 153 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 153 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 153 NEW grp.Grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 154 INVOKE grp.Grp:delete
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 160 INVOKE core.OfcInfo:getOfc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 162 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 162 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 162 NEW grp.Grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 163 INVOKE grp.Grp:updReviewDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 172 INVOKE indigo.src.DataWriter:saveObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 174 DELETE-INSTANCE grp.Grp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 175 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 178 DELETE-INSTANCE indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 191 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 192 INVOKE grp.GrpSec:canGrpView,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 196 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 212 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 213 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 216 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 217 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 220 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 221 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 223 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 225 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 228 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 229 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 232 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 237 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 258 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 259 INVOKE grp.GrpSec:canGrpView,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 263 INVOKE indigo.src.DataWriter:beginArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 263 INVOKE indigo.src.DataWriter:setFields,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 263 INVOKE indigo.src.DataWriter:setFields,INPUT datetime,INPUT datetime,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 267 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 268 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 270 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 271 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 273 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 276 INVOKE indigo.src.DataWriter:beginArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 276 INVOKE indigo.src.DataWriter:setFields,INPUT character,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 276 INVOKE indigo.src.DataWriter:setFields,INPUT datetime,INPUT datetime,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 280 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 281 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 282 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 283 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 285 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 295 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 296 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 297 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 298 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 299 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 300 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 301 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 302 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 303 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 304 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 305 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 306 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 313 INVOKE grp.GrpSec:canGrpEdit,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 315 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 316 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 318 INVOKE grp.GrpSec:canGrpView,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siGrp.p 318 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical

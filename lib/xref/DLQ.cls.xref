@@ -1,0 +1,425 @@
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 23 CLASS repmnt.DLQ,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 23 STRING "repmnt.DLQ" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 24 STRING "prBankDt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 25 STRING "prMinDebt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 26 STRING "prMinOverdue" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 27 STRING "prMinGuarantorOve" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 28 STRING "prChangeOfflineDLQ" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 29 STRING "dbtMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 30 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 31 STRING "logg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 32 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 33 STRING "clnInf" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 35 INCLUDE "repmnt/ttGuarantors.i &visibility=""private"" &name=""ttGuarantors"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttGuarantors.i 1 STRING "ttGuarantors" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttGuarantors.i 1 STRING "cif" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 42 STRING "/constants/credit/dlq/DLQerrors" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 47 CONSTRUCTOR PUBLIC,,,,DLQ,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 47 STRING "DLQ" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 50 STRING "vGls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 52 STRING "/constants/credit/dlq/mindebt/" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 59 STRING "/constants/credit/dlq/minoverdue/" 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 66 STRING "/constants/credit/dlq/minguarove" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 72 STRING "GETGLSVALUES" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 79 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 81 SEARCH indigo.loan UQ_loan TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 82 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 83 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 85 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 86 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 88 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 90 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 92 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 92 STRING "ERROR: loan ID &1 execution failed. &2" 38 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 96 STRING "Logging was finished." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 98 METHOD PUBLIC,,,,,updateDLQ,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 98 STRING "UPDATEDLQ" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 106 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 107 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 110 REFERENCE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 113 METHOD PUBLIC,,,,,isSentToDLQ,logical,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 113 STRING "ISSENTTODLQ" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 119 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 120 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 121 STRING "vDlqCif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 123 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 123 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 131 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 131 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 131 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 131 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 131 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 134 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 141 METHOD PUBLIC,,,,,updateDLQDebts,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 141 STRING "UPDATEDLQDEBTS" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 147 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 148 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 149 STRING "vOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 151 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 153 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 153 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 156 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 156 STRING "auto-loan-repay" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 159 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 162 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 163 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 164 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 168 STRING "COLLECTDEBTS" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 176 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 179 STRING "GETDEBT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 187 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 190 STRING "GETOVERDUE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 199 STRING "pCln" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 199 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 200 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 200 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 202 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 202 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 202 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 202 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 202 SEARCH indigo.dlq FK_dlq_clnid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 206 REFERENCE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 209 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 210 METHOD PUBLIC,,,,,cancelDLQ,logical,INPUT pCln INT64,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 210 STRING "CANCELDLQ" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 219 STRING "pDlqID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 220 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 220 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 222 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 222 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 222 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 222 SEARCH indigo.dlq IDX_dlq_dlq
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 225 REFERENCE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 228 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 ACCESS indigo.dlq tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 STRING "INACTIVE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 UPDATE indigo.dlq sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 UPDATE indigo.dlq debt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 231 UPDATE indigo.dlq tdt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 238 METHOD PUBLIC,,,,,cancelDLQ,logical,INPUT pDlqID CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 238 STRING "CANCELDLQ" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 247 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 248 STRING "vCanceledDLQ" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 250 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 250 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 252 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 252 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 252 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 252 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 252 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 256 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 256 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 ACCESS indigo.dlq tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 STRING "INACTIVE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 UPDATE indigo.dlq sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 UPDATE indigo.dlq debt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 259 UPDATE indigo.dlq tdt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 271 METHOD PUBLIC,,,,,cancelDLQ,logical,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 271 STRING "CANCELDLQ" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 280 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 281 STRING "vCanceledDLQ" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 283 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 283 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 285 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 285 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 285 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 285 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 285 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 289 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 289 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 ACCESS indigo.dlq tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 STRING "INACTIVE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 UPDATE indigo.dlq sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 UPDATE indigo.dlq debt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 292 UPDATE indigo.dlq tdt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 303 METHOD PUBLIC,,,,,cancelLoanDLQ,logical,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 303 STRING "CANCELLOANDLQ" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 316 STRING "pCif" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 316 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 316 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 316 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 316 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 317 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 318 STRING "vAccCif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 319 STRING "vAccOwn" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 320 STRING "vAllAccounts" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 321 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 321 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 323 STRING "vExternalId" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 330 STRING "CustomerAccount" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 SEARCH indigo.dlq FK_dlq_clnid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 337 REFERENCE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 339 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 342 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 345 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 345 UPDATE indigo.dlq debt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 347 ACCESS indigo.dlq id 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 355 CREATE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq fdt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq tdt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 ACCESS indigo.dlq debt 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq clnid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq dlq
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq fdt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq tdt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 UPDATE indigo.dlq debt
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 366 INCLUDE "core/businessErr.i &id='REP0021' &p1=pLoan &p2=pCif &p3=pAcc"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0021" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 368 STRING "REGISTERDLQ" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 377 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 378 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 378 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 380 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 381 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 389 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 389 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 389 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 389 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 389 SEARCH indigo.dlq FK_dlq_clnid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 393 REFERENCE indigo.dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 393 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 396 METHOD PUBLIC,,,,,getLoanDLQ,character,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 396 STRING "GETLOANDLQ" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 405 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 405 STRING "pDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 405 STRING "pOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 406 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 421 STRING "AUTOREP" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 421 STRING "FORBID" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 424 STRING "AUTOREP" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 424 STRING "NODLQ" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 428 STRING "SHOULDSEND" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 437 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 437 STRING "pOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 438 STRING "markUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 446 STRING "DLQGUAR" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 446 STRING "ALLOWED" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 449 STRING "SHOULDSENDGUARANTORS" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 457 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 458 STRING "vOverdue" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 459 STRING "vDebt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 460 STRING "vDLQCif" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 461 STRING "vLoanClnId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 463 STRING "loanColl" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 466 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 467 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 467 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 469 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 469 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 472 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 474 ACCESS indigo.loan clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 489 REFERENCE ttGuarantors TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 491 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 491 STRING "auto-loan-repay" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 494 SEARCH DATA-MEMBER repmnt.DLQ:ttGuarantors default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 497 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 498 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 500 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 502 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 504 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 504 STRING "ERROR: loan ID &1 execution failed for guarantor with CIF &3. &2" 64 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 509 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 509 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 509 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 509 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 509 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 512 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 515 SEARCH DATA-MEMBER repmnt.DLQ:ttGuarantors default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 517 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 517 REFERENCE ttGuarantors TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 517 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 523 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 527 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 530 STRING "UPDATELOANGUARANTORS" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 537 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 539 SEARCH indigo.loan UQ_loan TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 540 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 542 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 543 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 545 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 547 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 549 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 549 STRING "ERROR: loan ID &1 execution failed. &2" 38 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 553 STRING "Logging was finished." 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 555 METHOD PUBLIC,,,,,updateDLQGuarantors,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 555 STRING "UPDATEDLQGUARANTORS" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 563 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 564 STRING "vDLQList" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 565 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 565 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 567 ACCESS indigo.dlq lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 567 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 567 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 567 SEARCH indigo.dlq FK_dlq_lid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 567 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 570 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 570 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 573 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 576 METHOD PUBLIC,,,,,getLoanDLQList,character,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 576 STRING "GETLOANDLQLIST" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 584 STRING "pCif" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 585 STRING "vDLQList" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 586 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 588 STRING "dlq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 588 STRING "dlq" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 593 ACCESS indigo.dlq clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 593 ACCESS indigo.dlq sts 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 593 STRING "ACTIVE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 593 SEARCH indigo.dlq FK_dlq_clnid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 593 SEARCH indigo.dlq IDX_dlq_sts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 596 ACCESS indigo.dlq dlq 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 596 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 599 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 602 METHOD PUBLIC,,,,,getClientDLQList,character,INPUT pCif CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 602 STRING "GETCLIENTDLQLIST" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 615 STRING "pDlqId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 617 METHOD PUBLIC,,,,,setChangeDlqOffline,void,INPUT pDlqId CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 617 STRING "SETCHANGEDLQOFFLINE" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 619 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 38 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 38 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 39 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 40 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 41 NEW core.Logger
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 42 INVOKE core.Logger:initFromGls,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 43 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 44 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 46 INVOKE repmnt.DLQ:getGlsValues
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 52 INVOKE core.GlsClass:glsGetId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 55 INVOKE core.GlsUtil:doesExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 55 INVOKE core.GlsUtil:getDeVal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 59 INVOKE core.GlsClass:glsGetId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 62 INVOKE core.GlsUtil:doesExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 62 INVOKE core.GlsUtil:getInVal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 66 INVOKE core.GlsClass:glsGetId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 69 INVOKE core.GlsUtil:doesExist,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 69 INVOKE core.GlsUtil:getInVal,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 82 INVOKE repmnt.DLQ:updateDLQDebts,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 83 INVOKE repmnt.DLQ:collectDebts,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 88 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 88 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 88 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 90 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 92 INVOKE core.Logger:logErr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 96 INVOKE core.Logger:log2File,INPUT logical,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 97 INVOKE core.Logger:log2File,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 125 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 126 INVOKE repmnt.DLQ:getDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 126 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 128 INVOKE repmnt.DLQ:cancelLoanDLQ,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 134 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 135 INVOKE core.ClnInfo:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 137 INVOKE loan.LoanUtil:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 137 INVOKE repmnt.DLQ:registerDLQ,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 137 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 137 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 139 INVOKE repmnt.DLQ:registerDLQ,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 139 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 139 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 139 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 156 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 159 INVOKE repmnt.DLQ:isSentToDLQ,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 162 INVOKE repmnt.DLQ:getDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 163 INVOKE repmnt.DLQ:getOverdue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 164 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 INVOKE repmnt.DLQ:shouldSend,INPUT int64,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 INVOKE repmnt.DLQ:registerDLQ,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 INVOKE loan.LoanUtil:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 166 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 177 INVOKE dbt.DebtManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 178 INVOKE dbt.DebtManager:getDebtSum
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 188 INVOKE dbt.DebtManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 189 INVOKE dbt.DebtManager:getOverdueMax
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 209 INVOKE repmnt.DLQ:cancelDLQ,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 228 RUN sys2dlq/api/v1/cancelDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 256 RUN sys2dlq/api/v1/cancelDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 289 RUN sys2dlq/api/v1/cancelDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 325 INVOKE core.ClnInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 326 INVOKE core.ClnInfo:getClnId
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 330 RUN sys2plt/api/v1/getAccOwn.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 INVOKE loan.LoanUtil:getLid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 333 INVOKE loan.LoanUtil:getLid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 342 RUN sys2dlq/api/v1/registerDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 351 RUN sys2dlq/api/v1/registerDLQ.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 356 INVOKE loan.LoanUtil:getLid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 383 INVOKE loan.LoanUtil:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 384 INVOKE loan.LoanUtil:getLid
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 386 INVOKE core.ClnInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 386 INVOKE loan.LoanUtil:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 387 INVOKE core.ClnInfo:getClnId
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 418 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 419 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 421 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 424 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 443 NEW mark.MarkUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 444 INVOKE mark.MarkUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 446 INVOKE mark.MarkUtil:isValueSet,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 464 NEW indigo.src.LoanCollaterals
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 472 INVOKE repmnt.DLQ:getOverdue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 476 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 477 INVOKE repmnt.DLQ:getDebt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 477 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 479 INVOKE repmnt.DLQ:cancelDLQ,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 486 INVOKE repmnt.DLQ:shouldSendGuarantors,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 488 INVOKE indigo.src.LoanCollaterals:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 489 INVOKE indigo.src.LoanCollaterals:getGuarantorList,OUTPUT TABLE ttGuarantors
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 491 INVOKE repmnt.DLQ:shouldSend,INPUT int64,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 491 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 495 INVOKE repmnt.DLQ:registerDLQ,INPUT character,INPUT character,INPUT decimal,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 495 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 495 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 500 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 500 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 500 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 502 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 504 INVOKE core.Logger:logErr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 512 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 513 INVOKE core.ClnInfo:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 517 INVOKE repmnt.DLQ:cancelDLQ,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 527 INVOKE repmnt.DLQ:cancelDLQ,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 540 INVOKE repmnt.DLQ:updateLoanGuarantors,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 545 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 545 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 545 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 547 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 549 INVOKE core.Logger:logErr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 553 INVOKE core.Logger:log2File,INPUT logical,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 554 INVOKE core.Logger:log2File,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 590 INVOKE core.ClnInfo:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/DLQ.cls 591 INVOKE core.ClnInfo:getClnId

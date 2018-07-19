@@ -1,0 +1,671 @@
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 15 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 17 CLASS setup.DbProductParValidator,,IMPLEMENTS setup.iParValidator,USE-WIDGET-POOL,,,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 17 STRING "setup.DbProductParValidator" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 17 STRING "setup.iParValidator" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 18 STRING "limitValidator" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 18 DATA-MEMBER PROTECTED,,,limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 19 STRING "lovValidator" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 19 DATA-MEMBER PROTECTED,,,lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 20 STRING "params" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 20 DATA-MEMBER PROTECTED,,,params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 28 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 28 UPDATE DATA-MEMBER setup.DbProductParValidator:limitValidator 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 29 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 29 UPDATE DATA-MEMBER setup.DbProductParValidator:lovValidator 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 30 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 30 UPDATE DATA-MEMBER setup.DbProductParValidator:params 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 31 CONSTRUCTOR PUBLIC,,,,DbProductParValidator,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 31 STRING "DBPRODUCTPARVALIDATOR" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 34 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 34 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 36 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 36 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 38 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 38 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 40 DESTRUCTOR PUBLIC,,,,DbProductParValidator,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 40 STRING "DBPRODUCTPARVALIDATOR" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 43 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 43 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 44 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 44 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 45 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 48 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 48 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 50 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 52 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 53 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 59 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 62 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 62 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 64 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 64 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 65 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 65 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 66 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 69 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 69 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 71 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 73 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 74 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 80 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 83 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 83 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 85 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 85 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 86 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 86 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 87 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 90 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 90 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 92 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 94 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 95 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 101 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 104 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 104 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 108 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 108 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 109 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 109 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 110 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 113 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 113 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 115 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 117 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 118 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 124 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 127 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 127 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 129 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 129 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 129 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 130 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 130 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 131 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 134 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 134 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 134 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 137 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 139 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 140 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 146 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 149 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 149 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 151 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 151 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 151 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 152 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 154 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 154 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 156 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 156 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 159 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 160 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 160 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 162 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 162 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 162 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 163 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 163 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 164 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 167 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 167 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 167 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 170 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 172 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 173 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 179 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 182 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 182 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 184 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 184 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 184 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 185 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 187 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 187 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 189 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 189 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 192 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 193 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 193 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 195 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 195 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 195 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 196 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 196 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 197 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 200 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 200 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 200 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 203 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 205 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 206 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 212 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 215 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 215 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 217 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 217 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 217 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 218 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 220 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 220 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 222 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 222 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 225 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 226 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 226 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 228 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 228 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 228 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 229 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 229 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 230 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 233 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 233 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 233 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 236 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 238 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 239 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 245 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 248 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 248 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 250 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 250 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 250 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 251 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 253 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 253 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 255 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 255 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 258 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 259 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 259 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 261 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 261 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 262 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 262 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 263 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 265 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 265 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 267 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 269 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 270 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 274 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 274 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 275 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 275 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 276 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 276 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 277 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 279 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 279 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 281 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 283 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 284 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 288 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 288 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 289 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 289 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 290 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 290 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 291 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 293 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 293 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 295 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 297 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 298 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 302 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 302 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 303 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 303 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 304 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 304 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 305 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 307 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 307 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 309 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 311 STRING "id=&1" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 312 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 316 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 316 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 318 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 318 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 318 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 319 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 319 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 320 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 322 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 322 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 322 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 325 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 327 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 328 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 332 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 332 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 334 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 334 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 334 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 335 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 337 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 337 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 339 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 339 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 342 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 343 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 343 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 345 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 345 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 345 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 346 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 346 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 347 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 349 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 349 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 349 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 352 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 354 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 355 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 359 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 359 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 361 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 361 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 361 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 362 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 364 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 364 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 366 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 366 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 369 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 370 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 370 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 372 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 372 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 372 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 373 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 373 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 374 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 376 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 376 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 376 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 379 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 381 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 382 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 386 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 386 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 388 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 388 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 388 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 389 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 391 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 391 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 393 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 393 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 396 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 397 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 397 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 399 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 399 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 399 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 400 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 400 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 401 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 403 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 403 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 403 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 406 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 408 STRING "PAR=&1, ParentRecordId=&2" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 409 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 413 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 413 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 415 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 415 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 415 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 416 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 418 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 418 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 420 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 420 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 423 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 424 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 424 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 426 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 427 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 429 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 429 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 433 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 433 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 433 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 435 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 437 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 439 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""CHARACTER""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 439 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 439 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CHARACTER" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 442 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 442 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 442 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 442 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 444 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=par.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 446 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 446 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 448 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 448 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 448 ACCESS indigo.parset chval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 450 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 450 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 452 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 453 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 455 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 455 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 459 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 459 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 459 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 461 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 463 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 465 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""INTEGER""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 465 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 465 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "INTEGER" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 468 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 468 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 468 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 468 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 470 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=par.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 472 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 472 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 474 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 474 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 474 ACCESS indigo.parset inval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 476 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 476 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 479 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 480 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 482 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 482 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 486 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 486 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 486 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 488 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 490 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 492 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""DECIMAL""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 492 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 492 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DECIMAL" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 495 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 495 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 495 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 495 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 497 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=par.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 499 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 499 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 501 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 501 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 501 ACCESS indigo.parset deval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 503 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 503 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 506 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 507 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 509 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 509 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 513 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 513 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 513 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 515 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 517 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 519 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""DATE""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 519 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 519 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DATE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 522 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 522 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 522 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 522 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 524 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=par.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 526 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 526 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 528 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 528 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 528 ACCESS indigo.parset dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 530 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 530 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 534 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 536 METHOD PUBLIC,,,,,getLimitValidator,setup.iLimitValidator,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 536 STRING "GETLIMITVALIDATOR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 540 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 542 METHOD PUBLIC,,,,,getLovValidator,setup.iLovValidator,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 542 STRING "GETLOVVALIDATOR" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 545 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 546 METHOD PUBLIC,,,,,getParSet,setup.iParSet,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 546 STRING "GETPARSET" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 548 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 548 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 548 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 549 METHOD PUBLIC,,,,,validateGLSValue,void,INPUT pProduct INT64,INPUT pPar INT64,INPUT pKey INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 549 STRING "VALIDATEGLSVALUE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 551 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 553 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 555 METHOD PUBLIC,,,,,canBeNull,logical,INPUT pParameterId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 555 STRING "CANBENULL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 557 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 557 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 559 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 561 METHOD PUBLIC,,,,,canBeNull,logical,INPUT pParentId INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 561 STRING "CANBENULL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 563 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 564 ACCESS DATA-MEMBER setup.DbProductParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 565 ACCESS DATA-MEMBER setup.DbProductParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 566 METHOD PUBLIC,,,,,deleteSetup,void,INPUT pParameterId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 566 STRING "DELETESETUP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 568 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 568 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 569 ACCESS DATA-MEMBER setup.DbProductParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 570 METHOD PUBLIC,,,,,deleteSetup,void,INPUT pParentId INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 570 STRING "DELETESETUP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 27 INVOKE Progress.Lang.Object:Object
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 28 NEW setup.DbLimitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 29 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 30 NEW setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 34 DELETE-INSTANCE setup.iLimitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 36 DELETE-INSTANCE setup.iLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 38 DELETE-INSTANCE setup.iParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 56 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 77 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 98 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 121 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 143 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 159 INVOKE setup.DbProductParValidator:isValid,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 176 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 192 INVOKE setup.DbProductParValidator:isValid,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 209 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 225 INVOKE setup.DbProductParValidator:isValid,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 242 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 258 INVOKE setup.DbProductParValidator:isValid,INPUT int64,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 273 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 287 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 301 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 315 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 331 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 342 INVOKE setup.DbProductParValidator:validateValue,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 358 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 369 INVOKE setup.DbProductParValidator:validateValue,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 385 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 396 INVOKE setup.DbProductParValidator:validateValue,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 412 INVOKE setup.DbProductParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 423 INVOKE setup.DbProductParValidator:validateValue,INPUT int64,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 442 INVOKE setup.iLovValidator:isLovValue,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 448 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 468 INVOKE setup.iLovValidator:isLovValue,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 474 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 495 INVOKE setup.iLovValidator:isLovValue,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 501 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 522 INVOKE setup.iLovValidator:isLovValue,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 528 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 553 INVOKE setup.iParSet:canBeNull,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 559 INVOKE setup.iParSet:canBeNull,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 564 INVOKE setup.iLovValidator:deleteLovLinks,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 565 INVOKE setup.iLimitValidator:deleteLimits,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 569 INVOKE setup.DbProductParValidator:deleteSetup,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbProductParValidator.cls 569 INVOKE setup.iParSet:getParameterId,INPUT int64,INPUT int64

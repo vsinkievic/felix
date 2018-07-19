@@ -1,0 +1,231 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 13 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 14 INCLUDE "indigo/src/ttProvisions.i &name=""ttProvisions"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "ttProvisions" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "provRate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "provAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "currProvRate" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "currProvAmt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "debtAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "enabled" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttProvisions.i 1 STRING "child" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 16 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 17 STRING "prov" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 22 STRING "GET-PROVISIONS" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 26 STRING "RECALC-PROVISIONS" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 30 STRING "CHANGE-PROVISIONS" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 34 STRING "SET-WOFF" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 38 STRING "SET-WOFFBAL" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 43 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 52 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 53 STRING "vProvTypes" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 54 STRING "vProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 55 STRING "vIt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 57 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 58 STRING "vArrToolTip" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 59 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 60 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 64 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 66 REFERENCE ttProvisions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 69 SEARCH ttProvisions default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 71 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 72 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 73 STRING "provAmt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 74 STRING "currProvAmt" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 75 STRING "overdue" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 76 STRING "balance" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 77 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 78 STRING "enabled" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 79 STRING "child" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 82 STRING "provList" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 83 STRING "poolProv" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 84 STRING "poolProvCrc" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 92 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 93 STRING "desc" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 97 STRING "canProcess" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 98 STRING "provTypes" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 99 STRING "provType" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 100 PROCEDURE getProv,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 100 STRING "GETPROV" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 108 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 109 STRING "vProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 111 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 112 STRING "vArrToolTip" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 113 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 114 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 118 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 119 STRING "POST.provisions.provType" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 122 REFERENCE ttProvisions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 125 SEARCH ttProvisions default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 127 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 128 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 129 STRING "provAmt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 130 STRING "currProvAmt" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 131 STRING "overdue" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 132 STRING "balance" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 133 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 134 STRING "enabled" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 135 STRING "child" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 138 STRING "provList" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 139 STRING "poolProv" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 140 STRING "poolProvCrc" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 141 PROCEDURE recalcProv,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 141 STRING "RECALCPROV" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 144 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 145 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 146 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 147 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 148 STRING "vProvType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 150 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 151 STRING "vProvList" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 152 STRING "vProv" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 154 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 156 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 158 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 164 STRING "POST.provisions.provList" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 165 STRING "POST.provisions.provType" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 167 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 173 ACCESS PUBLIC-PROPERTY Progress.Json.ObjectModel.JsonArray:Length
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 175 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 176 STRING "provAmt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 187 PROCEDURE changeProv,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 187 STRING "CHANGEPROV" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 190 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 191 STRING "vAdditionalRem" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 193 STRING "writeOff" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 195 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 196 STRING "POST.provisions.comment" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 202 PROCEDURE setWOff,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 202 STRING "SETWOFF" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 205 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 207 STRING "writeOff" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 209 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 211 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 213 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 217 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 221 PROCEDURE setWOffBal,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 221 STRING "SETWOFFBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 221 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 18 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 19 NEW indigo.src.ProvisionsUIHelper
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 48 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 62 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 64 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 65 INVOKE indigo.src.ProvisionsUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 66 INVOKE indigo.src.ProvisionsUIHelper:getProvList,OUTPUT TABLE ttProvisions
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 68 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 70 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 71 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 72 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 73 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 74 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 75 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 76 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 77 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 78 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 79 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 80 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 82 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 83 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 83 INVOKE indigo.src.ProvisionsUIHelper:getPoolProv
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 84 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 84 INVOKE core.CurrInfo:getNatCrcCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 86 INVOKE indigo.src.ProvisionsUIHelper:getProvTypeValueList
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 88 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 91 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 92 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 93 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 93 INVOKE indigo.src.ProvisionsUIHelper:getProvTypeName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 94 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 97 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 97 INVOKE indigo.src.ProvisionsUIHelper:canProcess
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 98 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 99 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 99 INVOKE indigo.src.ProvisionsUIHelper:getProvType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 116 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 118 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 119 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 121 INVOKE indigo.src.ProvisionsUIHelper:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 122 INVOKE indigo.src.ProvisionsUIHelper:getProvList,INPUT character,OUTPUT TABLE ttProvisions
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 124 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 126 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 127 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 128 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 129 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 130 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 131 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 132 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 133 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 134 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 135 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 136 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 138 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 139 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 139 INVOKE indigo.src.ProvisionsUIHelper:getPoolProv
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 140 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 140 INVOKE core.CurrInfo:getNatCrcCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 155 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 158 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 160 NEW indigo.src.JsonReader
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 161 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 162 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 164 INVOKE indigo.src.JsonReader:getJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 165 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 167 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 168 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 171 INVOKE ops.ProvAmtManager:setProvType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 174 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 174 INVOKE Progress.Json.ObjectModel.JsonArray:GetJsonObject,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 175 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 176 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 182 INVOKE ops.ProvAmtManager:updProvAmt,INPUT character,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 195 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 196 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 197 NEW ops.WriteOff
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 198 INVOKE ops.WriteOff:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 200 INVOKE ops.WriteOff:setAdditionalRemark,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 201 INVOKE ops.WriteOff:wOff
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 210 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 213 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 214 NEW ops.WriteOff
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 215 INVOKE ops.WriteOff:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 217 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 218 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siProvisions.p 220 INVOKE ops.WriteOff:writeOffBal

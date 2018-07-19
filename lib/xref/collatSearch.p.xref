@@ -1,0 +1,640 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 7 INCLUDE "clt/tCollatSearch.i &name=""tCollatSearch"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "tCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmCoverAmt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmRank" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatNumber" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatValu" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatOwners" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credNumber" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credBorr" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmColagr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatColobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatOwnClnid" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credCrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credBorClnid" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credTypeName" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatTypeDesc" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmLineIsActive" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credBorCode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credBorCif" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "credAgrNum" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatOwnCodeList" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "collatAddr" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tCollatSearch.i 1 STRING "agrmColagrln" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 8 INCLUDE "core/ttSearchFilter.i &name=""tFilter"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "tFilter" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fVal" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttSearchFilter.i 1 STRING "fDtVal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 12 STRING "pSearchType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 13 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 14 STRING "pDisplayStart" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 15 STRING "pDisplayEnd" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 16 STRING "pRecords" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 19 STRING "vContainsSeach" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 20 STRING "vMatchesSearch" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 22 STRING "vIsFilter" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 23 STRING "vCrFilter" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 24 STRING "vCollFilter" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 25 STRING "vAgrmFilter" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 26 STRING "vAgrmLineFilter" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 27 STRING "vAgrmNotAvailFilter" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 28 STRING "vSystemFilter" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 30 STRING "vShowBorr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 31 STRING "vShowOwner" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 33 STRING "DONE_EXCEPTION" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 34 STRING "vZIP" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 36 STRING "colcalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 37 STRING "oCrobjManager" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 38 STRING "nameSearch" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 40 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 40 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 40 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 40 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 51 SEARCH tFilter idx1 TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 55 STRING "agrm" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 55 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 59 STRING "agrmoption" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 59 STRING "noagrm" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 59 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 64 STRING "agrmline" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 64 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 68 STRING "cr" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 68 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 72 STRING "coll" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 72 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 76 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 76 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 79 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 79 STRING "bor" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 79 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 85 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 85 STRING "own" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 85 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 92 STRING "sys" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 92 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 104 STRING "collatnum" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 105 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 105 ACCESS indigo.colobj colid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 105 SEARCH indigo.colobj colid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 106 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 106 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 106 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 109 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 115 STRING "pcode" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 116 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 116 SEARCH indigo.cln IDX_code
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 117 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 117 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 117 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 117 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 123 STRING "pname" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 127 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 127 SEARCH indigo.cln IDX_name
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 128 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 128 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 128 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 128 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 134 SEARCH indigo.cln clnid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 135 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 138 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 138 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 138 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 138 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 144 STRING "borcif" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 145 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 145 SEARCH indigo.cln IDX_cif
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 147 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 149 ACCESS indigo.crobj clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 149 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 149 SEARCH indigo.crobj clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 153 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 153 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 153 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 153 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 160 STRING "crnum" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 161 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 161 SEARCH indigo.crobj crnum
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 165 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 165 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 165 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 165 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 171 STRING "cragrnum" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 172 ACCESS indigo.crobj cragr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 172 SEARCH indigo.crobj cragr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 176 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 176 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 176 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 176 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 182 STRING "collatagrnum" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 183 ACCESS indigo.colagr agrnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 183 SEARCH indigo.colagr agrnum
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 187 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 187 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 187 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 187 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 193 STRING "groupid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 194 STRING "grp" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 194 ACCESS indigo.grp gid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 194 SEARCH indigo.grp gid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 195 STRING "grpmemb" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 195 ACCESS indigo.grpmemb gid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 195 ACCESS indigo.grp gid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 195 SEARCH indigo.grpmemb gid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 196 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 196 ACCESS indigo.grpmemb clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 196 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 197 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 197 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 197 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 197 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 204 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 208 STRING "LV-" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 210 STRING "LV-" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 211 STRING "|LV" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 211 STRING "|LV " 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 214 STRING "addr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 214 ACCESS indigo.addr fullAddr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 214 SEARCH indigo.addr fullAddr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 215 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 215 ACCESS indigo.addr objid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 215 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 216 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 220 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 220 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 220 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 220 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 227 SEARCH indigo.addr obj TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 228 ACCESS indigo.addr fullAddr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 231 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 231 ACCESS indigo.addr objid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 231 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 232 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 235 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 235 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 235 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 235 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 246 STRING "agrm" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 246 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 247 ACCESS indigo.colagr sts 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 247 SEARCH indigo.colagr sts
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 248 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 248 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 248 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 248 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 258 SEARCH indigo.colobj colobj TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 259 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 259 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 259 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 259 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 265 SEARCH indigo.crobj crobj TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 266 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 266 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 266 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 266 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 276 SEARCH indigo.colagr colagr TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 278 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 278 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 278 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 278 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 286 STRING "cr" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 286 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 287 ACCESS indigo.crobj sts 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 287 SEARCH indigo.crobj sts
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 288 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 288 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 288 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 288 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 296 STRING "coll" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 296 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 297 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 297 SEARCH indigo.colobj coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 298 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 298 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 298 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 298 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 306 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 306 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 309 SEARCH indigo.cln clnid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 311 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 311 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 311 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 311 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 321 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 321 STRING "crobj" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 321 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 322 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 322 STRING "colobj" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 322 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 323 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 323 STRING "colagr" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 323 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 324 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 324 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 324 STRING "cln" 3 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 324 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 326 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 326 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 327 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 327 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 328 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 328 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 329 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 334 ACCESS indigo.crobj clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 334 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 334 SEARCH indigo.crobj clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 338 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 ACCESS indigo.own clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 ACCESS indigo.own owntype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 STRING "owner,guarantor" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 344 SEARCH indigo.own clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 347 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 347 ACCESS indigo.own colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 347 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 351 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 356 PROCEDURE fillSearchResults,,BUFFER crobj indigo.crobj,BUFFER colobj indigo.colobj,BUFFER colagr indigo.colagr,BUFFER cln indigo.cln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 356 STRING "FILLSEARCHRESULTS" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 361 STRING "tCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 361 STRING "tCollatSearch" 13 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 362 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 362 STRING "colagrln" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 362 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 363 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 363 STRING "colobj" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 363 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 364 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 364 STRING "crobj" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 364 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 366 STRING "bCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 367 STRING "bColobj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 367 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 367 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 368 STRING "bCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 368 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 368 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 373 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 375 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 375 SEARCH tCollatSearch agrmColagrln TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 384 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 386 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 386 SEARCH tCollatSearch collatColobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 391 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 393 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 393 SEARCH tCollatSearch credCrobj TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 399 STRING "Done" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 402 CREATE tCollatSearch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 406 STRING "agrmColagrln" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 406 STRING "collatColobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 406 STRING "credCrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 406 PROCEDURE createSearchRec,,BUFFER tCollatSearch tCollatSearch,BUFFER colagrln indigo.colagrln,BUFFER colobj indigo.colobj,BUFFER crobj indigo.crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 406 STRING "CREATESEARCHREC" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 410 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 410 STRING "crobj" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 410 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 412 STRING "tCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 413 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 413 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 414 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 414 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 415 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 415 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 417 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 417 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 417 SEARCH indigo.colagrln crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 418 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 423 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 423 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 423 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 424 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 429 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 429 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 429 SEARCH indigo.colagrln crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 430 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 430 ACCESS indigo.colagrln colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 430 SEARCH indigo.colagr colagr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 431 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 431 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 431 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 436 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 436 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 436 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 439 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 440 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 440 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 441 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 449 STRING "agrmColagrln" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 449 STRING "collatColobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 449 STRING "credCrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 449 PROCEDURE foundCredit,,BUFFER crobj indigo.crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 449 STRING "FOUNDCREDIT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 452 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 452 STRING "colobj" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 452 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 454 STRING "tCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 455 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 455 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 456 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 456 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 457 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 457 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 459 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 459 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 459 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 460 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 468 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 468 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 468 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 469 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 474 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 474 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 474 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 475 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 475 ACCESS indigo.colagrln colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 475 SEARCH indigo.colagr colagr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 476 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 476 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 476 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 481 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 481 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 481 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 484 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 485 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 485 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 486 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 494 STRING "agrmColagrln" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 494 STRING "collatColobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 494 STRING "credCrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 494 PROCEDURE foundCollat,,BUFFER colobj indigo.colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 494 STRING "FOUNDCOLLAT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 497 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 497 STRING "colagr" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 497 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 499 STRING "tCollatSearch" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 500 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 500 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 501 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 501 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 502 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 502 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 507 ACCESS indigo.colagrln colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 507 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 507 SEARCH indigo.colagrln colagr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 508 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 508 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 508 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 509 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 509 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 509 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 514 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 514 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 514 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 517 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 518 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 518 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 519 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 526 STRING "agrmColagrln" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 526 STRING "collatColobj" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 526 STRING "credCrobj" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 526 PROCEDURE foundAgreem,,BUFFER colagr indigo.colagr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 526 STRING "FOUNDAGREEM" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 529 STRING "bTarget" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 529 STRING "bTarget" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 530 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 530 STRING "crobj" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 530 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 532 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 532 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 532 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 533 STRING "crtype" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 533 REFERENCE indigo.crtype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 535 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 535 ACCESS indigo.crobj clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 535 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 536 ACCESS indigo.crtype id 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 536 ACCESS indigo.crobj crtype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 536 SEARCH indigo.crtype id_crtype
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 538 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 540 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 541 ACCESS indigo.crtype crtype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 544 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 545 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 546 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 547 ACCESS indigo.crtype name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 547 REFERENCE indigo.crtype 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 548 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 549 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 550 ACCESS indigo.crobj cragr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 551 PROCEDURE copyCredit,,BUFFER bTarget tCollatSearch,BUFFER crobj indigo.crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 551 STRING "COPYCREDIT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 554 STRING "bTarget" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 554 STRING "bTarget" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 555 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 555 STRING "colobj" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 555 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 557 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 557 REFERENCE indigo.own 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 558 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 558 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 558 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 560 STRING "oAddr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 563 STRING "cSep" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 563 STRING "~^~" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 565 ACCESS indigo.colobj colid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 STRING "1" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 STRING "colobj.colobj" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 569 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 570 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 571 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 572 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 573 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 575 ACCESS indigo.own colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 575 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 575 SEARCH indigo.own colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 576 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 576 ACCESS indigo.own clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 576 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 578 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 578 STRING "&1&2&3" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 579 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 579 STRING "&1&2&3" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 580 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 580 STRING "&1&2&3" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 585 PROCEDURE copyCollat,,BUFFER bTarget tCollatSearch,BUFFER colobj indigo.colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 585 STRING "COPYCOLLAT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 588 STRING "bTarget" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 588 STRING "bTarget" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 589 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 589 STRING "colagr" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 589 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 590 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 590 STRING "colagrln" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 590 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 592 ACCESS indigo.colagr agrnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 593 ACCESS indigo.colagrln secamt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 594 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 595 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 596 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 597 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 598 PROCEDURE copyAgreem,,BUFFER bTarget tCollatSearch,BUFFER colagr indigo.colagr,BUFFER colagrln indigo.colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 598 STRING "COPYAGREEM" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colobj" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "crobj" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagr" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 STRING "colagrln" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 600 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 605 STRING "vKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 606 STRING "vIsActive" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 607 STRING "vSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 609 STRING "sys" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 609 REFERENCE indigo.sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 613 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 615 ACCESS indigo.colagr sts 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 615 STRING "agrm" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 615 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 617 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 621 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 623 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 624 STRING "active" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 626 STRING "inactive" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 628 STRING "agrmline" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 628 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 630 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 634 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 636 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 636 STRING "coll" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 636 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 638 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 642 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 644 ACCESS indigo.sys id 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 644 ACCESS indigo.crobj sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 644 SEARCH indigo.sys id_sys
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 647 ACCESS indigo.crobj sts 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 647 STRING "cr" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 647 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 649 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 655 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 657 ACCESS indigo.sys id 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 657 ACCESS indigo.crobj sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 657 SEARCH indigo.sys id_sys
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 659 REFERENCE indigo.sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 661 ACCESS indigo.sys sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 661 STRING "sys" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 661 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 664 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 668 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 670 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 670 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 670 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 672 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 674 ACCESS indigo.sys id 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 674 ACCESS indigo.crobj sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 674 SEARCH indigo.sys id_sys
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 676 REFERENCE indigo.sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 678 ACCESS indigo.sys sys 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 678 STRING "sys" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 678 SEARCH tFilter idx1 TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 681 REFERENCE tFilter TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 690 FUNCTION need2filter,logical,BUFFER colobj indigo.colobj,BUFFER crobj indigo.crobj,BUFFER colagr indigo.colagr,BUFFER colagrln indigo.colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 690 STRING "NEED2FILTER" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 693 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 694 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 694 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 694 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 695 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 695 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 695 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 697 STRING "vId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 699 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 699 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 700 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 700 ACCESS indigo.curr code 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 710 STRING "N/A" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 711 FUNCTION getCrcCode,character,INPUT pCrc INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 711 STRING "GETCRCCODE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 713 STRING "pCollatType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 714 STRING "vFirstLev" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 715 STRING "vSeconLev" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 716 STRING "vThridLev" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 717 STRING "vFirstLevDesc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 718 STRING "vSeconLevDesc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 719 STRING "vThridLevDesc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 720 STRING "vDescr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 722 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 722 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 724 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 725 STRING "&1-&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 725 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 725 STRING "-" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 728 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 728 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 729 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 731 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 731 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 732 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 734 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 734 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 735 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 737 STRING "&1 - &2 - &3" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 740 FUNCTION getCollatTypeDesc,character,INPUT pCollatType CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 740 STRING "GETCOLLATTYPEDESC" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 743 STRING "ex" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 763 STRING "idx1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 763 STRING "idx2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 47 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 48 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 49 NEW core.NameSearch
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 124 INVOKE core.NameSearch:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 126 INVOKE core.NameSearch:getContainsStr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 135 INVOKE core.NameSearch:strMatch,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 205 INVOKE core.NameSearch:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 207 INVOKE core.NameSearch:getContainsStr
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 228 INVOKE core.NameSearch:strMatch,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 399 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 538 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 542 INVOKE indigo.src.Formater:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 542 INVOKE clt.CrobjManager:getBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 542 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 543 INVOKE clt.CrobjManager:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 561 NEW clt.AddrClass
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 566 INVOKE clt.AddrClass:getFullAddressString,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 570 INVOKE indigo.src.Formater:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 593 INVOKE indigo.src.Formater:toString,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 594 INVOKE indigo.src.Formater:toString,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 597 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 623 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 744 INVOKE Progress.Lang.ProError:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 746 DELETE-INSTANCE Progress.Lang.AppError
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 755 DELETE-INSTANCE clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 758 DELETE-INSTANCE core.NameSearch
+/u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p /u1/env/bankcp/indigo/svn-trunk/system/clt/collatSearch.p 761 DELETE-INSTANCE clt.CrobjManager

@@ -1,0 +1,488 @@
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 14 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 16 CLASS setup.ModelConverter,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 16 STRING "setup.ModelConverter" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 22 STRING "vSilentMode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "ttMc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "dst" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "dbt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "fld" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "lbl1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 24 STRING "lbl2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 38 STRING "vMappingError" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 45 INCLUDE "core/businessErr.i &id='PST0036' &p1=vMappingError"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0036" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 47 CONSTRUCTOR PUBLIC,,,,ModelConverter,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 47 STRING "MODELCONVERTER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 49 STRING "pMode" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 51 METHOD PUBLIC,,,,,setSilentMode,void,INPUT pMode LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 51 STRING "SETSILENTMODE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 55 METHOD PUBLIC,,,,,isSilentModeOn,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 55 STRING "ISSILENTMODEON" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 65 STRING "LOAN_PURPOSE" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 65 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 65 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 65 STRING "purpose" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 66 STRING "LOAN_REPTYPE" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 66 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 66 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 66 STRING "reptype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 67 STRING "AGR_STS" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 67 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 67 STRING "agrsts" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 68 STRING "LOAN_MANAGER" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 68 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 68 STRING "manager" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 69 STRING "AGR_LIMIT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 69 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 69 STRING "agrlim" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 70 STRING "AGR_LIMIT_CRC" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 70 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 70 STRING "agrcrclim" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 71 STRING "LON_OPNDT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 71 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 71 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 71 STRING "opndt" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 72 STRING "LOAN_DUEDT" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 72 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 72 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 72 STRING "duedt" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 73 STRING "LOAN_AMOUNT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 73 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 73 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 73 STRING "opnamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 74 STRING "DISBACCTYP" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 74 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 74 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 74 STRING "issacctyp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 75 STRING "REPACCTYP" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 75 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 75 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 75 STRING "repacctyp" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 76 STRING "LOAN_CRC" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 76 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 76 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 76 STRING "crc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 77 STRING "LON_ISSUEDT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 77 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 77 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 77 STRING "disbdt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 78 STRING "DISBTYPE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 78 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 78 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 78 STRING "disbtype" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 79 STRING "LOAN_FUNDSTART" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 79 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 79 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 79 STRING "fundstartdt" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 80 STRING "LOAN_FUNDEND" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 80 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 80 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 80 STRING "fundenddt" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 81 STRING "PROV_TYPE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 81 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 81 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 81 STRING "provtype" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 82 STRING "LOAN_ALIMIT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 82 STRING "ttLimit" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 82 STRING "limit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 82 STRING "alimit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 83 STRING "LOAN_CLIMIT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 83 STRING "ttLimit" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 83 STRING "limit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 83 STRING "climit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 84 STRING "LOAN_OLIMIT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 84 STRING "ttLimit" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 84 STRING "limit" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 84 STRING "olimit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 85 STRING "REST_START" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 85 STRING "ttLoanRest" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 85 STRING "loanrest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 85 STRING "fdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 86 STRING "REST_END" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 86 STRING "ttLoanRest" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 86 STRING "loanrest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 86 STRING "tdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 87 STRING "PENINT_START" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 87 STRING "ttLoanPenint" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 87 STRING "loanpenint" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 87 STRING "fdt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 88 STRING "LOAN_PURPOSE_CODE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 88 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 88 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 88 STRING "purposecode" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 89 STRING "ORIGIN_FDT" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 89 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 89 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 89 STRING "originfdt" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 90 STRING "SYND_ID" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 90 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 90 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 90 STRING "syndid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 91 STRING "REG_PART" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 91 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 91 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 91 STRING "regparticipant" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 92 STRING "LINKED_CONTR_ID" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 92 STRING "ttLoan" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 92 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 92 STRING "linkedcontractid" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 95 STRING "COMP_PRIORITY" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 95 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 95 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 95 STRING "pri" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 96 STRING "COMP_METHOD" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 96 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 96 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 96 STRING "method" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 97 STRING "COMP_HOLTR" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 97 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 97 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 97 STRING "holtr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 98 STRING "COMP_DEBT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 98 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 98 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 98 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 99 STRING "COMP_BAMTYP" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 99 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 99 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 99 STRING "bamtyp" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 100 STRING "COMP_BASECOMP" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 100 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 100 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 100 STRING "basecomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 102 STRING "BOOK_RETURN" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 102 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 102 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 102 STRING "bookret" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 103 STRING "BOOK_RULE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 103 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 103 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 103 STRING "bookrule" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 104 STRING "BOOKPRI" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 104 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 104 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 104 STRING "bookpri" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 105 STRING "BOOK_CTOPROF" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 105 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 105 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 105 STRING "CtpRule" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 106 STRING "PROV_RULE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 106 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 106 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 106 STRING "provrule" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 107 STRING "OVERDUE_RULE" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 107 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 107 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 107 STRING "overule" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 108 STRING "COMP_AMT" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 108 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 108 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 108 STRING "amt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 109 STRING "COMP_TRX_MODE" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 109 STRING "ttLoanComp" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 109 STRING "LoanComp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 109 STRING "trxmode" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 119 STRING "ACRBASE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 119 STRING "ttLcAcr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 119 STRING "LcAcr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 119 STRING "acrbase" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 120 STRING "ACRGRACE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 120 STRING "ttLcAcr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 120 STRING "LcAcr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 120 STRING "grc" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 121 STRING "ACR_ADDRULE" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 121 STRING "ttLcAcr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 121 STRING "LcAcr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 121 STRING "rlmaxamt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 122 STRING "EXCLUDED_AMT" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 122 STRING "ttLcAcr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 122 STRING "LcAcr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 122 STRING "exlamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 123 STRING "USE_BASE_SCHEDULE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 123 STRING "ttLcAcr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 123 STRING "LcAcr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 123 STRING "usebsched" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 127 STRING "SCH_PAYDAY" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 127 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 127 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 127 STRING "payDay" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 128 STRING "SCH_PAYPY" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 128 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 128 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 128 STRING "payPy" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 129 STRING "SCH_HOLTR" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 129 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 129 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 129 STRING "holtr" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 130 STRING "SCH_FIRSTDT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 130 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 130 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 130 STRING "firstdt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 131 STRING "SCH_LASTDATE" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 131 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 131 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 131 STRING "duedt" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 133 STRING "SCH_FINALPAY" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 133 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 133 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 133 STRING "final" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 134 STRING "SCH_PAYAMT" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 134 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 134 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 134 STRING "payamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 135 STRING "SCH_BASEAMT" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 135 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 135 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 135 STRING "baseamt" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 137 STRING "SCH_ADVCPAY" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 137 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 137 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 137 STRING "advc" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 138 STRING "SCH_MERGEDAYS" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 138 STRING "ttLcSch" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 138 STRING "lcsch" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 138 STRING "lnmerge" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 142 STRING "COMP_RATE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 142 STRING "ttLcRate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 142 STRING "lcrate" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 142 STRING "curRate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 143 STRING "BOR_RULE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 143 STRING "ttLcRate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 143 STRING "lcrate" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 143 STRING "borrule" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 144 STRING "COMP_MAX_INCR" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 144 STRING "ttLcRate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 144 STRING "lcrate" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 144 STRING "maxincr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 145 STRING "COMP_MAX_DECR" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 145 STRING "ttLcRate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 145 STRING "lcrate" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 145 STRING "maxdecr" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 148 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_par TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 149 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 152 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 156 METHOD PROTECTED,,,,,initMappingTable,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 156 STRING "INITMAPPINGTABLE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 165 STRING "ttmc2" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 166 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 167 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 168 STRING "vFieldType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 171 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 173 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 179 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 182 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 184 STRING ", " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 185 STRING "Database field &1.&2 has ambiguous mapping with Product parameters '&3'" 71 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 190 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 196 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 199 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 201 STRING ", " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 202 STRING "Dataset field &1.&2 has ambiguous mapping with Product parameters '&3'" 70 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 208 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_par TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 209 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 209 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 211 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 213 INCLUDE "core/businessErr.i &id='PST0015' &p1=ttMc.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 220 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 221 INCLUDE "core/businessErr.i &id='PST0040' &p1=par.par &p2=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0040" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 223 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 225 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 226 INCLUDE "core/businessErr.i &id='PST0039' &p1=par.par &p2=par.dtype &p3=vStr &p4=vFieldtype"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0039" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 STRING "idx_par" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 STRING "idx_fld" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 STRING "idx_lbl1" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 STRING "idx_lbl2" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 METHOD PROTECTED,,,,,checkMappingTable,character,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 232 STRING "CHECKMAPPINGTABLE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 240 STRING "pTable" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 240 STRING "pField" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 241 STRING "vField" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 242 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_fld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 245 REFERENCE ttMc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 250 STRING "&1.&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 251 INCLUDE "core/businessErr.i &id='PST0033' &p1=vField"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 255 METHOD PUBLIC,,,,,getParamName,character,INPUT pTable CHARACTER,INPUT pField CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 255 STRING "GETPARAMNAME" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 263 STRING "pParam" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 264 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_par TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 266 REFERENCE ttMc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 266 STRING "&1.&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 269 METHOD PUBLIC,,,,,getParamPlace,character,INPUT pParam CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 269 STRING "GETPARAMPLACE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 277 STRING "pTable" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 277 STRING "pField" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 278 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 279 STRING "vParamName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 282 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 282 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 284 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 284 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 286 INCLUDE "core/businessErr.i &id='PST0015' &p1=vParamName"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 290 METHOD PUBLIC,,,,,getParamId,int64,INPUT pTable CHARACTER,INPUT pField CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 290 STRING "GETPARAMID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 299 STRING "pFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 303 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_par TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 306 REFERENCE ttMc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 311 INCLUDE "core/businessErr.i &id='PST0033' &p1=pFieldName"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 315 METHOD PUBLIC,,,,,getParamName,character,INPUT pFieldName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 315 STRING "GETPARAMNAME" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 323 STRING "pFieldName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 324 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 325 STRING "vParamName" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 328 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 328 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 330 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 330 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 332 INCLUDE "core/businessErr.i &id='PST0015' &p1=vParamName"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 336 METHOD PUBLIC,,,,,getParamId,int64,INPUT pFieldName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 336 STRING "GETPARAMID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 344 STRING "pParId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 345 STRING "vParamDataType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 346 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 348 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 348 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 350 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 350 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 352 INCLUDE "core/businessErr.i &id='PST0015' &p1=pParId"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 355 METHOD PUBLIC,STATIC,,,,getParamDataType,character,INPUT pParId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 355 STRING "GETPARAMDATATYPE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 363 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 364 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 366 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 366 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 368 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 368 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 370 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 371 METHOD PUBLIC,STATIC,,,,getParId,int64,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 371 STRING "GETPARID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 381 METHOD PUBLIC,,,,,getMappingTableHandle,widget-handle,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 381 STRING "GETMAPPINGTABLEHANDLE" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 390 STRING "pParameter" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 390 STRING "pTable" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 391 SEARCH DATA-MEMBER setup.ModelConverter:ttMc idx_par TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 394 REFERENCE ttMc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 397 INCLUDE "core/businessErr.i &id='PST0034' &p1=pParameter &p2=pTable"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0034" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 401 METHOD PUBLIC,,,,,getFieldName,character,INPUT pParameter CHARACTER,INPUT pTable CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 401 STRING "GETFIELDNAME" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 409 STRING "pExternalTable" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 413 INCLUDE "core/businessErr.i &id='PST0033' &p1='""pExternalTable""' &p2='""not valid handle""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "pExternalTable" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "not valid handle" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 417 METHOD PUBLIC,,,,,copyMappingTable,void,INPUT pExternalTable HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 417 STRING "COPYMAPPINGTABLE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 419 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 419 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 420 STRING "compmod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 420 STRING "compmod" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 421 STRING "modpar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 421 STRING "modpar" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 422 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 424 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 424 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 426 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 426 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 ACCESS indigo.compmod comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 SEARCH indigo.compmod PK_compmod
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 ACCESS indigo.modpar mod 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 ACCESS indigo.compmod module 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 ACCESS indigo.modpar par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 429 SEARCH indigo.modpar PK_modpar
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 438 METHOD PUBLIC,,,,,compHasParam,logical,INPUT pComp CHARACTER,INPUT pPar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 438 STRING "COMPHASPARAM" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 440 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 440 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 441 STRING "compmod" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 441 STRING "compmod" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 442 STRING "modpar" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 442 STRING "modpar" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 443 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 445 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 445 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 447 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 447 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 ACCESS indigo.compmod comp 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 SEARCH indigo.compmod PK_compmod
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 ACCESS indigo.modpar mod 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 ACCESS indigo.compmod module 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 ACCESS indigo.modpar par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 450 SEARCH indigo.modpar PK_modpar
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 459 METHOD PUBLIC,,,,,compHasParam,logical,INPUT pComp CHARACTER,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 459 STRING "COMPHASPARAM" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 461 STRING "wTbl1" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 461 STRING "wTbl2" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 462 STRING "wQue" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 466 STRING "for each " 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 477 METHOD PROTECTED,,,,,tth2tth,void,INPUT wTbl1 HANDLE,INPUT wTbl2 HANDLE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 477 STRING "TTH2TTH" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 479 STRING "pTable" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 479 STRING "pField" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 480 STRING "vDataType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 STRING "_File" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 ACCESS indigo._File _File-Name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 SEARCH indigo._File _File-Name
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 STRING "_Field" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 ACCESS indigo._Field _File-recid
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 ACCESS indigo._File 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 ACCESS indigo._Field _Field-Name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 REFERENCE indigo._File 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 482 SEARCH indigo._Field _File/Field
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 487 ACCESS indigo._Field _Data-Type 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 490 METHOD PROTECTED,,,,,getFieldDatatype,character,INPUT pTable CHARACTER,INPUT pField CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 490 STRING "GETFIELDDATATYPE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 491 STRING "MODELCONVERTER" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 40 INVOKE setup.ModelConverter:initMappingTable
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 41 INVOKE setup.ModelConverter:checkMappingTable
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 217 INVOKE setup.ModelConverter:getFieldDatatype,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 281 INVOKE setup.ModelConverter:getParamName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 327 INVOKE setup.ModelConverter:getParamName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls 416 INVOKE setup.ModelConverter:tth2tth,INPUT widget-handle,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/ModelConverter.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer

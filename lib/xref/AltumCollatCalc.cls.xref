@@ -1,0 +1,351 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 18 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 20 CLASS clt.AltumCollatCalc,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 20 STRING "clt.AltumCollatCalc" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 21 STRING "prCurrentValue" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 22 STRING "prMaxGuarAmount" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 23 STRING "prGuarRate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 24 STRING "prColobj" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 25 STRING "prColType" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 26 STRING "prCrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 27 STRING "prAltumGlsPath" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 27 STRING "/constants/collateral/ALTUM_GUAR" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 28 STRING "colCalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 30 INCLUDE "core/ttGls.i &name=""ttGls"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "ttGls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "pgls" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "key" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "chval" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "inval" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "deval" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "dtval" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "des" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/ttGls.i 1 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 31 INCLUDE "clt/ind-convfunc.i &visibility=""private"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 8 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 8 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 10 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 16 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 18 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 22 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 26 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 27 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 33 STRING "CRC2NAT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 38 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 38 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 40 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 46 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 48 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 51 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 56 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 61 STRING "NAT2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 66 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 68 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 74 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 76 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 79 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 83 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 84 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 91 STRING "ACRC9" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pCrcFrom" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 96 STRING "pCrcTo" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 98 STRING "vResult" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 112 STRING "CRC2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 33 STRING "pColobj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 34 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 36 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 36 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 38 INCLUDE "core/businessErr.i &id='COL0032' &p1=pColobj"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 38 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 41 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 42 ACCESS indigo.colobj maxguaramt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 43 ACCESS indigo.colobj guarate 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 44 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 45 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 46 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 47 METHOD PUBLIC,,,,,init,void,INPUT pColobj INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 47 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 53 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 58 METHOD PUBLIC,,,,,setCrc,void,INPUT pCrc INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 58 STRING "SETCRC" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 66 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 71 METHOD PUBLIC,,,,,calcLoanExposure,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 71 STRING "CALCLOANEXPOSURE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 80 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 80 STRING "pTotal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 81 STRING "vLoanExposure" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 82 STRING "crobjManager" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 83 STRING "limRelCol" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 100 METHOD PUBLIC,,,,,calcLoanExposure,decimal,INPUT pCrobj INTEGER,INPUT pTotal LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 100 STRING "CALCLOANEXPOSURE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 108 STRING "pExposure" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 110 METHOD PUBLIC,,,,,calcColobjValue,decimal,INPUT pExposure DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 110 STRING "CALCCOLOBJVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 121 STRING "pMaxGuarAmount" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 121 STRING "pGuarRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 121 STRING "pExposure" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 122 STRING "vColobjValue" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 123 STRING "vLoanGuarAmount" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 129 METHOD PUBLIC,,,,,calcColobjValue,decimal,INPUT pMaxGuarAmount DECIMAL,INPUT pGuarRate DECIMAL,INPUT pExposure DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 129 STRING "CALCCOLOBJVALUE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 137 STRING "pCalculatedValue" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 142 METHOD PUBLIC,,,,,needsColValUpdate,logical,INPUT pCalculatedValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 142 STRING "NEEDSCOLVALUPDATE" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 149 STRING "pColobjValue" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 150 STRING "vBankDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 152 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 156 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 156 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 158 INCLUDE "core/businessErr.i &id='COL0032' &p1=prColobj"
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 158 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 161 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 161 UPDATE indigo.colobj val
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 162 ACCESS indigo.colobj valdt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 162 UPDATE indigo.colobj valdt
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 164 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 166 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 166 UPDATE indigo.colobj val
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 167 ACCESS indigo.colobj valdt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 167 UPDATE indigo.colobj valdt
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 169 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 170 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 172 METHOD PUBLIC,,,,,setColobjvalue,void,INPUT pColobjValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 172 STRING "SETCOLOBJVALUE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 180 STRING "pColagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 181 STRING "vPotentialCompensationSum" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 183 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 184 STRING "bcolagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 184 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 186 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 186 SEARCH indigo.colagrln colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 189 INCLUDE "core/businessErr.i &id='COL0031' &p1=""pColagrln"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 189 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 192 SORT-ACCESS indigo.colagrln colrank
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 197 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 201 METHOD PUBLIC,,,,,calcPotencialCompensationSum,decimal,INPUT pColagrln INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 201 STRING "CALCPOTENCIALCOMPENSATIONSUM" 28 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 209 STRING "vPotentialCompensationSum" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 210 STRING "vTempSum" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 212 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 214 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 214 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 214 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 214 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 214 SORT-ACCESS indigo.colagrln colrank
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 218 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 223 METHOD PUBLIC,,,,,calcPotencialCompensationSum,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 223 STRING "CALCPOTENCIALCOMPENSATIONSUM" 28 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 232 STRING "pColagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 232 STRING "pPrevRanksSum" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 233 STRING "vPotentialCompensation" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 234 STRING "vExposure" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 235 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 236 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 237 STRING "vIsPrivate" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 238 STRING "vAltumColagrlnCoverAmount" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 239 STRING "vCollateralSumCoverAmt" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 240 STRING "vCollateralSumLTVAmt" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 241 STRING "vTempAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 242 STRING "vPotCompSumOfLowerRankLines" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 244 STRING "colagrlnUtil" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 245 STRING "crobjManager" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 246 STRING "clnInfo" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 283 METHOD PUBLIC,,,,,calcPotencialCompensation,decimal,INPUT pColagrln INTEGER,INPUT pPrevRanksSum DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 283 STRING "CALCPOTENCIALCOMPENSATION" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 291 STRING "colagrlnUtil" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 292 STRING "vActiveLine" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 293 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 306 STRING "GETACTIVELINEMAINCROBJ" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 313 STRING "pColagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 314 STRING "colagrlnUtil" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 315 STRING "vActiveLine" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 316 STRING "vCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 329 STRING "GETACTIVELINESPECIFICCROBJ" 26 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 337 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 338 STRING "vLTVAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 339 STRING "vLTVAmountAltum" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 348 STRING "CALCLTVAMTOTHERCOLLAT" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 356 STRING "pCrobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 357 STRING "vCoverAmount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 358 STRING "vCoverAmountAltum" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 367 STRING "CALCCOVERAMTOTHERCOLLAT" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 375 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 380 METHOD PUBLIC,,,,,getIsAltumGuar,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 380 STRING "GETISALTUMGUAR" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 388 STRING "vList" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 390 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 394 REFERENCE ttGls TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 396 SEARCH DATA-MEMBER clt.AltumCollatCalc:ttGls default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 397 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 400 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 401 METHOD PUBLIC,,,,,getAltumCollateralList,character,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 401 STRING "GETALTUMCOLLATERALLIST" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 409 STRING "pColagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 410 STRING "vRank" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 411 STRING "vColobj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 412 STRING "vPotentialCompensation" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 414 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 416 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 416 SEARCH indigo.colagrln colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 418 INCLUDE "core/businessErr.i &id='COL0031' &p1=""pColagrln"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 418 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 421 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 422 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 424 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 424 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 424 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 428 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 432 METHOD PUBLIC,,,,,calcPotCompOfLowerRank,decimal,INPUT pColagrln INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 432 STRING "CALCPOTCOMPOFLOWERRANK" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 440 STRING "vLoanExposure" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 441 STRING "vCollatCalcValue" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 442 STRING "vCollatOldValue" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 452 METHOD PUBLIC,,,,,updateColObjVal,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 452 STRING "UPDATECOLOBJVAL" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 453 CONSTRUCTOR PUBLIC,,,,AltumCollatCalc,void,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 453 STRING "ALTUMCOLLATCALC" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 453 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 102 INVOKE clt.AltumCollatCalc:crc2Nat,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 104 INVOKE clt.AltumCollatCalc:nat2Crc,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 107 INVOKE clt.AltumCollatCalc:crc2Nat,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 108 INVOKE clt.AltumCollatCalc:nat2Crc,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 54 INVOKE clt.AltumCollatCalc:crc2crc,INPUT decimal,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 55 INVOKE clt.AltumCollatCalc:crc2crc,INPUT decimal,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 68 INVOKE clt.AltumCollatCalc:getActiveLineMainCrobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 70 INVOKE clt.AltumCollatCalc:calcLoanExposure,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 85 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 86 NEW limrel.LimRelCollection
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 90 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 93 INVOKE limrel.LimRelCollection:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 94 INVOKE clt.AltumCollatCalc:crc2crc,INPUT decimal,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 94 INVOKE clt.CrobjManager:getBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 94 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 94 INVOKE limrel.LimRelCollection:getChildrenTotal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 94 INVOKE clt.CrobjManager:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 96 INVOKE clt.AltumCollatCalc:crc2crc,INPUT decimal,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 96 INVOKE clt.CrobjManager:getBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 96 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 96 INVOKE clt.CrobjManager:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 109 INVOKE clt.AltumCollatCalc:calcColobjValue,INPUT decimal,INPUT decimal,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 154 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 154 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 169 RUN clt/colobjValChange.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 170 RUN clt/addColobjHis.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 197 INVOKE clt.AltumCollatCalc:calcPotencialCompensation,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 218 INVOKE clt.AltumCollatCalc:calcPotencialCompensation,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 248 NEW clt.ColagrlnUtil
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 250 INVOKE clt.AltumCollatCalc:getActiveLineSpecificCrobj,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 254 INVOKE clt.AltumCollatCalc:calcLoanExposure,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 256 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 257 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 258 INVOKE clt.CrobjManager:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 260 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 261 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 263 INVOKE core.ClnInfo:isPrivate
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 268 INVOKE clt.AltumCollatCalc:calcLTVAmtOtherCollat,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 275 INVOKE clt.ColagrlnUtil:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 276 INVOKE clt.AltumCollatCalc:calcCoverAmtOtherCollat,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 295 NEW clt.ColagrlnUtil
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 297 INVOKE clt.ColagrlnUtil:getActiveColagrlnALtum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 301 INVOKE clt.ColagrlnUtil:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 302 INVOKE clt.ColagrlnUtil:getColagrlnCrobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 318 NEW clt.ColagrlnUtil
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 320 INVOKE clt.ColagrlnUtil:isActiveColagrln,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 324 INVOKE clt.ColagrlnUtil:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 325 INVOKE clt.ColagrlnUtil:getColagrlnCrobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 341 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 343 INVOKE clt.ColCalc:getLTVAmtTotLs,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 344 INVOKE clt.ColCalc:getLTVAmtTotLsAltum,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 360 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 362 INVOKE clt.ColCalc:getSecAmtTotLs,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 363 INVOKE clt.ColCalc:getSecAmtTotLsAltum,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 377 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 379 INVOKE core.GlsUtil:hasChild,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 392 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 394 INVOKE core.GlsUtil:getChildren,INPUT character,OUTPUT TABLE ttGls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 428 INVOKE clt.AltumCollatCalc:calcPotencialCompensation,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 444 INVOKE clt.AltumCollatCalc:getIsAltumGuar
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 447 INVOKE clt.AltumCollatCalc:calcLoanExposure
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 448 INVOKE clt.AltumCollatCalc:calcColobjValue,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 450 INVOKE clt.AltumCollatCalc:needsColValUpdate,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls /u1/env/bankcp/indigo/svn-trunk/system/clt/AltumCollatCalc.cls 450 INVOKE clt.AltumCollatCalc:setColobjvalue,INPUT decimal

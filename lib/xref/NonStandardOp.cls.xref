@@ -1,0 +1,276 @@
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 9 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 24 CLASS trx.NonStandardOp,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 24 STRING "trx.NonStandardOp" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 25 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 26 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 27 STRING "prPrnCode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 28 STRING "prIntCode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 29 STRING "prBalIntCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 29 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 30 STRING "prOffBalIntCode" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 30 STRING "INTOFF" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 31 STRING "prTechIntCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 31 STRING "TECHINT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 32 STRING "prDfltCode" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 32 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 33 STRING "prCorrTrxSts" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 33 STRING "CORRECTION" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 34 STRING "prAddRemark" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 36 INCLUDE "repmnt/ttPayments.i &visibility=""protected"" &name=""ttPayments"""
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "cmptype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "composite" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "debtAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "payAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "payAccCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "parcomp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "crcAcc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "crcLoan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "dbtTrx" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttPayments
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 42 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 43 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 45 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 47 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 47 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 49 INCLUDE "core/businessErr.i &id='LON0020' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 49 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 51 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 59 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 59 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 65 STRING "pAddRemark" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 67 METHOD PUBLIC,,,,,addRemark,void,INPUT pAddRemark CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 67 STRING "ADDREMARK" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 74 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 75 STRING "vLeftAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 76 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 77 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 77 STRING "Principal repayment from provisions" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 78 STRING "vProvComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 79 STRING "vTotalProvAmt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 80 STRING "vPrnOffPrvBal" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 81 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 83 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 83 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 90 INCLUDE "core/businessErr.i &id='TRX0066'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0066" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 94 INCLUDE "core/businessErr.i &id='TRX0067'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0067" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 98 STRING "vPrevProvBal" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 100 INCLUDE "core/businessErr.i &id='TRX0068'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0068" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 106 INCLUDE "core/businessErr.i &id='TRX0059' &p1=prPrnCode &p2=vTotalProvAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0059" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 111 STRING "&1. &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 STRING "PROVISIONS" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 ACCESS indigo.loancomp bookpri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 114 SORT-ACCESS indigo.loancomp bookpri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 123 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 135 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 139 METHOD PUBLIC,,,,,repayPrnFromProv,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 139 STRING "REPAYPRNFROMPROV" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 147 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 147 STRING "pDecrAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 148 STRING "vCurrAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 149 STRING "vNewAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 151 STRING "acrBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 163 STRING "UPDATEPROVACRBAL" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 174 STRING "pDcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 174 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 174 STRING "pCcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 174 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 175 STRING "vIsCompOffline" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 177 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 185 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 194 STRING "GENTRXCOMP" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 202 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 203 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 204 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 211 STRING "GETBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 218 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 219 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 219 STRING "Default interest payment transfer to principal" 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 222 METHOD PUBLIC,,,,,transferDfltPayToPrn,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 222 STRING "TRANSFERDFLTPAYTOPRN" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 229 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 230 INCLUDE "core/businessErr.i &id='TRX0058'"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0058" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 232 STRING "VALIDATEOPAMT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 239 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 240 STRING "vLeftAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 241 STRING "vTrxAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 242 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 242 STRING "Default interest payment transfer to interest" 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 243 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 251 STRING "&1. &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 257 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 257 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 257 SEARCH DATA-MEMBER trx.NonStandardOp:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 257 SORT-ACCESS ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 263 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 265 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 273 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 277 METHOD PUBLIC,,,,,transferDfltPayToInt,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 277 STRING "TRANSFERDFLTPAYTOINT" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 284 STRING "pParentComp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 285 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 285 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 289 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 289 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 289 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 289 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 289 SORT-ACCESS indigo.loancomp pri
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 294 CREATE DATA-MEMBER trx.NonStandardOp:ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 295 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 295 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 295 UPDATE DATA-MEMBER trx.NonStandardOp:ttPayments comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 296 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 296 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 296 UPDATE DATA-MEMBER trx.NonStandardOp:ttPayments prior TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 297 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 297 UPDATE DATA-MEMBER trx.NonStandardOp:ttPayments parent TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 298 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 298 ACCESS DATA-MEMBER trx.NonStandardOp:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 298 UPDATE DATA-MEMBER trx.NonStandardOp:ttPayments debtAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 300 STRING "GETCHILDCOMPPRIOR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 307 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 308 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 308 STRING "Balance interest payment transfer to principal" 46 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 311 METHOD PUBLIC,,,,,transferBalIntPayToPrn,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 311 STRING "TRANSFERBALINTPAYTOPRN" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 318 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 319 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 319 STRING "Off-balance interest payment transfer to principal" 50 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 322 METHOD PUBLIC,,,,,transferOffBalIntPayToPrn,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 322 STRING "TRANSFEROFFBALINTPAYTOPRN" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 329 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 330 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 330 STRING "Technical interest payment transfer to principal" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 333 METHOD PUBLIC,,,,,transferTechIntPayToPrn,void,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 333 STRING "TRANSFERTECHINTPAYTOPRN" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 340 STRING "pDcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 340 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 340 STRING "pCcomp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 340 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 341 STRING "vIsCompOffline" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 342 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 344 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 349 STRING "&1. &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 358 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 366 STRING "GENTRXCOMPPAY" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 374 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 374 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 375 STRING "vProfit" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 376 STRING "vCompName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 378 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 379 STRING "compUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 391 INCLUDE "core/businessErr.i &id='TRX0065' &p1=vCompName &p2=vProfit &p3=pAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "TRX0065" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 393 STRING "VALIDATECOMPPROFIT" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 401 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 402 STRING "loanComp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 407 STRING "ISTRXMODEOFFLINE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 415 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 420 STRING "GETCRLINEACC" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 427 STRING "crlBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 432 STRING "SYNCCRLINEBAL" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 434 CONSTRUCTOR PUBLIC,,,,NonStandardOp,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 434 STRING "NONSTANDARDOP" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 434 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 53 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 54 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 55 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 56 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 58 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 58 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 85 INVOKE trx.NonStandardOp:validateOpAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 87 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 88 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 90 INVOKE ops.ProvAmtManager:isCollectiveProvType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 93 INVOKE trx.NonStandardOp:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 93 INVOKE ops.ProvAmtManager:getPrnOffPrvCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 99 INVOKE trx.NonStandardOp:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 99 INVOKE ops.ProvAmtManager:getPrnPrvPrevCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 103 INVOKE ops.ProvAmtManager:getPrnPrvCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 104 INVOKE trx.NonStandardOp:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 123 INVOKE trx.NonStandardOp:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 135 INVOKE trx.NonStandardOp:genTrxComp,INPUT character,INPUT decimal,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 138 INVOKE trx.NonStandardOp:updateProvAcrBal,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 153 NEW acr.AcrBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 154 INVOKE acr.AcrBal:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 156 INVOKE acr.AcrBal:getAmt
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 162 INVOKE acr.AcrBal:setAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 181 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 183 INVOKE trx.NonStandardOp:isTrxModeOffline,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 185 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 185 INVOKE trx.NonStandardOp:getCrlineAcc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 187 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 189 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 191 INVOKE trx.NonStandardOp:syncCrlineBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 206 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 207 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 208 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 221 INVOKE trx.NonStandardOp:genTrxCompPay,INPUT character,INPUT decimal,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 245 INVOKE trx.NonStandardOp:validateOpAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 246 INVOKE trx.NonStandardOp:validateCompProfit,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 247 INVOKE trx.NonStandardOp:getChildCompPrior,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 254 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 255 INVOKE trx.GenTrx:setCorrParams,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 273 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 276 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 298 INVOKE trx.NonStandardOp:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 310 INVOKE trx.NonStandardOp:genTrxCompPay,INPUT character,INPUT decimal,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 321 INVOKE trx.NonStandardOp:genTrxCompPay,INPUT character,INPUT decimal,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 332 INVOKE trx.NonStandardOp:genTrxCompPay,INPUT character,INPUT decimal,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 346 INVOKE trx.NonStandardOp:validateOpAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 347 INVOKE trx.NonStandardOp:validateCompProfit,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 353 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 354 INVOKE trx.GenTrx:setCorrParams,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 356 INVOKE trx.NonStandardOp:isTrxModeOffline,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 358 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 358 INVOKE trx.NonStandardOp:getCrlineAcc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 360 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 362 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 364 INVOKE trx.NonStandardOp:syncCrlineBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 381 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 382 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 384 INVOKE loan.LoanManager:getPltLoan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 384 RUN sys2plt/api/v1/getCompProfit.p
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 388 NEW setup.CompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 389 INVOKE setup.CompUtil:getCompName,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 403 NEW loan.LoanCompUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 404 INVOKE loan.LoanCompUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 406 INVOKE loan.LoanCompUtil:isTrxModeOffline,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 416 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 417 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 419 INVOKE loan.LoanUtil:getCrlineAcc
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 429 NEW trx.CrlineBalMan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 430 INVOKE trx.CrlineBalMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/NonStandardOp.cls 431 INVOKE trx.CrlineBalMan:syncCrlineBal

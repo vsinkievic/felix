@@ -1,0 +1,35 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 5 INCLUDE "plt2sys/src/ttIndCurr.i &visibility="" "" &name=""ttCurr"""
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "ttCurr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "rate1" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/ttIndCurr.i 1 STRING "rate9" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 9 STRING "bufUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 13 SEARCH ttCurr crc TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 14 INCLUDE "core/businessErr.i &id='PST0084'"
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0084" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 18 SEARCH ttCurr crc TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 19 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 19 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 19 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 19 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 20 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 22 CREATE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 23 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 23 UPDATE indigo.curr crc
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 REFERENCE ttCurr crc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 UPDATE indigo.curr code
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 UPDATE indigo.curr name
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 UPDATE indigo.curr rate1
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 26 UPDATE indigo.curr rate9
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 27 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 10 NEW core.BufferUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p 14 INVOKE core.BufferUtil:checkForNull,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/plt2sys/src/setCurrRates.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer

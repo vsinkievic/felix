@@ -1,0 +1,963 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 7 INCLUDE bf/bfapi.i
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 11 STRING "bfapi-last-ping" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 14 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 15 STRING "pvalue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 STRING "batchframe-get-par" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 PUBLISH "batchframe-get-par "
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 PRIVATE-FUNCTION bf-get-par,character,INPUT pname CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 STRING "BF-GET-PAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 24 STRING "keep-running" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 25 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 26 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 28 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 STRING "batchframe-ping" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 PUBLISH "batchframe-ping "
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 PRIVATE-FUNCTION bf-ping,logical,
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 STRING "BF-PING" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 44 STRING "*BF* &1 &2" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 PRIVATE-FUNCTION bf-msg,integer,INPUT lbl CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 STRING "BF-MSG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 48 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 49 STRING "*BF* ERR" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 PRIVATE-FUNCTION bf-err,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 STRING "BF-ERR" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 53 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 54 STRING "*BF* WARN" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 PRIVATE-FUNCTION bf-warn,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 STRING "BF-WARN" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 58 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 59 STRING "*BF* LOG" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 PRIVATE-FUNCTION bf-log,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 STRING "BF-LOG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 64 STRING "*BF* EXIT DONE" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 PRIVATE-FUNCTION bf-success,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 STRING "BF-SUCCESS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "exit-state" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 72 STRING "*BF* EXIT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 PRIVATE-FUNCTION bf-exit,integer,INPUT exit-state CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 STRING "BF-EXIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 8 INCLUDE clt/addr-get.i
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 10 INCLUDE "clt/tAddressFields.i &visibility="" "" &name=""ttAddress"" &options="" """
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "ttAddress" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "looseFields" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "countryid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "countryCode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "country" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "municid" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "munic" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "townid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "town" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "villageid" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "village" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "street" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i /u1/env/bankcp/indigo/svn-trunk/system/clt/tAddressFields.i 1 STRING "zip" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 12 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 12 STRING "ptype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 13 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 13 STRING ";" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 16 FUNCTION addressGetCode,character,INPUT pname CHARACTER,INPUT ptype CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 16 STRING "ADDRESSGETCODE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 19 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 19 STRING "ptype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 20 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 22 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 23 STRING ";" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 29 FUNCTION addressGetName,character,INPUT pname CHARACTER,INPUT ptype CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 29 STRING "ADDRESSGETNAME" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "ttAddress" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "pobj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "pobjid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "paddrtype" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "tfields" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 32 STRING "tfields" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 34 STRING "ladrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 36 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 36 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 36 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 37 STRING "baddr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 37 STRING "addr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 37 REFERENCE indigo.addr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 39 ACCESS indigo.addr obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 39 ACCESS indigo.addr objid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 39 ACCESS indigo.addr addrtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 39 SEARCH indigo.addr obj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 44 REFERENCE indigo.addr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 44 STRING "not found addr, addr.obj='&1'  addr.objid='&2'  addrtype='&3' @#45" 66 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 47 SEARCH ttAddress default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 48 REFERENCE ttAddress TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 49 CREATE ttAddress TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 50 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 60 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 ACCESS indigo.addr munic 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 ACCESS indigo.addr town 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 ACCESS indigo.addr village 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 ACCESS indigo.addr street 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 ACCESS indigo.addr zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 61 STRING "munic,town,village,street,zip" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 ACCESS indigo.addr country 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 STRING "&1;" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 69 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 74 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 74 ACCESS indigo.addr country 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 74 STRING "not found adrlst where adrlst.parent=0 and type='country' and name begins '&1'  @#75" 84 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 74 STRING "&1;" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 76 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 76 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 76 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 76 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 76 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 82 STRING "street" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 83 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 83 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 83 SEARCH indigo.adrlst adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 84 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 84 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 84 STRING "not found adrlst, adrlst.adrlst=&1  @#85" 40 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 86 ACCESS indigo.addr zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 86 ACCESS indigo.addr zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 86 ACCESS indigo.adrlst zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 86 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 86 STRING ",zip" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr munic 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr town 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr village 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 89 ACCESS indigo.addr street 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 98 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 100 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 100 SEARCH indigo.adrlst adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 101 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 102 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 102 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 102 STRING "not found adrlst, padrlst=&1  @#103" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 106 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 107 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 108 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 113 STRING "municipality" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 113 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 113 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 113 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 117 STRING "town" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 117 STRING "parish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 117 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 117 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 121 STRING "village" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 121 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 121 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 127 ACCESS indigo.addr adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 127 STRING "parent of type 'country' not found,  descendant adrlst.adrlst=&1  @#128" 71 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 131 FUNCTION addressFillFields,logical,INPUT pobj CHARACTER,INPUT pobjid CHARACTER,INPUT paddrtype CHARACTER,BUFFER tfields ttAddress
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 131 STRING "ADDRESSFILLFIELDS" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 9 INCLUDE "core/gls-get.i &visibility=""function"""
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 24 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 28 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 29 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 30 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 34 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 38 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 43 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 45 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 49 FUNCTION glsGetId,int64,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 49 STRING "GLSGETID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 66 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 67 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 68 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 70 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 71 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 75 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 80 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 82 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 85 FUNCTION glsGet,logical,INPUT pPath CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 85 STRING "GLSGET" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 96 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 97 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 97 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 99 FUNCTION glsGet2,logical,INPUT pPath CHARACTER,INPUT pkey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 99 STRING "GLSGET2" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 105 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 105 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 110 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 111 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 111 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 112 STRING "?&1" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 114 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 115 FUNCTION glsGetName2,character,INPUT pPath CHARACTER,INPUT pkey CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 115 STRING "GLSGETNAME2" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 131 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 132 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 134 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 136 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 139 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 143 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 148 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 150 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 153 FUNCTION glsGetChild,logical,INPUT pParentId INT64,INPUT pKey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 153 STRING "GLSGETCHILD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 163 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 163 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 170 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 171 FUNCTION glsGetChildId,int64,INPUT pParentId INT64,INPUT pKey CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 171 STRING "GLSGETCHILDID" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 10 INCLUDE "dwh/ttDwhColl.i &name=""ttDwhColl"""
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ttDwhColl" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LoanCode" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralID" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralAgreement" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralCode" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralName" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "StartDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "EndDate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Currency" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralForm" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralTypeName" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralDescription" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralStatus" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OwnerCIF" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OwnerRegCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OwnerName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OwnerComment" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "RiskLevel" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ObjectNumber" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ValuationPrice" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ValuationType" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ValuationTypeName" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ValuationCurrency" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ValuationDate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "RevaluationPeriod" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketPrice" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FullMarketPrice" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValuationType" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValuationTypeName" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValuationCurrency" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValuationDate" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CoverAmount" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CoverPercentage" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Seniority" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralCountryCode" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralCity" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralRegionTown" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralStreet" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralPostage" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralAddInformation" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LTV_rate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "RealizationRate" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "RealizationAmount" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MortgagedInOtherBank" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DNBvaluation" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralTakenOver" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralUsedAmount" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuranceCompany" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuredTill" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuranceValue" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuranceCurrency" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuranceType" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PledgeType" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PledgeTypeName" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Created" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CreatedBy" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastUpdated" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastUpdatedBy" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LegalCertaintyDate" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LegalCertaintyComments" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastStatusCheckDate" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastStatusCheckDifferences" 26 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastStatusCheckComments" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LiquidMarket" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InspectionRight" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InspectionDate" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InspectionComments" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CadastreNo" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PartionNo" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "IdealPart" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Encumbrance" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CollateralVillage" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LandArea" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LandAreaMeasurement" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BuildingArea" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BuildingAreaMeasurement" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Rooms" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "Floor" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "TotalFloors" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "YearOfConstruction" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "TypeOfProject" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "TypeOfProjectName" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "AreaComments" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureLandArea" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureLandAreaMeasure" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureBuildingArea" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureBuildingAreaMeasure" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureRooms" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureFloor" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureTotalFloors" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureYearOfConstruction" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureTypeOfProject" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureTypeOfProjectName" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureAreaComments" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueMethods" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueComments" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueEvaluator" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueNextRevaluation" 26 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueEvaluatorType" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MarketValueExternalAccepted" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "EvaluatorAcceptanceDate" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CurrentValueMethods" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CurrentValueSpecCondition" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CurrentValueSpecConditionName" 29 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CurrentValueComments" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureValue" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureValueCurrency" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureValueDate" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "FutureValueMethods" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MovableRegistrationNo" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MovablePreciseComposition" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MovableReferenceAdjustments" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MovableWarehouseOfStorage" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InventarisationLastDate" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InventarisationComments" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositHolder" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositAgreementType" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositContractType" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositThirdParty" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositAccount" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ISIN" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ShareIssuerName" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ShareIssuerCode" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ShareIssuerBankClient" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ShareIssuerComments" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ShareCapitalPart" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondCouponValue" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondCouponCurrency" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondMaturityDate" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondCompany" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondCountry" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BondCreditRating" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OwnerBankClient" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MaxRealizationRate" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CrossCollateral" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ComplexLoan" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "BorrowerCorrelation" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LTVAmount" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LTVAmountTotalLoan" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LTV_rateTotalLoan" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CoverAmountTotalLon" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CoverRateTotalLon" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OtherValuationName" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "OtherValuationMarketName" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "CurrentValueAuditor" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "DepositMaturityDate" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "InsuranceAgreementNumber" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PreviuosValuationDate" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PreviuosValuationPrice" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PreviuosValuationCurrency" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ProductType" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "GuaranteeRate" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "MaximumGuaranteeAmount" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "PotentialCompensation" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ThirdPriorityClaimsVal" 22 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "ThirdPriorityClaimsCurrency" 27 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "HouseGuaranteeProgram" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "HouseGuaranteeProgramType" 25 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttDwhColl.i 1 STRING "LastNonZeroGuaranteeAmount" 26 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 11 INCLUDE "dwh/ttHistRealest.i &name=""ttHistRealest"""
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttHistRealest.i 1 STRING "ttHistRealest" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttHistRealest.i 1 STRING "mpdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttHistRealest.i 1 STRING "mpcrc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/ttHistRealest.i 1 STRING "mpval" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 12 INCLUDE "core/ttHisfld.i &name=""ttHisfld"""
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "ttHisfld" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "obj" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "objid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "newval" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/core/ttHisfld.i 5 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 13 INCLUDE clt/tt-insu.i
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "ttInsurance" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "asum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "acrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "event" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "acom" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "dat" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tt-insu.i 1 STRING "policy" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 16 STRING "Cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 20 STRING "cltCalc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 21 STRING "bufUtl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 22 STRING "logger" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 23 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 24 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 25 STRING "altumCollatCalc" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 34 STRING "vExtractsDirGls" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 34 STRING "/lists/credit/dwh/extracts_dir" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 35 STRING "vExtractsLog" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 35 STRING "/lists/credit/dwh/log_file" 26 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 36 STRING "vTmpFormat" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 36 STRING ".tmp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 37 STRING "vTextFormat" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 37 STRING ".txt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 38 STRING "vExtractsDir" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 39 STRING "vErrMsg" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 40 STRING "vCollNumber" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 41 STRING "vErrOccurred" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 42 STRING "vFileName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 43 STRING "vAltumList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 46 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 46 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 47 ACCESS indigo.gls chval 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 47 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 48 STRING "&2/ncs_col_&1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 51 STRING "Collateral data extraction started." 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 52 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 54 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 54 SEARCH indigo.colagrln colagrln TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 55 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 57 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 58 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 61 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 62 STRING "Business error: &1" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 64 STRING "ABL error: &1" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 65 STRING "&1 &2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 70 STRING "There were errors during file generation. Check &1 for details." 63 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 79 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 80 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 82 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 82 STRING "&1&2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 84 STRING "Collateral data extraction ended." 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 86 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 87 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 87 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 87 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 92 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 92 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 94 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 94 ACCESS indigo.curr code 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 97 FUNCTION getCrcCode,character,INPUT pCrc INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 97 STRING "GETCRCCODE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 99 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 99 STRING "pSavedKey" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 99 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 99 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 101 STRING "vPgls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 103 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 103 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 103 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 106 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 106 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 106 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 107 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 108 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 109 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 113 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 113 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 113 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 114 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 114 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 114 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 115 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 116 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 117 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 122 FUNCTION other-get-name-key-full,logical,INPUT pPath CHARACTER,INPUT pSavedKey CHARACTER,OUTPUT pKey CHARACTER,OUTPUT pName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 122 STRING "OTHER-GET-NAME-KEY-FULL" 23 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 124 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 124 STRING "pSavedKey" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 124 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 124 STRING "pName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 126 STRING "vPgls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 128 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 128 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 128 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 131 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 131 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 131 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 132 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 133 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 134 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 138 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 138 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 138 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 139 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 139 SEARCH indigo.gls gls
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 140 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 141 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 142 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 147 FUNCTION other-get-name-key,logical,INPUT pPath CHARACTER,INPUT pSavedKey CHARACTER,OUTPUT pKey CHARACTER,OUTPUT pName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 147 STRING "OTHER-GET-NAME-KEY" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 149 STRING "pUserId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 150 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 150 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 150 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 152 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 152 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 153 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 153 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 155 FUNCTION getUserName,character,INPUT pUserId INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 155 STRING "GETUSERNAME" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 157 STRING "pObj" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 157 STRING "pObjId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 159 STRING "vList" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 STRING "glslink" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 STRING "glslink" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 ACCESS indigo.glslink obj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 ACCESS indigo.glslink objid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 SEARCH indigo.glslink obj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 ACCESS indigo.glslink gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 ACCESS indigo.gls ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 SEARCH indigo.gls gls
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 161 SORT-ACCESS indigo.gls ord
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 165 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 165 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 167 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 168 FUNCTION getMethods,character,INPUT pObj CHARACTER,INPUT pObjId INT64
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 168 STRING "GETMETHODS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 170 STRING "pChar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 171 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 171 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 172 FUNCTION stripEOL,character,INPUT pChar CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 172 STRING "STRIPEOL" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 174 STRING "pColTyp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 174 STRING "pColobj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 175 STRING "vLastNonZeroGuaranteeAmt" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 176 STRING "vGuarCodesGls" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 176 STRING "/lists/credit/kreg/guar_codes" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 177 STRING "vGuarantorCodes" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 179 STRING "glsUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 180 STRING "hisInfo" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 188 STRING "colobj.val" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 192 FUNCTION getLastNonZeroGuaranteeAmt,decimal,INPUT pColTyp CHARACTER,INPUT pColobj INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 192 STRING "GETLASTNONZEROGUARANTEEAMT" 26 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 195 STRING "pColagrln" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 196 STRING "pAltumList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 198 STRING "OtherValuation" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 199 STRING "OtherValuationMarket" 20 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 200 STRING "vNull" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 201 STRING "vTempDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 202 STRING "vInsuranceErr" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 204 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 204 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 205 STRING "colagr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 205 REFERENCE indigo.colagr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 206 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 206 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 207 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 207 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 208 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 208 STRING "cln" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 208 REFERENCE indigo.cln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 209 STRING "own" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 209 REFERENCE indigo.own 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 210 STRING "realest" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 210 REFERENCE indigo.realest 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 211 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 211 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 212 STRING "crtype" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 212 REFERENCE indigo.crtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 213 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 213 SEARCH indigo.colagrln colagrln
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 214 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 214 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 214 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 215 ACCESS indigo.colagr colagr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 215 ACCESS indigo.colagrln colagr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 215 SEARCH indigo.colagr colagr
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 216 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 216 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 216 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 217 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 217 ACCESS indigo.colagrln coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 217 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 219 ACCESS indigo.realest colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 219 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 219 SEARCH indigo.realest colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 220 STRING "mvbl" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 220 ACCESS indigo.mvbl colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 220 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 220 SEARCH indigo.mvbl colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 221 STRING "depos" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 221 ACCESS indigo.depos colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 221 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 221 SEARCH indigo.depos colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 222 STRING "othcol" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 222 ACCESS indigo.othcol colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 222 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 222 SEARCH indigo.othcol colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 223 STRING "shr" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 223 ACCESS indigo.shr colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 223 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 223 SEARCH indigo.shr colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 224 STRING "bond" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 224 ACCESS indigo.bond colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 224 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 224 SEARCH indigo.bond colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 225 ACCESS indigo.crtype id 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 225 ACCESS indigo.crobj crtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 225 SEARCH indigo.crtype id_crtype
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 228 CREATE ttDwhColl TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 230 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 231 ACCESS indigo.colobj colid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 232 ACCESS indigo.colagr agrnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 235 ACCESS indigo.colagrln fdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 236 ACCESS indigo.colagrln tdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 237 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 238 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 239 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 240 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 241 ACCESS indigo.colobj othcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 243 ACCESS indigo.coltyp risk 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 245 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 246 ACCESS indigo.colobj valevtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 246 STRING "/lists/collateral/evaluation_types" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 247 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 247 ACCESS indigo.colobj valevtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 247 STRING "/lists/collateral/evaluation_types" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 253 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 254 ACCESS indigo.colobj valdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 255 ACCESS indigo.colobj valaudcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 256 ACCESS indigo.colobj guarate 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 257 ACCESS indigo.colobj maxguaramt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 258 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 258 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 260 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 262 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 263 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 266 REFERENCE indigo.realest 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 267 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 267 STRING "colobj.colobj" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 267 STRING "main" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 268 SEARCH ttAddress default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 269 ACCESS indigo.realest cadnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 270 ACCESS indigo.realest mprevper 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 271 ACCESS indigo.realest mpval 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 272 ACCESS indigo.realest fullmp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 273 ACCESS indigo.realest mpevtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 273 STRING "/lists/collateral/evaluation_types" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 274 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 274 ACCESS indigo.realest mpevtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 274 STRING "/lists/collateral/evaluation_types" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 280 ACCESS indigo.realest mpcrc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 281 ACCESS indigo.realest mpdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 282 ACCESS indigo.realest anothbank 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 283 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 285 ACCESS indigo.realest anothbankval 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 286 ACCESS indigo.realest anothbankcrc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 293 ACCESS indigo.realest partnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 294 ACCESS indigo.realest parts 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 295 ACCESS indigo.realest encmbr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 295 STRING "/lists/collateral/real_estate_encumbrances" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 299 ACCESS indigo.colagrln secamt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 300 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 301 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 303 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 304 ACCESS indigo.colobj rrate 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 305 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 307 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 309 ACCESS indigo.colobj pledtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 309 STRING "/lists/collateral/pledge_types" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 311 ACCESS indigo.colobj whn 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 312 ACCESS indigo.colobj who 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 313 ACCESS indigo.colobj chgwhn 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 314 ACCESS indigo.colobj chgwho 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 315 ACCESS indigo.colobj legrevdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 316 ACCESS indigo.colobj legrevcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 317 ACCESS indigo.colobj lchkdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 318 ACCESS indigo.colobj lchkdiff 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 319 ACCESS indigo.colobj lchkcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 321 REFERENCE indigo.realest 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 322 ACCESS indigo.realest liqmark 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 323 ACCESS indigo.realest inspright 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 324 ACCESS indigo.realest inspdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 325 ACCESS indigo.realest inspcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 327 REFERENCE indigo.mvbl 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 328 ACCESS indigo.mvbl liqmark 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 329 ACCESS indigo.mvbl inspright 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 330 ACCESS indigo.mvbl inspdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 331 ACCESS indigo.mvbl inspcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 334 REFERENCE indigo.realest 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 335 STRING "estim" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 335 STRING "Estimator" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 335 ACCESS indigo.estim estim 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 335 ACCESS indigo.realest mpestim 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 335 SEARCH indigo.estim estim
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 337 ACCESS indigo.realest landarea 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 338 ACCESS indigo.realest landmeas 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 339 ACCESS indigo.realest buildarea 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 340 ACCESS indigo.realest buildmeas 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 341 ACCESS indigo.realest roomcnt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 342 ACCESS indigo.realest floor 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 343 ACCESS indigo.realest floortot 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 344 ACCESS indigo.realest constyear 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 345 ACCESS indigo.realest projtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 345 STRING "/lists/collateral/real_estate_project_types" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 347 ACCESS indigo.realest areacmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 348 ACCESS indigo.realest flandarea 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 349 ACCESS indigo.realest flandmeas 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 350 ACCESS indigo.realest fbuildarea 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 351 ACCESS indigo.realest fbuildmeas 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 352 ACCESS indigo.realest froomcnt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 353 ACCESS indigo.realest ffloor 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 354 ACCESS indigo.realest ffloortot 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 355 ACCESS indigo.realest fconstyear 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 356 ACCESS indigo.realest fprojtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 356 STRING "/lists/collateral/real_estate_project_types" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 358 ACCESS indigo.realest fareacmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 360 ACCESS indigo.realest colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 360 STRING "colobj.method_mprice" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 361 ACCESS indigo.realest mpcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 362 REFERENCE indigo.estim 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 363 ACCESS indigo.estim name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 363 ACCESS indigo.estim licnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 363 STRING "&1 (&2)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 364 ACCESS indigo.colobj valdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 364 ACCESS indigo.realest mprevper 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 364 STRING "months" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 365 ACCESS indigo.estim type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 366 ACCESS indigo.estim type 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 366 STRING "external" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 368 ACCESS indigo.estim estim 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 368 ACCESS indigo.realest mpestimint 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 368 SEARCH indigo.estim estim
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 369 REFERENCE indigo.estim 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 371 ACCESS indigo.estim name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 371 ACCESS indigo.estim licnum 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 371 STRING "&1 (&2)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 372 ACCESS indigo.realest mpaccptdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 378 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 378 STRING "colobj.method_current" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 379 ACCESS indigo.colobj valspec 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 379 STRING "/lists/collateral/spec_conditions" 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 381 ACCESS indigo.colobj valcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 382 ACCESS indigo.colobj fenable 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 383 ACCESS indigo.colobj futval 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 384 ACCESS indigo.colobj futcrc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 385 ACCESS indigo.colobj futdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 386 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 386 STRING "colobj.method_future" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 388 REFERENCE indigo.mvbl 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 389 ACCESS indigo.mvbl regno 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 390 ACCESS indigo.mvbl prcscomp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 391 ACCESS indigo.mvbl adjref 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 392 ACCESS indigo.mvbl storwrh 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 393 ACCESS indigo.mvbl invdt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 394 ACCESS indigo.mvbl invcmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 396 REFERENCE indigo.depos 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 397 ACCESS indigo.depos dephld 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 398 ACCESS indigo.depos agrtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 398 STRING "/lists/collateral/deposit_agreements_types" 42 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 400 ACCESS indigo.depos cntrtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 400 STRING "/lists/collateral/deposit_contract_types" 40 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 402 ACCESS indigo.depos thirdprt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 403 ACCESS indigo.depos accnt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 404 ACCESS indigo.depos duedt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 406 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 406 REFERENCE indigo.othcol 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 406 STRING "3-M-2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 407 ACCESS indigo.othcol acchld 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 408 ACCESS indigo.othcol accnt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 410 REFERENCE indigo.shr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 411 ACCESS indigo.shr isin 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 ACCESS indigo.own colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 ACCESS indigo.own owntype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 STRING "issuer" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 SEARCH indigo.own colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 ACCESS indigo.own clnid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 412 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 415 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 416 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 417 ACCESS indigo.cln bankcln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 418 ACCESS indigo.own cmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 420 ACCESS indigo.shr caproc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 422 REFERENCE indigo.bond 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 423 ACCESS indigo.bond isin 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 424 ACCESS indigo.bond cpnval 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 425 ACCESS indigo.bond cpncrc 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 426 ACCESS indigo.bond duedt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 427 ACCESS indigo.bond company 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 428 ACCESS indigo.bond country 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 429 ACCESS indigo.bond crerat 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.own colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.own owntype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.own owntype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 STRING "owner" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 STRING "guarantor" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 SEARCH indigo.own colobj
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.cln clnid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 ACCESS indigo.own clnid 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 432 SEARCH indigo.cln clnid
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 437 ACCESS indigo.cln cif 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 437 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 437 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 437 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 438 ACCESS indigo.cln code 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 438 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 438 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 438 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 439 ACCESS indigo.cln name 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 439 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 439 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 439 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 440 ACCESS indigo.own cmt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 440 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 440 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 440 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 441 ACCESS indigo.cln bankcln 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 441 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 444 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 445 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 446 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 447 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 448 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 450 ACCESS indigo.coltyp maxrrate 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 451 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 452 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 452 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 453 ACCESS indigo.colagrln corrborr 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 454 ACCESS indigo.colagrln ltvamt 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 455 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 456 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 457 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 458 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 460 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 460 STRING "realest" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 460 STRING "mpdt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 460 REFERENCE ttHisfld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 462 STRING "realest.mpdt" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 462 SEARCH ttHisfld fdt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 464 REFERENCE ttHisfld TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 467 CREATE ttHistRealest TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 471 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 471 STRING "realest" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 472 REFERENCE ttHistRealest TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 482 REFERENCE indigo.crtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 484 ACCESS indigo.crtype crtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 484 STRING "GUAR" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 484 STRING "GUAR" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 486 STRING "LOAN" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 489 ACCESS indigo.colobj housprog 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 490 ACCESS indigo.colobj housprogtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 494 DELETE ttDwhColl TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 495 PROCEDURE outputColagrln,,INPUT pColagrln INTEGER,INPUT pAltumList CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 495 STRING "OUTPUTCOLAGRLN" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 500 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 500 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 500 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 500 STRING "fdt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 500 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 44 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 74 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 84 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 102 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/system/clt/addr-get.i 127 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 17 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 27 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 28 NEW core.BufferUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 29 NEW core.Logger
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 30 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 31 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 32 NEW clt.AltumCollatCalc
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 45 INVOKE core.Logger:initFromGls,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 48 INVOKE core.BufferUtil:dwhDt,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 48 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 48 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 49 INVOKE clt.AltumCollatCalc:getAltumCollateralList
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 51 INVOKE core.Logger:logInf,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 55 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 62 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 62 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 62 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 64 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 65 INVOKE core.Logger:logErr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 70 INVOKE core.Logger:getLogFilePath
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 73 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 84 INVOKE core.Logger:logInf,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 182 NEW core.GlsUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 183 INVOKE core.GlsUtil:getChildrenKeys,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 187 NEW core.HisInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 188 INVOKE core.HisInfo:getLastNonEmptyDec,INPUT int64,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 188 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 188 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 238 INVOKE clt.ColCalc:getFcmc,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 240 INVOKE clt.ColCalc:getColTypLbl,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 262 INVOKE clt.AltumCollatCalc:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 263 INVOKE clt.AltumCollatCalc:calcPotencialCompensationSum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 300 INVOKE clt.ColCalc:getCover%,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 303 INVOKE clt.ColCalc:getLTVAmt%,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 305 INVOKE clt.ColCalc:getColRealizationAmt,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 307 INVOKE clt.ColCalc:getColobjUsedAmt,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 451 INVOKE clt.ColCalc:isCross,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 452 INVOKE clt.ColCalc:isComplex,INPUT integer,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 455 INVOKE clt.ColCalc:getLTVAmtTotLs,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 456 INVOKE clt.ColCalc:getLTVAmtTot%,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 457 INVOKE clt.ColCalc:getSecAmtTotLs,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 458 INVOKE clt.ColCalc:getCover%tot,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 460 INVOKE core.History:getChanges,INPUT int64,INPUT character,INPUT character,INPUT date,INPUT date,OUTPUT TABLE ttHisfld
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 471 INVOKE core.History:getTtFromHist,INPUT widget-handle,INPUT character,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 474 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 492 INVOKE core.BufferUtil:buffToDwh,INPUT widget-handle
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 498 DELETE-INSTANCE clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p /u1/env/bankcp/indigo/svn-trunk/integration/dwh/extractCollatToDWH.p 499 DELETE-INSTANCE core.BufferUtil

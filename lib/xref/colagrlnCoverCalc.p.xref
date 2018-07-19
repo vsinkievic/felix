@@ -1,0 +1,344 @@
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 12 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 17 INCLUDE "clt/ind-convfunc.i &visibility=""function"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 6 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 6 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 10 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 11 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 12 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 14 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 16 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 18 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 21 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 22 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 26 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 27 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 29 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 33 FUNCTION crc2nat,decimal,INPUT pCrc INTEGER,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 33 STRING "CRC2NAT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 36 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 36 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 40 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 41 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 42 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 44 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 46 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 48 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 50 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 51 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 56 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 57 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 61 FUNCTION nat2crc,decimal,INPUT pCrc INTEGER,INPUT pAmt DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 61 STRING "NAT2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 64 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 68 STRING "g-chgEUR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 69 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 70 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 STRING "/constants/general/GCHEUR" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 72 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 74 INCLUDE "core/businessErr.i &id='COL0030' &p1=""'GCHEUR'"""
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "GCHEUR" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 76 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 78 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 79 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 83 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 84 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate1 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 87 ACCESS indigo.curr rate9 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 91 FUNCTION acrc9,decimal,INPUT pCrc INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 91 STRING "ACRC9" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 94 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 94 STRING "pCrcFrom" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 94 STRING "pCrcTo" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 98 STRING "vResult" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 112 FUNCTION crc2crc,decimal,INPUT pAmt DECIMAL,INPUT pCrcFrom INTEGER,INPUT pCrcTo INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 112 STRING "CRC2CRC" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 19 STRING "pCrObj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 20 STRING "pCrObjLst" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 21 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 23 STRING "vBalLs" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 24 STRING "vTotBalLs" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 25 STRING "vTotCovR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 26 STRING "vTotCovNR" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 27 STRING "i" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 28 STRING "z" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 29 STRING "iCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 30 STRING "oColCalc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 31 STRING "oCrobjManager" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "tSec" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "crnum" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "colid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "secRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "balLs" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "lim" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "valLs" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "rprior" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "colrank" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "cnt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "lendAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "leftAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "notSecAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "covAmtLs" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "covAmtCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "errDiff" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 36 STRING "isactive" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 69 STRING "tCrObj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 69 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 69 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 74 STRING "tColObj" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 74 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 74 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 78 STRING "bSec" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 80 INCLUDE bf/bfapi.i
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 11 STRING "bfapi-last-ping" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 14 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 15 STRING "pvalue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 STRING "batchframe-get-par" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 PUBLISH "batchframe-get-par "
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 PRIVATE-FUNCTION bf-get-par,character,INPUT pname CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 STRING "BF-GET-PAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 24 STRING "keep-running" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 25 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 26 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 28 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 STRING "batchframe-ping" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 PUBLISH "batchframe-ping "
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 PRIVATE-FUNCTION bf-ping,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 STRING "BF-PING" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 44 STRING "*BF* &1 &2" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 PRIVATE-FUNCTION bf-msg,integer,INPUT lbl CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 STRING "BF-MSG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 48 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 49 STRING "*BF* ERR" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 PRIVATE-FUNCTION bf-err,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 STRING "BF-ERR" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 53 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 54 STRING "*BF* WARN" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 PRIVATE-FUNCTION bf-warn,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 STRING "BF-WARN" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 58 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 59 STRING "*BF* LOG" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 PRIVATE-FUNCTION bf-log,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 STRING "BF-LOG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 64 STRING "*BF* EXIT DONE" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 PRIVATE-FUNCTION bf-success,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 STRING "BF-SUCCESS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "exit-state" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 72 STRING "*BF* EXIT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 PRIVATE-FUNCTION bf-exit,integer,INPUT exit-state CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 STRING "BF-EXIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 86 STRING "crobj" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 86 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 86 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 87 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 88 STRING "crobj=&1 not found" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 94 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 94 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 94 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 94 SEARCH indigo.colagrln crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 97 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 103 SEARCH tCrObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 105 SEARCH tColObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 113 SEARCH tCrObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 115 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 115 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 116 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 117 STRING "not found crobj for tCrObj=&1" 29 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 122 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 122 SEARCH indigo.colagrln crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 124 STRING "colobj" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 124 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 124 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 124 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 125 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 126 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 126 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 126 STRING "not found colobj=&1 for colagrln=&2" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 130 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 130 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 130 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 130 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 131 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 132 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 132 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 132 STRING "not found coltyp='&1' for colobj=&2" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 136 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 136 SEARCH tColObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 139 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 143 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 143 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 146 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 147 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 148 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 149 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 150 ACCESS indigo.colobj colid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 151 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 155 ACCESS indigo.coltyp rprior 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 156 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 157 ACCESS indigo.colobj rrate 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 160 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 161 STRING "curr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 161 STRING "curr" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 161 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 161 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 161 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 162 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 163 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 166 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 166 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 166 STRING "not found curr=&1 for colobj=&2" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 170 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 189 SEARCH tColObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 191 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 191 SEARCH indigo.colobj colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 192 REFERENCE indigo.colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 193 STRING "not found colobj for tColObj=&1" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 198 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 198 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 198 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 199 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 200 ACCESS indigo.colobj coltyp 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 200 STRING "not found coltyp='&1' for colobj=&2" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 205 ACCESS indigo.colagrln colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 205 SEARCH indigo.colagrln colobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 207 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 207 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 207 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 208 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 209 ACCESS indigo.colagrln crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 209 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 209 STRING "not found crobj=&1 for colagrln=&2" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 213 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 213 SEARCH tCrObj default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 216 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 220 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 220 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 223 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 224 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 225 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 226 ACCESS indigo.crobj crnum 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 227 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 231 ACCESS indigo.coltyp rprior 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 232 ACCESS indigo.colobj colid 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 233 ACCESS indigo.colagrln colrank 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 234 ACCESS indigo.colobj rrate 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 237 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 238 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 238 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 238 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 239 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 240 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 243 ACCESS indigo.colobj crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 243 ACCESS indigo.colobj colobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 243 STRING "not found curr=&1 for colobj=&2" 31 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 247 ACCESS indigo.colobj val 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 265 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 269 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 271 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 271 SEARCH indigo.crobj crobj
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 272 REFERENCE indigo.crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 273 STRING "not found crobj for tSec.crobj=&1" 33 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 277 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 283 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 283 SEARCH indigo.curr PK_Currency
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 284 REFERENCE indigo.curr 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 285 ACCESS indigo.curr crc 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 288 ACCESS indigo.crobj crobj 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 288 STRING "not found curr=&1 for crobj=&2" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 297 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 298 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 308 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 311 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 325 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 331 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 335 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 339 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 342 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 348 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 352 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 364 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 368 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 384 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 386 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 403 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 405 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 407 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 424 STRING "vSecAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 426 STRING "colagrln" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 426 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 430 SEARCH tSec main TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 431 ACCESS indigo.colagrln colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 431 SEARCH indigo.colagrln colagrln
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 432 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 433 REFERENCE indigo.colagrln 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 433 STRING "colagrln for tSec.colagrln=&1 is locked" 39 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 434 STRING "colagrln tSec.colagrln=&1 expected but not found" 48 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 441 ACCESS indigo.colagrln secamt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 441 ACCESS indigo.colagrln secamt 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 441 UPDATE indigo.colagrln secamt
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 444 PROCEDURE updateColAgrLn,,
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 444 STRING "UPDATECOLAGRLN" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 444 STRING "main" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 444 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 444 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 13 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 24 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 43 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 53 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 71 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ind-convfunc.i 81 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 33 NEW clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 34 NEW clt.CrobjManager
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 151 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 227 INVOKE clt.ColCalc:isActiveAgrLine,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 277 INVOKE clt.CrobjManager:init,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 279 INVOKE clt.CrobjManager:getBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 279 INVOKE clt.CrobjManager:getOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 280 INVOKE clt.CrobjManager:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 415 DELETE-INSTANCE clt.ColCalc
+/u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p /u1/env/bankcp/indigo/svn-trunk/system/clt/colagrlnCoverCalc.p 418 DELETE-INSTANCE clt.CrobjManager

@@ -1,0 +1,730 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 6 INCLUDE clt/crs-func.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 3 STRING "C_OTHER_REGIONS_ID" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 4 STRING "C_ALL_REGIONS_ID" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 7 STRING "C_ALL_STS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 10 STRING "C_ALL_RESTYPES" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 13 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 14 STRING "vPgls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 18 STRING "/lists/collateral/crs_scope_statuses" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 20 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 20 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 22 STRING "Unknown" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 24 FUNCTION getCollStatusName,character,INPUT pSts INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 24 STRING "GETCOLLSTATUSNAME" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 30 STRING "/constants/collateral/stat_reval/all_region" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 31 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 31 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 35 FUNCTION getAllRegionID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 35 STRING "GETALLREGIONID" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 41 STRING "/constants/collateral/stat_reval/other_region" 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 42 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 42 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 46 FUNCTION getOtherRegionID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 46 STRING "GETOTHERREGIONID" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 51 STRING "/constants/collateral/stat_reval/all_sts" 40 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 52 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 52 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 56 FUNCTION getAllStsID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 56 STRING "GETALLSTSID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 61 STRING "/constants/collateral/stat_reval/all_restyp" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 62 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 62 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 66 FUNCTION getAllResTypeID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 66 STRING "GETALLRESTYPEID" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 71 STRING "/constants/collateral/stat_reval/batch" 38 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 72 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 72 ACCESS indigo.gls chval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 76 FUNCTION getBatchName,character,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 76 STRING "GETBATCHNAME" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 7 INCLUDE "core/tKeyValuePair.i &name=""tColtyp"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/tKeyValuePair.i 1 STRING "tColtyp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/tKeyValuePair.i 1 STRING "key" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/tKeyValuePair.i 1 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/tKeyValuePair.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/tKeyValuePair.i 1 STRING "act" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 8 INCLUDE "core/gls-get.i &visibility=""function"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 24 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 28 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 29 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 30 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 32 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 34 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 38 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 41 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 43 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 45 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 49 FUNCTION glsGetId,int64,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 49 STRING "GLSGETID" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 62 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 66 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 67 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 68 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 70 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 71 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 75 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 78 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 80 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 82 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 85 FUNCTION glsGet,logical,INPUT pPath CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 85 STRING "GLSGET" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 92 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 96 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 97 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 97 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 99 FUNCTION glsGet2,logical,INPUT pPath CHARACTER,INPUT pkey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 99 STRING "GLSGET2" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 105 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 105 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 109 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 110 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 111 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 111 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 112 STRING "?&1" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 114 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 115 FUNCTION glsGetName2,character,INPUT pPath CHARACTER,INPUT pkey CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 115 STRING "GLSGETNAME2" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 127 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 131 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 132 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 134 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 136 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 137 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 139 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 143 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 146 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 148 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 150 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 153 FUNCTION glsGetChild,logical,INPUT pParentId INT64,INPUT pKey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 153 STRING "GLSGETCHILD" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 163 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 163 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 167 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 170 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 171 FUNCTION glsGetChildId,int64,INPUT pParentId INT64,INPUT pKey CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/gls-get.i 171 STRING "GLSGETCHILDID" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 9 INCLUDE "clt/ttHisDisp.i &visibility="" "" &name=""ttHisDisp"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "ttHisDisp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 10 INCLUDE "clt/ttDisplayed.i &visibility="" "" &name=""ttDisplayed"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "ttDisplayed" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pObjName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pObjValue" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pWhn" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pWho" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 12 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 13 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 14 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 15 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 17 INCLUDE "indigo/src/nodeMigrate.i &name='restype'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 9 STRING "pInputJson" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 11 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 17 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "GET" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 19 STRING "doParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 20 STRING "doPost" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 21 STRING "dwData" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 23 STRING "ttResTypes" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 23 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 23 STRING "primary" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 23 STRING "secondary" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 28 STRING "ttUpdated" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 28 STRING "typeid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 31 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 40 STRING "GET-TYPES-WITH-ALL" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 44 STRING "GET-ALL-TYPES" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 48 STRING "GET-TYPE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 52 STRING "SAVE-TYPE" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 56 STRING "DELETE-TYPE" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 60 STRING "GET-COLTYPE-LIST" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 65 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 83 STRING "restypes" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 STRING "All" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 90 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 90 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 90 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 90 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 90 SORT-ACCESS indigo.rescoltype type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 99 PROCEDURE getAllTypesPlus,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 99 STRING "GETALLTYPESPLUS" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 103 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 103 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 104 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 104 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 106 STRING "restypes" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 107 SEARCH indigo.realestatetype typeid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 116 SEARCH indigo.rescoltype typeidtype TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 117 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 117 SEARCH ttResTypes default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 118 REFERENCE ttResTypes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 120 CREATE ttResTypes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 121 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 123 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 123 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 123 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 124 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 126 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 126 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 128 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 128 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 133 STRING "restypes2" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 134 SEARCH ttResTypes default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 STRING "primary" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 STRING "secondary" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 143 PROCEDURE getAllTypes,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 143 STRING "GETALLTYPES" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 147 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 147 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 148 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 148 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 149 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 149 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 149 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 150 STRING "firstLev" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 150 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 150 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 151 STRING "secLev" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 151 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 151 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 152 STRING "thrdLev" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 152 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 152 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 154 STRING "vTypeId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 155 STRING "vCollTypeList" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 156 STRING "vPrimaryId" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 157 STRING "vSecondaryId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 158 STRING "vHeaderCount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 159 STRING "vIter" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 160 STRING "vValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 163 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 163 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 165 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 165 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 165 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 166 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 166 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 169 INCLUDE "core/businessErr.i &id='CRS0010' &p1=""vTypeId"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 172 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 172 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 172 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 173 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 173 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 177 STRING "matrix_id" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 177 STRING "primary" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 178 STRING "secondary" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 180 STRING "secondary" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 184 STRING "matrix" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 185 SEARCH indigo.realestatetype typeid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 194 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 194 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 194 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 194 SEARCH indigo.coltyp parentsts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 195 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 195 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 195 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 195 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 195 SEARCH indigo.coltyp parentsts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 196 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 STRING "colltype" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 STRING "lev1name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 STRING "lev2name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 STRING "lev3name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 209 STRING "restypehist" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 211 REFERENCE ttHisDisp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 211 STRING "rescoltype" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 213 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 213 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 213 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 215 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 215 ACCESS indigo.coltyp id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 215 REFERENCE ttHisDisp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 215 REFERENCE ttDisplayed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 219 SEARCH ttDisplayed pId TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 225 STRING "whn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 225 STRING "who" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 231 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 231 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 233 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 233 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 237 STRING "rescoltype.primary" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 237 STRING "primary" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 240 STRING "rescoltype.secondary" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 240 STRING "secondary" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 251 PROCEDURE getType,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 251 STRING "GETTYPE" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 255 STRING "bRescoltype" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 255 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 255 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 257 STRING "vTypeId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 258 STRING "vColltype" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 259 STRING "vPrimary" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 260 STRING "vSecondary" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 261 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 263 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 263 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 265 STRING "restype" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 266 STRING "colltype" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 267 STRING "primary" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 268 STRING "secondary" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 272 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 272 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 272 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 273 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 275 INCLUDE "core/businessErr.i &id='CRS0010' &p1=""vPrimary"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 280 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 280 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 281 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 283 INCLUDE "core/businessErr.i &id='CRS0010' &p1=""vSecondary"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 289 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 289 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 290 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 292 INCLUDE "core/businessErr.i &id='CRS0038' &p1=""vColltype"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0038" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 294 CREATE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 295 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 295 UPDATE indigo.rescoltype type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 296 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 296 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 297 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 297 UPDATE indigo.rescoltype mtype
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 299 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 304 CREATE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 305 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 305 UPDATE indigo.rescoltype type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 306 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 306 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 307 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 307 UPDATE indigo.rescoltype mtype
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 309 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 313 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 313 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 315 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 317 ACCESS indigo.coltyp id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 318 STRING "rescoltype.secondary" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 319 STRING "rescoltype.primary" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 323 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 323 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 324 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 326 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 326 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 328 INCLUDE "core/businessErr.i &id='CRS0004' &p1=""vTypeId"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 331 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 331 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 331 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 331 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 333 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 335 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 335 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 337 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 339 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 339 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 341 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 346 CREATE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 347 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 347 UPDATE indigo.rescoltype type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 348 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 348 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 349 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 349 UPDATE indigo.rescoltype mtype
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 351 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 356 INCLUDE "core/businessErr.i &id='CRS0064'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0064" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 360 ACCESS indigo.rescoltype mtype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 362 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 362 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 363 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 363 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 365 DELETE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 368 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 368 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 369 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 369 UPDATE indigo.rescoltype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 371 DELETE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 374 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 376 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 381 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 381 SEARCH indigo.coltyp coltyp
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 383 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 385 ACCESS indigo.coltyp id 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 386 STRING "rescoltype.secondary" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 387 STRING "rescoltype.primary" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 391 STRING "realestatecol" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 391 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 391 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 392 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 395 SEARCH ttUpdated default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 396 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 396 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 396 SEARCH indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 397 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 397 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 397 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 399 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 406 PROCEDURE saveType,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 406 STRING "SAVETYPE" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 410 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 410 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 411 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 411 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 412 STRING "brescoltype" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 412 STRING "rescoltype" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 412 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 414 STRING "vTypeId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 415 STRING "vTypeIdInt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 416 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 418 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 418 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 424 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 424 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 427 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 427 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 427 SEARCH indigo.rescoltype RECID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 429 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 429 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 432 CREATE ttUpdated TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 433 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 434 ACCESS indigo.rescoltype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 436 DELETE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 439 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 439 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 440 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 443 SEARCH ttUpdated default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 444 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 444 SEARCH indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 445 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 445 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 445 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 447 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 454 STRING "rescoltype.secondary" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 455 STRING "rescoltype.primary" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 457 PROCEDURE deleteType,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 457 STRING "DELETETYPE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 461 STRING "firstLev" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 461 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 461 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 462 STRING "secLev" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 462 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 462 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 463 STRING "thrdLev" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 463 STRING "coltyp" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 463 REFERENCE indigo.coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 465 STRING "vPgls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 467 STRING "/lists/collateral/reval_loadable" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 468 INCLUDE "core/businessErr.i &id='CRS0065' &p1='/lists/collateral/reval_loadable'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0065" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "/lists/collateral/reval_loadable" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 471 STRING "rescoltypelist" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 472 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 472 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 472 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 472 SEARCH indigo.coltyp parentsts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 473 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 473 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 473 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 473 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 473 SEARCH indigo.coltyp parentsts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 ACCESS indigo.coltyp sts 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 ACCESS indigo.coltyp parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 STRING "A" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 STRING "1" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 474 SEARCH indigo.coltyp parentsts
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 476 ACCESS indigo.rescoltype type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 476 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 476 SEARCH indigo.rescoltype typeidtype WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 477 REFERENCE indigo.rescoltype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 479 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 480 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 ACCESS indigo.coltyp coltyp 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 ACCESS indigo.coltyp name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 STRING "lev1name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 STRING "lev2name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 STRING "lev3name" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 496 STRING "matrix" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 497 SEARCH indigo.realestatetype typeid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 PROCEDURE getColtypeList,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "GETCOLTYPELIST" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "pObjName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 505 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 18 INVOKE core.GlsClass:glsGetId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 30 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 41 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 51 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 61 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 71 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 13 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 17 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 19 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 INVOKE Progress.Json.ObjectModel.JsonObject:has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:Has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 42 INVOKE Progress.Json.ObjectModel.JsonObject:Write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 45 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 33 NEW indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 35 NEW indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 36 INVOKE indigo.src.DataObject:loadObject,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 69 INVOKE indigo.src.DataWriter:saveObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 72 DELETE-INSTANCE indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 75 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 78 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 83 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 85 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 91 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 97 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 106 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 108 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 114 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 133 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 135 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 142 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 163 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 163 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 177 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 177 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 178 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 180 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 181 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 184 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 186 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 192 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 198 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 209 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 211 RUN clt/getGlsTable.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 215 RUN clt/getHistory.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 225 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 225 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 225 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 237 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 240 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 246 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 250 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 263 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 263 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 265 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 266 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 267 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 268 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 270 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 317 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 318 INVOKE core.History:saveItem,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 319 INVOKE core.History:saveItem,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 385 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 386 INVOKE core.History:saveItem,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 387 INVOKE core.History:saveItem,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 392 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 399 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 404 DELETE-INSTANCE core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 418 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 418 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 420 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 440 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 447 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 452 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 454 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 455 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 471 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 482 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 494 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 496 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 498 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevResType.p 504 INVOKE indigo.src.DataWriter:endCurrent

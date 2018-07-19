@@ -1,0 +1,757 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 10 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 12 INCLUDE "sched/ttSchView.i &name=""ttSchView"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "ttSchView" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "number" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "drawdown" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "balance" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "olimit" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "principal" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "interest" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "prnSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "intSts" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "other" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "totalAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "commFee" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "canExpand" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "hasAdHoc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "editable" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherComp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherCompCode" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSchView.i 1 STRING "otherRate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 13 INCLUDE "indigo/src/ttSch.i &name=""ttSchFormatted"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "ttSchFormatted" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "number" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "drawdown" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "totalamt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "totalAll" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "moreComps" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "opnamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "prnAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "intRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "intAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schComp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schCompRate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schCompAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 14 INCLUDE "setup/ttAttribute.i &name=""ttAttribute"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "ttAttribute" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "txt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "val" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/setup/ttAttribute.i 5 STRING "dtype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 15 INCLUDE "sched/ttSch.i &name=""ttSch"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "bal" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "days" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 16 INCLUDE "acr/ttAcrPeriod.i &name=""ttAcr"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcrPeriod.i 1 STRING "ttAcr" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcrPeriod.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcrPeriod.i 1 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcrPeriod.i 1 STRING "accrued" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/acr/ttAcrPeriod.i 1 STRING "paid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 17 INCLUDE "loan/ttLineFees.i &name=""ttLineFees"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLineFees.i 1 STRING "ttLineFees" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLineFees.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLineFees.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLineFees.i 1 STRING "linedebt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/loan/ttLineFees.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 21 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 23 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 28 STRING "GET-LOAN-SCHEDULE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 32 STRING "GET-EXPANDED-LINE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 36 STRING "GET-EDIT-OPERATION" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 40 STRING "UPDATE-SCHED-LINE" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 44 STRING "GET-SCHED-CHANGED" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 48 STRING "GET-ADHOC-LIST" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 52 STRING "SET-ADHOC" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 56 STRING "DELETE-ADHOC" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 60 STRING "GET-EXPRESS-SCHEDULE-REPORT" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 65 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 75 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 76 STRING "vIsCrlProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 77 STRING "schView" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 78 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 79 STRING "prodUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 80 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 82 STRING "vSchedule" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 83 STRING "vScheduleLines" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 84 STRING "vScheduleLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 85 STRING "vOtherDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 86 STRING "vOtherDetail" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 87 STRING "vScheduleTotals" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 89 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 93 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 105 SEARCH ttSchView dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 108 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 109 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 110 STRING "olimit" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 111 STRING "rate" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 112 STRING "interest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 113 STRING "interestStatus" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 114 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 115 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 116 STRING "status" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 117 STRING "expandable" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 118 STRING "editable" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 122 STRING "hasAdHoc" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 123 STRING "commitmentFee" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 126 STRING "drawdown" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 127 STRING "balance" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 128 STRING "principal" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 129 STRING "principalStatus" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 132 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 135 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 135 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 138 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 138 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 139 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 139 STRING "^" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 143 STRING "otherDetails" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 148 STRING "scheduleLines" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 154 STRING "principal" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 155 STRING "interest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 156 STRING "issued" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 157 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 158 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 160 STRING "scheduleTotals" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 163 STRING "schedule" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 164 PROCEDURE getLoanSched,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 164 STRING "GETLOANSCHED" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 167 STRING "collect" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 168 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 169 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 170 STRING "prodUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 172 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 173 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 174 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 175 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 176 STRING "vIsCrlProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 178 STRING "vPrnAcr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 179 STRING "vIntAcr" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 180 STRING "vPrnPaid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 181 STRING "vIntPaid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 182 STRING "vTotalPaid" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 183 STRING "vTotalAcr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 184 STRING "vOtherPaid" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 185 STRING "vOtherAcr" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 186 STRING "vCommFeePaid" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 187 STRING "vCommFeeAcr" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 188 STRING "vCalcPaidAmt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 190 STRING "vExpandedLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 191 STRING "vAccrued" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 192 STRING "vOtherDetails" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 193 STRING "vOtherDetail" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 194 STRING "vRepaid" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 196 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 197 STRING "POST.loanschedule.date" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 215 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 217 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 223 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 225 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 229 DELETE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 233 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 235 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 239 DELETE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 243 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 245 REFERENCE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 249 DELETE ttAcr TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 257 STRING "principal" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 258 STRING "interest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 259 STRING "commitmentFee" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 260 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 261 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 264 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 267 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 268 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 273 STRING "otherDetails" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 275 STRING "accrued" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 279 STRING "principal" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 280 STRING "interest" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 281 STRING "commitmentFee" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 282 STRING "other" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 283 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 286 SEARCH ttAcr default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 289 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 290 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 295 STRING "otherDetails" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 297 STRING "repaid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 298 STRING "expandedLine" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 299 PROCEDURE getExpandedLine,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 299 STRING "GETEXPANDEDLINE" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 302 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 303 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 304 STRING "vScheduleLineDate" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 305 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 306 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 307 STRING "vIsCrlProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 309 STRING "schView" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 310 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 311 STRING "prodUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 313 STRING "vScheduleLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 314 STRING "vOperations" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 315 STRING "vOperation" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 318 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 319 STRING "POST.loanschedule.date" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 323 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 332 SEARCH ttSchView dt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 335 INCLUDE "core/businessErr.i  id='SCH0033' &p1=vScheduleLineDate"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 335 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 344 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 344 STRING "freeze_principal" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 345 STRING "text" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 345 STRING "Freeze Principal" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 350 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 350 STRING "skip_repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 351 STRING "text" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 351 STRING "Skip Repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 355 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 355 STRING "process_normally" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 356 STRING "text" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 356 STRING "Process Normally" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 361 STRING "operations" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 362 STRING "operation" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 362 STRING "skip_repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 363 STRING "from" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 364 STRING "to" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 367 STRING "operations" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 368 STRING "operation" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 368 STRING "freeze_principal" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 369 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 370 STRING "from" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 371 STRING "to" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 374 STRING "scheduleLine" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 375 PROCEDURE getEditOp,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 375 STRING "GETEDITOP" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 378 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 379 STRING "vOperation" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 380 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 381 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 382 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 383 STRING "vIsCrlProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 385 STRING "schedMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 386 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 387 STRING "prodUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 389 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 391 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 393 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 394 STRING "POST.loanschedule.operation" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 395 STRING "POST.loanschedule.from" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 396 STRING "POST.loanschedule.to" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 397 STRING "POST.loanschedule.amount" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 402 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 418 STRING "process_normally" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 420 STRING "skip_repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 423 INCLUDE "core/businessErr.i &id='SCH0021' &p1=""vOperation"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0021" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 429 STRING "freeze_principal" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 431 STRING "process_normally" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 433 STRING "skip_repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 436 INCLUDE "core/businessErr.i &id='SCH0021' &p1=""vOperation"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0021" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 441 PROCEDURE freezeOp,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 441 STRING "FREEZEOP" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 445 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 446 STRING "vStreet" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 447 STRING "vTown" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 449 STRING "loanUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 450 STRING "clnInf" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 451 STRING "schView" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 453 STRING "xlsxReport" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 455 STRING "vReportData" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 456 STRING "vSchedule" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 457 STRING "vScheduleLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 458 STRING "vClient" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 459 STRING "vLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 460 STRING "vSums" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 462 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 481 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 482 STRING "address1" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 483 STRING "address2" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 485 STRING "openDate" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 486 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 487 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 488 STRING "sum" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 489 STRING "rate" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 490 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 492 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 494 STRING "prn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 495 STRING "fee" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 496 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 497 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 499 SEARCH ttSchView dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 502 STRING "num" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 503 STRING "dt" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 504 STRING "amt" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 505 STRING "prn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 506 STRING "fee" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 507 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 508 STRING "total" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 513 STRING "schedule" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 514 STRING "client" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 515 STRING "loan" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 516 STRING "sums" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 521 STRING "XlsExpressSchedule" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 522 STRING "file" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 522 STRING "LoanShedule.xlsx" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 523 PROCEDURE getExpressSchedReport,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 523 STRING "GETEXPRESSSCHEDREPORT" 21 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 526 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 527 STRING "vOperation" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 528 STRING "vFdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 529 STRING "vTdt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 530 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 531 STRING "vIsCrlProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 532 STRING "vPrnAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 533 STRING "vIntAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 534 STRING "vOthAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 535 STRING "vTotalAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 537 STRING "controller" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 538 STRING "schedMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 539 STRING "schView" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 540 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 541 STRING "prodUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 543 STRING "vSchedule" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 544 STRING "vScheduleLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 545 STRING "vAggregates" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 547 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 548 STRING "POST.loanschedule.operation" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 549 STRING "POST.loanschedule.from" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 550 STRING "POST.loanschedule.to" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 551 STRING "POST.loanschedule.amount" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 567 STRING "freeze_principal" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 567 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 569 STRING "process_normally" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 569 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 571 STRING "skip_repayment" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 573 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 575 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 578 INCLUDE "core/businessErr.i &id='SCH0021' &p1=""vOperation"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0021" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 585 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 585 REFERENCE ttSchView TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 588 SEARCH ttSchView dt TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 591 STRING "dt" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 592 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 593 STRING "intRate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 597 STRING "sched" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 600 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 600 REFERENCE ttSchFormatted TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 603 SEARCH ttSchFormatted default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 611 STRING "dt" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 612 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 613 STRING "totalamt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 614 STRING "opnamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 615 STRING "prnAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 616 STRING "intAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 617 STRING "intRate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 618 STRING "othAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 622 STRING "sched" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 626 STRING "prnAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 627 STRING "intAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 628 STRING "othAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 629 STRING "totalamt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 631 STRING "aggregates" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 633 PROCEDURE getSchedPreview,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 633 STRING "GETSCHEDPREVIEW" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 636 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 637 STRING "vLineDate" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 638 STRING "adHocCollector" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 640 STRING "vList" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 641 STRING "vItem" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 643 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 644 STRING "POST.loanschedule.date" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 651 REFERENCE ttLineFees TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 655 SEARCH ttLineFees default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 658 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 659 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 660 STRING "linedebt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 661 STRING "dt" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 666 STRING "adhocList" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 667 PROCEDURE getAdhocList,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 667 STRING "GETADHOCLIST" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 670 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 671 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 672 STRING "vDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 673 STRING "vPayment" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 674 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 676 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 677 STRING "adHocManager" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 681 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 682 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 686 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 687 STRING "POST.loanschedule.comp" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 688 STRING "POST.loanschedule.dt" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 689 STRING "POST.loanschedule.input" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 696 PROCEDURE setAdhoc,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 696 STRING "SETADHOC" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 700 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 701 STRING "vComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 702 STRING "vDt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 704 STRING "schedMan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 706 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 707 STRING "POST.loanschedule.comp" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 708 STRING "POST.loanschedule.dt" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 714 PROCEDURE deleteAdhoc,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 714 STRING "DELETEADHOC" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 716 STRING "pIn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 717 STRING "vOut" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 FUNCTION getDecVal,decimal,INPUT pIn DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "GETDECVAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 724 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 25 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 70 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 71 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 89 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 91 NEW sched.SchedViewer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 92 INVOKE sched.SchedViewer:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 93 INVOKE sched.SchedViewer:getSchedule,OUTPUT TABLE ttSchView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 95 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 96 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 98 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 99 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 99 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 100 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 102 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 103 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 106 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 108 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 108 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 109 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 110 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 111 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 112 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 113 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 114 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 115 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 116 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 117 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 118 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 122 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 123 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 126 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 127 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 128 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 129 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 134 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 136 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 138 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 139 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 141 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 143 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 146 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 148 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 152 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 154 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 154 INVOKE sched.SchedViewer:getPrnTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 155 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 155 INVOKE sched.SchedViewer:getIntTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 156 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 156 INVOKE sched.SchedViewer:getIssueTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 157 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 157 INVOKE sched.SchedViewer:getOtherTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 158 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 158 INVOKE sched.SchedViewer:getTotalTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 160 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 163 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 196 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 197 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 199 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 200 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 202 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 203 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 205 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 206 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 206 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 207 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 209 INVOKE sched.SchedUtil:getIntLineStart,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 211 INVOKE sched.SchedUtil:getPrnLineStart,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 213 NEW acr.AcrCollector
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 214 INVOKE acr.AcrCollector:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 215 INVOKE acr.AcrCollector:collectAcrPeriodTT,INPUT date,INPUT date,INPUT logical,OUTPUT TABLE ttAcrPeriod
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 223 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 223 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 233 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 233 INVOKE loan.LoanUtil:getInterestCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 243 INVOKE loan.LoanUtil:getCommFeeCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 243 INVOKE loan.LoanUtil:getCommFeeCode
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 255 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 256 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 257 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 258 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 259 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 260 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 261 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 263 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 266 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 267 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 268 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 270 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 273 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 275 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 277 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 279 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 280 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 281 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 282 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 283 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 285 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 288 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 289 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 290 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 292 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 295 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 297 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 298 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 318 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 319 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 321 NEW sched.SchedViewer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 322 INVOKE sched.SchedViewer:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 323 INVOKE sched.SchedViewer:getSchedule,OUTPUT TABLE ttSchView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 325 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 326 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 328 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 329 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 329 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 330 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 338 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 339 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 343 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 344 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 345 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 346 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 349 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 350 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 351 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 352 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 354 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 355 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 356 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 357 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 361 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 362 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 363 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 363 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 364 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 364 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 367 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 368 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 369 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 370 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 370 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 371 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 371 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 374 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 390 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 393 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 394 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 395 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 396 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 397 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 399 NEW sched.SchedManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 400 INVOKE sched.SchedManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 402 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 403 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 405 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 406 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 408 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 409 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 409 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 410 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 418 INVOKE sched.SchedManager:unfreezePrnLines,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 420 INVOKE sched.SchedManager:skipLines,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 429 INVOKE sched.SchedManager:freezePrnLines,INPUT date,INPUT date,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 431 INVOKE sched.SchedManager:unfreezePrnLines,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 433 INVOKE sched.SchedManager:skipLines,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 462 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 464 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 465 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 467 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 468 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 468 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 470 NEW sched.SchedViewer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 471 INVOKE sched.SchedViewer:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 473 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 474 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 475 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 476 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 477 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 479 INVOKE core.ClnInfo:getAddrForPrint,OUTPUT character,OUTPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 481 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 481 INVOKE core.ClnInfo:getFullName
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 482 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 483 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 485 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 485 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 485 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 486 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 486 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 487 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 487 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 488 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 488 INVOKE loan.LoanUtil:getOpnAmt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 489 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 489 INVOKE loan.LoanUtil:getIntCompRate
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 490 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 490 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 492 INVOKE sched.SchedViewer:getSchedule,OUTPUT TABLE ttSchView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 494 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 494 INVOKE sched.SchedViewer:getPrnTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 495 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 495 INVOKE sched.SchedViewer:getOtherTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 496 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 496 INVOKE sched.SchedViewer:getIntTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 497 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 497 INVOKE sched.SchedViewer:getTotalTotal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 500 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 502 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 503 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 503 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 504 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 505 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 506 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 507 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 508 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 510 INVOKE Progress.Json.ObjectModel.JsonArray:add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 513 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 514 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 515 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 516 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 520 NEW indigo.src.XlsxReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 521 INVOKE indigo.src.XlsxReport:init,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 522 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 522 INVOKE indigo.src.XlsxReport:getResultObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 547 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 548 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 549 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 550 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 551 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 553 NEW sched.SchedManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 554 INVOKE sched.SchedManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 556 NEW indigo.src.ParEditController
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 557 INVOKE indigo.src.ParEditController:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 559 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 560 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 562 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 563 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 563 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 564 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 567 INVOKE indigo.src.ParEditController:previewSchedFreeze,INPUT date,INPUT date,INPUT decimal,OUTPUT TABLE ttSch
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 569 INVOKE indigo.src.ParEditController:previewSchedUnfreeze,INPUT date,INPUT date,OUTPUT TABLE ttSch
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 573 INVOKE indigo.src.ParEditController:previewSchedIntSkip,INPUT date,INPUT date,OUTPUT TABLE ttSch
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 575 INVOKE indigo.src.ParEditController:previewSchedSkip,INPUT date,INPUT date,OUTPUT TABLE ttSch
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 584 NEW sched.SchedViewer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 585 INVOKE sched.SchedViewer:formCrlSchedPreview,INPUT TABLE ttSch,OUTPUT TABLE ttSchView
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 587 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 589 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 591 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 592 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 593 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 595 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 597 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 600 RUN indigo/src/transformSchedTT.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 602 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 609 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 611 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 612 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 613 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 614 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 615 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 616 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 617 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 618 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 620 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 622 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 624 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 626 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 627 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 628 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 629 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 631 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 643 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 644 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 646 NEW loan.AdHocCollector
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 647 INVOKE loan.AdHocCollector:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 651 INVOKE loan.AdHocCollector:getTTLineFees,INPUT date,OUTPUT TABLE ttLineFees
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 653 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 656 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 658 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 659 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 660 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 661 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 663 INVOKE Progress.Json.ObjectModel.JsonArray:add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 666 INVOKE Progress.Json.ObjectModel.JsonObject:add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 679 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 681 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 682 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 684 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 686 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 687 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 688 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 689 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 691 NEW loan.AdHocManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 693 INVOKE loan.AdHocManager:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 694 INVOKE loan.AdHocManager:setChangeDate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 695 INVOKE loan.AdHocManager:changeLineFeeDebt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 706 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 707 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 708 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 710 NEW sched.SchedManager
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 711 INVOKE sched.SchedManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siLoanSchedule.p 713 INVOKE sched.SchedManager:unfreezeCompLine,INPUT character,INPUT date,INPUT logical

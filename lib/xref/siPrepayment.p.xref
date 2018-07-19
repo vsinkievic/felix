@@ -1,0 +1,619 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 14 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 16 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 17 STRING "payments" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 18 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 19 STRING "prepay" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 20 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 21 STRING "adHocCollector" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 22 STRING "productUtil" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 24 INCLUDE "repmnt/ttPrepayment.i &name=""ttPrepayment"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "ttPrepayment" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "compName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "priority" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "composite" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "totalDebt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "currentDebt" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPrepayment.i 1 STRING "addRem" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 25 INCLUDE "sched/ttSch.i &name=ttSch"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "ttSch" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "amt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "bal" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "days" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/sched/ttSch.i 1 STRING "sts" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 26 INCLUDE "indigo/src/ttSch.i &name=""ttSchFormatted"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "ttSchFormatted" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "number" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "drawdown" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "totalamt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "totalAll" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "moreComps" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "opnamt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "prnAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "intRate" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "intAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schComp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schCompRate" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttSch.i 1 STRING "schCompAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 27 INCLUDE "sys2plt/src/ttAcc.i &name=""ttAcc"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "ttAcc" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "acc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "crc" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "crcCode" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "bal" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/ttAcc.i 1 STRING "main" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 28 INCLUDE "indigo/src/ttAccTypes.i &name=""ttAccTypes"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccTypes.i 1 STRING "ttAccTypes" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccTypes.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/ttAccTypes.i 1 STRING "typeName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 39 STRING "GET-PREPAYMENT" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 43 STRING "RECALC-METHOD" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 47 STRING "RECALC-ACCBAL" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 51 STRING "RECALC-AMOUNT" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 55 STRING "SET-PREPAYMENT" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 59 STRING "GET-FULLPREPAYMENT-DATA" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 63 STRING "GET-REDUCEDDATE-DATA" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 67 STRING "GET-PREPAYMENT-SCHEDULE" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 72 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 82 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 83 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 84 STRING "vIsCRLProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 86 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 87 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 88 STRING "vConvAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 89 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 90 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 92 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 93 STRING "vObjAccountBalance" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 94 STRING "vObjAmount" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 95 STRING "vObjTerm" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 99 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 112 REFERENCE ttPrepayment TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 113 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 113 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 114 REFERENCE ttAccTypes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 120 STRING "ready" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 125 SEARCH ttAcc default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 127 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 127 STRING "Account '&1' is not available for repayment." 44 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 130 SEARCH ttAcc default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 131 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 135 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 136 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 137 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 138 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 138 STRING "ownerName" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 140 STRING "accountBalance" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 144 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 145 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 149 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 156 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 157 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 160 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 161 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 162 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 165 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 170 STRING "isReduceTerm" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 172 STRING "dueDate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 173 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 177 STRING "comment" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 181 STRING "prepay" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 183 STRING "There are fees which have unpaid obligations." 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 186 PROCEDURE getPrepayVal,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 186 STRING "GETPREPAYVAL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 190 STRING "vIterator" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 191 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 192 STRING "vAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 193 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 194 STRING "vConvAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 195 STRING "vIsCRLProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 197 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 198 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 199 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 201 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 202 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 204 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 205 STRING "POST.prepayment.methval" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 217 REFERENCE ttPrepayment TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 218 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 219 REFERENCE ttAccTypes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 225 SEARCH ttAcc default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 226 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 231 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 232 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 233 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 234 STRING "ownerName" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 235 STRING "accountBalance" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 239 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 240 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 244 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 248 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 251 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 252 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 255 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 256 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 257 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 260 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 263 STRING "isReduceTerm" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 264 STRING "dueDate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 265 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 266 PROCEDURE calcMethod,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 266 STRING "CALCMETHOD" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 269 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 270 STRING "vAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 271 STRING "vAccNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 272 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 273 STRING "vConvAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 274 STRING "vIsCRLProdType" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 276 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 277 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 278 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 280 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 282 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 283 STRING "POST.prepayment.methval" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 284 STRING "POST.prepayment.accnumber" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 286 INCLUDE "core/businessErr.i &id='REP0014'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 299 REFERENCE ttPrepayment TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 300 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 301 REFERENCE ttAccTypes TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 307 SEARCH ttAcc default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 309 REFERENCE ttAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 312 STRING "label" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 312 STRING "&1 (&2)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 313 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 314 STRING "currentAccount" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 317 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 318 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 319 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 320 STRING "ownerName" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 321 STRING "accountBalance" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 326 STRING "currencyCode" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 327 STRING "currencyID" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 328 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 332 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 339 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 342 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 343 STRING "isFullPrepayment" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 346 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 348 INCLUDE "core/businessErr.i &id='REP0018' &p1=""vAccNr"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0018" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 351 STRING "isReduceTerm" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 352 STRING "dueDate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 353 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 354 PROCEDURE calcAccBal,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 354 STRING "CALCACCBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 357 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 358 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 359 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 361 STRING "vConvAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 363 STRING "vTemp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 365 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 366 STRING "POST.prepayment.balcrc" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 367 STRING "POST.prepayment.amt" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 374 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 375 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 376 PROCEDURE calcAmt,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 376 STRING "CALCAMT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 379 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 380 STRING "vAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 381 STRING "vAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 382 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 383 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 384 STRING "vIsFullPrep" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 385 STRING "vAddRem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 387 STRING "loanHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 389 STRING "vOldHash" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 391 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 392 STRING "POST.prepayment.methval" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 393 STRING "POST.prepayment.accnumber" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 394 STRING "POST.prepayment.amt" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 395 STRING "POST.prepayment.duedate" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 396 STRING "POST.prepayment.isfullprepay" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 397 STRING "POST.prepayment.comment" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 401 STRING "POST.loanVersion" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 405 PROCEDURE setPrepayVal,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 405 STRING "SETPREPAYVAL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 408 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 409 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 410 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 411 STRING "vAddRem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 413 STRING "ctrl" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 414 STRING "schUtil" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 416 STRING "vSchedule" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 417 STRING "vScheduleLine" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 418 STRING "vAggregates" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 420 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 421 STRING "POST.prepayment.amt" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 422 STRING "POST.prepayment.duedate" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 424 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 428 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 432 REFERENCE ttSch TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 432 REFERENCE ttSchFormatted TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 435 SEARCH ttSchFormatted default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 438 STRING "dt" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 439 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 440 STRING "totalamt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 441 STRING "opnamt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 442 STRING "prnAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 443 STRING "intAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 444 STRING "intRate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 445 STRING "othAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 450 STRING "sched" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 454 STRING "prnAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 454 STRING "PRN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 455 STRING "intAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 455 STRING "INT" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 456 STRING "othAmt" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 456 STRING "PRN,INT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 457 STRING "totalamt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 459 STRING "aggregates" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 460 PROCEDURE getSchedulePreview,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 460 STRING "GETSCHEDULEPREVIEW" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 464 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 465 STRING "vIsFullPrep" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 466 STRING "vIsTermReduced" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 467 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 468 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 470 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 471 STRING "vConvAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 473 STRING "vTemp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 475 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 476 STRING "POST.prepayment.balcrc" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 477 STRING "POST.prepayment.isReduceTerm" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 478 STRING "POST.prepayment.isfullprepay" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 488 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 489 STRING "valueEQ" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 490 STRING "amount" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 493 STRING "isReduceTerm" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 494 STRING "dueDate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 495 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 496 PROCEDURE getFullPrepay,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 496 STRING "GETFULLPREPAY" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 499 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 500 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 501 STRING "vIsTermReduced" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 503 STRING "vDueDt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 505 STRING "vTemp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 507 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 508 STRING "POST.prepayment.amount" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 509 STRING "POST.prepayment.isReduceTerm" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 516 STRING "isReduceTerm" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 517 STRING "dueDate" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 518 STRING "term" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 519 PROCEDURE getReducedDate,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 519 STRING "GETREDUCEDDATE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 522 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 523 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 526 SEARCH ttAccTypes default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 528 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 529 STRING "value" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 532 STRING "methodlist" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 533 PROCEDURE fillAccTypes,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 533 STRING "FILLACCTYPES" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 536 STRING "bAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 538 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 539 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 542 SEARCH ttAcc default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 544 STRING "label" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 544 STRING "&1 (&2)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 545 STRING "number" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 548 STRING "accountList" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 549 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 549 PROCEDURE fillAccList,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 549 STRING "FILLACCLIST" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 552 STRING "vArrTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 553 STRING "vObjTemp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 556 SEARCH ttPrepayment default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 558 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 559 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 560 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 561 STRING "currdebt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 562 STRING "overdue" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 565 STRING "complist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 568 STRING "debt" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 569 STRING "currdebt" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 570 STRING "comptotals" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 571 PROCEDURE fillComponentList,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 571 STRING "FILLCOMPONENTLIST" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 574 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 576 STRING "crlBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 581 PROCEDURE syncCRLBalance,,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 581 STRING "SYNCCRLBALANCE" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 PROCEDURE cleanDataset,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 STRING "CLEANDATASET" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 STRING "dt" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 585 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 30 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 31 NEW indigo.src.Payments
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 32 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 33 NEW repmnt.Prepayment
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 34 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 35 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 36 NEW loan.AdHocCollector
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 77 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 78 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 99 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 101 INVOKE repmnt.Prepayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 102 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 103 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 104 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 104 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 105 INVOKE loan.AdHocCollector:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 107 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 112 INVOKE repmnt.Prepayment:getPrepayCompList,OUTPUT TABLE ttPrepayment
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 113 INVOKE indigo.src.Payments:getAccountData,INPUT character,INPUT character,OUTPUT TABLE ttAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 114 INVOKE indigo.src.Payments:getAccountTypes,OUTPUT TABLE ttAccTypes
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 116 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 117 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 118 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 120 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 120 INVOKE repmnt.Prepayment:getTotalDebtSum
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 127 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 127 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 127 INVOKE loan.LoanUtil:getRepAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 133 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 135 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 136 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 137 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 138 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 138 INVOKE indigo.src.Payments:getAccountOwner,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 140 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 142 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 144 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 145 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 149 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 151 INVOKE repmnt.Prepayment:getTotalDebtSum
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 152 INVOKE repmnt.Prepayment:getNewDueDate,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 153 INVOKE indigo.src.Payments:getConvAmtToAccCrc,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 156 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 157 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 160 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 161 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 162 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 165 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 168 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 170 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 172 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 172 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 173 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 177 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 181 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 183 INVOKE loan.AdHocCollector:getTotalUnassignedObligation
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 183 INVOKE core.NotifHolder:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 183 INVOKE core.NotifHolder:addWarning,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 204 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 205 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 207 INVOKE repmnt.Prepayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 208 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 209 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 210 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 210 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 212 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 217 INVOKE repmnt.Prepayment:getPrepayCompList,OUTPUT TABLE ttPrepayment
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 218 INVOKE indigo.src.Payments:getAccountData,INPUT character,INPUT character,OUTPUT TABLE ttAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 219 INVOKE indigo.src.Payments:getAccountTypes,OUTPUT TABLE ttAccTypes
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 221 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 222 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 223 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 230 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 231 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 232 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 233 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 234 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 234 INVOKE indigo.src.Payments:getAccountOwner,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 235 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 238 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 239 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 240 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 244 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 246 INVOKE indigo.src.Payments:getFullPrepayAmt,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 247 INVOKE indigo.src.Payments:getPrepayReducedDate,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 248 INVOKE indigo.src.Payments:getConvAmtToAccCrc,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 251 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 252 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 255 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 256 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 257 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 260 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 262 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 263 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 264 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 264 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 265 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 282 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 283 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 284 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 289 INVOKE repmnt.Prepayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 290 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 291 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 292 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 292 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 294 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 299 INVOKE repmnt.Prepayment:getPrepayCompList,OUTPUT TABLE ttPrepayment
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 300 INVOKE indigo.src.Payments:getAccountData,INPUT character,INPUT character,OUTPUT TABLE ttAcc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 301 INVOKE indigo.src.Payments:getAccountTypes,OUTPUT TABLE ttAccTypes
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 303 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 304 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 305 INVOKE loan.LoanUtil:getDueDt
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 311 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 312 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 313 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 314 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 316 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 317 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 318 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 319 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 320 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 320 INVOKE indigo.src.Payments:getAccountOwner,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 321 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 324 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 326 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 327 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 328 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 332 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 334 INVOKE indigo.src.Payments:getFullPrepayAmt,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 335 INVOKE indigo.src.Payments:getPrepayReducedDate,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 336 INVOKE indigo.src.Payments:getConvAmtToAccCrc,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 339 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 342 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 343 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 346 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 350 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 351 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 352 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 352 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 353 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 365 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 366 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 367 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 369 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 371 INVOKE indigo.src.Payments:getConvAmtToAccCrc,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 373 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 374 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 375 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 388 NEW loan.LoanHashCalculator
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 391 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 392 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 393 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 394 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 395 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 396 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 397 INVOKE indigo.src.JsonReader:getChar,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 399 INVOKE repmnt.Prepayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 401 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 402 INVOKE loan.LoanHashCalculator:checkChanges,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 404 INVOKE repmnt.Prepayment:prepayLoan,INPUT decimal,INPUT character,INPUT character,INPUT date,INPUT logical,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 420 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 421 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 422 INVOKE indigo.src.JsonReader:getDate,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 426 NEW indigo.src.ParEditController
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 427 INVOKE indigo.src.ParEditController:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 428 INVOKE indigo.src.ParEditController:previewSchedPrepay,INPUT decimal,INPUT date,OUTPUT TABLE ttSch
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 430 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 431 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 432 RUN indigo/src/transformSchedTT.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 434 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 436 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 438 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 439 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 440 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 441 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 442 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 443 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 444 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 445 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 447 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 450 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 452 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 454 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 454 INVOKE sched.SchedUtil:getSumAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 455 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 455 INVOKE sched.SchedUtil:getSumAmt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 456 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 456 INVOKE sched.SchedUtil:getSumAmtOther,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 457 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 457 INVOKE sched.SchedUtil:getSumAmtOther,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 459 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 475 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 476 INVOKE indigo.src.JsonReader:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 477 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 478 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 480 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 482 INVOKE indigo.src.Payments:getFullPrepayAmt,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 483 INVOKE indigo.src.Payments:getPrepayReducedDate,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 484 INVOKE indigo.src.Payments:getConvAmtToAccCrc,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 487 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 488 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 489 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 490 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 492 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 493 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 494 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 494 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 495 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 507 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 508 INVOKE indigo.src.JsonReader:getDec,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 509 INVOKE indigo.src.JsonReader:getLog,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 511 INVOKE indigo.src.Payments:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 513 INVOKE indigo.src.Payments:getPrepayReducedDate,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 515 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 516 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 517 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 517 INVOKE core.IsoFormat:toString,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 518 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 525 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 527 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 528 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 529 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 530 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 532 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 541 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 543 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 544 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 545 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 546 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 548 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 555 NEW Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 557 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 558 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 559 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 560 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 561 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 562 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 563 INVOKE Progress.Json.ObjectModel.JsonArray:Add,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 565 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 567 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 568 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 568 INVOKE repmnt.Prepayment:getTotalDebtSum
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 569 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 569 INVOKE repmnt.Prepayment:getCurrDebtSum
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 570 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 578 NEW trx.CrlineBalMan
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 579 INVOKE trx.CrlineBalMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPrepayment.p 580 INVOKE trx.CrlineBalMan:syncCrlineBal

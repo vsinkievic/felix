@@ -1,0 +1,172 @@
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 19 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 20 STRING "pError" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 22 INCLUDE bf/bfapi.i
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 11 STRING "bfapi-last-ping" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 14 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 15 STRING "pvalue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 STRING "batchframe-get-par" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 16 PUBLISH "batchframe-get-par "
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 PRIVATE-FUNCTION bf-get-par,character,INPUT pname CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 18 STRING "BF-GET-PAR" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 24 STRING "keep-running" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 25 STRING "dt-now" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 26 STRING "iv" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 28 STRING "milliseconds" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 STRING "batchframe-ping" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 35 PUBLISH "batchframe-ping "
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 PRIVATE-FUNCTION bf-ping,logical,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 40 STRING "BF-PING" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "lbl" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 43 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 44 STRING "*BF* &1 &2" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 PRIVATE-FUNCTION bf-msg,integer,INPUT lbl CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 45 STRING "BF-MSG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 48 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 49 STRING "*BF* ERR" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 PRIVATE-FUNCTION bf-err,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 50 STRING "BF-ERR" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 53 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 54 STRING "*BF* WARN" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 PRIVATE-FUNCTION bf-warn,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 55 STRING "BF-WARN" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 58 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 59 STRING "*BF* LOG" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 PRIVATE-FUNCTION bf-log,integer,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 60 STRING "BF-LOG" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 64 STRING "*BF* EXIT DONE" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 PRIVATE-FUNCTION bf-success,integer,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 65 STRING "BF-SUCCESS" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "exit-state" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 71 STRING "msg" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 72 STRING "*BF* EXIT" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 PRIVATE-FUNCTION bf-exit,integer,INPUT exit-state CHARACTER,INPUT msg CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/bf/bfapi.i 73 STRING "BF-EXIT" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 24 STRING "vBankDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 25 STRING "vProd" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 26 STRING "vAllProd" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 27 STRING "vMustClose" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 28 STRING "vLoanCnt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 29 STRING "vCurrLoan" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 31 STRING "Cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 32 STRING "PlatonConnect" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 33 STRING "BalUpdater" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 34 STRING "DebtHis" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 35 STRING "AcrGen" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 36 STRING "rateMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 37 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 38 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 39 STRING "provMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 40 STRING "commToProf" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 41 STRING "stsMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 42 STRING "restMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 43 STRING "offBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 44 STRING "settlementDt" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 63 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 63 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 63 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 64 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 66 STRING "Error" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 69 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 71 ACCESS indigo.loan ddate 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 75 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 75 STRING "auto-int-rate-chg" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 77 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 81 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 81 STRING "auto-update-comp-rate" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 83 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 87 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 90 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 90 STRING "auto-int-acr" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 92 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 95 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 99 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 99 STRING "auto-update-offbal" 18 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 101 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 105 ACCESS indigo.loan sts 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 105 STRING "auto-book" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 107 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 111 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 114 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 114 STRING "chg-prov-amt" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 116 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 121 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 124 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 124 STRING "chg-loan-sts" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 126 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 132 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 132 STRING "chg-rest-mark" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 134 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 139 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 139 STRING "chg-settlement-dt" 17 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 141 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 146 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 150 STRING "Error from PLATON: &1" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 151 STRING "Error from PLATON: &1" 21 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 154 ACCESS indigo.loan ddate 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 154 UPDATE indigo.loan ddate
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 157 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 158 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 160 STRING "Business error for loan &1: (&2)" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 162 STRING "ABL error for loan &1: (&2)" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 46 NEW acr.AcrGen
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 47 NEW acr.BalUpdater
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 48 NEW dbt.DebtHistory
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 49 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 50 NEW rate.RateManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 51 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 52 NEW ops.ProvAmtManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 53 NEW trx.CommToProfit
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 54 NEW core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 55 NEW mark.RestManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 56 NEW trx.OffBal
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 57 NEW loan.SettlementDateManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 59 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 60 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 75 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 77 INVOKE rate.RateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 78 INVOKE rate.RateManager:autoRateChange
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 81 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 83 INVOKE rate.RateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 84 INVOKE rate.RateManager:autoRateChangeByRange
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 87 INVOKE dbt.DebtHistory:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 88 INVOKE dbt.DebtHistory:saveDebtHist
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 90 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 92 INVOKE acr.BalUpdater:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 93 INVOKE acr.BalUpdater:updAll,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 95 INVOKE acr.AcrGen:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 96 INVOKE acr.AcrGen:generate,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 99 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 101 INVOKE trx.OffBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 102 INVOKE trx.OffBal:updateOffBal
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 105 INVOKE core.StsUtil:canProcess,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 107 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 108 INVOKE trx.Book:autoBook
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 111 INVOKE trx.CommToProfit:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 112 INVOKE trx.CommToProfit:moveCommToProf
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 114 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 116 INVOKE ops.ProvAmtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 117 INVOKE ops.ProvAmtManager:recalcAssesstMeth
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 118 INVOKE ops.ProvAmtManager:cancelProvOnClose
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 121 RUN trx/saveOpBalHist.p
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 124 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 126 INVOKE core.StsManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 127 INVOKE core.StsManager:setForceMode,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 128 INVOKE core.StsManager:setLoanSts
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 132 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 134 INVOKE mark.RestManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 135 INVOKE mark.RestManager:autoUpdateRest
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 139 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 141 INVOKE loan.SettlementDateManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 142 INVOKE loan.SettlementDateManager:updateSettlementDt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 146 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 147 INVOKE loan.LoanManager:getPltLoan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 147 RUN sys2plt/api/v1/clsPltLoan.p
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 151 NEW Progress.Lang.AppError,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 160 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 160 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 162 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p /u1/env/bankcp/indigo/svn-trunk/system/loan/eodOneLoan.p 165 DELETE-INSTANCE Progress.Lang.Error

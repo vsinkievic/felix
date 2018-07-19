@@ -1,0 +1,94 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 9 INCLUDE indigo/src/siPL.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 21 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 22 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 23 STRING "pIpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 24 STRING "pOpar" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 25 STRING "vOMsg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 27 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 28 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 29 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 30 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 32 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 33 STRING "webRequest" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 43 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 46 STRING "pPageName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 47 STRING "pParams" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 STRING "redirect" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 STRING "rparams" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 PROCEDURE doRedirect,,INPUT pPageName CHARACTER,INPUT pParams CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 53 STRING "DOREDIRECT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 11 STRING "vBankDay" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 12 STRING "vLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 14 STRING "cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 19 STRING "GET.lid" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 22 STRING "GET-REPORT-LOAN-DETAILS" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 27 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 36 STRING "vFileName" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 37 STRING "vProdID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 38 STRING "vReportTemplateName" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 40 STRING "loanDetailsReport" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 41 STRING "crlDetailsReport" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 42 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 43 STRING "report" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 44 STRING "vFile" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 45 STRING "productUtil" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 54 STRING "LON" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 54 STRING "XlsLoanDetails" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 56 STRING "XlsCrlDetails" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 61 STRING "XlsLoanDetails" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 75 STRING "&1_&2.xlsx" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 75 STRING "99999999" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 78 STRING "content" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 79 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 80 STRING "disposition" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 80 STRING "attachment" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 81 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 81 STRING "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 65 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 83 STRING "file" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 84 PROCEDURE getLoanDetailsInfo,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 84 STRING "GETLOANDETAILSINFO" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 35 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 36 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 37 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 39 NEW indigo.src.WebRequest
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 41 INVOKE indigo.src.JsonReader:init,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 50 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 51 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siPL.i 55 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 16 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 17 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 17 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 19 INVOKE indigo.src.JsonReader:getInt64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 32 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 47 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 48 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 49 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 51 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 52 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 54 INVOKE setup.ProductUtil:getProdType
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 58 NEW indigo.src.XlsxReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 59 INVOKE indigo.src.XlsxReport:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 63 NEW indigo.src.LoanDetailsReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 64 INVOKE indigo.src.LoanDetailsReport:init,INPUT indigo.src.XlsxReport,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 65 INVOKE indigo.src.LoanDetailsReport:prepareData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 66 INVOKE indigo.src.LoanDetailsReport:getReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 69 NEW indigo.src.CrlDetailsReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 70 INVOKE indigo.src.CrlDetailsReport:init,INPUT indigo.src.XlsxReport,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 71 INVOKE indigo.src.CrlDetailsReport:prepareData
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 72 INVOKE indigo.src.CrlDetailsReport:getReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 75 INVOKE loan.LoanUtil:getLoanNumber
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 77 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 78 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT longchar
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 78 INVOKE indigo.src.XlsxReport:generateReportAsBase64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 79 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 80 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 81 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siReportLoanDetails.p 83 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject

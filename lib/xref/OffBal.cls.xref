@@ -1,0 +1,106 @@
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 12 CLASS trx.OffBal,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 12 STRING "trx.OffBal" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 13 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 14 STRING "prBankDt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 15 STRING "prChangeDay" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 16 STRING "prMethod" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 16 STRING "OFFBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 19 STRING "acrBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 20 STRING "loanLimitUtil" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 21 STRING "productUtil" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 22 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 23 STRING "limits" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 24 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 25 STRING "book" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 35 CONSTRUCTOR PUBLIC,,,,OffBal,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 35 STRING "OFFBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 38 DESTRUCTOR PUBLIC,,,,OffBal,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 38 STRING "OFFBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 45 STRING "pDate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 46 INCLUDE "core/businessErr.i &id='LON0044' &p1=loan.opndt"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan opndt 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 53 METHOD PUBLIC,,,,,setChangeDate,void,INPUT pDate DATE
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 53 STRING "SETCHANGEDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 58 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 59 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 60 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 60 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 62 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 62 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 72 STRING "loan.lid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 75 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 75 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 80 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 81 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 82 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 82 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 84 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLoan"
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 84 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 87 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 88 METHOD PUBLIC,,,,,init,void,INPUT pLoan CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 88 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 95 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 95 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 95 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 95 ACCESS indigo.loancomp method 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 95 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 98 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 101 METHOD PUBLIC,,,,,updateOffBal,void,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 101 STRING "UPDATEOFFBAL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 109 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 111 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 111 ACCESS indigo.loancomp method 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 111 SEARCH indigo.loancomp FK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 118 METHOD PUBLIC,,,,,getOffBal,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 118 STRING "GETOFFBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 125 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 127 METHOD PUBLIC,,,,,getOffBal,decimal,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 127 STRING "GETOFFBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 129 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 131 STRING "GETBAL" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 140 STRING "GETUNUSEDBALANCE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 28 NEW acr.AcrBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 29 NEW loan.LoanLimitUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 30 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 31 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 32 NEW lim.Limits
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 33 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 34 NEW trx.Book
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 46 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 66 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 66 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 69 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 70 INVOKE loan.LoanLimitUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 71 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 71 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 72 INVOKE lim.Limits:init,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 73 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 74 INVOKE trx.Book:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 87 INVOKE trx.OffBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 98 INVOKE acr.AcrBal:init,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 99 INVOKE acr.AcrBal:setAmt,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 99 INVOKE trx.OffBal:getOffBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 99 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 114 INVOKE trx.OffBal:getOffBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 114 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 126 INVOKE trx.OffBal:getUnusedBalance
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 126 INVOKE trx.OffBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 130 INVOKE trx.TrxBal:getBal,INPUT character,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 134 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 136 INVOKE lim.Limits:loadLimits
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 137 INVOKE lim.Limits:getApprovedLimit
+/u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls /u1/env/bankcp/indigo/svn-trunk/system/trx/OffBal.cls 137 INVOKE loan.LoanLimitUtil:getGuaranteeAmount

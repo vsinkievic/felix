@@ -1,0 +1,261 @@
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 20 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 22 CLASS loan.Disbursement,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 22 STRING "loan.Disbursement" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 23 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 24 STRING "prBankDay" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 25 STRING "loanMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 26 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 27 STRING "issFee" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 28 STRING "repay" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 29 STRING "stsMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 30 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 32 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 41 CONSTRUCTOR PUBLIC,,,,Disbursement,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 41 STRING "DISBURSEMENT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 49 DESTRUCTOR PUBLIC,,,,Disbursement,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 49 STRING "DISBURSEMENT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 57 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 58 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 58 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 60 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 60 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 70 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 70 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 78 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 79 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 79 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 81 INCLUDE "core/businessErr.i &id='LON0008' &p1=pLon"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 81 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 84 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 85 METHOD PUBLIC,,,,,init,void,INPUT pLon CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 85 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pDisbAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pDisbAccType" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pDisbAcc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pDisbCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pIssFeeAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 99 STRING "pIssFeeAcc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 113 STRING "ISSFEE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 115 METHOD PUBLIC,,,,,issue,void,INPUT pDisbAmt DECIMAL,INPUT pDisbAccType CHARACTER,INPUT pDisbAcc CHARACTER,INPUT pDisbCrc INTEGER,INPUT pIssFeeAmt DECIMAL,INPUT pIssFeeAcc CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 115 STRING "ISSUE" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 124 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 125 STRING "issFee" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 126 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 128 STRING "vAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 129 STRING "vIssFeeAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 130 STRING "vAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 143 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 150 METHOD PUBLIC,,,,,issue,void,
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 150 STRING "ISSUE" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pDisbAmt" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pDisbAccType" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pDisbAcc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pDisbCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pIssFeeAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 163 STRING "pIssFeeAcc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 165 STRING "vNotIssAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 166 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 167 STRING "vAccBalConv" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 168 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 169 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 170 STRING "vClnId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 171 STRING "vRegNr" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 172 STRING "custAccMng" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 174 STRING "conv" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 177 STRING "schedUtil" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 181 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 182 STRING "clnInfo" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 189 STRING "product" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 189 STRING "product" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 189 ACCESS indigo.product id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 189 ACCESS indigo.loan product 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 189 SEARCH indigo.product UQ_product_id
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 191 STRING "prodgrp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 191 STRING "prodgrp" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 191 ACCESS indigo.prodgrp id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 191 ACCESS indigo.product prodgrp 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 191 SEARCH indigo.prodgrp UQ_prodgrp_id
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 194 STRING "prodtype" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 194 ACCESS indigo.prodtype prodtype 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 194 STRING "LON" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 194 SEARCH indigo.prodtype PK_prodtype
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 196 INCLUDE "core/businessErr.i &id='LON0028' &p1='LON'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 196 ACCESS indigo.prodgrp prodtype 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 196 ACCESS indigo.prodtype id 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0028" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 199 INCLUDE "core/businessErr.i &id='LON0025' &p1=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0025" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 202 INCLUDE "core/businessErr.i &id='PST0083' &p1=vRegNr"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0083" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 205 INCLUDE "core/businessErr.i &id='LON0078'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0078" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 208 INCLUDE "core/businessErr.i &id='SCH0029'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "SCH0029" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 211 INCLUDE "core/businessErr.i &id='LON0024' &p1=pDisbAccType"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0024" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 216 INCLUDE "core/businessErr.i &id='LON0104'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 216 STRING "SINGLE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0104" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 220 INCLUDE "core/businessErr.i &id='LON0022' &p1=loan.loan"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0022" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 223 INCLUDE "core/businessErr.i &id='LON0023' &p1=loan.loan &p2=vNotIssAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0023" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 226 INCLUDE "core/businessErr.i &id='LON0098'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 226 STRING "EXPRESS" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0098" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 237 STRING "from" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 241 INCLUDE "core/businessErr.i &id='LON0097'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 241 STRING "from" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0097" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 245 INCLUDE "core/businessErr.i &id='LON0097'"
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "LON0097" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 252 STRING "VALIDATEISSUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 263 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 263 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 263 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 263 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 264 STRING "sched" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 266 STRING "vNotIssAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 267 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 268 STRING "vAgrDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 269 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 270 STRING "vAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 271 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 273 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 274 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 274 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 275 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 277 STRING "valProd" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 278 STRING "lovMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 283 STRING "disburse" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 288 STRING "Kredīta izsniegšana saskaņā ar &1 Kredīta līgumu Nr.&2 - &3 &4" 68 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 288 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 288 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 303 STRING "ISSUELOAN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 315 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 315 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 315 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 315 STRING "pCrc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 315 STRING "pRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 316 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 325 STRING "ISSUETRX" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 35 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 36 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 37 NEW loan.IssuingFee
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 38 NEW repmnt.Repayment
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 39 NEW core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 40 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 44 DELETE-INSTANCE loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 45 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 46 DELETE-INSTANCE loan.IssuingFee
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 47 DELETE-INSTANCE repmnt.Repayment
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 48 DELETE-INSTANCE core.StsManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 64 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 64 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 65 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 66 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 67 INVOKE loan.IssuingFee:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 68 INVOKE repmnt.Repayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 69 INVOKE core.StsManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 84 INVOKE loan.Disbursement:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 105 INVOKE loan.Disbursement:validateIssue,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 106 INVOKE loan.Disbursement:issueLoan,INPUT decimal,INPUT character,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 107 INVOKE loan.IssuingFee:setIssuingFee
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 113 INVOKE repmnt.Repayment:repayLoan,INPUT decimal,INPUT character,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 132 NEW loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 133 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 134 NEW loan.IssuingFee
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 135 INVOKE loan.LoanManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 136 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 137 INVOKE loan.IssuingFee:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 139 INVOKE loan.LoanManager:getNotIssAmt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 140 INVOKE loan.LoanUtil:getIssAcc
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 141 INVOKE loan.IssuingFee:getIssuingFeeRem
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 143 INVOKE loan.Disbursement:issue,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 146 DELETE-INSTANCE loan.LoanManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 147 DELETE-INSTANCE loan.IssuingFee
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 148 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 175 NEW core.Conv
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 178 NEW sched.SchedUtil
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 179 INVOKE sched.SchedUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 183 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 184 NEW core.Cln,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 185 NEW core.ClnInfo
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 186 INVOKE core.ClnInfo:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 187 INVOKE core.ClnInfo:getCode
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 199 INVOKE loan.LoanUtil:isLoanSigned
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 202 INVOKE core.Cln:isClnTrusted
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 205 INVOKE loan.LoanUtil:getDisbDt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 208 INVOKE sched.SchedUtil:getFirstPayDay
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 211 INVOKE loan.LoanUtil:getIssAccTypes
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 214 INVOKE loan.LoanManager:getNotIssAmt,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 216 INVOKE loan.LoanUtil:getDisbType
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 216 INVOKE loan.LoanManager:getIssAmt
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 226 INVOKE loan.LoanUtil:getProduct
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 230 NEW sys2plt.src.CustAccManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 231 INVOKE sys2plt.src.CustAccManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 232 INVOKE sys2plt.src.CustAccManager:isAccValid
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 234 INVOKE sys2plt.src.CustAccManager:getPltAccBal,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 234 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 235 INVOKE sys2plt.src.CustAccManager:getPltAccRate,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 235 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 237 INVOKE core.Conv:convToCrc,INPUT decimal,INPUT decimal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 241 INVOKE core.Conv:convToCrc,INPUT decimal,INPUT decimal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 250 DELETE-INSTANCE core.Conv
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 280 NEW setup.DbParValidator
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 281 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 283 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 285 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 286 INVOKE loan.LoanUtil:getContract
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 287 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 287 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 290 INVOKE loan.Disbursement:issueTrx,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 292 INVOKE core.StsManager:setLoanSts
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 294 NEW sched.SchedManager
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 295 INVOKE sched.SchedManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 296 INVOKE sched.SchedManager:regenOnIssue
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 297 INVOKE sched.SchedManager:saveSched
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 300 DELETE-INSTANCE setup.iParValidator
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 301 DELETE-INSTANCE setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 318 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 319 INVOKE trx.GenTrx:init,INPUT int64,INPUT character,INPUT decimal,INPUT character,INPUT character,INPUT integer,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 319 INVOKE loan.LoanUtil:getPrincipalCode
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 320 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls /u1/env/bankcp/indigo/svn-trunk/system/loan/Disbursement.cls 323 DELETE-INSTANCE trx.GenTrx

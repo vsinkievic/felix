@@ -1,0 +1,856 @@
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 15 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 17 CLASS setup.DbLoanParValidator,,IMPLEMENTS setup.iParValidator,USE-WIDGET-POOL,,,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 17 STRING "setup.DbLoanParValidator" 24 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 17 STRING "setup.iParValidator" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 19 STRING "limitValidator" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 19 DATA-MEMBER PROTECTED,,,limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 20 STRING "lovValidator" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 20 DATA-MEMBER PROTECTED,,,lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 21 STRING "params" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 21 DATA-MEMBER PROTECTED,,,params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 22 STRING "resolver" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 22 DATA-MEMBER PROTECTED,,,resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 30 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 30 UPDATE DATA-MEMBER setup.DbLoanParValidator:limitValidator 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 31 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 31 UPDATE DATA-MEMBER setup.DbLoanParValidator:lovValidator 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 32 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 32 UPDATE DATA-MEMBER setup.DbLoanParValidator:params 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 33 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 33 UPDATE DATA-MEMBER setup.DbLoanParValidator:resolver 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 34 CONSTRUCTOR PUBLIC,,,,DbLoanParValidator,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 34 STRING "DBLOANPARVALIDATOR" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 37 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 37 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 39 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 39 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 41 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 41 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 43 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 43 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 45 DESTRUCTOR PUBLIC,,,,DbLoanParValidator,void,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 45 STRING "DBLOANPARVALIDATOR" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 47 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 47 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 48 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 48 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 49 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 52 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 52 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 54 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 56 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 57 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 63 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 66 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 66 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 68 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 68 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 69 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 69 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 70 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 73 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 73 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 75 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 77 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 78 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 84 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 87 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 87 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 89 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 89 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 90 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 90 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 91 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 94 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 94 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 96 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 98 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 99 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 105 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 108 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 108 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 112 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 112 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 113 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 113 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 114 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 117 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 117 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 119 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 121 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 122 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 128 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 131 METHOD PUBLIC,,,,,isValid,logical,INPUT pParameterId INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 131 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 133 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 133 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 133 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 134 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 134 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 135 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 138 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 138 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 138 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 141 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 143 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 144 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 150 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 153 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 153 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 155 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 155 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 155 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 156 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 158 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 158 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 160 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 160 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 163 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 164 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 164 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 166 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 166 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 166 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 167 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 167 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 168 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 171 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 171 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 171 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 174 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 176 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 177 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 183 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 186 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 186 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 188 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 188 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 188 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 189 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 191 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 191 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 193 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 193 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 196 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 197 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 197 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 199 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 199 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 199 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 200 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 200 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 201 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 204 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 204 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 204 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 207 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 209 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 210 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 216 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 219 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 219 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 221 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 221 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 221 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 222 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 224 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 224 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 226 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 226 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 229 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 230 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 230 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 232 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 232 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 232 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 233 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 233 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 234 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 237 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 237 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 237 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 240 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 242 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 243 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 249 STRING "e" 1 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 252 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 252 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 254 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 254 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 254 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 255 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 257 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 257 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 259 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 259 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 262 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 263 METHOD PUBLIC,,,,,isValid,logical,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 263 STRING "ISVALID" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 265 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 265 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 266 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 266 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 267 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 269 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 269 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 271 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 273 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 274 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 278 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 278 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 280 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 280 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 281 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 281 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 282 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 284 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 284 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 286 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 288 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 289 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 293 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 293 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 294 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 294 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 295 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 295 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 296 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 298 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 298 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 300 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 302 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 303 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 307 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 307 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 308 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 308 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 309 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 309 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 310 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 312 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 312 SEARCH indigo.parset PK_parset
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 314 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 316 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 317 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 321 METHOD PUBLIC,,,,,validateValue,void,INPUT pParameterId INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 321 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 323 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 323 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 323 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 324 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 324 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 325 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 327 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 327 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 327 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 330 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 332 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 333 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 337 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 337 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 339 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 339 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 339 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 340 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 342 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 342 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 344 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 344 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 347 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 348 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 348 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 350 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 350 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 350 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 351 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 351 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 352 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 354 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 354 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 354 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 357 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 359 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 360 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 364 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 364 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 366 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 366 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 366 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 367 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 369 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 369 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 371 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 371 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 374 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 375 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 375 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 377 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 377 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 377 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 378 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 378 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 379 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 381 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 381 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 381 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 384 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 386 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 387 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 391 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 391 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 393 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 393 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 393 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 394 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 396 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 396 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 398 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 398 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 401 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 402 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 402 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 404 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 404 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 404 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 405 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 405 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 406 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 408 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 408 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 408 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 411 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 413 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 414 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 418 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar INT64,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 418 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 420 STRING "pParentID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 420 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 420 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 421 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 423 ACCESS indigo.par par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 423 SEARCH indigo.par PK_par
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 425 INCLUDE "core/businessErr.i &id='PST0015' &p1=pPar"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 425 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 428 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 429 METHOD PUBLIC,,,,,validateValue,void,INPUT pParentID INT64,INPUT pPar CHARACTER,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 429 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 431 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 432 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 433 STRING "vParamDesc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 435 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 435 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 438 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 438 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 438 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 440 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 442 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 444 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""CHARACTER""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 444 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 444 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CHARACTER" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 448 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 451 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 453 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 453 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 454 INCLUDE "core/businessErr.i &id='PST0051' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 457 ACCESS indigo.parset isreadonly 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 457 ACCESS indigo.parset chval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 459 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 459 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 460 INCLUDE "core/businessErr.i &id='PST0052' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 463 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 464 STRING "VALUE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 467 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 469 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 469 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 471 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 471 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 472 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 476 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 478 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 478 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 482 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 482 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 483 INCLUDE "core/businessErr.i &id='PST0030' &p1=parset.valproc &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 486 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 486 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 488 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 489 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 490 STRING "vParamDesc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 492 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 492 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 495 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 495 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 495 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 497 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 499 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 501 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""INTEGER""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 501 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 501 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "INTEGER" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 505 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 508 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 510 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 510 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 511 INCLUDE "core/businessErr.i &id='PST0051' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 514 ACCESS indigo.parset isreadonly 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 514 ACCESS indigo.parset inval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 516 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 516 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 517 INCLUDE "core/businessErr.i &id='PST0052' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 520 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 521 STRING "VALUE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 524 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 526 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 526 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 528 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 528 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 529 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 533 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 535 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 535 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 539 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 539 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 540 INCLUDE "core/businessErr.i &id='PST0030' &p1=parset.valproc &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 543 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue INTEGER
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 543 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 545 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 546 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 547 STRING "vParamDesc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 549 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 549 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 553 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 553 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 553 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 555 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 557 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 559 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""DECIMAL""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 559 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 559 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DECIMAL" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 563 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 566 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 568 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 568 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 569 INCLUDE "core/businessErr.i &id='PST0051' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 572 ACCESS indigo.parset isreadonly 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 572 ACCESS indigo.parset deval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 574 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 574 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 575 INCLUDE "core/businessErr.i &id='PST0052' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 578 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 579 STRING "VALUE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 582 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 584 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 584 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 586 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 586 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 587 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 591 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 593 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 593 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 597 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 597 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 598 INCLUDE "core/businessErr.i &id='PST0030' &p1=parset.valproc &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 601 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue DECIMAL
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 601 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "parset" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 604 STRING "pValue" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 605 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 606 STRING "vParamDesc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 608 INCLUDE "core/businessErr.i &id='PST0015' &p1='""record not available or""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 608 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "record not available or" 23 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 612 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 612 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 612 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 614 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 616 INCLUDE "core/businessErr.i &id='PST0015' &p1=parset.par"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 618 INCLUDE "core/businessErr.i &id='PST0044' &p1=parset.par &p2=par.dtype &p3='""DATE""'"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 618 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 618 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0044" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "DATE" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 622 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 625 ACCESS indigo.parset ismandatory 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 627 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 627 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 628 INCLUDE "core/businessErr.i &id='PST0051' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 631 ACCESS indigo.parset isreadonly 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 631 ACCESS indigo.parset dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 633 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 633 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 634 INCLUDE "core/businessErr.i &id='PST0052' &p1=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0052" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 637 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 638 STRING "VALUE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 641 STRING "GLS" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 643 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 643 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 645 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 645 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 646 INCLUDE "core/businessErr.i &id='PST0020' &p1=pValue &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0020" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 650 STRING "LIMITS" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 652 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 652 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 656 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 656 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 657 INCLUDE "core/businessErr.i &id='PST0030' &p1=parset.valproc &p2=vParamDesc"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.parset valproc 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 660 METHOD PROTECTED,,,,,validateValue,void,BUFFER parset indigo.parset,INPUT pValue DATE
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 660 STRING "VALIDATEVALUE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 662 STRING "pProduct" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 662 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 662 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 663 STRING "par" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 664 STRING "parset" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 664 STRING "parset" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 665 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 665 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 666 STRING "vParamDesc" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 667 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 669 ACCESS indigo.par id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 669 SEARCH indigo.par UQ_par_id
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 671 REFERENCE indigo.par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 673 INCLUDE "core/businessErr.i &id='PST0015' &p1=par.name"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.par name 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0015" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 676 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 676 SEARCH indigo.gls gls
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 678 INCLUDE "core/businessErr.i &id='PST0066' &p1=pKey"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 678 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0066" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 681 ACCESS indigo.parset prid 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 681 ACCESS indigo.parset par 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 681 SEARCH indigo.parset FK_parameter
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 684 REFERENCE indigo.parset 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 686 ACCESS DATA-MEMBER setup.DbLoanParValidator:resolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 687 INCLUDE "core/businessErr.i &id='PST0037' &p1=vStr"
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "PST0037" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 690 ACCESS indigo.par dtype 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 691 STRING "char" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 691 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 691 ACCESS indigo.gls chval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 693 STRING "date" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 693 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 693 ACCESS indigo.gls dtval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 695 STRING "int" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 695 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 695 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 697 STRING "dec" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 697 ACCESS indigo.parset id 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 697 ACCESS indigo.gls deval 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 700 METHOD PUBLIC,,,,,validateGLSValue,void,INPUT pProduct INT64,INPUT pPar INT64,INPUT pKey INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 700 STRING "VALIDATEGLSVALUE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 704 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 706 METHOD PUBLIC,,,,,getLimitValidator,setup.iLimitValidator,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 706 STRING "GETLIMITVALIDATOR" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 709 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 711 METHOD PUBLIC,,,,,getLovValidator,setup.iLovValidator,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 711 STRING "GETLOVVALIDATOR" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 714 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 715 METHOD PUBLIC,,,,,getParSet,setup.iParSet,
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 715 STRING "GETPARSET" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 717 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 718 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 719 METHOD PUBLIC,,,,,canBeNull,logical,INPUT pParameterId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 719 STRING "CANBENULL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 721 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 721 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 722 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 723 METHOD PUBLIC,,,,,canBeNull,logical,INPUT pParentId INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 723 STRING "CANBENULL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 725 STRING "pParameterId" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 726 ACCESS DATA-MEMBER setup.DbLoanParValidator:lovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 727 ACCESS DATA-MEMBER setup.DbLoanParValidator:limitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 728 METHOD PUBLIC,,,,,deleteSetup,void,INPUT pParameterId INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 728 STRING "DELETESETUP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 730 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 730 STRING "pPar" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 731 ACCESS DATA-MEMBER setup.DbLoanParValidator:params
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 732 METHOD PUBLIC,,,,,deleteSetup,void,INPUT pParentId INT64,INPUT pPar INT64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 732 STRING "DELETESETUP" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 29 INVOKE Progress.Lang.Object:Object
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 30 NEW setup.DbLimitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 31 NEW setup.DbLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 32 NEW setup.DbParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 33 NEW setup.DbResolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 37 DELETE-INSTANCE setup.iLimitValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 39 DELETE-INSTANCE setup.iLovValidator
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 41 DELETE-INSTANCE setup.iParSet
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 43 DELETE-INSTANCE setup.iResolver
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 56 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 60 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 77 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 81 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 98 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 102 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 121 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 125 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 143 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 147 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 163 INVOKE setup.DbLoanParValidator:isValid,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 176 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 180 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 196 INVOKE setup.DbLoanParValidator:isValid,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 209 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 213 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 229 INVOKE setup.DbLoanParValidator:isValid,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 242 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 246 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 262 INVOKE setup.DbLoanParValidator:isValid,INPUT int64,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 273 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 277 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 288 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 292 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 302 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 306 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 316 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 320 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 332 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 336 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 347 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 359 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 363 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 374 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 386 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 390 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 401 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 413 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 417 INVOKE setup.DbLoanParValidator:validateValue,BUFFER parset,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 428 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 453 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 459 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 469 INVOKE setup.iLovValidator:isValid,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 471 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 478 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 482 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 510 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 516 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 526 INVOKE setup.iLovValidator:isValid,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 528 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 535 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 539 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 568 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 574 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 584 INVOKE setup.iLovValidator:isValid,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 586 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 593 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 597 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 627 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 633 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 643 INVOKE setup.iLovValidator:isValid,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 645 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 652 INVOKE setup.iLimitValidator:validateValue,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 656 INVOKE setup.iResolver:getParSetDesc,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 686 INVOKE setup.iResolver:getParSetDesc,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 691 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 693 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT date
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 695 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 697 INVOKE setup.DbLoanParValidator:validateValue,INPUT int64,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 718 INVOKE setup.iParSet:canBeNull,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 722 INVOKE setup.iParSet:canBeNull,INPUT int64,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 726 INVOKE setup.iLovValidator:deleteLovLinks,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 727 INVOKE setup.iLimitValidator:deleteLimits,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 731 INVOKE setup.DbLoanParValidator:deleteSetup,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls /u1/env/bankcp/indigo/svn-trunk/system/setup/DbLoanParValidator.cls 731 INVOKE setup.iParSet:getParameterId,INPUT int64,INPUT int64

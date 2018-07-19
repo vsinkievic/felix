@@ -1,0 +1,715 @@
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 28 CLASS repmnt.Repayment,,,,,,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 28 STRING "repmnt.Repayment" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 29 INCLUDE "repmnt/ttPayments.i &visibility=""protected"" &name=""ttPayments"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "cmptype" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "composite" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "debtAmt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "payAmt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "payAccCrc" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "prior" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "parcomp" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "crcAcc" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "crcLoan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "rate" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 STRING "dbtTrx" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttPayments.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttPayments
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 30 INCLUDE "repmnt/ttCompList.i &visibility=""protected"" &name=""ttCompList"""
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "repay" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "currdbt" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "overdue" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "pri" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "priText" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/ttCompList.i 1 DATA-MEMBER PROTECTED,,TEMPTABLE,ttCompList
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 32 STRING "prLid" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 33 STRING "prDate" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 34 STRING "prAddRemark" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 35 STRING "loanUtil" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 36 STRING "currInfo" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 37 STRING "prDlqMode" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 38 STRING "prDlqId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 39 STRING "conv" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 46 CONSTRUCTOR PUBLIC,,,,Repayment,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 46 STRING "REPAYMENT" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 51 DESTRUCTOR PUBLIC,,,,Repayment,void,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 51 STRING "REPAYMENT" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 59 STRING "pLon" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 60 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 60 ACCESS indigo.loan loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 60 SEARCH indigo.loan UQ_loan
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 62 INCLUDE "core/businessErr.i &id='ACR0001' &p1=pLon"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 62 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ACR0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 65 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 66 METHOD PUBLIC,,,,,init,void,INPUT pLon CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 66 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 74 STRING "pLid" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 75 ACCESS indigo.loan lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 75 SEARCH indigo.loan PK_loan
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 77 INCLUDE "core/businessErr.i &id='ACR0001' &p1=pLid"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 77 REFERENCE indigo.loan 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ACR0001" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 82 METHOD PUBLIC,,,,,init,void,INPUT pLid INT64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 82 STRING "INIT" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 91 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 91 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 91 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 91 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 92 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 93 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 94 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 95 STRING "vRepayAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 96 STRING "vRepayAmtAccCrc" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 97 STRING "vAmtInLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 99 STRING "repay" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 110 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 111 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 111 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 112 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 112 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 113 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 113 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 131 METHOD PUBLIC,,,,,repayLoan,void,INPUT pAmt DECIMAL,INPUT pAccType CHARACTER,INPUT pAcc CHARACTER,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 131 STRING "REPAYLOAN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 141 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 141 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 142 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 143 STRING "vAccBalLoanCrc" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 144 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 145 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 146 STRING "vRepAmtSum" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 147 STRING "vAddRem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 149 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 151 STRING "repay" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 153 INCLUDE "core/businessErr.i &id='REP0011' &p1=pAccType"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0011" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 161 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 162 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 162 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 163 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 163 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 164 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 164 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 167 SEARCH DATA-MEMBER repmnt.Repayment:ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 169 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 169 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 171 INCLUDE "core/businessErr.i &id='REP0012' &p1=ttCompList.comp"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 171 REFERENCE ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 175 INCLUDE "core/businessErr.i &id='REP0002' &p1=vRepAmtSum &p2=pAcc"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0002" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 178 INCLUDE "core/businessErr.i &id='REP0013'"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 181 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 181 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 183 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 183 SEARCH DATA-MEMBER repmnt.Repayment:ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 188 INCLUDE "core/businessErr.i &id='REP0010' &p1=ttCompList.comp &p2=ttCompList.repay &p3=ttPayments.debtAmt"
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 188 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "REP0010" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 190 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 199 STRING "vRemainingAccBal" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 201 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 201 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 201 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 201 SORT-ACCESS ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 204 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 204 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 207 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 207 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 208 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 208 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 208 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 209 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 209 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 214 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 214 METHOD PUBLIC,,,,,repayLoan,void,INPUT pAccType CHARACTER,INPUT pAcc CHARACTER,INPUT ttCompList TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 214 STRING "REPAYLOAN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 223 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 224 STRING "vCompositeAmt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 226 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 227 STRING "ttCompList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 229 SEARCH DATA-MEMBER repmnt.Repayment:ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 230 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 240 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 249 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 249 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 249 STRING "RECALCPAYAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 259 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 259 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 259 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 259 STRING "pIsAmtLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 260 STRING "vCompositeAmt" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 262 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 264 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 274 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 282 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 282 STRING "RECALCPAYAMT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 290 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 290 STRING "pAccount" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 290 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 291 STRING "bPayments" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 292 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 293 STRING "vAccBalInLonCrc" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 294 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 295 STRING "vAmtCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 296 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 298 STRING "repay" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 306 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 306 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 308 REFERENCE ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 316 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 317 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 317 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 318 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 318 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 319 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 319 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 325 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 325 METHOD PUBLIC,,,,,repayLoan,void,INPUT pAccType CHARACTER,INPUT pAccount CHARACTER,INPUT pComp CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 325 STRING "REPAYLOAN" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 335 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 335 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 335 STRING "pComp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 335 STRING "pModified" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 335 STRING "pIsAmtLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 336 STRING "vAmtInAccCrc" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 337 STRING "vAmtInLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 338 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 340 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 357 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 372 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 373 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 378 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 379 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 380 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 383 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 384 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 385 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 390 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 392 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 394 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 399 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 405 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 405 STRING "CALCPAYAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 414 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 414 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 416 STRING "CALCPAYAMT" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 419 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 422 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 422 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 424 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 428 METHOD PUBLIC,,,,,getDebtSum,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 428 STRING "GETDEBTSUM" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 431 STRING "vSum" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 434 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 434 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 436 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 440 METHOD PUBLIC,,,,,getParDebtSum,decimal,
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 440 STRING "GETPARDEBTSUM" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 442 STRING "pAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 442 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 442 STRING "pConv" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 443 STRING "vSumAcc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 444 STRING "vSumLoan" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 445 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 450 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 450 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 450 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 450 SORT-ACCESS ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 453 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 462 METHOD PUBLIC,,,,,getParDebtSum,decimal,INPUT pAccBal DECIMAL,INPUT pAccCrc INTEGER,INPUT pConv LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 462 STRING "GETPARDEBTSUM" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 471 STRING "bloancomp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 471 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 472 STRING "bPayments" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 STRING "loancomp" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 STRING "loancomp" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 SEARCH indigo.loancomp FK_lid_cmptype
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 477 SORT-ACCESS indigo.loancomp pri
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 481 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 481 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 481 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 483 REFERENCE ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 483 CREATE DATA-MEMBER repmnt.Repayment:ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 486 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 486 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 486 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 487 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments cmptype TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 487 ACCESS indigo.loancomp cmptype 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 487 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments cmptype TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 488 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments composite TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 488 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 488 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments composite TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 489 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 489 ACCESS indigo.loancomp pri 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 489 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 490 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 490 ACCESS indigo.loancomp parcomp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 490 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 492 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments composite TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 492 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 494 ACCESS indigo.loancomp lid 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 494 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 494 ACCESS indigo.loancomp basecomp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 494 SEARCH indigo.loancomp PK_lcomp
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 497 ACCESS indigo.loancomp composite 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 497 REFERENCE indigo.loancomp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 497 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 497 ACCESS indigo.loancomp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 497 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 503 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 503 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 505 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 505 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 507 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 507 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 507 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 509 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 509 STRING "GETPRIOR" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 518 STRING "debtMan" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 519 STRING "trxBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 520 STRING "vParentAmt" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 522 STRING "bPayments" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 531 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments composite TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 534 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 534 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 534 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 537 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments composite TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 537 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 537 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 540 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 541 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 541 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 544 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 546 UPDATE DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 551 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 551 STRING "GETDEBTS" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 559 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 559 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 560 STRING "vPayerCif" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 561 STRING "vLoanCif" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 562 STRING "vColAgrNum" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 563 STRING "vIsGuarantor" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 564 STRING "trx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 565 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 566 STRING "dlqMan" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 571 STRING "CustomerAccount" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 588 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 588 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 588 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 588 SORT-ACCESS ttPayments prior TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 595 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments dbtTrx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 595 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAccCrc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 595 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 597 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 597 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 606 STRING "REPAYTRX" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 608 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 608 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 608 STRING "ttPayments" 10 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 609 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 610 STRING "vBorName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 611 STRING "vAgrDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 612 STRING "vAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 613 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 614 STRING "vAccCrcCode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 616 STRING "productUtil" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 625 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 626 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 628 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 STRING "PRN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 STRING "PRNWOFF" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 STRING "&1, kredīta atmaksa saskaņā ar &2 Kredīta līgumu Nr.&3 - &4 &5" 67 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 629 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "TECHINT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "INTOFF" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "INTWOFF" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "&1, procentu samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 - &4 &5" 67 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 634 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 641 STRING "ISSFEE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 643 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 643 STRING "Apkalpošanas un noformēšanas maksa saskaņā ar &1 Kredīta līgumu Nr.&2 - &3 &4" 84 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 643 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 643 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 647 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 647 STRING "Noformēšanas maksa saskaņā ar &1 Kredīta līgumu Nr.&2 - &3 &4" 67 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 647 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 647 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 651 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 651 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 651 STRING "&1, nokavējuma procentu samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 - &4 &5" 79 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 651 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 651 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 655 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 655 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 655 STRING "&1, līgumsoda samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 - &4 &5" 69 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 655 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 655 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 659 STRING "AMFEE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 659 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 659 STRING "&1, grozījumu noformēšanas maksas samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 – &4 &5" 93 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 659 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 659 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 663 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 663 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 663 STRING "&1, saistību maksas samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 – &4 &5" 77 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 663 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 663 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 669 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 669 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 671 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 671 STRING "&1, kurss 1 &2 = &3 &4" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 671 STRING "->>>>>>>>9.9999" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 674 STRING "&1. &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 678 STRING "GETTRXREM" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 689 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 689 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 689 STRING "ttPayments" 10 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 689 STRING "pColAgrNum" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 690 STRING "vRem" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 691 STRING "vBorName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 692 STRING "vAgrDate" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 693 STRING "vAgrNum" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 694 STRING "vLoanCrcCode" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 695 STRING "vAccCrcCode" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 701 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 702 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 704 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 STRING "PRN" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 STRING "PRNWOFF" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 STRING "Galvojuma līgums Nr. &1, &2, kredīta atmaksa saskaņā ar &3 Kredīta līgumu Nr. &4 – &5 &6" 96 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 705 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "INTBAL" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "TECHINT" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "INTOFF" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "INTWOFF" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "Galvojuma līgums Nr. &1, &2, procentu samaksa saskaņā ar &3 Kredīta līgumu Nr.&4 - &5 &6" 93 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 710 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 717 STRING "ISSFEE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 717 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 717 STRING "Galvojuma līgums Nr. &1, &2, apkalpošanas un noformēšanas maksa saskaņā ar &1 Kredīta līgumu Nr.&2 - &3 &4" 114 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 717 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 717 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 721 STRING "DFLT" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 721 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 721 STRING "Galvojuma līgums Nr. &1, &2, nokavējuma procentu samaksa saskaņā ar &3 Kredīta līgumu Nr.&4 - &5 &6" 105 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 721 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 721 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 725 STRING "PENINT" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 725 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 725 STRING "Galvojuma līgums Nr. &1, &2, līgumsoda samaksa saskaņā ar &3 Kredīta līgumu Nr.&4 - &5 &6" 95 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 725 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 725 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 729 STRING "AMFEE" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 729 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 729 STRING "Galvojuma līgums Nr. &1, &2, grozījumu noformēšanas maksas samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 – &4 &5" 119 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 729 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 729 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 733 STRING "COMMFEE" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 733 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 733 STRING "Galvojuma līgums Nr. &1, &2, saistību maksas samaksa saskaņā ar &2 Kredīta līgumu Nr.&3 – &4 &5" 103 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 733 STRING "99.99.9999" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 733 STRING "->>>,>>>,>>9.99" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 739 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcAcc TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 739 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments crcLoan TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 741 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments rate TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 741 STRING "&1, kurss 1 &2 = &3 &4" 22 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 741 STRING "->>>>>>>>9.9999" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 744 STRING "&1. &2" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 748 STRING "GETTRXREMGUARANTOR" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 750 STRING "pClnID" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 751 STRING "cln" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 755 STRING "GETCLNNAME" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 764 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 764 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 764 STRING "pIsAmtLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 765 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 766 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 767 STRING "vAmttoNat" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 772 STRING "GETPAYMENTS" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 781 STRING "pAmt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 781 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 781 STRING "pIsAmtLoanCrc" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 782 STRING "bCompList" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 783 STRING "bPayments" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 785 STRING "dbtMng" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 794 REFERENCE ttPayments TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 796 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 796 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 796 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 799 CREATE DATA-MEMBER repmnt.Repayment:ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 800 STRING "comp" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 800 STRING "comp" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 800 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 800 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 800 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 802 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 802 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 802 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList name TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 803 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 803 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 803 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 804 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 804 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 804 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 805 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList currdbt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 805 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments debtAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 805 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList currdbt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 806 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList overdue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 806 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 806 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList overdue TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 810 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 810 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 813 CREATE DATA-MEMBER repmnt.Repayment:ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 814 ACCESS indigo.comp comp 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 814 SEARCH indigo.comp PK_comp
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 816 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList name TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 816 ACCESS indigo.comp name 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 816 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList name TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 817 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 817 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList comp TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 818 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 818 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 819 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList currdbt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 819 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList currdbt TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 820 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList overdue TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 820 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList overdue TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 821 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList parent TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 821 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList parent TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 825 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 825 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 827 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList comp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 827 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments parcomp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 827 SEARCH DATA-MEMBER repmnt.Repayment:ttCompList default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 829 REFERENCE ttCompList TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 829 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 829 ACCESS DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 829 ACCESS DATA-MEMBER repmnt.Repayment:ttPayments payAmt TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 829 UPDATE DATA-MEMBER repmnt.Repayment:ttCompList repay TEMPTABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 832 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 832 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 832 METHOD PUBLIC,,,,,getCompList,void,INPUT pAmt DECIMAL,INPUT pAccCrc INTEGER,INPUT pIsAmtLoanCrc LOGICAL,OUTPUT ttCompList TABLE
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 832 STRING "GETCOMPLIST" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 838 STRING "pAddRemark" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 840 METHOD PUBLIC,,,,,setAddRemark,void,INPUT pAddRemark CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 840 STRING "SETADDREMARK" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 848 STRING "pDlqId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 851 METHOD PUBLIC,,,,,setDlqMode,void,INPUT pDlqId CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 851 STRING "SETDLQMODE" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 860 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 860 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 861 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 862 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 863 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 864 STRING "vRepayAmt" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 866 STRING "ttPayments" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 870 SEARCH DATA-MEMBER repmnt.Repayment:ttPayments default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 877 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 877 STRING "ISACCBALLOWER" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 885 STRING "prodUt" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 893 STRING "ISCRLPRODTYPE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 900 STRING "crlBal" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 905 STRING "SYNCCRLBAL" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 914 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 915 STRING "vCif" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 920 STRING "GETCIFFROMACC" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 928 STRING "pCif" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 929 STRING "vColAgrNum" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 930 STRING "colagrlnUtil" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 937 STRING "GETCOLLATERALAGR" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 949 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 949 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 949 STRING "pConv" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 949 STRING "pAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 949 STRING "pRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 950 STRING "vAccBal" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 951 STRING "vLoanCrc" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 953 STRING "accReceivableMan" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 954 STRING "accPayableMan" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 955 STRING "custAccMan" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 960 ACCESS PUBLIC-PROPERTY sys2plt.src.CustAccManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 972 ACCESS PUBLIC-PROPERTY sys2plt.src.AccPayableManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 983 ACCESS PUBLIC-PROPERTY sys2plt.src.AccReceivableManager:prAccType
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 997 STRING "GETACCBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1007 STRING "pAccType" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1007 STRING "pAcc" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1007 STRING "pConv" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1008 STRING "vAccCrc" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1009 STRING "vRate" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1012 STRING "GETACCBAL" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 42 INVOKE core.Context:getInstance
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 42 INVOKE core.Context:getBankDay
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 43 NEW loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 44 NEW core.CurrInfo
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 45 NEW core.Conv
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 49 DELETE-INSTANCE loan.LoanUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 65 INVOKE repmnt.Repayment:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 81 INVOKE loan.LoanUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 99 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 102 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 107 INVOKE repmnt.Repayment:getAccBal,INPUT character,INPUT character,INPUT logical,OUTPUT integer,OUTPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 108 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 108 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 111 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 126 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 128 INVOKE repmnt.Repayment:recalcPayAmt,INPUT integer,INPUT character,INPUT decimal,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 130 INVOKE repmnt.Repayment:repayTrx,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 151 INVOKE core.StsUtil:canProcessEx,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 153 INVOKE loan.LoanUtil:getRepAccTyp
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 156 INVOKE repmnt.Repayment:getAccBal,INPUT character,INPUT character,INPUT logical,OUTPUT integer,OUTPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 157 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 157 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 159 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 162 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 190 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 194 INVOKE repmnt.Repayment:recalcPayAmt,INPUT integer,INPUT TABLE ttCompList
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 208 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 208 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 213 INVOKE repmnt.Repayment:repayTrx,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 234 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 245 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 268 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 279 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 298 INVOKE core.StsUtil:canProcess,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 301 INVOKE repmnt.Repayment:isCrlProdtype
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 301 INVOKE repmnt.Repayment:syncCRLBal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 305 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 311 INVOKE repmnt.Repayment:getAccBal,INPUT character,INPUT character,INPUT logical,OUTPUT integer,OUTPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 317 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 322 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 324 INVOKE repmnt.Repayment:repayTrx,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 342 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 347 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 350 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 369 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 378 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 384 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 399 INVOKE core.Conv:pltConvToAccCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 415 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 421 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 433 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 447 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 448 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 456 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 457 INVOKE core.Conv:pltConvToLoanCrc,INPUT integer,INPUT integer,INPUT decimal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 524 INVOKE repmnt.Repayment:getPrior
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 526 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 527 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 528 NEW trx.TrxBal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 529 INVOKE trx.TrxBal:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 532 INVOKE trx.TrxBal:getBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 534 INVOKE dbt.DebtManager:getDayBal,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 568 NEW trx.GenTrx
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 569 NEW repmnt.DLQ
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 574 INVOKE loan.LoanUtil:getCif
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 575 INVOKE repmnt.Repayment:getCifFromAcc,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 579 INVOKE repmnt.Repayment:getCollateralAgr,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 585 INVOKE repmnt.DLQ:setChangeDlqOffline,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 591 INVOKE repmnt.Repayment:getTrxRemGuarantor,BUFFER ttPayments,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 593 INVOKE repmnt.Repayment:getTrxRem,BUFFER ttPayments
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 595 INVOKE repmnt.Repayment:isAccBalLower,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 595 INVOKE trx.GenTrx:init,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 597 INVOKE trx.GenTrx:initByCrAmt,INPUT character,INPUT character,INPUT integer,INPUT decimal,INPUT int64,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 599 INVOKE trx.GenTrx:generateTrx
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 602 INVOKE repmnt.Repayment:isCrlProdtype
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 602 INVOKE repmnt.Repayment:syncCRLBal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 605 INVOKE repmnt.DLQ:updateDLQDebts,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 618 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 620 INVOKE repmnt.Repayment:getClnName,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 620 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 621 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 622 INVOKE loan.LoanUtil:getContract
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 623 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 623 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 625 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 626 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 643 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 697 INVOKE repmnt.Repayment:getClnName,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 697 INVOKE loan.LoanUtil:getClnID
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 698 INVOKE loan.LoanUtil:getOpenDate
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 699 INVOKE loan.LoanUtil:getContract
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 701 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 702 INVOKE core.CurrInfo:getCrcCode,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 752 NEW core.Cln,INPUT int64,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 754 INVOKE core.Cln:getClnName
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 769 INVOKE repmnt.Repayment:getDebts
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 771 INVOKE repmnt.Repayment:calcPayAmt,INPUT decimal,INPUT integer,INPUT character,INPUT logical,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 786 NEW dbt.DebtManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 787 INVOKE dbt.DebtManager:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 791 INVOKE repmnt.Repayment:isCrlProdtype
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 791 INVOKE repmnt.Repayment:syncCRLBal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 794 INVOKE repmnt.Repayment:getPayments,INPUT decimal,INPUT integer,INPUT logical,OUTPUT TABLE ttPayments
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 806 INVOKE dbt.DebtManager:getOverdue,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 868 INVOKE repmnt.Repayment:getAccBal,INPUT character,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 886 NEW setup.ProductUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 888 INVOKE setup.ProductUtil:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 888 INVOKE loan.LoanUtil:getProductID
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 890 INVOKE setup.ProductUtil:isCrlProdType
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 902 NEW trx.CrlineBalMan
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 903 INVOKE trx.CrlineBalMan:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 904 INVOKE trx.CrlineBalMan:syncCrlineBal
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 917 RUN sys2plt/api/v1/getCifFromAcc.p
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 932 NEW clt.ColagrlnUtil
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 934 INVOKE clt.ColagrlnUtil:getActiveColagrNumber,INPUT character,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 957 INVOKE loan.LoanUtil:getCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 962 NEW sys2plt.src.CustAccManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 963 INVOKE sys2plt.src.CustAccManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 965 INVOKE sys2plt.src.CustAccManager:getPltAccBal,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 967 INVOKE sys2plt.src.CustAccManager:getPltAccBalNoConv
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 968 INVOKE sys2plt.src.CustAccManager:getPltAccCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 969 INVOKE sys2plt.src.CustAccManager:getPltAccRate,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 974 NEW sys2plt.src.AccPayableManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 975 INVOKE sys2plt.src.AccPayableManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 977 INVOKE sys2plt.src.AccPayableManager:getPltAccBal,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 979 INVOKE sys2plt.src.AccPayableManager:getPltAccBalNoConv
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 980 INVOKE sys2plt.src.AccPayableManager:getPltAccCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 981 INVOKE sys2plt.src.AccPayableManager:getPltAccRate,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 985 NEW sys2plt.src.AccReceivableManager
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 986 INVOKE sys2plt.src.AccReceivableManager:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 988 INVOKE sys2plt.src.AccReceivableManager:getPltAccBal,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 990 INVOKE sys2plt.src.AccReceivableManager:getPltAccBalNoConv
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 991 INVOKE sys2plt.src.AccReceivableManager:getPltAccCrc
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 992 INVOKE sys2plt.src.AccReceivableManager:getPltAccRate,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls /u1/env/bankcp/indigo/svn-trunk/system/repmnt/Repayment.cls 1011 INVOKE repmnt.Repayment:getAccBal,INPUT character,INPUT character,INPUT logical,OUTPUT integer,OUTPUT decimal

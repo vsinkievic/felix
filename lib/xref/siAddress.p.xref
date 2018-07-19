@@ -1,0 +1,833 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 9 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 10 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 11 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 12 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 14 INCLUDE "indigo/src/nodeMigrate.i &name='address'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 9 STRING "pInputJson" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 11 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 17 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "GET" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 20 INCLUDE "clt/ttAddress.i &visibility="" """
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ttAddress" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "inp2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel3" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "inp3" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel4" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "inp4" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel5" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "inp5" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "sel6" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "inp6" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini1" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini2" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini3" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini4" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini5" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttAddress.i 1 STRING "ini6" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 21 INCLUDE "clt/tAdrLstList.i &visibility="" "" &name=""tlist"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "tlist" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "partid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "seq" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "level" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "rid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "vch" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLstList.i 1 STRING "edit" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 22 INCLUDE "clt/tAdrLst.i &visibility="" "" &name=""tadrlst"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "tadrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "parent" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "zip" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "latin" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "who" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "whn" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "code" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 STRING "reqwhn" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/clt/tAdrLst.i 1 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 25 STRING "doParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 26 STRING "dwData" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 27 STRING "dwAdrress" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 28 STRING "vadrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 29 STRING "oAddress" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 30 STRING "oAdrLst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 31 STRING "vOverideRespData" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 33 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 33 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 33 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "wtstack" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "nextt" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "rid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 35 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 42 STRING "ttcity" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 42 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 42 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 42 STRING "city" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "ttreg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "munic" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "town" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "parish" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "village" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 47 STRING "town-ord" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 56 STRING "ttzip" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 56 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 56 STRING "zip" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 68 STRING "pobjName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 69 STRING "lo" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 70 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 71 STRING "lname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 78 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 79 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 79 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 81 STRING "." 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 84 STRING "no object '&1' in request data  @#85" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 89 FUNCTION getReqObject,indigo.src.DataObject,INPUT pobjName CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 89 STRING "GETREQOBJECT" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 106 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 106 STRING "preq" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 107 STRING "ls" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 108 STRING "lo" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 110 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 114 STRING "invalid param.&1='&2'  @#115" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 117 FUNCTION getParamInt,integer,INPUT pname CHARACTER,INPUT preq LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 117 STRING "GETPARAMINT" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 120 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 120 STRING "preq" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 121 STRING "ls" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 122 STRING "lo" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 124 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 126 STRING "invalid param.&1='&2'  @#127" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 131 FUNCTION getParamChar,character,INPUT pname CHARACTER,INPUT preq LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 131 STRING "GETPARAMCHAR" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 134 STRING "pusrid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 134 STRING "plbl" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 134 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 135 STRING "ldwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 138 STRING "usrid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 139 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 139 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 139 ACCESS indigo.wuser usrid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 139 SEARCH indigo.wuser usr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 ACCESS indigo.wuser username 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 ACCESS indigo.wuser name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 STRING "username" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 STRING "username" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 STRING "?" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 STRING "?" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 148 FUNCTION fillWuserName,logical,INPUT pusrid INTEGER,INPUT plbl CHARACTER,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 148 STRING "FILLWUSERNAME" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 151 STRING "ttAddress" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 151 STRING "pdob" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 151 STRING "bttAddress" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 151 STRING "bttAddress" 10 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 152 STRING "sel1" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 153 STRING "sel2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 154 STRING "inp2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 155 STRING "sel3" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 156 STRING "inp3" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 157 STRING "sel4" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 158 STRING "inp4" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 159 STRING "sel5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 160 STRING "inp5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 161 STRING "sel6" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 162 STRING "inp6" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 163 STRING "ini1" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 164 STRING "ini2" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 165 STRING "ini3" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 166 STRING "ini4" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 167 STRING "ini5" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 168 STRING "ini6" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 170 FUNCTION fromDataObject,logical,INPUT pdob INDIGO.SRC.DATAOBJECT,BUFFER bttAddress ttAddress
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 170 STRING "FROMDATAOBJECT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 177 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 177 STRING "preq" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 178 STRING "ls" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 179 STRING "lo" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 181 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 187 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 189 STRING "new" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 191 STRING "invalid param.&1='&2'  @#192" 28 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 194 FUNCTION getParamId,integer,INPUT pname CHARACTER,INPUT preq LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 194 STRING "GETPARAMID" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 197 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 197 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 197 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 197 STRING "badrlst" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 197 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 198 STRING "lid" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 200 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 201 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 201 SEARCH indigo.adrlst adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 202 INCLUDE "core/businessErr.i &id='COL0014' &p1=vadrlst"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 202 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0014" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 205 FUNCTION pos_adrlst,integer,BUFFER badrlst indigo.adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 205 STRING "POS_ADRLST" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 208 STRING "padrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 209 STRING "lret" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 209 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 212 REFERENCE tlist TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 213 SEARCH tlist partid TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 213 SORT-ACCESS tlist seq TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 214 STRING "&1/&3 (&2)" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 216 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 220 FUNCTION adlGetPathNames,character,INPUT padrlst INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 220 STRING "ADLGETPATHNAMES" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 223 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 223 STRING "padrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 224 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 224 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 224 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 225 STRING "lcountry" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 227 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 228 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 228 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 230 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 230 SEARCH indigo.adrlst adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 232 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 232 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 232 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 234 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 234 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 234 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 234 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 237 STRING "adrlst_" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 238 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 238 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 238 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 238 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 240 STRING "pathlist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 242 REFERENCE tlist TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 243 SEARCH tlist partid TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 243 SORT-ACCESS tlist seq TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 245 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 246 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 246 STRING "&2 (&1)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 248 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 250 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 256 STRING "allowexcel" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 256 STRING "LV" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 261 FUNCTION adlFillParent,logical,INPUT pdwr INDIGO.SRC.DATAWRITER,INPUT padrlst INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 261 STRING "ADLFILLPARENT" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 STRING "badrlst" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 264 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "new" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "ord" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "zip" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 STRING "allowchildren" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 STRING "country" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 STRING "&2 (&1)" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 278 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 278 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 281 FUNCTION adlToListObject,logical,INPUT pdwr INDIGO.SRC.DATAWRITER,BUFFER badrlst indigo.adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 281 STRING "ADLTOLISTOBJECT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 284 STRING "tadrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 284 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 284 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 284 STRING "badrlst" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "new" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "ord" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "zip" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "allowchildren" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "who" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 STRING "whn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 297 STRING "who_" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 299 FUNCTION adlToEditObject,logical,INPUT pdwr INDIGO.SRC.DATAWRITER,BUFFER badrlst tadrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 299 STRING "ADLTOEDITOBJECT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 302 STRING "tadrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 302 STRING "pdob" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 302 STRING "btadrlst" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 302 STRING "btadrlst" 8 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 303 STRING "ls" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 305 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 307 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 309 STRING "new" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 312 INCLUDE "core/businessErr.i &id='COL0013' &p1=ls &p2='adrlst'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 314 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 317 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 318 STRING "root" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 321 INCLUDE "core/businessErr.i &id='COL0013' &p1=ls &p2='parent'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 323 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 326 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 328 STRING "ord" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 329 INCLUDE "core/businessErr.i &id='COL0013' &p1=ls &p2='ord'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "COL0013" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ord" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 331 STRING "ord" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 333 STRING "code" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 334 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 335 STRING "zip" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 339 FUNCTION adlFromDataObject,logical,INPUT pdob INDIGO.SRC.DATAOBJECT,BUFFER btadrlst tadrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 339 STRING "ADLFROMDATAOBJECT" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 342 STRING "padrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 342 STRING "pzip" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 343 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 344 STRING "lzip" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 345 STRING "lret" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 351 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 354 SEARCH ttzip zip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 357 REFERENCE ttzip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 358 CREATE ttzip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 366 FUNCTION fillTtZip,logical,INPUT padrlst INTEGER,INPUT pzip CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 366 STRING "FILLTTZIP" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "ttcity" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "ttreg" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "ptype" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "pname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "bttcity" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "bttcity" 7 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "bttreg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 369 STRING "bttreg" 6 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 373 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 376 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 377 STRING "municipality" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 378 STRING "town" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 379 STRING "parish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 380 STRING "village" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 383 FUNCTION updateCurrLevel,logical,INPUT ptype CHARACTER,INPUT pname CHARACTER,BUFFER bttcity ttcity,BUFFER bttreg ttreg
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 383 STRING "UPDATECURRLEVEL" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 394 STRING "GETVALUE&LIST" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 396 STRING "GETVALUE" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 398 STRING "GETLIST" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 400 STRING "GET-COUNTRY-LIST" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 402 STRING "UPDATE" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 404 STRING "ADL-GET-LIST" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 406 STRING "ADL-GET-EDIT" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 408 STRING "ADL-GET-NEW" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 410 STRING "ADL-UPDATE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 412 STRING "ADL-CREATE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 414 STRING "ADL-DELETE" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 416 STRING "ADL-EXCEL" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 418 STRING "invalid request operation '&1'" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 442 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 443 STRING "pGetList" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 445 STRING "lobjfl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 446 STRING "lobjid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 447 STRING "lnew" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 449 STRING "objfl" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 450 STRING "objid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 451 STRING "new" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 460 PROCEDURE do-getvalue,,INPUT pdwr INDIGO.SRC.DATAWRITER,INPUT pGetList LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 460 STRING "DO-GETVALUE" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 464 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 467 STRING "parent" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 467 STRING "level" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 471 PROCEDURE do-getlist,,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 471 STRING "DO-GETLIST" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 475 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 479 PROCEDURE do-get-country-list,,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 479 STRING "DO-GET-COUNTRY-LIST" 19 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 483 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 484 STRING "pnew" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 486 STRING "lobjfl" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 487 STRING "lobjid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 488 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 490 STRING "objfl" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 491 STRING "objid" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 492 STRING "adrpath" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 493 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 496 CREATE ttAddress TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 500 REFERENCE ttAddress TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 501 PROCEDURE do-update,,INPUT pdwr INDIGO.SRC.DATAWRITER,INPUT pnew LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 501 STRING "DO-UPDATE" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 505 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 507 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 509 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 514 STRING "addresslist" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 ACCESS indigo.adrlst ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 SORT-ACCESS indigo.adrlst type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 SORT-ACCESS indigo.adrlst ord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 515 SORT-ACCESS indigo.adrlst name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 522 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 522 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 522 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 525 STRING "siblings" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 530 PROCEDURE do-adl-get-list,,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 530 STRING "DO-ADL-GET-LIST" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 534 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 535 STRING "pnew" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 537 STRING "lmax" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 538 STRING "ltypes" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 539 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 543 CREATE tadrlst TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 545 STRING "pid" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 547 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 547 ACCESS indigo.adrlst ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 547 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 549 ACCESS indigo.adrlst ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 549 ACCESS indigo.adrlst ord 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 554 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 557 STRING "typelist" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 566 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 567 STRING "adrlst" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 568 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 570 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 570 STRING "children" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 573 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 573 STRING "parent_" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 573 STRING "path" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 578 PROCEDURE do-adl-get-edit,,INPUT pdwr INDIGO.SRC.DATAWRITER,INPUT pnew LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 578 STRING "DO-ADL-GET-EDIT" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 582 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 583 STRING "pnew" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 585 STRING "lreco" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 589 CREATE tadrlst TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 591 STRING "address" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 593 REFERENCE tadrlst TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 604 PROCEDURE do-adl-update,,INPUT pdwr INDIGO.SRC.DATAWRITER,INPUT pnew LOGICAL
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 604 STRING "DO-ADL-UPDATE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 608 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 612 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 613 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 614 PROCEDURE do-adl-delete,,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 614 STRING "DO-ADL-DELETE" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 618 STRING "pdwr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 619 STRING "vPageJson" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 620 STRING "vParser" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 621 STRING "report" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 622 STRING "vFile" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 624 STRING "lparent" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 625 STRING "lname" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 626 STRING "lRegionTypes" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 626 STRING "municipality,town,parish,village" 32 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 628 STRING "badrlst" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 628 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 628 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 629 STRING "b2adrlst" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 629 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 629 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 630 STRING "bttcity" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 631 STRING "bttreg" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 633 STRING "id" 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 643 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 643 SEARCH indigo.adrlst adrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 644 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 645 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 645 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 645 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 647 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 653 DELETE wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 654 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 654 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 656 CREATE wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 656 ACCESS wtstack rid WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 656 ACCESS wtstack adrlst WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 656 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 660 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 660 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 660 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 660 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 665 ACCESS wtstack nextt WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 665 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 665 ACCESS wtstack adrlst WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 665 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 669 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 670 ACCESS wtstack nextt WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 674 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 674 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 675 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 675 ACCESS indigo.adrlst zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 676 CREATE ttcity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 677 REFERENCE bttcity adrlst TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 677 REFERENCE ttcity TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 677 UPDATE ttcity city TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 677 UPDATE ttcity region TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 679 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 680 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 680 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 683 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 684 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 684 ACCESS indigo.adrlst zip 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 685 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 685 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 686 CREATE ttreg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 REFERENCE bttreg adrlst TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 REFERENCE ttreg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg munic TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg parish TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg region TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg town TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg town-ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 687 UPDATE ttreg village TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 688 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 691 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 692 STRING "municipality" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 693 STRING "town" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 694 STRING "parish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 695 STRING "village" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 701 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 701 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 701 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 703 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 CREATE wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS wtstack rid WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS wtstack adrlst WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS indigo.adrlst adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS wtstack type WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS wtstack name WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 710 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 710 ACCESS indigo.adrlst name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 710 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 713 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 713 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 713 SEARCH indigo.adrlst RECID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 717 ACCESS wtstack rid WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 717 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 717 SEARCH indigo.adrlst RECID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 718 ACCESS indigo.adrlst type 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 720 DELETE wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 721 SEARCH wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 722 REFERENCE wtstack WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 724 REFERENCE indigo.adrlst 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 726 ACCESS indigo.adrlst parent 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 726 ACCESS wtstack adrlst WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 726 SEARCH indigo.adrlst parent-type
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 728 ACCESS wtstack nextt WORKFILE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 739 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 741 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 742 SEARCH ttcity default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 742 SEARCH ttzip zip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 742 SORT-ACCESS ttcity region TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 742 SORT-ACCESS ttcity city TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 742 SORT-ACCESS ttzip zip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 748 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 749 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 750 STRING "zip" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 756 SEARCH ttreg default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 760 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 762 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SEARCH ttreg default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SEARCH ttzip zip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg region TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg munic TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg town-ord TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg town TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg parish TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttreg village TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 763 SORT-ACCESS ttzip zip TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 770 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 771 STRING "munic" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 772 STRING "town" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 773 STRING "parish" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 774 STRING "village" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 775 STRING "zip" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 784 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 788 STRING "XlsAdrLst" 9 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 789 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 790 STRING "city" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 794 STRING "content" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 795 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 795 STRING "XlsAdrLst.xlsx" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 796 STRING "disposition" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 796 STRING "attachment" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 797 STRING "type" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 797 STRING "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 65 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 799 STRING "file" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 PROCEDURE do-adl-excel,,INPUT pdwr INDIGO.SRC.DATAWRITER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "DO-ADL-EXCEL" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "partid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "vch" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "adrlst" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 803 STRING "zip" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 13 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 17 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 19 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 INVOKE Progress.Json.ObjectModel.JsonObject:has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:Has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 42 INVOKE Progress.Json.ObjectModel.JsonObject:Write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 45 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 74 NEW indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 75 INVOKE indigo.src.DataObject:loadObject,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 78 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 82 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 84 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 111 INVOKE indigo.src.DataObject:containsProperty,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 113 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 114 INVOKE indigo.src.DataObject:emptyInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 114 INVOKE indigo.src.DataObject:validInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 114 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 116 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 125 INVOKE indigo.src.DataObject:containsProperty,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 126 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 130 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 137 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 138 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 140 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 143 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 146 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 152 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 153 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 154 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 155 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 156 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 157 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 158 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 159 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 160 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 161 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 162 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 163 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 164 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 165 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 166 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 167 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 168 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 183 INVOKE indigo.src.DataObject:containsProperty,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 186 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 191 INVOKE indigo.src.DataObject:emptyInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 191 INVOKE indigo.src.DataObject:validInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 191 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 193 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 212 INVOKE clt.AdrLstClass:getPathList,INPUT integer,INPUT-OUTPUT TABLE tlist
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 227 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 228 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 232 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 234 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 237 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 238 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 240 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 242 INVOKE clt.AdrLstClass:getPathList,INPUT integer,INPUT-OUTPUT TABLE tlist
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 244 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 245 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 246 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 248 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 252 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 254 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 256 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 258 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 259 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 265 INVOKE clt.AdrLstClass:getChildTypesById,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 INVOKE clt.AdrLstClass:getCode,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 273 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 278 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE clt.AdrLstClass:getChildTypesById,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 285 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 305 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 312 INVOKE indigo.src.DataObject:emptyInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 312 INVOKE indigo.src.DataObject:validInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 314 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 317 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 321 INVOKE indigo.src.DataObject:emptyInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 321 INVOKE indigo.src.DataObject:validInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 323 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 326 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 328 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 329 INVOKE indigo.src.DataObject:emptyInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 329 INVOKE indigo.src.DataObject:validInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 331 INVOKE indigo.src.DataObject:getInt,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 333 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 334 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 335 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 391 NEW indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 418 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 423 INVOKE indigo.src.DataWriter:saveObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 429 DELETE-INSTANCE indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 430 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 431 DELETE-INSTANCE clt.Address
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 432 DELETE-INSTANCE clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 453 NEW clt.Address
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 454 INVOKE clt.Address:writeNewLists,INPUT indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 456 INVOKE clt.Address:writeValueAndLists,INPUT indigo.src.DataWriter,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 458 INVOKE clt.Address:writeValue,INPUT indigo.src.DataWriter,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 466 NEW clt.Address
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 467 INVOKE clt.Address:writeList,INPUT indigo.src.DataWriter,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 477 NEW clt.Address
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 478 INVOKE clt.Address:writeCountryList,INPUT indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 499 NEW clt.Address
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 500 INVOKE clt.Address:update,INPUT character,INPUT character,INPUT logical,INPUT TABLE ttAddress
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 512 NEW clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 514 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 518 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 525 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 527 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 529 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 541 NEW clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 554 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 557 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 558 INVOKE clt.AdrLstClass:getChildTypesById,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 560 INVOKE indigo.src.DataWriter:setField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 562 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 567 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 568 INVOKE clt.AdrLstClass:getDataById,INPUT integer,BUFFER btadrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 570 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 570 INVOKE clt.AdrLstClass:getDescendantCount,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 573 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 573 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 576 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 577 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 587 NEW clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 593 NEW clt.AdrLstClass,INPUT TABLE tadrlst
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 594 INVOKE clt.AdrLstClass:create
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 596 INVOKE clt.AdrLstClass:update
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 602 DELETE-INSTANCE clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 610 NEW clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 613 INVOKE clt.AdrLstClass:deleteTree,INPUT integer,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 635 NEW clt.AdrLstClass
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 645 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 660 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 680 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 685 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 704 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 710 INVOKE clt.AdrLstClass:getName,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 739 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 741 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 747 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 748 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 749 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 750 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 751 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 753 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 754 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 760 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 762 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 769 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 770 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 771 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 772 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 773 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 774 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 775 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 776 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 778 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 779 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 781 INVOKE indigo.src.DataWriter:saveObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 783 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 784 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 785 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 787 NEW indigo.src.XlsxReport
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 788 INVOKE indigo.src.XlsxReport:init,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 789 INVOKE indigo.src.XlsxReport:addPage,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 789 INVOKE Progress.Json.ObjectModel.JsonObject:getJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 790 INVOKE indigo.src.XlsxReport:addPage,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 790 INVOKE Progress.Json.ObjectModel.JsonObject:getJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 792 NEW Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 794 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT longchar
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 794 INVOKE indigo.src.XlsxReport:generateReportAsBase64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 795 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 796 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 797 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 799 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siAddress.p 800 INVOKE Progress.Json.ObjectModel.JsonObject:write,INPUT memptr

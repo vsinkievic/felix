@@ -1,0 +1,21 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 1 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 7 STRING "pOut" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 8 STRING "pErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 10 STRING "vCnt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 11 STRING "vUsrId" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 12 STRING "Cont" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 15 STRING "loan" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 15 SEARCH indigo.loan UQ_loan TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 18 STRING "Loans registered in system: &1" 30 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 21 STRING "hErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 22 STRING "vMsg" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 24 STRING "Business error: (&1)" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 26 STRING "ABL error for: (&1)" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 24 INVOKE Progress.Lang.Error:GetMessageNum,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 24 INVOKE core.Context:getBusinessErrText,INPUT Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 26 INVOKE Progress.Lang.Error:GetMessage,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 28 DELETE-INSTANCE Progress.Lang.Error
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/api/v1/pingWs.p 30 DELETE-INSTANCE core.Context

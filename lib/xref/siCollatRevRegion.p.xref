@@ -1,0 +1,816 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 1 ROUTINE-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 6 INCLUDE clt/crs-func.i
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 3 STRING "C_OTHER_REGIONS_ID" 18 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 4 STRING "C_ALL_REGIONS_ID" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 7 STRING "C_ALL_STS" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 10 STRING "C_ALL_RESTYPES" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 13 STRING "pSts" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 14 STRING "vPgls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 16 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 18 STRING "/lists/collateral/crs_scope_statuses" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 19 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 20 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 20 ACCESS indigo.gls name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 22 STRING "Unknown" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 24 FUNCTION getCollStatusName,character,INPUT pSts INTEGER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 24 STRING "GETCOLLSTATUSNAME" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 28 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 30 STRING "/constants/collateral/stat_reval/all_region" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 31 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 31 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 35 FUNCTION getAllRegionID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 35 STRING "GETALLREGIONID" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 39 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 41 STRING "/constants/collateral/stat_reval/other_region" 45 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 42 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 42 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 46 FUNCTION getOtherRegionID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 46 STRING "GETOTHERREGIONID" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 49 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 51 STRING "/constants/collateral/stat_reval/all_sts" 40 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 52 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 52 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 56 FUNCTION getAllStsID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 56 STRING "GETALLSTSID" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 59 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 61 STRING "/constants/collateral/stat_reval/all_restyp" 43 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 62 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 62 ACCESS indigo.gls inval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 66 FUNCTION getAllResTypeID,integer,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 66 STRING "GETALLRESTYPEID" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 69 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 71 STRING "/constants/collateral/stat_reval/batch" 38 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 72 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 72 ACCESS indigo.gls chval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 76 FUNCTION getBatchName,character,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 76 STRING "GETBATCHNAME" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 7 INCLUDE "clt/ttHisDisp.i &visibility="" "" &name=""ttHisDisp"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "ttHisDisp" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "idx" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttHisDisp.i 1 STRING "type" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 8 INCLUDE "clt/ttDisplayed.i &visibility="" "" &name=""ttDisplayed"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "ttDisplayed" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pObjName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pObjValue" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pWhn" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "pWho" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/ttDisplayed.i 1 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 10 STRING "req-head" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 11 STRING "req-data" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 12 STRING "resp-head" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 13 STRING "resp-data" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 15 INCLUDE "indigo/src/nodeMigrate.i &name='region' &req=req-data"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 9 STRING "pInputJson" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 11 STRING "parser" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 15 CAST FROM Progress.Json.ObjectModel.ObjectModelParser TO Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 STRING "GET" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "POST" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 17 STRING "objContext" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 19 STRING "doParam" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 20 STRING "doPost" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 21 STRING "dwData" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 24 STRING "ttTmp" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 24 STRING "postndx" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 24 STRING "typeid" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 24 STRING "regname" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 31 STRING "ttMergedRegions" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 31 STRING "srtkey" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 31 STRING "regionId" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 31 STRING "regdes" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 39 STRING "ttAllRegions" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 41 STRING "ttTmpReg" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 41 STRING "postndx" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 41 STRING "regionid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 41 STRING "name" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 48 STRING "tTypeRegion" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 48 STRING "id" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 52 STRING "ttWrn" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 52 STRING "regdes" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 52 STRING "cnt" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 63 STRING "GET-ALL-REGIONS" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 67 STRING "GET-REGIONS-WITH-ALLOTHER" 25 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 69 STRING "All,Others" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 71 STRING "GET-REGIONS-WITH-ALL" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 73 STRING "All" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 75 STRING "GET-REGIONS-BY-TYPE" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 79 STRING "GET-REGION" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 83 STRING "SAVE-REGION" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 87 STRING "DELETE-REGION" 13 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 91 STRING "SAVE-REGION-SET" 15 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 96 INCLUDE "core/businessErr.i &id='ADM0019' &p1=""req-head"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "ADM0019" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 115 STRING "pOptions" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 117 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 117 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 117 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 119 STRING "regions" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 120 STRING "All" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 120 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "All" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 STRING "All" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 130 STRING "Others" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 130 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "Others" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 STRING "Others" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 140 SEARCH indigo.region regionid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 149 PROCEDURE getAllRegions,,INPUT pOptions CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 149 STRING "GETALLREGIONS" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 153 STRING "vTypeId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 155 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 155 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 156 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 156 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 157 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 157 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 157 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 159 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 159 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 163 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 163 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 164 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 165 INCLUDE "core/businessErr.i &id='CRS0004' &p1=""vTypeId"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0004" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 STRING "realeastate" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 STRING "retypeid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 STRING "typedes" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 174 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 174 SEARCH indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 175 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 175 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 175 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 176 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 177 CREATE ttMergedRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 ACCESS indigo.typeregion order 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 STRING "&1(&2)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 STRING ", " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 178 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 188 SEARCH indigo.region regionid TABLE-SCAN
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 189 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 189 SEARCH ttMergedRegions regionid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 190 REFERENCE ttMergedRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 193 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 193 SEARCH ttAllRegions regionid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 194 REFERENCE ttAllRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 197 CREATE ttAllRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 STRING "&1(&2)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 STRING ", " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 198 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 207 STRING "allRegions" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 208 SEARCH ttAllRegions srtkey TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 STRING "regdes" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 216 STRING "relatedRegions" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 217 SEARCH ttMergedRegions srtkey TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 STRING "srtkey" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 STRING "regdes" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 225 PROCEDURE getRegionsByType,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 225 STRING "GETREGIONSBYTYPE" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 228 STRING "vRegionID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 229 STRING "vHeaderCount" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 230 STRING "vIter" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 232 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 232 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 232 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 233 STRING "wuser" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 233 STRING "wuser" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 233 REFERENCE indigo.wuser 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 235 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 235 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 237 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 237 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 238 INCLUDE "core/businessErr.i &id='CRS0026'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 238 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0026" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 248 STRING "regionhist" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 250 REFERENCE ttHisDisp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 250 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 251 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 251 REFERENCE ttHisDisp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 251 REFERENCE ttDisplayed TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 254 SEARCH ttDisplayed pId TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 260 STRING "whn" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 260 STRING "who" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 266 STRING "region.name" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 266 STRING "place" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 269 STRING "region.des" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 269 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 272 STRING "region.postndx" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 272 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 283 PROCEDURE getRegion,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 283 STRING "GETREGION" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 287 STRING "vRegionID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 288 STRING "vName" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 289 STRING "vDes" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 290 STRING "vPostndx" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 291 STRING "vCnt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 292 STRING "vPostLng" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 293 STRING "vPostNdxTmp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 294 STRING "vTempNdx" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 295 STRING "vStr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 296 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 298 STRING "vPostChar" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 298 STRING " *0123456789" 12 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 299 STRING "vWasUpdated" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 301 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 301 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 301 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 302 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 302 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 303 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 303 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 304 STRING "realestatecol" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 304 REFERENCE indigo.realestatecol 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 306 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 306 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 311 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 312 STRING "name" 4 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 313 STRING "des" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 314 STRING "postndx" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 317 INCLUDE "core/businessErr.i &id='CRS0027'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0027" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 320 INCLUDE "core/businessErr.i &id='CRS0028'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0028" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 324 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 324 SEARCH indigo.region regionid WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 325 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 325 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 325 SEARCH indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 326 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 326 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 326 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 327 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 327 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 327 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 327 SEARCH ttTmp postndx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 329 REFERENCE ttTmp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 330 CREATE ttTmp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 331 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 331 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 331 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 331 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 341 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 341 STRING "  " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 342 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 342 STRING "  " 2 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 345 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 345 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 346 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 350 INCLUDE "core/businessErr.i &id='CRS0029' &p1=""ENTRY(vCnt,vPostndx,' ')"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0029" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 353 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 355 INCLUDE "core/businessErr.i &id='CRS0029' &p1=""ENTRY(vCnt,vPostndx,' ')"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0029" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 360 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 360 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 362 INCLUDE "core/businessErr.i &id='CRS0030' &p1=""ENTRY(vCnt,vPostndx,' ')"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 366 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 366 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 366 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 368 INCLUDE "core/businessErr.i &id='CRS0030' &p1=""ENTRY(vCnt,vPostndx,' ')"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0030" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 371 INCLUDE "core/businessErr.i &id='CRS0051' &p1=""vTempNdx"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 371 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0051" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 377 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 377 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 377 SEARCH indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 377 SORT-ACCESS indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 378 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 381 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 381 SEARCH ttTmp postndx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 383 REFERENCE ttTmp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 385 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 385 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 385 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 386 INCLUDE "core/businessErr.i &id='CRS0031' &p1=""vTempNdx"" &p2=""ttTmp.regname"" &p3=""realestatetype.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0031" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 391 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 393 STRING ".~*" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 395 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 395 SEARCH ttTmp postndx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 397 REFERENCE ttTmp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 399 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 399 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 399 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 400 INCLUDE "core/businessErr.i &id='CRS0032' &p1=""vTempNdx"" &p2=""ttTmp.regname"" &p3=""ttTmp.postndx"" &p4=""realestatetype.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 404 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 405 SEARCH ttTmp postndx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 406 REFERENCE ttTmp TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 408 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 408 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 408 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 409 INCLUDE "core/businessErr.i &id='CRS0032' &p1=""vTempNdx"" &p2=""ttTmp.regname"" &p3=""ttTmp.postndx"" &p4=""realestatetype.name"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0032" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 421 INCLUDE "core/businessErr.i &id='CRS0033' &p1=""SUBSTRING(vPostndx,vCnt,1)"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0033" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 429 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 429 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 430 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 432 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 434 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 436 INCLUDE "core/businessErr.i &id='CRS0012' &p1=""vRegionID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 439 CREATE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 441 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 441 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 441 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 UPDATE indigo.region name
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 UPDATE indigo.region des
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 445 UPDATE indigo.region postndx
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 451 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 452 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 452 STRING "name,des,postndx" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 454 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 461 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 461 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 462 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 465 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 465 SEARCH indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 466 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 466 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 466 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 468 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 475 PROCEDURE saveRegion,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 475 STRING "SAVEREGION" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 478 STRING "vRegionID" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 479 STRING "vMatrixList" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 480 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 482 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 482 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 482 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 483 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 483 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 484 STRING "realestatetype" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 484 REFERENCE indigo.realestatetype 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 486 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 486 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 488 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 488 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 489 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 491 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 491 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 494 INCLUDE "core/businessErr.i &id='CRS0012' &p1=""vRegionID"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0012" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 497 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 497 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 497 SEARCH indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 498 ACCESS indigo.realestatetype typeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 498 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 498 SEARCH indigo.realestatetype typeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 499 ACCESS indigo.realestatetype name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 499 STRING "&1,&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 501 STRING "," 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 505 INCLUDE "core/businessErr.i &id='CRS0034' &p1=""region.name"" &p2=""vMatrixList"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0034" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 510 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 512 STRING "region.name" 11 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 513 STRING "region.des" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 514 STRING "region.postndx" 14 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 516 DELETE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 520 PROCEDURE deleteRegion,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 520 STRING "DELETEREGION" 12 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 523 STRING "vTypeId" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 524 STRING "vCnt" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 525 STRING "vPostNdx" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 526 STRING "vPostNdxTmp" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 527 STRING "vNewTypeReg" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 528 STRING "history" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 530 STRING "objRegion" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 531 STRING "objItem" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 533 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 533 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 534 STRING "btyperegion" 11 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 534 STRING "typeregion" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 534 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 535 STRING "resmult" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 535 REFERENCE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 536 STRING "bresmult" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 536 STRING "resmult" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 536 REFERENCE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 537 STRING "region" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 537 STRING "Region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 537 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 538 STRING "hisresmult" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 538 STRING "hisresmult" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 538 REFERENCE indigo.hisresmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 539 STRING "realestatecol" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 539 REFERENCE indigo.realestatecol 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 542 STRING "param" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 542 STRING "typeid" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 544 STRING "region" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 549 CREATE ttMergedRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 550 STRING "srtkey" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 551 STRING "regionid" 8 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 552 STRING "regdes" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 558 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 558 SEARCH indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 559 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 559 SEARCH ttMergedRegions regionid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 560 REFERENCE ttMergedRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 561 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 561 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 561 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 562 REFERENCE indigo.region 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 565 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 565 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 565 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 571 CREATE ttWrn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 572 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 572 ACCESS indigo.region des 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 572 STRING "&1(&2)" 6 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 579 SEARCH ttWrn default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 580 INCLUDE "core/businessErr.i &id='CRS0050' &p1=""ttWrn.regdes"" &p2=""ttWrn.cnt"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 580 REFERENCE ttWrn TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0050" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 584 SEARCH ttMergedRegions srtkey TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 585 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 585 SEARCH indigo.region regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 588 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 588 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 588 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 589 ACCESS indigo.region postndx 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 589 STRING " " 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 591 SEARCH ttTmpReg postndx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 592 REFERENCE ttTmpReg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 594 INCLUDE "core/businessErr.i &id='CRS0035' &p1=""ttTmpReg.name"" &p2=""region.name"" &p3=""ttTmpReg.postndx"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0035" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 599 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 601 STRING ".~*" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 602 SEARCH ttTmpReg postndx TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 603 REFERENCE ttTmpReg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 605 INCLUDE "core/businessErr.i &id='CRS0036' &p1=""ttTmpReg.name"" &p2=""ttTmpReg.postndx"" &p3=""region.NAME"" &p4=""vPostNdx"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0036" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 609 STRING "*" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 610 SEARCH ttTmpReg postndx TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 611 REFERENCE ttTmpReg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 613 INCLUDE "core/businessErr.i &id='CRS0036' &p1=""region.name"" &p2="" vPostNdx"" &p3=""ttTmpReg.NAME"" &p4=""ttTmpReg.postndx"""
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0036" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 618 CREATE ttTmpReg TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 619 ACCESS indigo.region regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 619 ACCESS indigo.region name 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 630 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 630 SEARCH indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 631 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 631 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 631 SEARCH indigo.typeregion RECID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 633 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 635 INCLUDE "core/businessErr.i &id='CRS0008'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0008" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 638 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 638 SEARCH ttMergedRegions regionid TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 639 REFERENCE ttMergedRegions TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 641 ACCESS indigo.resmult typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 641 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 641 SEARCH indigo.resmult typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 643 REFERENCE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 643 REFERENCE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 643 SEARCH indigo.resmult RECID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 644 REFERENCE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 646 INCLUDE "core/businessErr.i &id='CRS0045'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0045" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 649 CREATE indigo.hisresmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult resmultid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.resmult resmultid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.resmult typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult multval 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult restypeperid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.resmult restypeperid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult who 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS SHARED objContext 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.hisresmult restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult resmultid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult multval
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult restypeperid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult who
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 UPDATE indigo.hisresmult restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 659 DELETE indigo.resmult 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 661 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 663 STRING "typeregion.restypeid" 20 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 664 STRING "typeregion.regionid" 19 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 665 STRING "typeregion.order" 16 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 667 CREATE tTypeRegion TEMPTABLE
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 668 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 670 DELETE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 674 SEARCH ttMergedRegions srtkey TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 675 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 675 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 675 SEARCH indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 678 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 679 REFERENCE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 681 INCLUDE "core/businessErr.i &id='CRS0046'"
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "&1&2&3&4&5&6&7&8&9" 27 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 STRING "CRS0046" 7 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 683 CREATE indigo.typeregion 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 ACCESS indigo.typeregion restypeid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 ACCESS indigo.typeregion regionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 ACCESS indigo.typeregion order 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 UPDATE indigo.typeregion restypeid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 UPDATE indigo.typeregion regionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 684 UPDATE indigo.typeregion order
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 692 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 693 STRING "typeregion" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 693 STRING "restypeid,regionid,order" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 696 ACCESS indigo.typeregion order 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 698 ACCESS indigo.typeregion order 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 698 UPDATE indigo.typeregion order
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 702 ACCESS indigo.typeregion typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 703 STRING "typeregion" 10 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 703 STRING "restypeid,regionid,order" 24 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 710 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 710 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 712 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 717 SEARCH tTypeRegion default TEMPTABLE WHOLE-INDEX
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 718 ACCESS indigo.realestatecol typeregionid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 718 SEARCH indigo.realestatecol typeregionid
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 721 ACCESS indigo.realestatecol realestateid 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 PROCEDURE saveRegionSet,,
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "SAVEREGIONSET" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "pId" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "pObjName" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "ord" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "postndx" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "srtkey" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "regionid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "srtkey" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "regionid" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "postndx" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 727 STRING "default" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 18 INVOKE core.GlsClass:glsGetId,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 30 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 41 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 51 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 61 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/clt/crs-func.i 71 INVOKE core.GlsClass:glsGet,INPUT character,BUFFER b_gls
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 13 NEW Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 15 INVOKE Progress.Json.ObjectModel.ObjectModelParser:Parse,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 19 DELETE-INSTANCE Progress.Json.ObjectModel.ObjectModelParser
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 21 INVOKE Progress.Json.ObjectModel.JsonObject:has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 22 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 26 INVOKE Progress.Json.ObjectModel.JsonObject:Has,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 27 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 28 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 30 INVOKE Progress.Json.ObjectModel.JsonObject:GetType,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 31 INVOKE Progress.Json.ObjectModel.JsonObject:GetCharacter,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:Add,INPUT character,INPUT Progress.Json.ObjectModel.JsonArray
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 34 INVOKE Progress.Json.ObjectModel.JsonObject:GetJsonArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 40 INVOKE Progress.Json.ObjectModel.JsonObject:Write,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/nodeMigrate.i 45 DELETE-INSTANCE Progress.Json.ObjectModel.JsonObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 57 NEW indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 59 NEW indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 60 INVOKE indigo.src.DataObject:loadObject,INPUT memptr
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 100 INVOKE indigo.src.DataWriter:saveObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 103 DELETE-INSTANCE indigo.src.DataWriter
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 106 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 109 DELETE-INSTANCE indigo.src.DataObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 119 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 122 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 132 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 141 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 148 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 159 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 159 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 168 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 207 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 209 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 214 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 216 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 218 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 224 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 235 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 235 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 INVOKE indigo.src.DataWriter:beginObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 242 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 248 INVOKE indigo.src.DataWriter:beginArray,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 250 RUN clt/getGlsTable.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 251 RUN clt/getHistory.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 260 INVOKE indigo.src.DataWriter:beginObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 260 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT datetime
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 260 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 266 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 269 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 272 INVOKE indigo.src.DataWriter:setField,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 278 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 282 INVOKE indigo.src.DataWriter:endCurrent
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 306 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 306 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 311 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 312 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 313 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 314 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 315 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 451 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 452 INVOKE core.History:saveSet,INPUT character,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 462 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 468 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 473 DELETE-INSTANCE core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 486 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 486 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 508 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 510 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 512 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 513 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 514 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 518 DELETE-INSTANCE core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 541 NEW core.History
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 542 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 542 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 544 INVOKE indigo.src.DataObject:getObject,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 545 INVOKE indigo.src.DataObject:beginI
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 546 INVOKE indigo.src.DataObject:endI
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 547 INVOKE indigo.src.DataObject:getCurrentObject
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 550 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 551 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 552 INVOKE indigo.src.DataObject:getField,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 554 INVOKE indigo.src.DataObject:nextI
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 650 INVOKE core.Context:getUsrID
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 661 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 663 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 664 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 665 INVOKE core.History:deleteHist,INPUT character,INPUT date,INPUT date,INPUT logical
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/system/core/businessErr.i 1 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 692 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 693 INVOKE core.History:saveSet,INPUT character,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 702 INVOKE core.History:init,INPUT int64
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 703 INVOKE core.History:saveSet,INPUT character,INPUT widget-handle,INPUT character,INPUT character
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 712 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 721 RUN clt/eval_realestate.p
+/u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p /u1/env/bankcp/indigo/svn-trunk/integration/indigo/src/siCollatRevRegion.p 725 DELETE-INSTANCE core.History

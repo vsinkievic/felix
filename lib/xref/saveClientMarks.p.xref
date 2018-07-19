@@ -1,0 +1,117 @@
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 1 COMPILE /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 1 CPINTERNAL utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 1 CPSTREAM utf-8
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 8 BLOCK-LEVEL ON ERROR UNDO, THROW
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 10 INCLUDE sys2plt/src/platon-app.i
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 12 INCLUDE "core/gls-gete.i &visibility=""function"""
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 26 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 30 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 31 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 32 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 34 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 34 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 34 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 36 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 36 STRING "invalid pPath='&1', in glsGetIdEx()" 35 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 41 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 44 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 44 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 44 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 46 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 46 STRING "not found gls.pgls=&1 and key[&2]='&3', pPath='&4'" 50 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 50 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 54 FUNCTION glsGetIdEx,int64,INPUT pPath CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 54 STRING "GLSGETIDEX" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 68 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 72 STRING "lParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 73 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 74 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 76 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 77 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 77 STRING "invalid pPath='&1', in glsGetRecEx()" 36 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 82 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 85 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 85 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 85 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 87 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 87 STRING "not found gls.pgls=&1 and key[&2]='&3', pPath='&4'" 50 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 91 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 94 FUNCTION glsGetEx,logical,INPUT pPath CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 94 STRING "GLSGETEX" 8 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "pPath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "pkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 101 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 105 STRING "lpath" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 106 STRING "&1/&2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 106 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 108 FUNCTION glsGetEx2,logical,INPUT pPath CHARACTER,INPUT pkey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 108 STRING "GLSGETEX2" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "gls" 3 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 STRING "b_gls" 5 LEFT TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 121 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 125 STRING "lkey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 126 STRING "li" 2 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 128 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 130 STRING "empty argument pParentId=&1 or pKey='&2', in glsGetChildEx()" 60 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 135 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 136 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 136 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 136 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 138 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 138 STRING "not found gls.pgls=&1 and key='&2'" 34 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 145 STRING "/" 1 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 148 ACCESS indigo.gls pgls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 148 ACCESS indigo.gls key 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 148 SEARCH indigo.gls pglskeyord
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 150 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 150 STRING "not found gls.pgls=&1 and key[&2]='&3', pKey='&4'" 49 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 154 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 157 FUNCTION glsGetChildEx,logical,INPUT pParentId INT64,INPUT pKey CHARACTER,BUFFER b_gls indigo.gls
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 157 STRING "GLSGETCHILDEX" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 167 STRING "pParentId" 9 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 167 STRING "pKey" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 171 STRING "b_gls" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 171 STRING "gls" 3 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 171 REFERENCE indigo.gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 173 ACCESS indigo.gls gls 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 174 FUNCTION glsGetChildIdEx,int64,INPUT pParentId INT64,INPUT pKey CHARACTER
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 174 STRING "GLSGETCHILDIDEX" 15 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 15 STRING "hPlaton" 7 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 24 FUNCTION platon-connect,logical,
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 24 STRING "PLATON-CONNECT" 14 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 32 FUNCTION platon-disconnect,logical,
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 32 STRING "PLATON-DISCONNECT" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 12 STRING "pLoan" 5 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 13 STRING "pCreditRating" 13 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 14 STRING "pCompanyTypeCode" 16 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 15 STRING "pWatchList" 10 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 16 STRING "pEarlyWarningList" 17 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 17 STRING "pError" 6 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 19 STRING "vErr" 4 NONE UNTRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 23 STRING "&1 &2" 5 NONE TRANSLATABLE 
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 36 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 46 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 77 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 87 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 130 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 138 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i /u1/env/bankcp/indigo/svn-trunk/system/core/gls-gete.i 150 NEW Progress.Lang.AppError,INPUT character,INPUT integer
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 22 INVOKE sys2plt.src.PlatonConnect:getInstance
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/src/platon-app.i 22 INVOKE sys2plt.src.PlatonConnect:getHPlaton
+/u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p /u1/env/bankcp/indigo/svn-trunk/integration/sys2plt/api/v1/saveClientMarks.p 22 RUN ncsSaveClnSubcode REMOTE
