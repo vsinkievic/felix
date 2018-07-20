@@ -55,7 +55,9 @@
                         Please enter type.
                     </div>
                     <label for="name">Name:</label>
-                    <input id="inpName" type="text" class="form-control" name="name" value="" placeholder="please enter name" required>
+                    <input id="inpName" type="text" class="form-control" name="name" value="" 
+                        placeholder="please enter name" required>
+                    <input id="inpDetails" type="hidden" name="details" value="no">
                     <div id="invFeedbackName" class="invalid-feedback">
                         Please enter name.
                     </div>
@@ -319,7 +321,7 @@ $(document).ready(function(){
             $('#invFeedbackType').hide();
         };
         if ($(this).val() === '3') {
-            $('#inpName').attr("placeholder", "Enter FULL name of included file");
+            $('#inpName').attr("placeholder", "Enter name fragment of included file");
             $('#invFeedbackType').hide();
         };
         if ($(this).val() === '4') {
@@ -345,6 +347,7 @@ $(document).ready(function(){
         };
         if (fValid) {
             $('.invalid-feedback').hide();
+            if ($('#inpType').val() == "3") {$('#inpDetails').val('yes');};
             $('.outputMessage').text("XREF report of " + $('#inpName').val() + " is being generated...").show().
             return;
         } else {

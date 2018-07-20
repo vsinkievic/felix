@@ -9,7 +9,7 @@ define output parameter table for ttProcedures.
 for each FelixDB.files no-lock where
                  files.type = "RUN" and
                  (files.info matches("*" + cName) or
-                 files.info matches("*" + cName + ".p")):
+                 files.info matches("*" + cName + ".p")) by files.compileUnit:
      find first ttProcedures where files.compileUnit = ttProcedures.compileUnit no-error.
      if not available ttProcedures
      then do:
