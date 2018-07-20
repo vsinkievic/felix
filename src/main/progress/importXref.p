@@ -1,5 +1,7 @@
 //DON'T RUN THIS
 
+{trimPathFunction.i}.
+
 define variable cSourceName as character no-undo.
 define variable cFileName as character no-undo.
 define variable cLineNumber as character no-undo.
@@ -9,23 +11,10 @@ define variable cCompileUnit as character no-undo.
 define variable i as integer no-undo.
 define variable i2 as integer no-undo.
 define variable i3 as integer no-undo.
-define variable i4 as integer no-undo.
 define input parameter cPath as character no-undo.
-define variable cProPath as character extent 3 init ["system/", "migration/", "integration/"].
+define variable cProPath as character init "system/;migration/;integration/".
 define variable cCompilePath as character no-undo init "/u1/env/bankcp/indigo/svn-trunk/".
 define variable cSourePath as character no-undo.
-
-
-function trimPath returns character (pProPath as character extent 3, pCompilePath as character, pAbsolutPath as character):
-    pAbsolutPath = replace(pAbsolutPath, pCompilePath, "").
-    repeat i4 = 1 to extent(pProPath):
-        if index(pAbsolutPath, pProPath[i4]) <> 0
-        then do:
-           pAbsolutPath = replace(pAbsolutPath, pProPath[i4], "").
-        end.  
-    end.    
-    return pAbsolutPath.
-end function.
 
 input from value(cPath).
 
