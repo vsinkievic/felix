@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/felix/master.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="/felix/dropdown.js" type="text/javascript"></script>
 
         <SCRIPT LANGUAGE="SpeedScript">
             CREATE WIDGET-POOL.
@@ -23,10 +24,10 @@
             define temp-table ttFiles no-undo
                 field compileUnit as character.
 
-                cName = get-field('name':U).
-                iType = integer(get-field('type':U)).
-                if get-field('details':U) <> "" then
-                    lDetails = logical(get-field('details':U), "yes/no").
+            cName = get-field('name':U).
+            iType = integer(get-field('type':U)).
+            if get-field('details':U) <> "" then
+                lDetails = logical(get-field('details':U), "yes/no").
 
         </script>
 
@@ -55,8 +56,9 @@
                         Please enter type.
                     </div>
                     <label for="name">Name:</label>
-                    <input id="inpName" type="text" class="form-control" name="name" value="" 
-                        placeholder="please enter name" required>
+                    <input id="inpName" type="text" list="json-datalist" class="form-control" 
+                        name="name" value="" placeholder="please enter name" required>
+                    <datalist id="json-datalist"></datalist>
                     <input id="inpDetails" type="hidden" name="details" value="no">
                     <div id="invFeedbackName" class="invalid-feedback">
                         Please enter name.
@@ -93,15 +95,17 @@
 	                                    Details</button>
                                     </form>
                                 </div>
-				                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-				                <table>
-				                    <thead><th>Compile Unit</th></thead>
-				                    <!--WSS for each ttFiles: -->
-				                    <tr>
-				                        <td> `ttFiles.compileUnit` </td>
-				                    </tr>
-				                    <!--WSS end. -->
-				                </table>
+                                <div class='table-holder'>
+					                <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+					                <table>
+					                    <thead><th>Compile Unit</th></thead>
+					                    <!--WSS for each ttFiles: -->
+					                    <tr>
+					                        <td> `ttFiles.compileUnit` </td>
+					                    </tr>
+					                    <!--WSS end. -->
+    				                </table>
+				                </div>
 				            </div>
 				        </div>
 			     <!--WSS end. 
@@ -124,21 +128,30 @@
 	                                    (Less)</button>
 	                                </form>
 	                            </div>
-                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-                                <table>
-                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                        <th>Line</th><th>Info</th></thead>
-                                    <!--WSS for each ttOutput: -->
-                                    <tr>
-                                        <td> `ttOutput.compileUnit` </td>
-                                        <td> `ttOutput.fileName` </td>
-                                        <td> `ttOutput.sourcePath` </td>
-                                        <td> `ttOutput.type` </td>
-                                        <td> `ttOutput.line` </td>
-                                        <td> `ttOutput.info` </td>
-                                    </tr>
-                                    <!--WSS end. -->
-                                </table>
+                                <div class='table-holder'>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <table>
+                                        <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                            <th>Line</th><th>Info</th></thead>
+                                        <!--WSS for each ttOutput: -->
+                                        <tr>
+                                            <td> `ttOutput.compileUnit` </td>
+                                            <td> `ttOutput.fileName` </td>
+                                            <td> `ttOutput.sourcePath` </td>
+                                            <td> `ttOutput.type` </td>
+                                            <td> `ttOutput.line` </td>
+                                            <td>
+                                                <form>
+                                                    <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+                                                    <input type="hidden" value="1" name="type">
+                                                    <input type="hidden" value="yes" name="details">
+                                                    <input class="infoField" type="submit" value="`ttOutput.info`">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <!--WSS end. -->
+                                    </table>
+                                </div>
                             </div>
                         </div>
 			         
@@ -165,15 +178,17 @@
                                         Details</button>
                                     </form>
                                 </div>
-                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-                                <table>
-                                    <thead><th>Compile Unit</th></thead>
-                                    <!--WSS for each ttFiles: -->
-                                    <tr>
-                                        <td> `ttFiles.compileUnit` </td>
-                                    </tr>
-                                    <!--WSS end. -->
-                                </table>
+                                <div class='table-holder'>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <table>
+                                        <thead><th>Compile Unit</th></thead>
+                                        <!--WSS for each ttFiles: -->
+                                        <tr>
+                                            <td> `ttFiles.compileUnit` </td>
+                                        </tr>
+                                        <!--WSS end. -->
+                                    </table>
+                                </div>
                             </div>
                         </div>
                  <!--WSS end. 
@@ -196,21 +211,30 @@
                                         (Less)</button>
                                     </form>
                                 </div>
-                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-                                <table>
-                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                        <th>Line</th><th>Info</th></thead>
-                                    <!--WSS for each ttOutput: -->
-                                    <tr>
-                                        <td> `ttOutput.compileUnit` </td>
-                                        <td> `ttOutput.fileName` </td>
-                                        <td> `ttOutput.sourcePath` </td>
-                                        <td> `ttOutput.type` </td>
-                                        <td> `ttOutput.line` </td>
-                                        <td> `ttOutput.info` </td>
-                                    </tr>
-                                    <!--WSS end. -->
-                                </table>
+                                <div class='table-holder'>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <table>
+                                        <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                            <th>Line</th><th>Info</th></thead>
+                                        <!--WSS for each ttOutput: -->
+                                        <tr>
+                                            <td> `ttOutput.compileUnit` </td>
+                                            <td> `ttOutput.fileName` </td>
+                                            <td> `ttOutput.sourcePath` </td>
+                                            <td> `ttOutput.type` </td>
+                                            <td> `ttOutput.line` </td>
+                                            <td>
+                                                <form>
+                                                    <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+                                                    <input type="hidden" value="2" name="type">
+                                                    <input type="hidden" value="yes" name="details">
+                                                    <input class="infoField" type="submit" value="`ttOutput.info`">
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <!--WSS end. -->
+                                    </table>
+                                </div>
                             </div>
                         </div>
                      
@@ -237,15 +261,17 @@
                                         Details</button>
                                     </form>
                                 </div>
-                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-                                <table>
-                                    <thead><th>Compile Unit</th></thead>
-                                    <!--WSS for each ttOutput: -->
-                                    <tr>
-                                        <td> `ttOutput.compileUnit` </td>
-                                    </tr>
-                                    <!--WSS end. -->
-                                </table>
+                                <div class='table-holder'>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <table>
+                                        <thead><th>Compile Unit</th></thead>
+                                        <!--WSS for each ttOutput: -->
+                                        <tr>
+                                            <td> `ttOutput.compileUnit` </td>
+                                        </tr>
+                                        <!--WSS end. -->
+                                    </table>
+                                </div>
                             </div>
                         </div>
                  <!--WSS end. 
@@ -268,28 +294,30 @@
                                         (Less)</button>
                                     </form>
                                 </div>
-                                <h3>Output of <em>`cName`</em> references (XREF):</h3>
-                                <table>
-                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                        <th>Line</th><th>Info</th></thead>
-                                    <!--WSS for each ttOutput: -->
-                                    <tr>
-                                        <td> `ttOutput.compileUnit` </td>
-                                        <td> `ttOutput.fileName` </td>
-                                        <td> `ttOutput.sourcePath` </td>
-                                        <td> `ttOutput.type` </td>
-                                        <td> `ttOutput.line` </td>
-                                        <td>
-                                            <form>
-                                                <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
-                                                <input type="hidden" value="3" name="type">
-                                                <input type="hidden" value="yes" name="details">
-                                                <input class="infoField" type="submit" value="`ttOutput.info`">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <!--WSS end. -->
-                                </table>
+                                <div class='table-holder'>
+	                                <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+	                                <table>
+	                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+	                                        <th>Line</th><th>Info</th></thead>
+	                                    <!--WSS for each ttOutput: -->
+	                                    <tr>
+	                                        <td> `ttOutput.compileUnit` </td>
+	                                        <td> `ttOutput.fileName` </td>
+	                                        <td> `ttOutput.sourcePath` </td>
+	                                        <td> `ttOutput.type` </td>
+	                                        <td> `ttOutput.line` </td>
+	                                        <td>
+	                                            <form>
+	                                                <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+	                                                <input type="hidden" value="3" name="type">
+	                                                <input type="hidden" value="yes" name="details">
+	                                                <input class="infoField" type="submit" value="`ttOutput.info`">
+	                                            </form>
+	                                        </td>
+	                                    </tr>
+	                                    <!--WSS end. -->
+	                                </table>
+	                            </div>
                             </div>
                         </div>
                      
@@ -376,6 +404,14 @@ $(document).ready(function(){
     $('#logo').click(function() {
         $('#giffy').show();
     });
+
+    let twid = $('table').width();
+    let cwid = $('.form-container').width();
+    if (twid > cwid) {
+        $('.form-container').css('max-width', twid + 80 + 'px');
+        $('.form-container').css('width', twid + 80 + 'px');
+    };
+
 
 })
 

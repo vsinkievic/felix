@@ -1,0 +1,40 @@
+
+<SCRIPT LANGUAGE="SpeedScript">
+    CREATE WIDGET-POOL.
+    {src/web2/wrap-cgi.i}       /* standard WebSpeed include */
+    {getNameFromPath.i}         /* local function */
+    
+</SCRIPT>
+
+<script language="speedscript">
+    define variable cSearch as character no-undo.
+    define variable iType as integer no-undo.
+    define variable cTypeCall as character no-undo.
+    define variable lOk as log no-undo.
+    define variable searchJson as longchar no-undo.
+    define temp-table ttOut no-undo
+        field fResult as character.
+    define variable httOut as handle no-undo.
+    httOut = temp-table ttOut:handle.
+
+    
+    cSearch = get-field('search':U).
+    iType = integer(get-field('type':U)).
+    
+    case iType:
+        when 1 then cTypeCall = "RUN".
+        when 2 then cTypeCall = "NEW".
+        when 3 then cTypeCall = "INCLUDE".
+    end case.
+   
+    for each files no-lock where
+            files.type = cTypeCall and
+            files.info matches ("*" + cSearch + "*"):
+        create ttOut.
+        ttOut.fResult = getNameFromPath(files.info).
+    end.
+    output-content-type ("application/json":U).
+    httOut:write-json("STREAM", "WebStream").
+
+</script>
+
