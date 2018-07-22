@@ -19,10 +19,19 @@
             define variable cName as character no-undo.
             define variable iType as integer no-undo.
             define variable lDetails as logical init false no-undo.
-            define temp-table ttOutput like FelixDB.files.
+            define temp-table ttOutput like files.
             
             define temp-table ttFiles no-undo
                 field compileUnit as character.
+            
+            function countEntries returns integer (input table ttOutput):
+                define variable iCount as integer no-undo init 0.    
+                for each ttOutput:
+                    iCount = iCount + 1.
+                end.
+                return iCount.
+            end.
+
 
             cName = get-field('name':U).
             iType = integer(get-field('type':U)).
@@ -42,7 +51,7 @@
                 <br>
 
                 <form class="form-group" id="xrefForm" action="front.html" method="POST">
-                    <h3>Please enter searched element by type and name:</h3>
+                    <h3>Please enter searched element by type and name.</h3>
                     <label for="type">Type:</label><br>
                     <select id="inpType" class="form-control" name="type">
                         <option value="0">Select ...</option>
@@ -56,9 +65,9 @@
                         Please enter type.
                     </div>
                     <label for="name">Name:</label>
-                    <input id="inpName" type="text" list="json-datalist" class="form-control" 
+                    <input id="inpName" autocomplete="off" type="text" class="form-control" 
                         name="name" value="" placeholder="please enter name" required>
-                    <datalist id="json-datalist"></datalist>
+                    <ul id="autocomplete"></ul>
                     <input id="inpDetails" type="hidden" name="details" value="no">
                     <div id="invFeedbackName" class="invalid-feedback">
                         Please enter name.
@@ -67,8 +76,7 @@
                     <button id="xrefFormButton" type="submit" 
                         class="xrefbutton btn btn-primary">Submit</button>
                 </form>
-                <div class="outputMessage">
-                </div>
+                <div class="outputMessage"></div>
             </div>
         </div>
 
@@ -96,7 +104,7 @@
                                     </form>
                                 </div>
                                 <div class='table-holder'>
-					                <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+					                <h3>Output of <span class="refName">`cName`</span> references (XREF).</h3>
 					                <table>
 					                    <thead><th>Compile Unit</th></thead>
 					                    <!--WSS for each ttFiles: -->
@@ -129,7 +137,8 @@
 	                                </form>
 	                            </div>
                                 <div class='table-holder'>
-                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF). 
+                                            Total records: `countEntries(input table ttOutput)`.</h3>
                                     <table>
                                         <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
@@ -179,7 +188,7 @@
                                     </form>
                                 </div>
                                 <div class='table-holder'>
-                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF).</h3>
                                     <table>
                                         <thead><th>Compile Unit</th></thead>
                                         <!--WSS for each ttFiles: -->
@@ -212,7 +221,8 @@
                                     </form>
                                 </div>
                                 <div class='table-holder'>
-                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):
+                                        Total records: `countEntries(input table ttOutput)`.</h3>
                                     <table>
                                         <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
@@ -262,7 +272,8 @@
                                     </form>
                                 </div>
                                 <div class='table-holder'>
-                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+                                    <h3>Output of <span class="refName">`cName`</span> references (XREF):
+                                        Total records: `countEntries(input table ttOutput)`.</h3>
                                     <table>
                                         <thead><th>Compile Unit</th></thead>
                                         <!--WSS for each ttOutput: -->
@@ -295,7 +306,8 @@
                                     </form>
                                 </div>
                                 <div class='table-holder'>
-	                                <h3>Output of <span class="refName">`cName`</span> references (XREF):</h3>
+	                                <h3>Output of <span class="refName">`cName`</span> references (XREF):
+	                                   Total records: `countEntries(input table ttOutput)`.</h3>
 	                                <table>
 	                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
 	                                        <th>Line</th><th>Info</th></thead>
