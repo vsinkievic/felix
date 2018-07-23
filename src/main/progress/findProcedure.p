@@ -10,8 +10,7 @@ for each files no-lock where
          (files.info matches("*/" + cName) or
          files.info matches("*/" + cName + ".p") or
          files.info matches cName or
-         files.info matches (cName + ".p")) 
-         use-index systemIndex by files.compileUnit:
+         files.info matches (cName + ".p")) by files.compileUnit:
      find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
      if not available ttDetails
      then do:

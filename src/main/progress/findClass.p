@@ -8,8 +8,7 @@ for each files no-lock where
          files.system = cSystem and
          files.type = "NEW" and
          files.info matches("*." + cName) or
-         files.info matches cName
-         use-index systemIndex by files.compileUnit: 
+         files.info matches cName: 
      find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
      if not available ttDetails
      then do:
