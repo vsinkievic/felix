@@ -8,7 +8,8 @@ for each files no-lock where
          files.system = cSystem and
          (files.type = "NEW" or files.type = "COMPILE") and
          files.info matches("*." + cName) or
-         files.info matches cName: 
+         files.info matches cName
+         use-index systemIndex by files.compileUnit: 
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.

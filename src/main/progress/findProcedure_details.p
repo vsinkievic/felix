@@ -10,7 +10,8 @@ for each files no-lock where
          (files.info matches("*/" + cName) or
          files.info matches("*/" + cName + ".p") or
          files.info matches cName or
-         files.info matches (cName + ".p")) by files.compileUnit:
+         files.info matches (cName + ".p")) 
+         use-index systemIndex by files.compileUnit:
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.
