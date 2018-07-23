@@ -1,17 +1,18 @@
-define temp-table ttClasses no-undo
-    field compileUnit as character
-    . 
-define input parameter cName as character.
-define output parameter table for ttClasses.
+{ttDetails.i}
 
-for each FelixDB.files no-lock where 
-                 files.type = "NEW" and
-                 files.info matches("*." + cName) or
-                 files.info matches cName: 
-     find first ttClasses where files.compileUnit = ttClasses.compileUnit no-error.
-     if not available ttClasses
+define input parameter cName as character.
+define output parameter table for ttDetails.
+define input parameter cSystem as character.
+
+for each files no-lock where 
+         files.system = cSystem and
+         files.type = "NEW" and
+         files.info matches("*." + cName) or
+         files.info matches cName: 
+     find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
+     if not available ttDetails
      then do:
-         create ttClasses.
-         ttClasses.compileUnit = files.compileUnit.
+         create ttDetails.
+         ttDetails.compileUnit = files.compileUnit.
      end.
 end.

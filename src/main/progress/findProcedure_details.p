@@ -1,26 +1,23 @@
-define temp-table ttOutput like files.
+{ttDetails.i}
 
 define input parameter cName as character.
-define output parameter table for ttOutput.
+define output parameter table for ttDetails.
+define input parameter cSystem as character.
 
-
-
-for each FelixDB.files no-lock where
-                 files.type = "RUN" and
-                  (files.info matches("*/" + cName) or
-                 files.info matches("*/" + cName + ".p") or
-                 files.info matches cName or
-                 files.info matches (cName + ".p")) by files.compileUnit:
-/*     find first ttOutput where files.compileUnit = ttOutput.compileUnit no-error.*/
-/*     if not available ttOutput                                                   */
-/*     then do:                                                                    */
-         create ttOutput.
-         ttOutput.compileUnit = files.compileUnit.
-         ttOutput.fileName = files.fileName.
-         ttOutput.sourceName = files.sourceName.
-         ttOutput.sourcePath = files.sourcePath.
-         ttOutput.type = files.type.
-         ttOutput.line = files.line.
-         ttOutput.info = files.info.
-/*     end.*/
+for each files no-lock where
+         files.system = cSystem and
+         files.type = "RUN" and
+         (files.info matches("*/" + cName) or
+         files.info matches("*/" + cName + ".p") or
+         files.info matches cName or
+         files.info matches (cName + ".p")) by files.compileUnit:
+    create ttDetails.
+    ttDetails.system = files.system.
+    ttDetails.compileUnit = files.compileUnit.
+    ttDetails.fileName = files.fileName.
+    ttDetails.sourceName = files.sourceName.
+    ttDetails.sourcePath = files.sourcePath.
+    ttDetails.type = files.type.
+    ttDetails.line = files.line.
+    ttDetails.info = files.info.
 end.
