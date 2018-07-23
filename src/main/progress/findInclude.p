@@ -1,20 +1,21 @@
+{ttDetails.i}
+
 define input parameter cName as character.
-
-define temp-table ttOutput like files.
-
-define output parameter table for ttOutput.
-
+define output parameter table for ttDetails.
+define input parameter cSystem as character.
 
 for each files no-lock where files.type = "INCLUDE" and 
-    (substring(files.info, index(files.info, '/') + 1) = cName or
-     substring(files.info, index(files.info, '/') + 1) matches (cName + "*") or
-     substring(files.info, index(files.info, '/') + 1) matches ("*" + cName + "*")):
-         create ttOutput.
-         ttOutput.compileUnit = files.compileUnit.
-         ttOutput.fileName = files.fileName.
-         ttOutput.sourceName = files.sourceName.
-         ttOutput.sourcePath = files.sourcePath.
-         ttOutput.type = files.type.
-         ttOutput.line = files.line.
-         ttOutput.info = files.info.
+         files.system = cSystem and
+         (substring(files.info, index(files.info, '/') + 1) = cName or
+         substring(files.info, index(files.info, '/') + 1) matches (cName + "*") or
+         substring(files.info, index(files.info, '/') + 1) matches ("*" + cName + "*")):
+    create ttDetails.
+    ttDetails.system = files.system.
+    ttDetails.compileUnit = files.compileUnit.
+    ttDetails.fileName = files.fileName.
+    ttDetails.sourceName = files.sourceName.
+    ttDetails.sourcePath = files.sourcePath.
+    ttDetails.type = files.type.
+    ttDetails.line = files.line.
+    ttDetails.info = files.info.
 end.
