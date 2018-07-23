@@ -144,8 +144,40 @@ ADD INDEX "systemIndex" ON "files"
   PRIMARY
   INDEX-FIELD "system" ASCENDING 
 
+ADD TABLE "systems"
+  AREA "Schema Area"
+  DUMP-NAME "systems"
+
+ADD FIELD "systemName" OF "systems" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 80
+  ORDER 10
+
+ADD FIELD "localSourcePath" OF "systems" AS character 
+  FORMAT "x(200)"
+  INITIAL ""
+  POSITION 3
+  MAX-WIDTH 400
+  ORDER 20
+
+ADD FIELD "systemPropath" OF "systems" AS character 
+  FORMAT "x(200)"
+  INITIAL ""
+  POSITION 4
+  MAX-WIDTH 400
+  ORDER 30
+
+ADD FIELD "systemDBparameters" OF "systems" AS character 
+  FORMAT "x(8)"
+  INITIAL ""
+  POSITION 5
+  MAX-WIDTH 16
+  ORDER 40
+
 .
 PSC
 cpstream=1257
 .
-0000002826
+0000003421
