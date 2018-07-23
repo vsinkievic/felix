@@ -6,8 +6,8 @@ define output parameter table for ttClasses.
 
 for each FelixDB.files no-lock where 
                  files.type = "NEW" and
-                 (files.info matches("*." + cName) or
-                 files.info matches("*" + cName )): 
+                 files.info matches("*." + cName) or
+                 files.info matches cName: 
      find first ttClasses where files.compileUnit = ttClasses.compileUnit no-error.
      if not available ttClasses
      then do:

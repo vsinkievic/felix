@@ -5,8 +5,8 @@ define output parameter table for ttOutput.
 
 for each FelixDB.files no-lock where 
                  (files.type = "NEW" or files.type = "COMPILE") and
-                 (files.info matches("*." + cName) or
-                 files.info matches("*" + cName )): 
+                 files.info matches("*." + cName) or
+                 files.info matches cName: 
      find first ttOutput where files.compileUnit = ttOutput.compileUnit no-error.
      if not available ttOutput
      then do:

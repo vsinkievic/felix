@@ -7,8 +7,10 @@ define output parameter table for ttOutput.
 
 for each FelixDB.files no-lock where
                  files.type = "RUN" and
-                 (files.info matches("*" + cName) or
-                 files.info matches("*" + cName + ".p")):
+                  (files.info matches("*/" + cName) or
+                 files.info matches("*/" + cName + ".p") or
+                 files.info matches cName or
+                 files.info matches (cName + ".p")) by files.compileUnit:
 /*     find first ttOutput where files.compileUnit = ttOutput.compileUnit no-error.*/
 /*     if not available ttOutput                                                   */
 /*     then do:                                                                    */
