@@ -118,8 +118,20 @@ ADD FIELD "compileUnit" OF "files" AS character
   MAX-WIDTH 200
   ORDER 80
 
+ADD FIELD "system" OF "files" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 10
+  MAX-WIDTH 80
+  ORDER 90
+
+ADD INDEX "systemIndex" ON "files" 
+  AREA "Schema Area"
+  PRIMARY
+  INDEX-FIELD "system" ASCENDING 
+
 .
 PSC
 cpstream=1257
 .
-0000002336
+0000002565
