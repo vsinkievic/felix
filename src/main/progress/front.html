@@ -16,17 +16,15 @@
     <body>
 
         <script language="speedscript">
+            {ttDetails.i}
             define variable cName as character no-undo.
             define variable iType as integer no-undo.
+            define variable cSystem as character no-undo.
             define variable lDetails as logical init false no-undo.
-            define temp-table ttOutput like files.
             
-            define temp-table ttFiles no-undo
-                field compileUnit as character.
-            
-            function countEntries returns integer (input table ttOutput):
+            function countEntries returns integer (input table ttDetails):
                 define variable iCount as integer no-undo init 0.    
-                for each ttOutput:
+                for each ttDetails:
                     iCount = iCount + 1.
                 end.
                 return iCount.
@@ -35,6 +33,7 @@
 
             cName = get-field('name':U).
             iType = integer(get-field('type':U)).
+            cSystem = get-field('system':U).
             if get-field('details':U) <> "" then
                 lDetails = logical(get-field('details':U), "yes/no").
 
@@ -73,6 +72,15 @@
                         Please enter name.
                     </div>
                     <br>
+                    <label for="system">System:</label>
+                    <input id="sysName" autocomplete="off" type="text" class="form-control" 
+                        name="system" value="" placeholder="please enter system name" required>
+                    <ul id="autocomplete"></ul>
+                    <input id="inpDetails" type="hidden" name="details" value="no">
+                    <div id="invFeedbackName" class="invalid-feedback">
+                        Please enter system name.
+                    </div>
+                    <br>
                     <button id="xrefFormButton" type="submit" 
                         class="xrefbutton btn btn-primary">Submit</button>
                 </form>
@@ -85,7 +93,7 @@
             
             if iType = 1 then do:
                 if lDetails = false then do:
-                        run findProcedure.p (input cName, output table ttFiles).-->
+                        run findProcedure.p (input cName, output table ttDetails, input cSystem).-->
                         <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -98,6 +106,7 @@
 	                                <br>
 	                                    <input type="hidden" name="name" value="`cName`">
 	                                    <input type="hidden" name="type" value="`iType`">
+	                                    <input type="hidden" name="system" value="`cSystem`">
 	                                    <input type="hidden" name="details" value="yes">
 	                                    <button class="xrefbutton btn btn-primary" type="submit">
 	                                    Details</button>
@@ -107,9 +116,9 @@
 					                <h3>Output of <span class="refName">`cName`</span> references (XREF).</h3>
 					                <table>
 					                    <thead><th>Compile Unit</th></thead>
-					                    <!--WSS for each ttFiles: -->
+					                    <!--WSS for each ttDetails: -->
 					                    <tr>
-					                        <td> `ttFiles.compileUnit` </td>
+					                        <td> `ttDetails.compileUnit` </td>
 					                    </tr>
 					                    <!--WSS end. -->
     				                </table>
@@ -118,7 +127,7 @@
 				        </div>
 			     <!--WSS end. 
 			     else do:
-			         run findProcedure_details.p (input cName, output table ttOutput). -->
+			         run findProcedure_details.p (input cName, output table ttDetails, input cSystem). -->
 		                <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -131,6 +140,7 @@
 	                                <br>
 	                                    <input type="hidden" name="name" value="`cName`">
 	                                    <input type="hidden" name="type" value="`iType`">
+	                                    <input type="hidden" name="system" value="`cSystem`">
 	                                    <input type="hidden" name="details" value="no">
 	                                    <button class="xrefbutton btn btn-primary" type="submit">
 	                                    (Less)</button>
@@ -138,23 +148,25 @@
 	                            </div>
                                 <div class='table-holder'>
                                     <h3>Output of <span class="refName">`cName`</span> references (XREF). 
-                                            Total records: `countEntries(input table ttOutput)`.</h3>
+                                            Total records: `countEntries(input table ttDetails)`.</h3>
                                     <table>
-                                        <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                        <thead><th>System</th><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
-                                        <!--WSS for each ttOutput: -->
+                                        <!--WSS for each ttDetails: -->
                                         <tr>
-                                            <td> `ttOutput.compileUnit` </td>
-                                            <td> `ttOutput.fileName` </td>
-                                            <td> `ttOutput.sourcePath` </td>
-                                            <td> `ttOutput.type` </td>
-                                            <td> `ttOutput.line` </td>
+                                            <td> `ttDetails.system` </td>
+                                            <td> `ttDetails.compileUnit` </td>
+                                            <td> `ttDetails.fileName` </td>
+                                            <td> `ttDetails.sourcePath` </td>
+                                            <td> `ttDetails.type` </td>
+                                            <td> `ttDetails.line` </td>
                                             <td>
                                                 <form>
-                                                    <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+                                                    <input type="hidden" value="`substring(ttDetails.info, index(ttDetails.info, '/') + 1)`" name="name">
                                                     <input type="hidden" value="1" name="type">
+                                                    <input type="hidden" name="system" value="`cSystem`">
                                                     <input type="hidden" value="yes" name="details">
-                                                    <input class="infoField" type="submit" value="`ttOutput.info`">
+                                                    <input class="infoField" type="submit" value="`ttDetails.info`">
                                                 </form>
                                             </td>
                                         </tr>
@@ -169,7 +181,7 @@
 
             if iType = 2 then do:
                 if lDetails = false then do:
-                        run findClass.p (input cName, output table ttFiles).-->
+                        run findClass.p (input cName, output table ttDetails, input cSystem).-->
                         <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -182,6 +194,7 @@
                                     <br>
                                         <input type="hidden" name="name" value="`cName`">
                                         <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="system" value="`cSystem`">
                                         <input type="hidden" name="details" value="yes">
                                         <button class="xrefbutton btn btn-primary" type="submit">
                                         Details</button>
@@ -191,9 +204,9 @@
                                     <h3>Output of <span class="refName">`cName`</span> references (XREF).</h3>
                                     <table>
                                         <thead><th>Compile Unit</th></thead>
-                                        <!--WSS for each ttFiles: -->
+                                        <!--WSS for each ttDetails: -->
                                         <tr>
-                                            <td> `ttFiles.compileUnit` </td>
+                                            <td> `ttDetails.compileUnit` </td>
                                         </tr>
                                         <!--WSS end. -->
                                     </table>
@@ -202,7 +215,7 @@
                         </div>
                  <!--WSS end. 
                  else do:
-                     run findClass_details.p (input cName, output table ttOutput). -->
+                     run findClass_details.p (input cName, output table ttDetails, input cSystem). -->
                         <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -215,6 +228,7 @@
                                     <br>
                                         <input type="hidden" name="name" value="`cName`">
                                         <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="system" value="`cSystem`">
                                         <input type="hidden" name="details" value="no">
                                         <button class="xrefbutton btn btn-primary" type="submit">
                                         (Less)</button>
@@ -222,23 +236,25 @@
                                 </div>
                                 <div class='table-holder'>
                                     <h3>Output of <span class="refName">`cName`</span> references (XREF):
-                                        Total records: `countEntries(input table ttOutput)`.</h3>
+                                        Total records: `countEntries(input table ttDetails)`.</h3>
                                     <table>
-                                        <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+                                        <thead><th>System</th><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
-                                        <!--WSS for each ttOutput: -->
+                                        <!--WSS for each ttDetails: -->
                                         <tr>
-                                            <td> `ttOutput.compileUnit` </td>
-                                            <td> `ttOutput.fileName` </td>
-                                            <td> `ttOutput.sourcePath` </td>
-                                            <td> `ttOutput.type` </td>
-                                            <td> `ttOutput.line` </td>
+                                            <td> `ttDetails.system` </td>
+                                            <td> `ttDetails.compileUnit` </td>
+                                            <td> `ttDetails.fileName` </td>
+                                            <td> `ttDetails.sourcePath` </td>
+                                            <td> `ttDetails.type` </td>
+                                            <td> `ttDetails.line` </td>
                                             <td>
                                                 <form>
-                                                    <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+                                                    <input type="hidden" value="`substring(ttDetails.info, index(ttDetails.info, '/') + 1)`" name="name">
                                                     <input type="hidden" value="2" name="type">
+                                                    <input type="hidden" name="system" value="`cSystem`">
                                                     <input type="hidden" value="yes" name="details">
-                                                    <input class="infoField" type="submit" value="`ttOutput.info`">
+                                                    <input class="infoField" type="submit" value="`ttDetails.info`">
                                                 </form>
                                             </td>
                                         </tr>
@@ -253,7 +269,7 @@
             
             if iType = 3 then do:
                 if lDetails = false then do:
-                        run findInclude.p (input cName, output table ttOutput).-->
+                        run findInclude.p (input cName, output table ttDetails).-->
                         <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -266,6 +282,7 @@
                                     <br>
                                         <input type="hidden" name="name" value="`cName`">
                                         <input type="hidden" name="type" value="`iType`">
+                                        <input type="hidden" name="system" value="`cSystem`">
                                         <input type="hidden" name="details" value="yes">
                                         <button class="xrefbutton btn btn-primary" type="submit">
                                         Details</button>
@@ -273,12 +290,12 @@
                                 </div>
                                 <div class='table-holder'>
                                     <h3>Output of <span class="refName">`cName`</span> references (XREF):
-                                        Total records: `countEntries(input table ttOutput)`.</h3>
+                                        Total records: `countEntries(input table ttDetails)`.</h3>
                                     <table>
                                         <thead><th>Compile Unit</th></thead>
-                                        <!--WSS for each ttOutput: -->
+                                        <!--WSS for each ttDetails: -->
                                         <tr>
-                                            <td> `ttOutput.compileUnit` </td>
+                                            <td> `ttDetails.compileUnit` </td>
                                         </tr>
                                         <!--WSS end. -->
                                     </table>
@@ -287,7 +304,7 @@
                         </div>
                  <!--WSS end. 
                  else do:
-                     run findInclude_details.p (input cName, output table ttOutput). -->
+                     run findInclude_details.p (input cName, output table ttDetails, input cSystem). -->
                         <div class="container">
                             <div class="form-container">
                                 <div class="form-container-buttons">
@@ -300,6 +317,7 @@
                                     <br>
                                         <input type="hidden" class="form-control" name="name" value="`cName`">
                                         <input type="hidden" class="form-control" name="type" value="`iType`">
+                                        <input type="hidden" name="system" value="`cSystem`">
                                         <input type="hidden" class="form-control" name="details" value="no">
                                         <button class="xrefbutton btn btn-primary" type="submit">
                                         (Less)</button>
@@ -307,23 +325,25 @@
                                 </div>
                                 <div class='table-holder'>
 	                                <h3>Output of <span class="refName">`cName`</span> references (XREF):
-	                                   Total records: `countEntries(input table ttOutput)`.</h3>
+	                                   Total records: `countEntries(input table ttDetails)`.</h3>
 	                                <table>
-	                                    <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+	                                    <thead><th>System</th><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
 	                                        <th>Line</th><th>Info</th></thead>
-	                                    <!--WSS for each ttOutput: -->
+	                                    <!--WSS for each ttDetails: -->
 	                                    <tr>
-	                                        <td> `ttOutput.compileUnit` </td>
-	                                        <td> `ttOutput.fileName` </td>
-	                                        <td> `ttOutput.sourcePath` </td>
-	                                        <td> `ttOutput.type` </td>
-	                                        <td> `ttOutput.line` </td>
+	                                        <td> `ttDetails.system` </td>
+	                                        <td> `ttDetails.compileUnit` </td>
+	                                        <td> `ttDetails.fileName` </td>
+	                                        <td> `ttDetails.sourcePath` </td>
+	                                        <td> `ttDetails.type` </td>
+	                                        <td> `ttDetails.line` </td>
 	                                        <td>
 	                                            <form>
-	                                                <input type="hidden" value="`substring(ttOutput.info, index(ttOutput.info, '/') + 1)`" name="name">
+	                                                <input type="hidden" value="`substring(ttDetails.info, index(ttDetails.info, '/') + 1)`" name="name">
 	                                                <input type="hidden" value="3" name="type">
+	                                                <input type="hidden" name="system" value="`cSystem`">
 	                                                <input type="hidden" value="yes" name="details">
-	                                                <input class="infoField" type="submit" value="`ttOutput.info`">
+	                                                <input class="infoField" type="submit" value="`ttDetails.info`">
 	                                            </form>
 	                                        </td>
 	                                    </tr>
