@@ -7,7 +7,7 @@ define variable cPath as character no-undo.
 update cDir label ".xref directory path" help "example: C:\Users\Studentas1\xref\" with size 100 by 5.
 
 
-for each files:
+for each files use-index systemIndex:
     delete files.
 end.
 
