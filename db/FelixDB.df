@@ -11,8 +11,8 @@ ADD SEQUENCE "sqFieldNum"
 ADD TABLE "fieldDB"
   AREA "Schema Area"
   DUMP-NAME "fielddb"
-  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "tr_create_field.p" CRC "?" 
-  TABLE-TRIGGER "DELETE" NO-OVERRIDE PROCEDURE "tr_delete_field.p" CRC "?" 
+  TABLE-TRIGGER "CREATE" NO-OVERRIDE PROCEDURE "tr_create_fieldDB.p" CRC "?" 
+  TABLE-TRIGGER "DELETE" NO-OVERRIDE PROCEDURE "tr_delete_fieldDB.p" CRC "?" 
 
 ADD FIELD "fieldNum" OF "fieldDB" AS integer 
   FORMAT "->>>>>>9"
@@ -55,6 +55,20 @@ ADD FIELD "information" OF "fieldDB" AS character
   POSITION 10
   MAX-WIDTH 200
   ORDER 90
+
+ADD FIELD "compileUnit" OF "fieldDB" AS character 
+  FORMAT "x(100)"
+  INITIAL ""
+  POSITION 11
+  MAX-WIDTH 200
+  ORDER 100
+
+ADD FIELD "system" OF "fieldDB" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 12
+  MAX-WIDTH 80
+  ORDER 110
 
 ADD TABLE "files"
   AREA "Schema Area"
@@ -130,8 +144,40 @@ ADD INDEX "systemIndex" ON "files"
   PRIMARY
   INDEX-FIELD "system" ASCENDING 
 
+ADD TABLE "systems"
+  AREA "Schema Area"
+  DUMP-NAME "systems"
+
+ADD FIELD "systemName" OF "systems" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 80
+  ORDER 10
+
+ADD FIELD "localSourcePath" OF "systems" AS character 
+  FORMAT "x(200)"
+  INITIAL ""
+  POSITION 3
+  MAX-WIDTH 400
+  ORDER 20
+
+ADD FIELD "systemPropath" OF "systems" AS character 
+  FORMAT "x(200)"
+  INITIAL ""
+  POSITION 4
+  MAX-WIDTH 400
+  ORDER 30
+
+ADD FIELD "systemDBparameters" OF "systems" AS character 
+  FORMAT "x(8)"
+  INITIAL ""
+  POSITION 5
+  MAX-WIDTH 16
+  ORDER 40
+
 .
 PSC
 cpstream=1257
 .
-0000002565
+0000003421
