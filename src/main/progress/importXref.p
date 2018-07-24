@@ -127,8 +127,8 @@ input from value(cPath).
                         files.sourceName = entry(i2 - 1, cSourceName, "/")
                         files.sourcePath = cSourePath
                         files.line = integer(cLineNumber)
-                        files.type = cXrefType
-                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.type = "INDEX"
+                        files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
                 
