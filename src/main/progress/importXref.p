@@ -172,7 +172,7 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
             end.
             else if cXrefType = "ACCESS" or cXrefType = "UPDATE"
             then do:
@@ -193,7 +193,7 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
                 end.
                 
             end.
