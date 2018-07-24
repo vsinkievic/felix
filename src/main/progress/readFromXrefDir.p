@@ -7,11 +7,11 @@ define variable cSystem as character no-undo.
 
 update cDir label ".xref directory path" help "example: C:\Users\Studentas1\xref\" 
     cSystem label "System name"
-    with size 100 by 5.
+    with 1 col size 100 by 5.
     
 
 
-for each files use-index systemIndex:
+for each files:
     delete files.
 end.
 

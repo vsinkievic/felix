@@ -9,7 +9,7 @@ for each files no-lock where files.type = "INCLUDE" and
          (substring(files.info, index(files.info, '/') + 1) = cName or
          substring(files.info, index(files.info, '/') + 1) matches (cName + "*") or
          substring(files.info, index(files.info, '/') + 1) matches ("*" + cName + "*"))
-         use-index systemIndex by files.compileUnit:
+         by files.compileUnit:
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.
