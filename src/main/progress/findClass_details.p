@@ -13,7 +13,7 @@ for each files no-lock where
          files.type = "IMPLICIT INVOKE" or 
          files.type = "ACCESS" or 
          files.type = "UPDATE") and
-         (files.info matches("*." + cName) or
+         (files.info matches("*." + cName + "*") or
          files.info = cName)
          by files.compileUnit:
     create ttDetails.
