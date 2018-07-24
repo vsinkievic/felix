@@ -9,9 +9,9 @@ for each files no-lock where
          files.type = "RUN" and
          (files.info matches("*/" + cName) or
          files.info matches("*/" + cName + ".p") or
-         files.info matches cName or
+         files.info = cName or
          files.info matches (cName + ".p")) 
-         use-index systemIndex by files.compileUnit:
+         by files.compileUnit:
      find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
      if not available ttDetails
      then do:

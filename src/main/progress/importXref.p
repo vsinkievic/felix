@@ -46,7 +46,7 @@ input from value(cPath).
             
             cSourePath = trimPath(input cProPath, input cCompilePath, input cSourceName).
             
-            if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE" 
+            if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE"
             then do:
                 
                 if index(cXrefInformation, " ") <> 0 or index(cXrefInformation, ",") <> 0
@@ -104,6 +104,35 @@ input from value(cPath).
                         files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
+            end.
+            else if cXrefType = "SEARCH"
+            then do:
+                cXrefInformation = replace(cXrefInformation,"DATA-MEMBER ","").
+                cXrefInformation = replace(cXrefInformation,"INHERITED-DATA-MEMBER ","").
+                cXrefInformation = replace(cXrefInformation," TEMPTABLE","").
+                cXrefInformation = replace(cXrefInformation," WHOLE-INDEX","").
+                cXrefInformation = replace(cXrefInformation," TABLE-SCAN","").
+                cXrefInformation= trim(cXrefInformation).
+               
+                cXrefInformation = entry(2,cXrefInformation," ").
+                
+                repeat i = 1 to num-entries(cFileName, "/"):
+                end.
+                repeat i2 = 1 to num-entries(cSourceName, "/"):
+                end.
+              
+                create files.
+                    assign
+                        files.fileName = entry(i - 1, cFileName, "/")
+                        files.sourceName = entry(i2 - 1, cSourceName, "/")
+                        files.sourcePath = cSourePath
+                        files.line = integer(cLineNumber)
+                        files.type = cXrefType
+                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.compileUnit = cCompileUnit
+                        files.system = cSystem.
+                
+                
             end.
             
         end.
