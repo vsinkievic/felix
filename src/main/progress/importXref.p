@@ -45,6 +45,11 @@ input from value(cPath).
             
             cSourePath = trimPath(input cProPath, input cCompilePath, input cSourceName).
             
+            repeat i = 0 to num-entries(cFileName, "/"):
+            end.
+            repeat i2 = 0 to num-entries(cSourceName, "/"):
+            end.
+            
             if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE" 
             then do:
                 
@@ -59,10 +64,10 @@ input from value(cPath).
 /*                end.                                                    */
                 
                 
-                repeat i = 1 to num-entries(cFileName, "/"):
-                end.
-                repeat i2 = 1 to num-entries(cSourceName, "/"):
-                end.
+/*                repeat i = 0 to num-entries(cFileName, "/"):   */
+/*                end.                                           */
+/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
+/*                end.                                           */
                 
                 if cXrefType = "COMPILE" 
                 then do:
@@ -83,6 +88,12 @@ input from value(cPath).
             end.
             else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*")) //pakeisti matches á index <> 0
             then do:
+                
+/*                repeat i = 0 to num-entries(cFileName, "/"):   */
+/*                end.                                           */
+/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
+/*                end.                                           */
+                
                 if cXrefInformation matches ("*INHERITS*") //pakeisti matches á index <> 0
                 then do:
                     cXrefInformation = substring(cXrefInformation, index(cXrefInformation, "INHERITS")).
@@ -104,7 +115,64 @@ input from value(cPath).
                         files.compileUnit = cCompileUnit
                         files.system = "Indigo".
             end.
-            
+            else if cXrefType = "INVOKE"
+            then do:
+
+/*                repeat i = 0 to num-entries(cFileName, "/"):   */
+/*                end.                                           */
+/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
+/*                end.                                           */
+
+                if index(cXrefInformation, ",") <> 0
+                then do:
+                    cXrefInformation = substring(cXrefInformation, 1, index(cXrefInformation, ",") - 1).
+                end.
+                
+                if cLineNumber = "IMPLICIT"
+                then do:
+                    
+                    cLineNumber = "0".
+                    cXrefType = "IMPLICIT" + cXrefType.
+                    
+                end.
+                
+                create files.
+/*                files.line = integer(cLineNumber) no-error.                      */
+/*                if error-status:error then message cLineNumber view-as alert-box.*/
+                    assign
+                        files.fileName = entry(i - 1, cFileName, "/")
+                        files.sourceName = entry(i2 - 1, cSourceName, "/")
+                        files.sourcePath = cSourePath
+                        files.line = integer(cLineNumber)
+                        files.type = cXrefType
+                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.compileUnit = cCompileUnit
+                        files.system = "Indigo".
+            end.
+            else if cXrefType = "ACCESS" or cXrefType = "UPDATE"
+            then do:
+
+/*                repeat i = 0 to num-entries(cFileName, "/"):   */
+/*                end.                                           */
+/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
+/*                end.                                           */
+
+                if index(cXrefInformation, "INHERITED") <> 0 or index(cXrefInformation, "PUBLIC") <> 0
+                then do:
+                    create files.
+                    assign
+                        files.fileName = entry(i - 1, cFileName, "/")
+                        files.sourceName = entry(i2 - 1, cSourceName, "/")
+                        files.sourcePath = cSourePath
+                        files.line = integer(cLineNumber)
+                        files.type = cXrefType
+                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.compileUnit = cCompileUnit
+                        files.system = "Indigo".
+                end.
+                
+            end.
+        
         end.
 
 input close.
