@@ -5,9 +5,7 @@
         <title>Felix XREF analyser</title>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/felix/master.css">
-        
-
-        
+        <link rel="stylesheet" href="master.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -17,16 +15,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="/felix/dropdown.js" type="text/javascript"></script>
 
-
-        
         <SCRIPT LANGUAGE="SpeedScript">
-            
-            define variable row_id as integer no-undo init 1.
             CREATE WIDGET-POOL.
         </SCRIPT>
     </head>
     <body>
-    
+
     <script language="speedscript">
                     {ttDetails.i}
             define variable cName as character no-undo.
@@ -34,29 +28,27 @@
             define variable cSystem as character no-undo.
             define variable lDetails as logical init false no-undo.
             define variable cUpdSystem as character no-undo.
-            
-            find first files no-lock.
-            
+
             cName = get-field('name').
             iType = integer(get-field('type')).
             cUpdSystem = get-value('updSystem').
-            
-            cSystem = "Indigo".
+
+            cSystem = get-field('system').
             if get-field('details') <> "" then
                 lDetails = logical(get-field('details'), "yes/no").
-    
+
     </script>
-    
+
     <div class="container">
         <div class="row page-header">
-        
+
             <div class="col-4">
                 <h1><a href="front.html"><span id="logo">Felix<sup>&reg</sup></a></span></h1>
                 <h4>XREF analyser</h4>
             </div>
-          
-            <div class="col-8 btn-block">   
-            
+
+            <div class="col-8 btn-block">
+
                 <form id="xrefForm">
 				<div id="myDIV">
                     <div class="btn-group d-flex flex-wrap flex-md-nowrap" role="group" id="">
@@ -66,18 +58,18 @@
                         <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include">
                         <input class="btn elements w-100" id="btn4" name="bDBfield" type="button" value="DB field">
                         <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
-                        <input class="btn w-100 about-btn" id="btn6" name="bAbout" type="button" value="About" 
+                        <input class="btn w-100 about-btn" id="btn6" name="bAbout" type="button" value="About"
                             style="background-color: #626060; color:white;">
                     </div>
-				
+
                     <input id="inpType" type="hidden" name="type" value="`iType`">
                     <div id="invFeedbackType" class="invalid-feedback">
                         Please select type.
                     </div>
-                    
+
                     <div class="form-group d-flex flex-wrap flex-md-nowrap justify-content-between form-reports-input">
                         <div class="w-90">
-                            <input class="form-control" autocomplete="off" name="name" id="inpName" 
+                            <input class="form-control" autocomplete="off" name="name" id="inpName"
                                 placeholder="Please enter name" value="`cName`">
                             <ul id="autocomplete"></ul>
                             <div id="invFeedbackName" class="invalid-feedback">
@@ -90,74 +82,83 @@
                         <div class="w-10">
                             <button id="btnDetailed" type="submit" class="btn pull-right">Detailed report</button>
                         </div>
-                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details':U)`">
+                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
+                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
                     </div>
-                </form>  
+                </form>
                 </div>
             </div>
         </div>
-        
+
         <div class="row report-section">
-            <div class="col-3">               
-                <div class="list-group">
+            <div class="col-3">
+                <div class="list-group systems-list">
                   <li class="list-group-item" id="list-heading">Available systems</li>
                   <!--WSS for each systems: -->
-                  <li class="list-group-item list-group-item-action">
+                  <li class="list-group-item list-group-item-action systems-select" value='`systems.systemName`'>
                     `systems.systemName`
                         <form action="front.html" class="pull-right">
-		                      <input class="btn btn-outline-dark edit-system" type="submit" name="updSystem" 
+		                      <input class="btn btn-outline-dark edit-system" type="submit" name="updSystem"
 		                            value="edit">
 		                      <input type="hidden" name="sysName" value="`systems.systemName`">
 	                    </form>
                   </li>
+                  <li class="list-group-item list-group-item-action systems-select" value='`systems.systemName`'>
+                    `systems.systemName`
+                        <form action="front.html" class="pull-right">
+                            <input class="btn btn-outline-dark edit-system" type="submit" name="updSystem"
+                                  value="edit">
+                            <input type="hidden" name="sysName" value="`systems.systemName`">
+                      </form>
+                  </li>
+
                   <!--WSS end. -->
                 </div>
-                
+
                 <form action="front.html">
 				    <button type="submit" class="btn btn-block top-buffer" id="upd" name="updSystem" value="new">Add new system</button>
 				</form>
             </div>
-            
+
             <div class="col-9">
-            
+
                 <div class="about">
                     <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
                     <p>Output shows all references of one specific program's element within the application's filesystem.</p>
                 </div>
-            
-            
+
+
             <!--WSS if cUpdSystem = "new" then do: -->
-            
+
                 <div class="form-holder">
 	                <form action='front.html'>
 	                        <h3>New system for xref processing</h3>
 	                        <label for="sysName">Name:</label>
-	                        <input id="sysName" autocomplete="off" type="text" class="form-control" 
+	                        <input id="sysName" autocomplete="off" type="text" class="form-control"
 	                            name="sysName" value="" placeholder="please enter system name" required>
 	                        <label for="sysPath">Path:</label>
-	                        <input id="sysPath" autocomplete="off" type="text" class="form-control" 
+	                        <input id="sysPath" autocomplete="off" type="text" class="form-control"
 	                            name="sysPath" placeholder="please enter system source path">
 	                        <label for="sysPropath">Propath:</label>
-	                        <input id="sysPropath" autocomplete="off" type="text" class="form-control" 
+	                        <input id="sysPropath" autocomplete="off" type="text" class="form-control"
 	                            name="sysPropath" placeholder="please enter system propath">
 	                        <label for="dbPar">Database:</label>
-	                        <input id="dbPar" autocomplete="off" type="text" class="form-control" 
+	                        <input id="dbPar" autocomplete="off" type="text" class="form-control"
 	                            name="dbPar" placeholder="please enter system database parameters">
 	                        <input type="hidden" name="updSystem" value="add">
 	                        <div class="button-holder">
 		                        <input class="btn btn-dark" type="submit">
 	                        </div>
-	                        
-                    </form>                
+
+                    </form>
                 </div>
-            
-            
+
             <!--WSS end.
             if cUpdSystem = "add" then do: -->
-            
+
                 <div class="form-holder"
 					<script language="speedscript">
-					
+
 					    if get-field('sysName') <> "" then do:
 					        find first systems where systems.systemName = get-field('sysName') no-error.
 					        if not available systems then do:
@@ -167,42 +168,42 @@
 					        systems.localSourcePath = get-field('sysPath').
 					        systems.systemPropath = get-field('sysPropath').
 					        systems.systemDBparameters = get-field('dbPar').
-					    end.        
-					
+					    end.
+
 					</script>
-					
+
 				<!--WSS end.
 				if cUpdSystem = "edit" then do: -->
                     <script language="speedscript">
                         if get-field('sysName') <> "" then do:
                             find first systems where systems.systemName = get-field('sysName') no-error.
-                        end.                            
+                        end.
                     </script>
-					
+
 					<form action='front.html'>
 					    <h3>Update system <span class="refName">`systems.systemName`</span> for xref processing</h3>
 					    <label for="sysName">Name:</label>
-					    <input id="sysName" autocomplete="off" type="text" class="form-control" 
+					    <input id="sysName" autocomplete="off" type="text" class="form-control"
 					        name="sysName" value="`systems.systemName`" placeholder="please enter system name" required>
 					    <label for="sysPath">Path:</label>
-					    <input id="sysPath" autocomplete="off" type="text" class="form-control" 
+					    <input id="sysPath" autocomplete="off" type="text" class="form-control"
 					        name="sysPath" value="`systems.localSourcePath`" placeholder="please enter system source path">
 					    <label for="sysPropath">Propath:</label>
-					    <input id="sysPropath" autocomplete="off" type="text" class="form-control" 
+					    <input id="sysPropath" autocomplete="off" type="text" class="form-control"
 					        name="sysPropath" value="`systems.systemPropath`" placeholder="please enter system propath">
 					    <label for="dbPar">Database:</label>
-					    <input id="dbPar" autocomplete="off" type="text" class="form-control" 
+					    <input id="dbPar" autocomplete="off" type="text" class="form-control"
 					        name="dbPar" value="`systems.systemDBparameters`" placeholder="please enter system database parameters">
 					    <input type="hidden" name="updSystem" value="add">
                             <div class="button-holder d-flex justify-content-between">
                                 <input class="btn btn-dark" type="submit" value="Update">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" 
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
                                    data-target="#deleteModal" value="">Delete</button>
                             </div>
-					</form>      
+					</form>
 					                           <!-- Modal -->
-                            
-                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" 
+
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -222,14 +223,14 @@
                         </div>
                       </div>
                     </div>
-					          
+
                 </div>
-            
+
             <!--WSS end.  -->
-            
+
             <!--WSS if cName <> "" and iType = 1 then do:
-                if lDetails = false then do: 
-                    run findProcedure.p (input cName, output table ttDetails, input cSystem).-->                            
+                if lDetails = false then do:
+                    run findProcedure.p (input cName, output table ttDetails, input cSystem).-->
                           <div class='form-holder'>
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref):</p>
                               <table>
@@ -241,7 +242,7 @@
                                   <!--WSS end. -->
                               </table>
                           </div>
-                   <!--WSS end. 
+                   <!--WSS end.
                    else do:
                        run findProcedure_details.p (input cName, output table ttDetails, input cSystem). -->
                             <div class='form-holder'>
@@ -262,12 +263,12 @@
                                     </table>
                              </div>
                     <!--WSS end.
-                    end. -->                                             
+                    end. -->
 
 
             <!--WSS if cName <> "" and iType = 2 then do:
-                if lDetails = false then do: 
-                    run findClass.p (input cName, output table ttDetails, input cSystem).-->                            
+                if lDetails = false then do:
+                    run findClass.p (input cName, output table ttDetails, input cSystem).-->
                           <div class='form-holder'>
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref):</p>
                               <table>
@@ -279,7 +280,7 @@
                                   <!--WSS end. -->
                               </table>
                           </div>
-                   <!--WSS end. 
+                   <!--WSS end.
                    else do:
                        run findClass_details.p (input cName, output table ttDetails, input cSystem). -->
                             <div class='form-holder'>
@@ -300,13 +301,13 @@
                                     </table>
                              </div>
                     <!--WSS end.
-                    end. -->                                             
+                    end. -->
 
 
 
             <!--WSS if cName <> "" and iType = 3 then do:
-                if lDetails = false then do: 
-                    run findInclude.p (input cName, output table ttDetails, input cSystem).-->                            
+                if lDetails = false then do:
+                    run findInclude.p (input cName, output table ttDetails, input cSystem).-->
                           <div class='form-holder'>
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref):</p>
                               <table>
@@ -318,7 +319,7 @@
                                   <!--WSS end. -->
                               </table>
                           </div>
-                   <!--WSS end. 
+                   <!--WSS end.
                    else do:
                        run findInclude_details.p (input cName, output table ttDetails, input cSystem). -->
                             <div class='form-holder'>
@@ -339,7 +340,7 @@
                                     </table>
                              </div>
                     <!--WSS end.
-                    end. -->                                             
+                    end. -->
 
 
 
@@ -350,8 +351,8 @@
         </div>
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 </body>
-    
-    
+
+
     <script type="text/javascript">
 $(document).ready(function(){
 
@@ -421,6 +422,17 @@ $(document).ready(function(){
     });
 
 
+    $(".systems-select").click(function() {
+        console.log("clickas");
+        $(".systems-list").children().removeClass('systems-select-active');
+        $(this).addClass("systems-select-active");
+        let sysName = $(this).val();
+        console.log(sysName);
+        $('#inpSystem').val(sysName);
+
+    });
+
+
 
     // scroll back to top arrow
 
@@ -450,5 +462,3 @@ $(document).ready(function(){
 })
 
 </script>
-    
-    
