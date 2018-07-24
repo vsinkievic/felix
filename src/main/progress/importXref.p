@@ -157,7 +157,7 @@ input from value(cPath).
                 then do:
                     
                     cLineNumber = "0".
-                    cXrefType = "IMPLICIT" + cXrefType.
+                    cXrefType = "IMPLICIT " + cXrefType.
                     
                 end.
                 

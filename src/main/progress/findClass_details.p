@@ -6,7 +6,13 @@ define input parameter cSystem as character.
 
 for each files no-lock where 
          files.system = cSystem and
-         (files.type = "NEW" or files.type = "COMPILE" or files.type = "CLASS") and
+         (files.type = "NEW" or 
+         files.type = "COMPILE" or 
+         files.type = "CLASS" or 
+         files.type = "INVOKE" or 
+         files.type = "IMPLICIT INVOKE" or 
+         files.type = "ACCESS" or 
+         files.type = "UPDATE") and
          (files.info matches("*." + cName) or
          files.info = cName)
          by files.compileUnit:
