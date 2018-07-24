@@ -13,6 +13,7 @@ define variable i as integer no-undo.
 define variable i2 as integer no-undo.
 define variable i3 as integer no-undo.
 define input parameter cPath as character no-undo.
+define input parameter cSystem as character no-undo.
 define variable cProPath as character init "system/;migration/;integration/".
 define variable cCompilePath as character no-undo init "/u1/env/bankcp/indigo/svn-trunk/".
 define variable cSourePath as character no-undo.
@@ -79,7 +80,7 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
             end.
             else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*")) //pakeisti matches á index <> 0
             then do:
@@ -102,7 +103,7 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
             end.
             
         end.

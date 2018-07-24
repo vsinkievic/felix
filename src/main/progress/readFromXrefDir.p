@@ -3,8 +3,12 @@
 define variable cFileStream as character no-undo.
 define variable cDir as character no-undo format "x(200)" init "Input your .xref file directory".
 define variable cPath as character no-undo.
+define variable cSystem as character no-undo.
 
-update cDir label ".xref directory path" help "example: C:\Users\Studentas1\xref\" with size 100 by 5.
+update cDir label ".xref directory path" help "example: C:\Users\Studentas1\xref\" 
+    cSystem label "System name"
+    with size 100 by 5.
+    
 
 
 for each files use-index systemIndex:
@@ -18,7 +22,7 @@ repeat:
         if cFileStream matches "*.xref" 
         then do:
             cPath = cDir + cFileStream.
-            run importXref.p(input cPath).
+            run importXref.p(input cPath, input cSystem).
         end.
 end.
 
