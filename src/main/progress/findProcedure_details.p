@@ -9,8 +9,9 @@ for each files no-lock where
          files.type = "RUN" and
          (files.info matches("*/" + cName) or
          files.info matches("*/" + cName + ".p") or
-         files.info matches cName or
-         files.info matches (cName + ".p")) by files.compileUnit:
+         files.info = cName or
+         files.info matches (cName + ".p")) 
+         by files.compileUnit:
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.

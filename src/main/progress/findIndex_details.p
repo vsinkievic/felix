@@ -4,11 +4,11 @@ define input parameter cName as character.
 define output parameter table for ttDetails.
 define input parameter cSystem as character.
 
-for each files no-lock where files.type = "INCLUDE" and 
+for each files no-lock where
          files.system = cSystem and
-         (substring(files.info, index(files.info, '/') + 1) = cName or
-         substring(files.info, index(files.info, '/') + 1) matches (cName + "*") or
-         substring(files.info, index(files.info, '/') + 1) matches ("*" + cName + "*")):
+         files.type = "INDEX" and
+         files.info = cName
+         by files.compileUnit:
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.
@@ -19,4 +19,3 @@ for each files no-lock where files.type = "INCLUDE" and
     ttDetails.line = files.line.
     ttDetails.info = files.info.
 end.
-

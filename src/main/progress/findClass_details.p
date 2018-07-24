@@ -7,8 +7,9 @@ define input parameter cSystem as character.
 for each files no-lock where 
          files.system = cSystem and
          (files.type = "NEW" or files.type = "COMPILE" or files.type = "CLASS") and
-         files.info matches("*." + cName) or
-         files.info matches cName: 
+         (files.info matches("*." + cName) or
+         files.info = cName)
+         by files.compileUnit:
     create ttDetails.
     ttDetails.system = files.system.
     ttDetails.compileUnit = files.compileUnit.

@@ -13,6 +13,7 @@ define variable i as integer no-undo.
 define variable i2 as integer no-undo.
 define variable i3 as integer no-undo.
 define input parameter cPath as character no-undo.
+define input parameter cSystem as character no-undo.
 define variable cProPath as character init "system/;migration/;integration/".
 define variable cCompilePath as character no-undo init "/u1/env/bankcp/indigo/svn-trunk/".
 define variable cSourePath as character no-undo.
@@ -50,7 +51,7 @@ input from value(cPath).
             repeat i2 = 0 to num-entries(cSourceName, "/"):
             end.
             
-            if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE" 
+            if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE"
             then do:
                 
                 if index(cXrefInformation, " ") <> 0 or index(cXrefInformation, ",") <> 0
@@ -84,7 +85,7 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
             end.
             else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*")) //pakeisti matches á index <> 0
             then do:
@@ -113,7 +114,31 @@ input from value(cPath).
                         files.type = cXrefType
                         files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
                         files.compileUnit = cCompileUnit
-                        files.system = "Indigo".
+                        files.system = cSystem.
+            end.
+            else if cXrefType = "SEARCH"
+            then do:
+                cXrefInformation = replace(cXrefInformation,"DATA-MEMBER ","").
+                cXrefInformation = replace(cXrefInformation,"INHERITED-DATA-MEMBER ","").
+                cXrefInformation = replace(cXrefInformation," TEMPTABLE","").
+                cXrefInformation = replace(cXrefInformation," WHOLE-INDEX","").
+                cXrefInformation = replace(cXrefInformation," TABLE-SCAN","").
+                cXrefInformation= trim(cXrefInformation).
+               
+                cXrefInformation = entry(2,cXrefInformation," ").
+              
+                create files.
+                    assign
+                        files.fileName = entry(i - 1, cFileName, "/")
+                        files.sourceName = entry(i2 - 1, cSourceName, "/")
+                        files.sourcePath = cSourePath
+                        files.line = integer(cLineNumber)
+                        files.type = "INDEX"
+                        files.info = cXrefInformation
+                        files.compileUnit = cCompileUnit
+                        files.system = cSystem.
+                
+                
             end.
             else if cXrefType = "INVOKE"
             then do:
