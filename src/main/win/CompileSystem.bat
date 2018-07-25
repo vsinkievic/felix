@@ -1,8 +1,7 @@
 
-echo %1
 
 SET JSON-LOCATION=%1
 
 set DLC=C:\progress\openedge
 
-%DLC%\bin\prowin -b -p ../progress/ConnectSystem.p 
+%DLC%\bin\prowin -b -p ../progress/ConnectSystem.p -basekey "INI" -ininame %2

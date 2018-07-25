@@ -2,21 +2,23 @@
 
 temp-table ttSystemInfo:read-json("file",os-getenv("JSON-LOCATION"),"empty").
 
+//os-delete value(os-getenv("JSON-LOCATION")).
+
 find ttSystemInfo.
 
-propath = ttSystemInfo.fsystemPropath.
-
 connect value(ttSystemInfo.fsystemDBparameters).
-
 
 os-create-dir value(os-getenv("TEMP") + "/" + ttSystemInfo.fsystemName).
 
 
-compile value(ttSystemInfo.flocalSourcePath + "\Buttons.i") save xref value(os-getenv("TEMP") + "\" + ttSystemInfo.fsystemName + "\" + subst("&1.xref", "Buttons.i")).
-compile value(ttSystemInfo.flocalSourcePath + "\DataSet.i") save xref value(os-getenv("TEMP") + "\" + ttSystemInfo.fsystemName + "\" + subst("&1.xref", "DataSet.i")).
 
 
-/*output to "Petriukas.txt".                                  */
+
+
+
+
+output to "Petriukas.txt".                                  
+message propath.
 /*//display ttSystemInfo.fsystemDBparam skip(1).              */
 /*display os-getenv("JSON-LOCATION") format "x(80)"           */
 /*    with width 400.                                         */
@@ -25,5 +27,5 @@ compile value(ttSystemInfo.flocalSourcePath + "\DataSet.i") save xref value(os-g
 /*        display ttSystemInfo with stream-io width 300 1 col.*/
 /*    end.                                                    */
 
-       
-output close
+output close.
+run CompileXref.p(input ttSystemInfo.flocalSourcePath, input os-getenv("TEMP") + "\" + ttSystemInfo.fsystemName + "\").

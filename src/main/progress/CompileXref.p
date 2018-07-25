@@ -1,26 +1,33 @@
 
 DEFINE VARIABLE cFileStream AS CHARACTER NO-UNDO.
-DEFINE VARIABLE cDir AS CHARACTER NO-UNDO FORMAT "x(200)" INIT "C:\Users\Studentas1\Progress\Developer Studio 4.3.1\workspace".
-DEFINE VARIABLE cPath AS CHARACTER NO-UNDO FORMAT "x(200)".
+DEFINE INPUT PARAMETER cImputDir AS CHARACTER NO-UNDO FORMAT "x(200)".
+DEFINE INPUT PARAMETER cOutputDir AS CHARACTER NO-UNDO FORMAT "x(200)".
+define variable cPath AS CHARACTER NO-UNDO FORMAT "x(200)". 
 DEFINE VARIABLE isum AS INTEGER INIT 0.
 DEFINE VARIABLE cFileType AS CHARACTER NO-UNDO.
 
-FUNCTION compileFiles RETURNS INTEGER (cDirectory AS CHARACTER) FORWARD.
+FUNCTION compileFiles RETURNS INTEGER (cImputDirectory AS CHARACTER) FORWARD.
 FUNCTION getAfterPoint RETURNS CHARACTER (INPUT cInputString AS CHARACTER) FORWARD.
 
 //----------------------------------- Main BLock -----------------------------------------
 
 OUTPUT TO ttt.txt.    
-INPUT FROM OS-DIR(cDir).
+//display cImputDir cOutputDir
+//with width 400.
+message "type nul > " + os-getenv("TEMP") + "\compile.done".
+INPUT FROM OS-DIR(cImputDir).
 
-DISPLAY "total files" compileFiles (cDir).
+compileFiles (cImputDir).
 
 INPUT CLOSE.
 OUTPUT CLOSE.
 
+os-command value("type nul > " + os-getenv("TEMP") + "\compile.done").
+
+
 //----------------------------------- Functions -----------------------------------------
                                                     
-FUNCTION compileFiles RETURNS INTEGER (cDirectory AS CHARACTER):
+FUNCTION compileFiles RETURNS INTEGER (cImputDirectory AS CHARACTER):
     
     IMPORT cFileStream.
     IMPORT cFileStream.
@@ -28,25 +35,30 @@ FUNCTION compileFiles RETURNS INTEGER (cDirectory AS CHARACTER):
     REPEAT:
         
         IMPORT cFileStream.
-        FILE-INFO:FILE-NAME = cDirectory + "\" + cFileStream.
+        FILE-INFO:FILE-NAME = cImputDirectory + "\" + cFileStream.
         cFileType = getAfterPoint (cFileStream).
-        //MESSAGE cFIleType.
+        
         
         IF INDEX (FILE-INFO:FILE-TYPE, "D") > 0
         
         THEN DO:
             
-            INPUT FROM OS-DIR(cDirectory + "\" + cFileStream).
-            compileFiles (cDirectory + "\" + cFileStream).
+            INPUT FROM OS-DIR(cImputDirectory + "\" + cFileStream).
+            compileFiles (cImputDirectory + "\" + cFileStream).
             INPUT CLOSE.
             
         END.       
             
         ELSE IF cFileType = "p" OR cFileType = "cls" OR cFileType = "i" OR cFileType = "w"
         THEN DO:
-
-            //MESSAGE cFileStream.
-            cPath = cDirectory + cFileStream.
+            MESSAGE cFileStream.
+            cPath = cImputDirectory + "\" + cFileStream.
+            
+            cPath = Replace (cPath, "\", "_").
+            cPath = substring(cPath, 4).
+            MESSAGE cImputDir + "\" + cFileStream.
+            message cOutputDir + subst("&1.xref", cPath).
+            compile value(cImputDir + "\" + cFileStream) save xref value(cOutputDir + subst("&1.xref", cPath)).
             isum = isum + 1.
 
         END.
