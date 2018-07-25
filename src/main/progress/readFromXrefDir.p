@@ -11,11 +11,11 @@ update cDir label ".xref directory path" help "example: C:\Users\Studentas1\xref
     
 
 
-for each files:
+for each files where files.system = cSystem:
     delete files.
 end.
 
-for each fieldDB:
+for each fieldDB where fieldDB.system = cSystem:
     delete fieldDB.
 end.
 
