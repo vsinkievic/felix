@@ -11,7 +11,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
         <script src="/felix/jquery.js" type="text/javascript"></script>
         <script src="/felix/dropdown.js" type="text/javascript"></script>
         <script src="/felix/events.js" type="text/javascript"></script>
@@ -21,19 +20,21 @@
         </SCRIPT>
     </head>
     <body>
-
     <script language="speedscript">
-    
                     {ttDetails.i}
             define variable cName as character no-undo.
-            define variable iType as integer no-undo init 0.
+            define variable iType as integer init 0 no-undo.
             define variable cSystem as character no-undo.
             define variable lDetails as logical init false no-undo.
             define variable cUpdSystem as character no-undo.
+            define variable lClearFront as logical init true no-undo.
 
             cName = get-field('name').
             iType = integer(get-field('type')).
             cUpdSystem = get-value('updSystem').
+
+
+            if cName <> "" or iType > 0 or cUpdSystem <> "" then lClearFront = false.
 
             cSystem = get-field('system').
             if get-field('details') <> "" then
@@ -50,6 +51,21 @@
                     cUpdSystem = "".
                 end.
             end.
+            
+            if cUpdSystem = "add" then do:
+                    if get-field('sysName') <> "" then do:
+                        find first systems where systems.systemName = get-field('oldName') no-error.
+                        if not available systems then do:
+                            create systems.
+                            systems.systemName = get-field('sysName').
+                        end.
+                        systems.localSourcePath = get-field('sysPath').
+                        systems.systemPropath = get-field('sysPropath').
+                        systems.systemDBparameters = get-field('dbPar').
+                        systems.systemName = get-field("sysName").
+                    end.
+            end.
+                        
 
     </script>
 
@@ -67,9 +83,18 @@
                         <input class="btn elements w-100" id="btn1" name="bProcedure" type="button" value="Procedure">
                         <input class="btn elements w-100" id="btn2" name="bClass" type="button" value="Class">
                         <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include">
-                        <input class="btn elements w-100" id="btn4" name="bDBfield" type="button" value="DB field">
+                        <div class="btn-group" role="group">
+						  <button id="btn4" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
+						      aria-haspopup="true" aria-expanded="false">
+						      DB field 
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="btn4">
+						      <a class="btn dropdown-item" id="btn4-1">ACCESS</a>
+						      <a class="btn dropdown-item" id="btn4-2">UPDATE</a>
+						  </div>
+						</div>
                         <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
-                        <input class="btn w-100 about-btn" id="btn6" name="bAbout" type="button" value="About"
+                        <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" type="button" value="User Guide"
                             style="background-color: #626060; color:white;">
                     </div>
 
@@ -129,10 +154,34 @@
 
             <div class="col-9">
 
-                <div class="about">
-                    <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
-                    <p>Output shows all references of one specific program's element within the application's filesystem.</p>
+                <div class="user-guide">
+                    <h3>System window overview</h3>
+                    <img class="user-guide-img" src="/felix/how_to_one" alt="Picture of how-to">
+	                    <p>
+	                    1. Add new system <br>
+	                    2. Select from available (added) systems <br>
+	                    3. Choose a type <br>
+	                    4. Insert name <br>
+	                    5. Choose level of detail <br> 
+	                    </p>
+                    <h3>Example of short report</h3>
+                    <img class="user-guide-img" src="/felix/how_to_two" alt="Picture of how-to">
+                    <br>
+                    <br>
+                    <h3>Example of detailed report</h3>
+                    <img class="user-guide-img" src="/felix/how_to_three" alt="Picture of how-to">
                 </div>
+
+                <!--WSS if lClearFront then do:  -->
+                <div class="about">
+                    <h3>Compiler's Dream. It's All About XREF</h3>
+                    <p>Felix<sup>&reg</sup> XREF analyses information on ABL elements, cross-references between 
+                    procedures and ABL objects, and cross-references between class or interface definition files 
+                    and ABL objects.</p>
+                    <p>It's never been easier to find out what and where is using specific elements in your 
+                    sophisticated fyle system.</p>
+                </div>
+                <!--WSS end. -->
 
 
             <!--WSS if cUpdSystem = "new" then do: -->
@@ -160,27 +209,11 @@
                     </form>
                 </div>
 
-            <!--WSS end.
-            if cUpdSystem = "add" then do: -->
+            <!--WSS end. -->
 
-                <div class="form-holder"
-                    <script language="speedscript">
-                        if get-field('sysName') <> "" then do:
-                            find first systems where systems.systemName = get-field('oldName') no-error.
-                            if not available systems then do:
-                                create systems.
-                                systems.systemName = get-field('sysName').
-                            end.
-                            systems.localSourcePath = get-field('sysPath').
-                            systems.systemPropath = get-field('sysPropath').
-                            systems.systemDBparameters = get-field('dbPar').
-                            systems.systemName = get-field("sysName").
-                        end.
+                <div class="form-holder">
 
-                    </script>
-
-                <!--WSS end.
-                if cUpdSystem = "edit" then do: -->
+                <!--WSS if cUpdSystem = "edit" then do: -->
                     <script language="speedscript">
                         if get-field('sysName') <> "" then do:
                             find first systems where systems.systemName = get-field('sysName') no-error.
@@ -237,128 +270,68 @@
                 </div>
 
             <!--WSS end.  -->
-            <!--WSS if cName <> "" and iType = 1 then do:
-                if lDetails = false then do:
-                    run findProcedure.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findProcedure_details.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
-
-            <!--WSS if cName <> "" and iType = 2 then do:
-                if lDetails = false then do:
-                    run findClass.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findClass_details.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
-
-            <!--WSS if cName <> "" and iType = 3 then do:
-                if lDetails = false then do:
-                    run findInclude.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findInclude.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
+            
+            
+            <!--WSS 
+                if cName <> "" and iType > 0 then do:
+                    if lDetails = false then do:
+                        case iType:
+                            when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem).
+                            when 2 then run findClass.p (input cName, output table ttDetails, input cSystem).
+                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem).
+                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem).
+                            when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem).
+                        end case. -->                        
+                        
+                        <div class='form-holder'>
+                            <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
+                                in <span class="refName">`cSystem`</span>:</p>
+                            <table>
+                                <thead><th>Compile Unit</th></thead>
+	                            <!--WSS for each ttDetails: -->
+									<tr>
+									    <td> `ttDetails.compileUnit` </td>
+									</tr>
+	                            <!--WSS end. -->
+	                        </table>
+                        </div>
+                <!--WSS end.
+                
+                    else do:
+                        case iType:
+                            when 1 then run findProcedure_details.p (input cName, output table ttDetails, input cSystem).
+                            when 2 then run findClass_details.p (input cName, output table ttDetails, input cSystem).
+                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem).
+                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem).
+                            when 5 then run findIndex_details.p (input cName, output table ttDetails, input cSystem).
+                        end case. -->                        
+                
+					<div class='form-holder'>
+						<p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
+	    					in <span class="refName">`cSystem`</span>:</p>
+						<table>
+						     <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+						          <th>Line</th><th>Info</th></thead>
+						     <!--WSS for each ttDetails: -->
+							<tr>
+							    <td> `ttDetails.compileUnit` </td>
+								<td> `ttDetails.fileName` </td>
+								<td> `ttDetails.sourcePath` </td>
+								<td> `ttDetails.type` </td>
+								<td> `ttDetails.line` </td>
+								<td> `ttDetails.info` </td>
+							</tr>
+	    					<!--WSS end. -->
+		       	       </table>
+					</div>
+	                <!--WSS end. 
+	                end. -->
+                
                 </div>
             </div>
         </div>
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-</body>
+</div></body>
 

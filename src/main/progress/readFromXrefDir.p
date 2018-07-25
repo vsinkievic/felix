@@ -11,8 +11,12 @@ define input parameter cSystem as character no-undo.
     
 
 
-for each files:
+for each files where files.system = cSystem:
     delete files.
+end.
+
+for each fieldDB where fieldDB.system = cSystem:
+    delete fieldDB.
 end.
 
 input from os-dir(cDir).

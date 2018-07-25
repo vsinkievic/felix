@@ -70,6 +70,22 @@ ADD FIELD "system" OF "fieldDB" AS character
   MAX-WIDTH 80
   ORDER 110
 
+ADD FIELD "fileName" OF "fieldDB" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 13
+  MAX-WIDTH 80
+  ORDER 120
+
+ADD INDEX "systemID" ON "fieldDB" 
+  AREA "Schema Area"
+  PRIMARY
+  INDEX-FIELD "system" ASCENDING 
+
+ADD INDEX "typeID" ON "fieldDB" 
+  AREA "Schema Area"
+  INDEX-FIELD "type" ASCENDING 
+
 ADD TABLE "files"
   AREA "Schema Area"
   DUMP-NAME "files"
@@ -139,10 +155,14 @@ ADD FIELD "system" OF "files" AS character
   MAX-WIDTH 80
   ORDER 90
 
-ADD INDEX "systemIndex" ON "files" 
+ADD INDEX "systemID" ON "files" 
   AREA "Schema Area"
   PRIMARY
   INDEX-FIELD "system" ASCENDING 
+
+ADD INDEX "typeID" ON "files" 
+  AREA "Schema Area"
+  INDEX-FIELD "type" ASCENDING 
 
 ADD TABLE "systems"
   AREA "Schema Area"
@@ -181,4 +201,4 @@ ADD FIELD "systemDBparameters" OF "systems" AS character
 PSC
 cpstream=1257
 .
-0000003504
+0000003914
