@@ -11,7 +11,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-
         <script src="/felix/jquery.js" type="text/javascript"></script>
         <script src="/felix/dropdown.js" type="text/javascript"></script>
         <script src="/felix/events.js" type="text/javascript"></script>
@@ -21,9 +20,7 @@
         </SCRIPT>
     </head>
     <body>
-
     <script language="speedscript">
-    
                     {ttDetails.i}
             define variable cName as character no-undo.
             define variable iType as integer no-undo init 0.
@@ -50,6 +47,21 @@
                     cUpdSystem = "".
                 end.
             end.
+            
+            if cUpdSystem = "add" then do:
+                    if get-field('sysName') <> "" then do:
+                        find first systems where systems.systemName = get-field('oldName') no-error.
+                        if not available systems then do:
+                            create systems.
+                            systems.systemName = get-field('sysName').
+                        end.
+                        systems.localSourcePath = get-field('sysPath').
+                        systems.systemPropath = get-field('sysPropath').
+                        systems.systemDBparameters = get-field('dbPar').
+                        systems.systemName = get-field("sysName").
+                    end.
+            end.
+                        
 
     </script>
 
@@ -160,27 +172,11 @@
                     </form>
                 </div>
 
-            <!--WSS end.
-            if cUpdSystem = "add" then do: -->
+            <!--WSS end. -->
 
-                <div class="form-holder"
-                    <script language="speedscript">
-                        if get-field('sysName') <> "" then do:
-                            find first systems where systems.systemName = get-field('oldName') no-error.
-                            if not available systems then do:
-                                create systems.
-                                systems.systemName = get-field('sysName').
-                            end.
-                            systems.localSourcePath = get-field('sysPath').
-                            systems.systemPropath = get-field('sysPropath').
-                            systems.systemDBparameters = get-field('dbPar').
-                            systems.systemName = get-field("sysName").
-                        end.
+                <div class="form-holder">
 
-                    </script>
-
-                <!--WSS end.
-                if cUpdSystem = "edit" then do: -->
+                <!--WSS if cUpdSystem = "edit" then do: -->
                     <script language="speedscript">
                         if get-field('sysName') <> "" then do:
                             find first systems where systems.systemName = get-field('sysName') no-error.
@@ -259,12 +255,12 @@
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
                                   in <span class="refName">`cSystem`</span>:</p>
                                   <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
+                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
                                        <!--WSS for each ttDetails: -->
                                        <tr>
-                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.compileUnit` </td>
+                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.sourcePath` </td>
                                            <td> `ttDetails.type` </td>
                                            <td> `ttDetails.line` </td>
@@ -299,12 +295,12 @@
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
                                   in <span class="refName">`cSystem`</span>:</p>
                                   <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
+                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
                                        <!--WSS for each ttDetails: -->
                                        <tr>
-                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.compileUnit` </td>
+                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.sourcePath` </td>
                                            <td> `ttDetails.type` </td>
                                            <td> `ttDetails.line` </td>
@@ -339,12 +335,12 @@
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
                                   in <span class="refName">`cSystem`</span>:</p>
                                   <table>
-                                       <thead><th>File Name</th><th>Compile Unit</th><th>Source Path</th><th>Type</th>
+                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
                                             <th>Line</th><th>Info</th></thead>
                                        <!--WSS for each ttDetails: -->
                                        <tr>
-                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.compileUnit` </td>
+                                           <td> `ttDetails.fileName` </td>
                                            <td> `ttDetails.sourcePath` </td>
                                            <td> `ttDetails.type` </td>
                                            <td> `ttDetails.line` </td>
@@ -358,7 +354,7 @@
 
                 </div>
             </div>
-        </div>
+        <div></div>
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-</body>
+</div></body>
 
