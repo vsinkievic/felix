@@ -165,9 +165,8 @@
 
                 <div class="form-holder"
                     <script language="speedscript">
-
                         if get-field('sysName') <> "" then do:
-                            find first systems where systems.systemName = get-field('sysName') no-error.
+                            find first systems where systems.systemName = get-field('oldName') no-error.
                             if not available systems then do:
                                 create systems.
                                 systems.systemName = get-field('sysName').
@@ -175,6 +174,7 @@
                             systems.localSourcePath = get-field('sysPath').
                             systems.systemPropath = get-field('sysPropath').
                             systems.systemDBparameters = get-field('dbPar').
+                            systems.systemName = get-field("sysName").
                         end.
 
                     </script>
@@ -202,6 +202,7 @@
                         <input id="dbPar" autocomplete="off" type="text" class="form-control"
                             name="dbPar" value="`systems.systemDBparameters`" placeholder="please enter system database parameters">
                         <input type="hidden" name="updSystem" value="add">
+                        <input type="hidden" name="oldName" value="`systems.systemName`">
                             <div class="button-holder d-flex justify-content-between">
                                 <input class="btn btn-dark" type="submit" value="Update">
                                 <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -333,7 +334,7 @@
                           </div>
                    <!--WSS end.
                    else do:
-                       run findInclude_details.p (input cName, output table ttDetails, input cSystem). -->
+                       run findInclude.p (input cName, output table ttDetails, input cSystem). -->
                             <div class='form-holder'>
                               <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
                                   in <span class="refName">`cSystem`</span>:</p>
