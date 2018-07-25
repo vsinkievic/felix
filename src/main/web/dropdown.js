@@ -7,7 +7,8 @@ $(document).ready(function() {
     	$('#autocomplete').empty();
         let searchVal = $(this).val();
         let searchType = $('#inpType').val() + "";
-        console.log(searchVal + " of type: " + searchType);
+        let searchSys = $('#inpSystem').val();
+        console.log(searchVal + " of type: " + searchType + " of system: " + searchSys);
         if (searchVal.length > 2 && searchType != "0") {
         	$('#autocomplete').show();
         	let iwid = $('#inpName').width();
@@ -15,14 +16,16 @@ $(document).ready(function() {
                 type: "POST",
                 url: "field_search.html",
                 datatype: "application/json",
-                data: {'search': searchVal, 'type': searchType},
+                data: {'search': searchVal, 'type': searchType, 'systemName': searchSys},
                 success: function(data){
+                	console.log(data);
                     data = data.substring(0, data.indexOf('<') - 1);
                     let results = $.parseJSON(data);
+                    console.log(results);
                     let filteredResults = [];
-                    let ttOut = results.ttOut;
-                    for (var i = 0; i < ttOut.length; i++) {
-                        let fResult = ttOut[i].fResult;
+                    let ttDetails = results.ttDetails;
+                    for (var i = 0; i < ttDetails.length; i++) {
+                        let fResult = ttDetails[i].info;
                         if ($.inArray(fResult, filteredResults) == -1 ) {
                             filteredResults.push(fResult);
                             };
@@ -56,6 +59,7 @@ $(document).ready(function() {
                 error: function() {
                     console.log("need fix");
                 }
+                
             });
         };
     });

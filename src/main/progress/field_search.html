@@ -7,34 +7,30 @@
 </SCRIPT>
 
 <script language="speedscript">
+    {ttDetails.i}
     define variable cSearch as character no-undo.
     define variable iType as integer no-undo.
+    define variable cSystem as character no-undo.
     define variable cTypeCall as character no-undo.
-    define variable lOk as log no-undo.
-    define variable searchJson as longchar no-undo.
-    define temp-table ttOut no-undo
-        field fResult as character.
-    define variable httOut as handle no-undo.
-    httOut = temp-table ttOut:handle.
-
     
-    cSearch = get-field('search':U).
-    iType = integer(get-field('type':U)).
+    define variable httOut as handle no-undo.
+    httOut = temp-table ttDetails:handle.
+    
+    cSearch = get-field('search').
+    iType = integer(get-field('type')).
+    cSystem = get-field('systemName').
     
     case iType:
-        when 1 then cTypeCall = "RUN".
-        when 2 then cTypeCall = "NEW".
-        when 3 then cTypeCall = "INCLUDE".
+        when 1 then run findProcedure_details.p (input cSearch, output table ttDetails, input cSystem).
+        when 3 then run findInclude_details.p (input cSearch, output table ttDetails, input cSystem).
+        when 5 then run findIndex_details.p (input cSearch, output table ttDetails, input cSystem).
     end case.
    
-    for each files no-lock where
-            files.type = cTypeCall and
-            files.info matches ("*" + cSearch + "*"):
-        create ttOut.
-        ttOut.fResult = getNameFromPath(files.info).
+
+    for each ttDetails:
+        ttDetails.info = getNameFromPath(ttDetails.info).
     end.
     output-content-type ("application/json":U).
     httOut:write-json("STREAM", "WebStream").
-
 </script>
 
