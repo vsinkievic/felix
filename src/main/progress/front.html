@@ -23,14 +23,18 @@
     <script language="speedscript">
                     {ttDetails.i}
             define variable cName as character no-undo.
-            define variable iType as integer no-undo init 0.
+            define variable iType as integer init 0 no-undo.
             define variable cSystem as character no-undo.
             define variable lDetails as logical init false no-undo.
             define variable cUpdSystem as character no-undo.
+            define variable lClearFront as logical init true no-undo.
 
             cName = get-field('name').
             iType = integer(get-field('type')).
             cUpdSystem = get-value('updSystem').
+
+
+            if cName <> "" or iType > 0 or cUpdSystem <> "" then lClearFront = false.
 
             cSystem = get-field('system').
             if get-field('details') <> "" then
@@ -79,16 +83,16 @@
                         <input class="btn elements w-100" id="btn1" name="bProcedure" type="button" value="Procedure">
                         <input class="btn elements w-100" id="btn2" name="bClass" type="button" value="Class">
                         <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include">
-                        <div class="btn-group elements" role="group">
-						  <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group" role="group">
+						  <button id="btn4" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
+						      aria-haspopup="true" aria-expanded="false">
 						      DB field 
 						  </button>
-						  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-						      <a class="btn elements dropdown-item" id="btn4">ACCESS</a>
-						      <a class="btn elements dropdown-item" id="btn7">UPDATE</a>
+						  <div class="dropdown-menu" aria-labelledby="btn4">
+						      <a class="btn dropdown-item" id="btn4-1">ACCESS</a>
+						      <a class="btn dropdown-item" id="btn4-2">UPDATE</a>
 						  </div>
 						</div>
-                        <!-- <input class="btn elements w-100" id="btn4" name="bDBfield" type="button" value="DB field"> -->
                         <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
                         <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" type="button" value="User Guide"
                             style="background-color: #626060; color:white;">
@@ -151,7 +155,6 @@
             <div class="col-9">
 
                 <div class="user-guide">
-
                     <h3>System window overview</h3>
                     <img class="user-guide-img" src="/felix/how_to_one" alt="Picture of how-to">
 	                    <p>
@@ -168,6 +171,17 @@
                     <h3>Example of detailed report</h3>
                     <img class="user-guide-img" src="/felix/how_to_three" alt="Picture of how-to">
                 </div>
+
+                <!--WSS if lClearFront then do:  -->
+                <div class="about">
+                    <h3>Compiler's Dream. It's All About XREF</h3>
+                    <p>Felix<sup>&reg</sup> XREF analyses information on ABL elements, cross-references between 
+                    procedures and ABL objects, and cross-references between class or interface definition files 
+                    and ABL objects.</p>
+                    <p>It's never been easier to find out what and where is using specific elements in your 
+                    sophisticated fyle system.</p>
+                </div>
+                <!--WSS end. -->
 
 
             <!--WSS if cUpdSystem = "new" then do: -->
@@ -265,6 +279,8 @@
                             when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem).
                             when 2 then run findClass.p (input cName, output table ttDetails, input cSystem).
                             when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem).
+                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem).
                             when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem).
                         end case. -->                        
                         
@@ -287,6 +303,8 @@
                             when 1 then run findProcedure_details.p (input cName, output table ttDetails, input cSystem).
                             when 2 then run findClass_details.p (input cName, output table ttDetails, input cSystem).
                             when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem).
+                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem).
                             when 5 then run findIndex_details.p (input cName, output table ttDetails, input cSystem).
                         end case. -->                        
                 

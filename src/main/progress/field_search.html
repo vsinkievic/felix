@@ -23,9 +23,19 @@
     case iType:
         when 1 then run findProcedure_details.p (input cSearch, output table ttDetails, input cSystem).
         when 3 then run findInclude_details.p (input cSearch, output table ttDetails, input cSystem).
-        when 5 then run findIndex_details.p (input cSearch, output table ttDetails, input cSystem).
+        when 5 then do:
+                        for each files no-lock where 
+						         files.system = cSystem and
+						         files.type = "INDEX" and
+						         files.info matches("*" + cSearch + "*")
+						         by files.compileUnit:
+						    create ttDetails.
+						    ttDetails.info = files.info.
+						end.
+                    end.
     end case.
    
+
 
     for each ttDetails:
         ttDetails.info = getNameFromPath(ttDetails.info).

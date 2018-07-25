@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-    $('.about').hide();
-
-
+	
+	$('.user-guide').hide();
+	
     $('#btn1').on('click', function() {
         $('#inpType').val('1');
     });
@@ -12,18 +12,27 @@ $(document).ready(function(){
     $('#btn3').on('click', function() {
         $('#inpType').val('3');
     });
-    $('#btn4').on('click', function() {
-        $('#inpType').val('4');
+    $('#btn4-1').on('click', function() {
+    	$('#btn4').addClass('active');
+    	$('#btn4').html('DB: access');
+        $('#inpType').val('41');
+    });
+    $('#btn4-2').on('click', function() {
+    	$('#btn4').addClass('active');
+    	$('#btn4').html('DB: update');
+        $('#inpType').val('42');
     });
     $('#btn5').on('click', function() {
         $('#inpType').val('5');
     });
     $('#btn6').on('click', function() {
-        $('.about').show();
+    	$('.about').hide();
+        $('.user-guide').show();
         $('.form-holder').empty();
     });
-
-
+    $('.elements').on('click', function(){
+    	$('#btn4').html('DB field');
+    });
 
 
     $("#btnShort").click(function( event ) {
