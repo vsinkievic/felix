@@ -22,7 +22,27 @@
     
     case iType:
         when 1 then run findProcedure_details.p (input cSearch, output table ttDetails, input cSystem).
-        when 3 then run findInclude_details.p (input cSearch, output table ttDetails, input cSystem).
+        when 3 then run findInclude.p (input cSearch, output table ttDetails, input cSystem).
+        when 41 then do:
+				       for each fieldDB no-lock where
+					            fieldDB.system = cSystem and
+					            fieldDB.type = "ACCESS" and
+					            fieldDB.info matches("*" + cSearch + "*")
+					            by fieldDB.compileUnit:
+							create ttDetails.
+							ttDetails.info = fieldDB.info.
+					   end.
+                end.
+        when 42 then do:
+                        for each fieldDB no-lock where
+                                fieldDB.system = cSystem and
+                                fieldDB.type = "UPDATE" and
+                                fieldDB.info matches("*" + cSearch + "*")
+                                by fieldDB.compileUnit:
+                            create ttDetails.
+                            ttDetails.info = fieldDB.info.
+                        end.
+                end.
         when 5 then do:
                         for each files no-lock where 
 						         files.system = cSystem and
@@ -32,7 +52,7 @@
 						    create ttDetails.
 						    ttDetails.info = files.info.
 						end.
-                    end.
+                end.
     end case.
    
 
