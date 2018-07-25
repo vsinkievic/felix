@@ -24,8 +24,6 @@ input from value(cPath).
             
             import unformatted cWholeLine.
             
-            //display cWholeLine format "x(200)" with width 210.
-            
             cSourceName = substring(cWholeLine, 1, index(cWholeLine, " ")).
             cWholeLine = substring(cWholeLine, index(cWholeLine, " ") + 1).
             cFileName = substring(cWholeLine, 1, index(cWholeLine, " ")).
@@ -34,13 +32,6 @@ input from value(cPath).
             cWholeLine = substring(cWholeLine, index(cWholeLine, " ") + 1).
             cXrefType = substring(cWholeLine, 1, index(cWholeLine, " ")).
             cXrefInformation = substring(cWholeLine, index(cWholeLine, " ") + 1).
-            
-            
-/*            import delimiter " " cSourceName      */
-/*                                 cFileName        */
-/*                                 cLineNumber      */
-/*                                 cXrefType        */
-/*                                 cXrefInformation.*/
             
             cXrefInformation = trim(cXrefInformation, "~"").                   
             
@@ -59,16 +50,6 @@ input from value(cPath).
                     cXrefInformation = entry (1, cXrefInformation, " ").
                     cXrefInformation = entry (1, cXrefInformation, ",").
                 end.
-/*                else if index(cXrefInformation, ",") <> 0               */
-/*                then do:                                                */
-/*                    cXrefInformation = entry (1, cXrefInformation, ",").*/
-/*                end.                                                    */
-                
-                
-/*                repeat i = 0 to num-entries(cFileName, "/"):   */
-/*                end.                                           */
-/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
-/*                end.                                           */
                 
                 if cXrefType = "COMPILE" 
                 then do:
@@ -89,11 +70,6 @@ input from value(cPath).
             end.
             else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*")) //pakeisti matches á index <> 0
             then do:
-                
-/*                repeat i = 0 to num-entries(cFileName, "/"):   */
-/*                end.                                           */
-/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
-/*                end.                                           */
                 
                 if cXrefInformation matches ("*INHERITS*") //pakeisti matches á index <> 0
                 then do:
@@ -143,11 +119,6 @@ input from value(cPath).
             else if cXrefType = "INVOKE"
             then do:
 
-/*                repeat i = 0 to num-entries(cFileName, "/"):   */
-/*                end.                                           */
-/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
-/*                end.                                           */
-
                 if index(cXrefInformation, ",") <> 0
                 then do:
                     cXrefInformation = substring(cXrefInformation, 1, index(cXrefInformation, ",") - 1).
@@ -162,8 +133,7 @@ input from value(cPath).
                 end.
                 
                 create files.
-/*                files.line = integer(cLineNumber) no-error.                      */
-/*                if error-status:error then message cLineNumber view-as alert-box.*/
+
                     assign
                         files.fileName = entry(i - 1, cFileName, "/")
                         files.sourceName = entry(i2 - 1, cSourceName, "/")
@@ -176,11 +146,6 @@ input from value(cPath).
             end.
             else if cXrefType = "ACCESS" or cXrefType = "UPDATE"
             then do:
-
-/*                repeat i = 0 to num-entries(cFileName, "/"):   */
-/*                end.                                           */
-/*                repeat i2 = 0 to num-entries(cSourceName, "/"):*/
-/*                end.                                           */
 
                 if index(cXrefInformation, "INHERITED") <> 0 or index(cXrefInformation, "PUBLIC") <> 0
                 then do:
@@ -197,7 +162,9 @@ input from value(cPath).
                 end.
                 
             end.
-        
+/*            else undo, next.*/
+            
+            
         end.
 
 input close.
