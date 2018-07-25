@@ -161,7 +161,32 @@ input from value(cPath).
                         files.system = cSystem.
                 end.
                 
+                else if index(cXrefInformation, "TEMPTABLE") = 0 and 
+                        index(cXrefInformation, "SHARED") = 0 and
+                        index(cXrefInformation, "DATA-MEMBER") = 0 and
+                        index(cXrefInformation, "WORKFILE") = 0 and
+                        index(cXrefInformation, "SEQUENCE") = 0 and
+                        index(cXrefInformation, "PROPERTY") = 0
+                then do:
+                    cXrefInformation = trim(cXrefInformation).
+                    if index(cXrefInformation, ".") <> 0
+                    then cXrefInformation = substring(cXrefInformation, index(cXrefInformation,".") + 1).
+                    cXrefInformation = replace(cXrefInformation," ",".").
+                    
+                    create fieldDB.
+                    assign
+                        fieldDB.fileName = entry(i - 1, cFileName, "/")
+                        fieldDB.sourceName = entry(i2 - 1, cSourceName, "/")
+                        fieldDB.sourcePath = cSourePath
+                        fieldDB.line = integer(cLineNumber)
+                        fieldDB.type = cXrefType
+                        fieldDB.info = cXrefInformation
+                        fieldDB.compileUnit = cCompileUnit
+                        fieldDB.system = cSystem.
+                        
+                end.
             end.
+                
 /*            else undo, next.*/
             
             

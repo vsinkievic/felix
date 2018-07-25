@@ -15,6 +15,10 @@ for each files:
     delete files.
 end.
 
+for each fieldDB:
+    delete fieldDB.
+end.
+
 input from os-dir(cDir).
 
 repeat:       
