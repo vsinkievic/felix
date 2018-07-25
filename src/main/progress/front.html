@@ -79,9 +79,18 @@
                         <input class="btn elements w-100" id="btn1" name="bProcedure" type="button" value="Procedure">
                         <input class="btn elements w-100" id="btn2" name="bClass" type="button" value="Class">
                         <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include">
-                        <input class="btn elements w-100" id="btn4" name="bDBfield" type="button" value="DB field">
+                        <div class="btn-group elements" role="group">
+						  <button id="btnGroupDrop1" type="button" class="btn dropdown-toggle w-100" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						      DB field 
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+						      <a class="btn elements dropdown-item" id="btn4">ACCESS</a>
+						      <a class="btn elements dropdown-item" id="btn7">UPDATE</a>
+						  </div>
+						</div>
+                        <!-- <input class="btn elements w-100" id="btn4" name="bDBfield" type="button" value="DB field"> -->
                         <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
-                        <input class="btn w-100 about-btn" id="btn6" name="bAbout" type="button" value="About"
+                        <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" type="button" value="User Guide"
                             style="background-color: #626060; color:white;">
                     </div>
 
@@ -141,9 +150,23 @@
 
             <div class="col-9">
 
-                <div class="about">
-                    <p>This service analyses Your compilation reference information on ABL elements, cross-references between procedures and ABL objects, and cross-references between class or interface definition files and ABL objects.</p>
-                    <p>Output shows all references of one specific program's element within the application's filesystem.</p>
+                <div class="user-guide">
+
+                    <h3>System window overview</h3>
+                    <img class="user-guide-img" src="/felix/how_to_one" alt="Picture of how-to">
+	                    <p>
+	                    1. Add new system <br>
+	                    2. Select from available (added) systems <br>
+	                    3. Choose a type <br>
+	                    4. Insert name <br>
+	                    5. Choose level of detail <br> 
+	                    </p>
+                    <h3>Example of short report</h3>
+                    <img class="user-guide-img" src="/felix/how_to_two" alt="Picture of how-to">
+                    <br>
+                    <br>
+                    <h3>Example of detailed report</h3>
+                    <img class="user-guide-img" src="/felix/how_to_three" alt="Picture of how-to">
                 </div>
 
 
@@ -233,128 +256,64 @@
                 </div>
 
             <!--WSS end.  -->
-            <!--WSS if cName <> "" and iType = 1 then do:
-                if lDetails = false then do:
-                    run findProcedure.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findProcedure_details.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
-
-            <!--WSS if cName <> "" and iType = 2 then do:
-                if lDetails = false then do:
-                    run findClass.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findClass_details.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
-
-            <!--WSS if cName <> "" and iType = 3 then do:
-                if lDetails = false then do:
-                    run findInclude.p (input cName, output table ttDetails, input cSystem).-->
-                          <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                              <table>
-                                  <thead><th>Compile Unit</th></thead>
-                                  <!--WSS for each ttDetails: -->
-                                  <tr>
-                                      <td> `ttDetails.compileUnit` </td>
-                                  </tr>
-                                  <!--WSS end. -->
-                              </table>
-                          </div>
-                   <!--WSS end.
-                   else do:
-                       run findInclude.p (input cName, output table ttDetails, input cSystem). -->
-                            <div class='form-holder'>
-                              <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-                                  in <span class="refName">`cSystem`</span>:</p>
-                                  <table>
-                                       <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-                                            <th>Line</th><th>Info</th></thead>
-                                       <!--WSS for each ttDetails: -->
-                                       <tr>
-                                           <td> `ttDetails.compileUnit` </td>
-                                           <td> `ttDetails.fileName` </td>
-                                           <td> `ttDetails.sourcePath` </td>
-                                           <td> `ttDetails.type` </td>
-                                           <td> `ttDetails.line` </td>
-                                           <td> `ttDetails.info` </td>
-                                        </tr>
-                                        <!--WSS end. -->
-                                    </table>
-                             </div>
-                    <!--WSS end.
-                    end. -->
-
+            
+            
+            <!--WSS 
+                if cName <> "" and iType > 0 then do:
+                    if lDetails = false then do:
+                        case iType:
+                            when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem).
+                            when 2 then run findClass.p (input cName, output table ttDetails, input cSystem).
+                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem).
+                        end case. -->                        
+                        
+                        <div class='form-holder'>
+                            <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
+                                in <span class="refName">`cSystem`</span>:</p>
+                            <table>
+                                <thead><th>Compile Unit</th></thead>
+	                            <!--WSS for each ttDetails: -->
+									<tr>
+									    <td> `ttDetails.compileUnit` </td>
+									</tr>
+	                            <!--WSS end. -->
+	                        </table>
+                        </div>
+                <!--WSS end.
+                
+                    else do:
+                        case iType:
+                            when 1 then run findProcedure_details.p (input cName, output table ttDetails, input cSystem).
+                            when 2 then run findClass_details.p (input cName, output table ttDetails, input cSystem).
+                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem).
+                            when 5 then run findIndex_details.p (input cName, output table ttDetails, input cSystem).
+                        end case. -->                        
+                
+					<div class='form-holder'>
+						<p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
+	    					in <span class="refName">`cSystem`</span>:</p>
+						<table>
+						     <thead><th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
+						          <th>Line</th><th>Info</th></thead>
+						     <!--WSS for each ttDetails: -->
+							<tr>
+							    <td> `ttDetails.compileUnit` </td>
+								<td> `ttDetails.fileName` </td>
+								<td> `ttDetails.sourcePath` </td>
+								<td> `ttDetails.type` </td>
+								<td> `ttDetails.line` </td>
+								<td> `ttDetails.info` </td>
+							</tr>
+	    					<!--WSS end. -->
+		       	       </table>
+					</div>
+	                <!--WSS end. 
+	                end. -->
+                
                 </div>
             </div>
-        <div></div>
+        </div>
     <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 </div></body>
 
