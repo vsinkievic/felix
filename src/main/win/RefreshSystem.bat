@@ -12,6 +12,6 @@ timeout /t 1
 goto waitloop
 :waitloopend
 
-%DLC%\bin\prowin -p ../progress/waitForXrefs.p -db FelixDB -S 9000 
+%DLC%\bin\prowin -b -p ../progress/waitForXrefs.p -db FelixDB -S 9000 
 
 del %TEMP%"\compile.done"

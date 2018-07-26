@@ -16,7 +16,6 @@ function getPath returns character():
     path = replace(path,"\","/").
     path = substring (path,1,r-index(path, "/") - 1).
     file-info:file-name = path.
-    //propath = ".," + path.
     return file-info:full-pathname.
 end function.
 
