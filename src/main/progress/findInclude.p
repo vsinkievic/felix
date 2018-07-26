@@ -3,6 +3,7 @@
 define input parameter vName as character.
 define output parameter table for ttDetails.
 define input parameter vSystem as character.
+define input parameter vIsDetailed as logical.
 
 for each files no-lock where 
          files.type = "INCLUDE" and 
@@ -12,14 +13,26 @@ for each files no-lock where
          files.info = vName or
          files.info matches(vName + ".i"))
          by files.compileUnit:
-    create ttDetails.
-    assign 
-        ttDetails.system = files.system
-        ttDetails.compileUnit = files.compileUnit
-        ttDetails.fileName = files.fileName
-        ttDetails.sourceName = files.sourceName
-        ttDetails.sourcePath = files.sourcePath
-        ttDetails.type = files.type
-        ttDetails.line = files.line
-        ttDetails.info = files.info.
+             
+    if vIsDetailed then do:
+        create ttDetails.
+        assign
+            ttDetails.system = files.system
+            ttDetails.compileUnit = files.compileUnit
+            ttDetails.fileName = files.fileName
+            ttDetails.sourceName = files.sourceName
+            ttDetails.sourcePath = files.sourcePath
+            ttDetails.type = files.type
+            ttDetails.line = files.line
+            ttDetails.info = files.info.
+    end.
+    else do:
+         find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
+         if not available ttDetails
+         then do:
+             create ttDetails.
+             ttDetails.compileUnit = files.compileUnit.
+         end.
+    end.
+   
 end.
