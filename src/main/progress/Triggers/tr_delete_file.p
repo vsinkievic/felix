@@ -1,4 +1,4 @@
 TRIGGER PROCEDURE FOR DELETE OF files.
 
-CURRENT-VALUE(sqFileNum) = 0.
+//CURRENT-VALUE(sqFileNum) = 0.
 

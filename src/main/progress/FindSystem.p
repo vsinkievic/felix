@@ -1,6 +1,5 @@
 {ttCompilerParams.i}
 
-
 function createIniFile returns character (ppropath as character):
     define variable iniFileName as character no-undo.
     iniFileName = os-getenv("TEMP") + "\propath.ini".
