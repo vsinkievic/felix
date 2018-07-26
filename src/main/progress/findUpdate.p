@@ -11,7 +11,8 @@ for each fieldDB no-lock where
          fieldDB.info = vName 
          by fieldDB.compileUnit:
              
-    if vIsDetailed then do:
+    if vIsDetailed 
+    then do:
         create ttDetails.
         assign
             ttDetails.system = fieldDB.system

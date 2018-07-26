@@ -11,7 +11,8 @@ for each files no-lock where
          files.info = vName 
          by files.compileUnit:
              
-    if vIsDetailed then do:
+    if vIsDetailed 
+    then do:
         create ttDetails.
         assign
             ttDetails.system = files.system

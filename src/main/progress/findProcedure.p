@@ -14,7 +14,8 @@ for each files no-lock where
          files.info matches (vName + ".p")) 
          by files.compileUnit:
              
-    if vIsDetailed then do:
+    if vIsDetailed 
+    then do:
        create ttDetails.
        assign
            ttDetails.system = files.system
