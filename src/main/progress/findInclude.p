@@ -10,7 +10,7 @@ for each files no-lock where
          (files.info matches ("*/" + vName) or
          files.info matches("*/" + vName + ".i") or
          files.info = vName or
-         files.info matches(vName + ".p"))
+         files.info matches(vName + ".i"))
          by files.compileUnit:
     create ttDetails.
     assign 
