@@ -45,7 +45,7 @@ $(document).ready(function() {
                             });
                     	};
                     };
-                    let listHeight = -200;
+                    let listHeight = -50;
                     if (filteredResults.length < 20) {
                     	listHeight = -1 * filteredResults.length * 10 - 5;
                     };

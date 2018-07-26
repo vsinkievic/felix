@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>Felix XREF analyser</title>
-        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/felix/master.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -118,10 +117,10 @@
 	                            </div>
 	                        </div>
 	                        <div class="w-10">
-	                            <button id="btnShort" type="submit" class="btn pull-right">Short report</button>
+	                            <button id="btnShort" type="submit" class="btn btn-block pull-right">Short report</button>
 	                        </div>
 	                        <div class="w-10">
-	                            <button id="btnDetailed" type="submit" class="btn pull-right">Detailed report</button>
+	                            <button id="btnDetailed" type="submit" class="btn btn-block pull-right">Detailed report</button>
 	                        </div>
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
@@ -142,18 +141,24 @@
 	                        else do:-->
 	                            <li class="list-group-item list-group-item-action systems-select" value='`systems.systemName`'>
 	                        <!--WSS end. -->
-	                        `systems.systemName`
-	                        <form action="front.html" class="pull-right">
-	                            <input class="btn btn-outline-dark edit-system" type="submit" name="updSystem"
-	                                value="edit">
-	                            <input type="hidden" name="sysName" value="`systems.systemName`">
-	                        </form>
+	                                 <div class="row">
+	                                     <div class="col-8">
+	                                         `systems.systemName`
+	                                     </div>
+	                                     <div class="col-4 edit-system-holder">
+	                                         <form action="front.html" class="pull-right">
+                                                 <input class="btn btn-outline-dark edit-system" type="submit" name="updSystem"
+                                                     value="edit">
+                                                 <input type="hidden" name="sysName" value="`systems.systemName`">
+                                             </form>
+	                                     </div>
+	                                 </div>
 	                            </li>
 	                    <!--WSS end. -->
 	                </div>
-	
 	                <form action="front.html">
-	                    <button type="submit" class="btn btn-block top-buffer" id="upd" name="updSystem" value="new">Add new system</button>
+	                    <button type="submit" class="btn btn-block top-buffer" id="upd" name="updSystem" 
+	                       value="new">Add new system</button>
 	                </form>
 	            </div>
 	
@@ -161,13 +166,22 @@
 	                <div class="user-guide">
 	                    <h3>System window overview</h3>
 	                    <img class="user-guide-img" src="/felix/how_to_one" alt="Picture of how-to">
-		                    <p>
-		                    1. Add new system <br>
-		                    2. Select from available (added) systems <br>
-		                    3. Choose a type <br>
-		                    4. Insert name <br>
-		                    5. Choose level of detail <br> 
-		                    </p>
+	                        <h5>1. Add new system.<h5>
+		                    <p>Add new system for XREF analysis. You are prompted to input system name, 
+		                        path to source files and propath, as well as database configuration data.</p>
+                            <h5>2. Select from available (added) systems.<h5>
+                            <p>Section "Available systems indicates systems or programs with XREF 
+                                information prepared for analysis.</p>
+                            <h5>3. Choose a type.<h5>
+                            <p>Choose a type of the element you are searching: a procedure, a class, an include, 
+                                a database field ("access" or "update"), or an index.</p>
+                            <h5>4. Insert name.<h5>
+                            <p>Insert a name of the element you are searching. The more correct and specific name 
+                                 you enter, the better search results are displayed.</p>
+                            <h5>5. Choose level of detail.<h5>
+                            <p>Felix<sup>&reg</sup> XREF analyser outputs two types of reports: "Short report" 
+                                shows only those ABL elements which are using the searched element; "Detailed report" 
+                                includes path, call type, and repeated calls wwitin the same object, if any.</p>
 	                    <h3>Example of short report</h3>
 	                    <img class="user-guide-img" src="/felix/how_to_two" alt="Picture of how-to">
 	                    <h3>Example of detailed report</h3>
@@ -177,11 +191,11 @@
 	                <!--WSS if lClearFront 
 	                then do:  -->
                     <div class="about">
-                        <h3>Compiler's Dream. It's All About XREF</h3>
+                        <h3>Explore Your Compilation Data. It's All About XREF.</h3>
                         <p>Felix<sup>&reg</sup> XREF analyses information on ABL elements, cross-references between 
                         procedures and ABL objects, and cross-references between class or interface definition files 
                         and ABL objects.</p>
-                        <p>It's never been easier to find out what and where is using specific elements in your 
+                        <p>It's never been easier to find out what and where is using specific ABL elements in your 
                         sophisticated fyle system.</p>
                     </div>
                     <!--WSS end. -->
@@ -243,30 +257,32 @@
 		                                   data-target="#deleteModal" value="">Delete</button>
 		                            </div>
 		                    </form>
-		                                               <!-- Modal -->
+	                       
+	                        <!-- Modal "Confirm delete" -->
 		
-		                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-		                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-		                        <div class="modal-dialog" role="document">
-		                            <div class="modal-content">
-		                                <div class="modal-header">
-		                                    <h5 class="modal-title" id="exampleModalLabel">Delete system</h5>
-		                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		                                    <span aria-hidden="true">&times;</span>
-		                                    </button>
-		                                </div>
-		                                <div class="modal-body">
-		                                    Are you sure?
-		                                </div>
-		                                <div class="modal-footer">
-			                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			                                <form action="front.html">
-			                                    <button name="delete" type="submit" class="btn btn-danger" value="`systems.systemName`">Delete</button>
-			                                </form>
-		                                </div>
-		                            </div>
-		                        </div>
-		                    </div>
+							<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="delModalLabel">Delete system `systems.systemName`</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							          Delete system and all it's data from Felix<sup>&reg</sup>?
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							           <form action="front.html">
+							               <button name="delete" type="submit" class="btn btn-danger" value="`systems.systemName`">Delete</button>
+							           </form>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+
+
 	                    <!--WSS end.  -->
 	                </div>            
 	            
@@ -284,8 +300,8 @@
 		                    end case. -->
 		                    
 		                    <div class='form-holder'>
-		                        <p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-		                                in <span class="refName">`cSystem`</span>:</p>
+                                <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
+                                    class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 		                        <table>
 		                            <thead><th>Compile Unit</th></thead>
 		                            <!--WSS for each ttDetails: -->
@@ -307,21 +323,21 @@
 		                    end case. -->                        
 		                
 							<div class='form-holder'>
-								<p class="output-message">Output of <span class="refName">`cName`</span> references (xref) 
-			    					in <span class="refName">`cSystem`</span>:</p>
+                                <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
+                                    class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 								<table>
 		                            <thead>
-		                            <th>Compile Unit</th><th>File Name</th><th>Source Path</th><th>Type</th>
-		                                <th>Line</th><th>Info</th>
+		                            <th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
+		                                <th>Type</th><th>Line</th><th class="t-4">Info</th>
 		                            </thead>
 								    <!--WSS for each ttDetails: -->
 		                            <tr>
-		                                <td> `ttDetails.compileUnit` </td>
-										<td> `ttDetails.fileName` </td>
-										<td id="source-width"> `ttDetails.sourcePath` </td>
-										<td> `ttDetails.type` </td>
-										<td> `ttDetails.line` </td>
-										<td> `ttDetails.info` </td>
+		                                <td class="t-1">`ttDetails.compileUnit`</td>
+										<td class="t-2">`ttDetails.fileName`</td>
+										<td class="t-3">`ttDetails.sourcePath`</td>
+										<td>`ttDetails.type`</td>
+										<td>`ttDetails.line`</td>
+										<td class="t-4">`ttDetails.info`</td>
 									</tr>
 			    					<!--WSS end. -->
 		                        </table>
@@ -330,7 +346,60 @@
 		            end. -->
 	            </div>
             </div>
-        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        <a href="javascript:" id="return-to-top"><span>&#x27A4;</span></s></a>
         </div>
     </body>
+</html>
+
+<script type="text/javascript">
+
+/*--------- HIGHLIGHT BUTTON OF CURRENT TYPE:   ----------*/
+
+    let type = parseInt(`iType`);
+    switch(type) {
+        case 1: 
+            $('#btn1').addClass('active');
+            $('#typeRef').html('procedure');
+            break;
+        case 2:
+            $('#btn2').addClass('active');
+            $('#typeRef').html('class');
+            break;
+        case 3:
+            $('#btn3').addClass('active');
+            $('#typeRef').html('include');
+            break;
+        case 41:
+            $('#btn4').addClass('active');
+            $('#btn4').html('DB: access');
+            $('#typeRef').html('DB field ("ACCESS")');
+            break;
+        case 42:
+            $('#btn4').addClass('active');
+            $('#btn4').html('DB: update');
+            $('#typeRef').html('DB field ("UPDATE")');
+            break;
+        case 5:
+            $('#btn5').addClass('active');
+            $('#typeRef').html("index");
+            break;
+    };
+    
+    /*--------- TABLE WIDTH ADJUSTMENT:   ----------*/
+    
+    let cwid = $('.page-header').width();
+    let twid = $('table').width();
+    let ratio = cwid / twid;
+    
+    if (ratio < 1.4) {
+        for (let i = 1; i <= 4; i++) {
+            let ewid = $('.t-' + i).width();
+            $('.t-' + i).css({"maxWidth": ewid / 1.5, "wordWrap": "break-word"});
+        }
+    };
+    
+
+    
+    
+</script>
 

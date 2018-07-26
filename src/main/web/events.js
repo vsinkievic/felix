@@ -1,7 +1,14 @@
+
+
+
 $(document).ready(function(){
 
-	
 	$('.user-guide').hide();
+	
+	$('.elements').on('click', function(){
+		$('.active').removeClass('active');
+		$(this).addClass('active');
+	});
 	
     $('#btn1').on('click', function() {
         $('#inpType').val('1');
@@ -83,7 +90,7 @@ $(document).ready(function(){
 
     });
 
-    // scroll back to top arrow
+    /*--------- SCROLL BACK TO TOP ARROW:   ----------*/
 
     $(window).scroll(function() {
         if ($(this).scrollTop() >= 200) {
@@ -94,11 +101,12 @@ $(document).ready(function(){
     });
     $('#return-to-top').click(function() {
         $('body,html').animate({
-            scrollTop : 0
+            scrollTop: 0
         }, 500);
     });
 
-    // Add active class to the current button (highlight it)
+    /*--------- HIGHLIGHT ACTIVE BUTTON:   ----------*/
+    
     var header = document.getElementById("elements-holder");
     var btns = header.getElementsByClassName("elements");
     for (var i = 0; i < btns.length; i++) {
@@ -109,5 +117,6 @@ $(document).ready(function(){
       });
     };
 
+    
 })
 
