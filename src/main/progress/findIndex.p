@@ -1,18 +1,34 @@
 {ttDetails.i}
 
-define input parameter cName as character.
+define input parameter vName as character.
 define output parameter table for ttDetails.
-define input parameter cSystem as character.
+define input parameter vSystem as character.
+define input parameter vIsDetailed as logical.
 
 for each files no-lock where
-         files.system = cSystem and
+         files.system = vSystem and
          files.type = "INDEX" and
-         files.info = cName 
+         files.info = vName 
          by files.compileUnit:
-     find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
-     if not available ttDetails
-     then do:
-         create ttDetails.
-         ttDetails.compileUnit = files.compileUnit.
-     end.
+             
+    if vIsDetailed then do:
+        create ttDetails.
+        assign
+            ttDetails.system = files.system
+            ttDetails.compileUnit = files.compileUnit
+            ttDetails.fileName = files.fileName
+            ttDetails.sourceName = files.sourceName
+            ttDetails.sourcePath = files.sourcePath
+            ttDetails.type = files.type
+            ttDetails.line = files.line
+            ttDetails.info = files.info.
+    end.
+    else do:
+         find first ttDetails where files.compileUnit = ttDetails.compileUnit no-error.
+         if not available ttDetails
+         then do:
+             create ttDetails.
+             ttDetails.compileUnit = files.compileUnit.
+         end.
+    end.
 end.
