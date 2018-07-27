@@ -35,7 +35,7 @@ input from value(cPath).
             
             cXrefInformation = trim(cXrefInformation, "~"").                   
             
-            cSourePath = trimPath(input cProPath, input cCompilePath, input cSourceName).
+            cSourePath = trimPath(input cPath, input cProPath, input cCompilePath, input cSourceName).
             
             repeat i = 0 to num-entries(cFileName, "/"):
             end.
@@ -44,7 +44,6 @@ input from value(cPath).
             
             if cXrefType = "RUN" or cXrefType = "NEW" or cXrefType = "INCLUDE" or cXrefType = "COMPILE"
             then do:
-                
                 if index(cXrefInformation, " ") <> 0 or index(cXrefInformation, ",") <> 0
                 then do:
                     cXrefInformation = entry (1, cXrefInformation, " ").
@@ -53,7 +52,7 @@ input from value(cPath).
                 
                 if cXrefType = "COMPILE" 
                 then do:
-                    cXrefInformation = trimPath(input cProPath, input cCompilePath, input cXrefInformation).
+                    cXrefInformation = trimPath(input cPath, input cProPath, input cCompilePath, input cXrefInformation).
                     cCompileUnit = cXrefInformation.
                 end.
                 
@@ -68,15 +67,15 @@ input from value(cPath).
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
             end.
-            else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*")) //pakeisti matches á index <> 0
+            else if cXrefType = "CLASS" and (cXrefInformation matches ("*INHERITS*") or cXrefInformation matches ("*IMPLEMENTS*"))
             then do:
                 
-                if cXrefInformation matches ("*INHERITS*") //pakeisti matches á index <> 0
+                if cXrefInformation matches ("*INHERITS*")
                 then do:
                     cXrefInformation = substring(cXrefInformation, index(cXrefInformation, "INHERITS")).
                     cXrefInformation = substring(cXrefInformation, 1, index(cXrefInformation, ",") - 1).
                 end.
-                else if cXrefInformation matches ("*IMPLEMENTS*") //pakeisti matches á index <> 0
+                else if cXrefInformation matches ("*IMPLEMENTS*")
                 then do:
                     cXrefInformation = substring(cXrefInformation, index(cXrefInformation, "IMPLEMENTS")).
                     cXrefInformation = substring(cXrefInformation, 1, index(cXrefInformation, ",") - 1).
@@ -88,7 +87,7 @@ input from value(cPath).
                         files.sourcePath = cSourePath
                         files.line = integer(cLineNumber)
                         files.type = cXrefType
-                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
             end.
@@ -113,23 +112,17 @@ input from value(cPath).
                         files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
-                
-                
             end.
             else if cXrefType = "INVOKE"
             then do:
-
                 if index(cXrefInformation, ",") <> 0
                 then do:
                     cXrefInformation = substring(cXrefInformation, 1, index(cXrefInformation, ",") - 1).
                 end.
-                
                 if cLineNumber = "IMPLICIT"
                 then do:
-                    
                     cLineNumber = "0".
                     cXrefType = "IMPLICIT " + cXrefType.
-                    
                 end.
                 
                 create files.
@@ -140,13 +133,12 @@ input from value(cPath).
                         files.sourcePath = cSourePath
                         files.line = integer(cLineNumber)
                         files.type = cXrefType
-                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.info = cXrefInformation
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
             end.
             else if cXrefType = "ACCESS" or cXrefType = "UPDATE"
             then do:
-
                 if index(cXrefInformation, "INHERITED") <> 0 or index(cXrefInformation, "PUBLIC") <> 0
                 then do:
                     create files.
@@ -156,11 +148,10 @@ input from value(cPath).
                         files.sourcePath = cSourePath
                         files.line = integer(cLineNumber)
                         files.type = cXrefType
-                        files.info = cXrefInformation //substring(cXrefInformation, index(cXrefInformation, ",") + 1).
+                        files.info = cXrefInformation 
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
                 end.
-                
                 else if index(cXrefInformation, "TEMPTABLE") = 0 and 
                         index(cXrefInformation, "SHARED") = 0 and
                         index(cXrefInformation, "DATA-MEMBER") = 0 and
@@ -183,13 +174,8 @@ input from value(cPath).
                         fieldDB.info = cXrefInformation
                         fieldDB.compileUnit = cCompileUnit
                         fieldDB.system = cSystem.
-                        
                 end.
             end.
-                
-/*            else undo, next.*/
-            
-            
         end.
 
 input close.
