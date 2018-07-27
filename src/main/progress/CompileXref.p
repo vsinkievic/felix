@@ -7,6 +7,7 @@ define variable isum as integer init 0.
 define variable cFileType as character no-undo.
 
 function compileFiles returns integer (cImputDirectory as character) forward.
+function addPropath return integer (cImputDirectory as character) forward.
 
 //----------------------------------- Main BLock -----------------------------------------
 
@@ -42,14 +43,16 @@ function compileFiles returns integer (cImputDirectory as character):
             
         end.       
             
-        else if cFileType = "p" OR cFileType = "cls" OR cFileType = "i" OR cFileType = "w"
+        else if cFileType = "p" or cFileType = "cls" or cFileType = "i" or cFileType = "w"
         then do:
             
             cPath = cImputDirectory + "\" + cFileStream.
-            cPath = Replace (cPath, "\", "_").
-            cPath = Replace (cPath, " ", "").
+            cPath = replace (cPath, "\", "_").
+            cPath = replace (cPath, " ", "").
             cPath = substring(cPath, 4).
-            compile value(cImputDir + "\" + cFileStream) save xref value(cOutputDir + subst("&1.xref", cPath)).
+            
+            
+            compile value(cImputDirectory + "\" + cFileStream) save xref value(cOutputDir + subst("&1.xref", cPath)).
             isum = isum + 1.
 
         end.
@@ -58,5 +61,7 @@ function compileFiles returns integer (cImputDirectory as character):
     
     return isum.
 end function.
+
+
 
 
