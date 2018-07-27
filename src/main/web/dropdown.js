@@ -8,7 +8,6 @@ $(document).ready(function() {
         let searchVal = $(this).val();
         let searchType = $('#inpType').val() + "";
         let searchSys = $('#inpSystem').val();
-        console.log(searchVal + " of type: " + searchType + " of system: " + searchSys);
         if (searchVal.length > 2 && searchType != "0") {
         	$('#autocomplete').show();
         	let iwid = $('#inpName').width();
@@ -18,10 +17,8 @@ $(document).ready(function() {
                 datatype: "application/json",
                 data: {'search': searchVal, 'type': searchType, 'systemName': searchSys},
                 success: function(data){
-                	console.log(data);
                     data = data.substring(0, data.indexOf('<') - 1);
                     let results = $.parseJSON(data);
-                    console.log(results);
                     let filteredResults = [];
                     let ttDetails = results.ttDetails;
                     for (var i = 0; i < ttDetails.length; i++) {

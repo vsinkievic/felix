@@ -1,10 +1,10 @@
 
-<SCRIPT LANGUAGE="SpeedScript">
-    CREATE WIDGET-POOL.
+<script language="SpeedScript">
+    create widget-pool.
     {src/web2/wrap-cgi.i}       /* standard WebSpeed include */
     {getNameFromPath.i}         /* local function */
     
-</SCRIPT>
+</script>
 
 <script language="speedscript">
     {ttDetails.i}
@@ -22,7 +22,17 @@
     
     case iType:
         when 1 then run findProcedure.p (input cSearch, output table ttDetails, input cSystem, input true).
-        when 3 then run findInclude.p (input cSearch, output table ttDetails, input cSystem).
+        when 2 then run findClass.p (input cSearch, output table ttDetails, input cSystem, input true).
+        when 3 then do:
+			           for each files no-lock where 
+						        files.type = "INCLUDE" and 
+						        files.system = cSystem and
+						        files.info matches ("*/" + cSearch + "*"):
+					        create ttDetails.
+					        assign
+					            ttDetails.info = files.info.
+					   end.
+                end.
         when 41 then do:
 				       for each fieldDB no-lock where
 					            fieldDB.system = cSystem and
@@ -54,8 +64,6 @@
 						end.
                 end.
     end case.
-   
-
 
     for each ttDetails:
         ttDetails.info = getNameFromPath(ttDetails.info).
