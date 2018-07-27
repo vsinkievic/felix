@@ -15,9 +15,7 @@ for each files no-lock where
          files.type = "UPDATE") and
          (files.info matches("*." + vName) or
          files.info = vName or
-         files.info matches ("*." + vName + ":*") or
-         files.info matches ("*." + vName + ".*") or
-         files.info matches (vName + ".*"))
+         files.info matches ("*." + vName + ":*"))
          by files.compileUnit:
     
     if vIsDetailed 
