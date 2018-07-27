@@ -1,6 +1,5 @@
-define variable i4 as integer no-undo.
-
 function trimPath returns character (pSysPath as character, pProPath as character, pCompilePath as character, pAbsolutPath as character):
+    define variable i4 as integer no-undo.
     pAbsolutPath = replace(pAbsolutPath, pCompilePath, "").
     repeat i4 = 1 to num-entries(pProPath, ";"):
         if index(pAbsolutPath, entry(i4, pProPath, ";")) <> 0
