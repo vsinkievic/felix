@@ -13,7 +13,7 @@ propath = substring(propath,3).
 propath =  ".," + ppropath + "," + propath.
     
 
-//----DB duomenu trinimas
+//----DB duomenu trynimas
 for each files where files.system = cSystem:
     delete files.
 end.
@@ -21,7 +21,6 @@ end.
 for each fieldDB where fieldDB.system = cSystem:
     delete fieldDB.
 end.
-
 
 input from os-dir(cDir).
 
