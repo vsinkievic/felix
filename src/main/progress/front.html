@@ -23,6 +23,7 @@
     <body>
 	    <script language="speedscript">
 	            {ttDetails.i}
+	            {ttUnused.i}
 	            
 	            define temp-table ttList
                    field f1 as character
@@ -42,11 +43,14 @@
 	            define variable lClearFront as logical init true no-undo.
 	            define variable cList as character no-undo extent.
 	            define variable iCount as integer no-undo.
+	            define variable cUnused as character no-undo.
+				define variable iLineCounter as integer no-undo.
 	
 	            cName = get-field('name').
 	            iType = integer(get-field('type')).
 	            cUpdSystem = get-value('updSystem').
 	            cSystem = get-field('system').
+	            cUnused = get-value('unused').
 	            
 	            if cName <> "" or iType > 0 or cUpdSystem <> "" then lClearFront = false.
 	            
@@ -67,6 +71,7 @@
 	                    iType = 0.
 	                    lDetails = false.
 	                    cUpdSystem = "".
+	                    cUnused = "".
 	                end.
 	            end.
 	            
@@ -90,14 +95,14 @@
 	    	    
         <div class="container">
 	        <div class="row page-header">
-	            <div class="col-4">
+	            <div class="col-3">
 	                <h1><a href="front.html"><span id="logo">Felix<sup>&reg</sup></a></span></h1>
 	                <h4>XREF analyser</h4>
 	            </div>
 	            
 	            <!-- Buttons block -->
 	            
-	            <div class="col-8 btn-block">
+	            <div class="col-9 btn-block">
 	                <form id="xrefForm">
 	                    <div class="btn-group d-flex flex-wrap flex-md-nowrap" role="group" id="elements-holder">
 	                        <input class="btn elements active" id="btn0" type="hidden">
@@ -117,12 +122,25 @@
 	                        <!-- <input class="btn elements w-100" id="btn4" name="bDBfield" 
 	                        type="button" value="DB field"> -->
 	                        <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
+	                        <div class="btn-group" role="group">
+                                <button id="btn7" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Unused 
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btn7">
+                                    <a class="btn dropdown-item" id="btn7-1">Procedures</a>
+                                    <a class="btn dropdown-item" id="btn7-2">Classes</a>
+                                    <a class="btn dropdown-item" id="btn7-3">Includes</a>
+                                    <a class="btn dropdown-item" id="btn7-4">All</a>
+                                </div>
+                            </div>
 	                        <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" 
 	                            type="button" value="User Guide"
 	                            style="background-color: #626060; color:white;">
 	                    </div>
 	
 	                    <input id="inpType" type="hidden" name="type" value="`iType`">
+	                    <input id="inpUnused" type="hidden" name="unused" value="`cUnused`">
 	                    <div id="invFeedbackType" class="invalid-feedback">
 	                        Please select type.
 	                    </div>
@@ -148,6 +166,7 @@
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
                             <input id="inpTree" type="hidden" name="tree" value="">
+                            
 	                    </div>
 	                </form>
 	            </div>
@@ -323,7 +342,7 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 and lTree = false
+		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTree = false
 		            then do:
 		                if lDetails = false 
 		                then do: 
@@ -339,12 +358,15 @@
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 		                        <table>
-		                            <thead><th>Compile Unit</th></thead>
-		                            <!--WSS for each ttDetails: -->
+		                            <thead><th>#</th><th>Compile Unit</th></thead>
+		                            <!--WSS for each ttDetails: 
+									iLineCounter = iLineCounter + 1. -->
 		                                <tr>
+										    <td> `iLineCounter`</td>
 										    <td> `ttDetails.compileUnit` </td>
 										</tr>
-			                        <!--WSS end. -->
+			                        <!--WSS end. 
+									iLineCounter = 0. -->
 			                    </table>
 		                    </div>
 		                <!--WSS end.
@@ -362,11 +384,13 @@
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 								<table>
 		                            <thead>
-		                            <th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
+		                            <th>#</th><th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
 		                                <th>Type</th><th>Line</th><th class="t-4">Info</th>
 		                            </thead>
-								    <!--WSS for each ttDetails: -->
+								    <!--WSS for each ttDetails:
+									iLineCounter = iLineCounter + 1. -->
 		                            <tr>
+									    <td>`iLineCounter`</td>
 		                                <td class="t-1">`ttDetails.compileUnit`</td>
 										<td class="t-2">`ttDetails.fileName`</td>
 										<td class="t-3">`ttDetails.sourcePath`</td>
@@ -374,49 +398,80 @@
 										<td>`ttDetails.line`</td>
 										<td class="t-4">`ttDetails.info`</td>
 									</tr>
-			    					<!--WSS end. -->
+			    					<!--WSS end. 
+									iLineCounter = 0. -->
 		                        </table>
 		                    </div>
 		                <!--WSS end. 
 		            end.
+		            
+		            if cUnused <> "" and iType > 70 and lTree = false
+                    then do:
+                        run findUnused.p (input cSystem, output table ttUnused). -->
+                            <div class='form-holder'>
+                            <p class="output-message">Output of <span id="typeRef" class="refName"></span>:</p>
+                                <table>
+                                    <thead><th>#</th><th>Name</th><th>Compile Unit</th></thead>
+                                    <!--WSS for each ttUnused where ttUnused.type matches cUnused: 
+									iLineCounter = iLineCounter + 1. -->
+                                        <tr>
+                                            <td> `ttUnused.Name` </td>
+                                            <td> `ttUnused.compileUnit` </td>
+                                        </tr>
+                                    <!--WSS end.
+									iLineCounter = 0. -->
+                                </table>
+                            </div>
+                    <!--WSS end. 
+		            
 		            if lTree = true
 		            then do: 
 			            run getTree.p (input cName, input cSystem, output table ttList, output table ttCalling). -->
 			            <div class="form-holder">
-	                        <p class="output-message">Working environment of `cName` in <span 
-	                             class="refName">`cSystem`</span>:</p>
-		                </div>
-	
-                        <div class="tree-bucket">
-                           <!--WSS iCount = 1.
-                           for each ttCalling by ttCalling.type: -->
-                               <form id="cf`iCount`" action="front.html">
-                                   <span class="tree-bucket-entries" value="`iCount`">`ttCalling.f1` <span 
-                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
-                                   <input type="hidden" name="tree" value="yes">
-                                   <input type="hidden" name="name" value="`ttCalling.f1`">
-                                   <input type="hidden" name="system" value="`cSystem`">
-                               </form>
-                           <!--WSS iCount = iCount + 1.
-                           end.  -->
+                            <p class="output-message">Working environment of <span class="refName">`cName`</span> in <span 
+                                 class="refName">`cSystem`</span>:</p>
                         </div>
-
-		                <div class="tree-bucket">
-		                       <span class="tree-bucket-entries tree-bucket-entries-main">`cName`</span>
-		                </div>
-
-	                    <div class="tree-bucket">
-	                       <!--WSS for each ttList by ttList.type: -->
-	                           <form id="cf`iCount`" action="front.html">
-                                   <span class="tree-bucket-entries" value="`iCount`"><span class="tree-bucket-entries-type">
-                                       (`ttList.type`)</span> `ttList.f1`</span>
-	                               <input type="hidden" name="tree" value="yes">
-	                               <input type="hidden" name="name" value="`ttList.f1`">
-	                               <input type="hidden" name="system" value="`cSystem`">
-	                           </form>
-                           <!--WSS iCount = iCount + 1.
-                           end.  -->
-	                    </div>
+	
+		                <table>
+                            <thead>
+                                <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
+                            </thead>
+			                <td valign = "top" style="width:50%;">
+				                <div class="align-item-start">
+			                           <!--WSS iCount = 1.
+			                           for each ttCalling by ttCalling.type: 
+			                           iLineCounter = iLineCounter + 1. -->
+			                               <form id="cf`iCount`" action="front.html">
+			                               <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
+                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
+			                                   <input type="hidden" name="tree" value="yes">
+			                                   <input type="hidden" name="name" value="`ttCalling.f1`">
+			                                   <input type="hidden" name="system" value="`cSystem`">
+			                               </form>
+			                           <!--WSS iCount = iCount + 1.
+			                           end.  
+			                           iLineCounter = 0.-->
+		                        </div>
+	                        </td>
+                        
+	                        <td valign = "top">
+			                    <div class="">
+				                       <!--WSS for each ttList by ttList.type: 
+				                       iLineCounter = iLineCounter + 1. -->
+				                           <form id="cf`iCount`" action="front.html">
+				                           
+                                            <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span><span class="tree-bucket-entries-type">
+                                            (`ttList.type`)</span> `ttList.f1`</span>
+				                               <input type="hidden" name="tree" value="yes">
+				                               <input type="hidden" name="name" value="`ttList.f1`">
+				                               <input type="hidden" name="system" value="`cSystem`">
+				                           </form>
+			                           <!--WSS iCount = iCount + 1.
+			                           end.  
+			                           iLineCounter = 0. -->
+			                    </div>
+		                    </td>
+	                    </table>
 	                <!--WSS end.  -->
 	            </div>
             </div>
@@ -456,6 +511,26 @@
         case 5:
             $('#btn5').addClass('active');
             $('#typeRef').html("index");
+            break;
+        case 71:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: procedures');
+            $('#typeRef').html('Unused procedures');
+            break;
+        case 72:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: classes');
+            $('#typeRef').html('Unused classes');
+            break;
+        case 73:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: includes');
+            $('#typeRef').html('Unused includes');
+            break;
+        case 74:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: all');
+            $('#typeRef').html('Unused files');
             break;
     };
     

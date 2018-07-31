@@ -37,9 +37,41 @@ $(document).ready(function(){
         $('.user-guide').show();
         $('.form-holder').empty();
     });
+    $('#btn7-1').on('click', function() {
+    	$('#btn7').addClass('active');
+    	$('#btn7').html('Un: procedures');
+        $('#inpType').val('71');
+        $('#inpUnused').val('PROCEDURE');
+        $(this).closest('form').submit();
+    });
+    $('#btn7-2').on('click', function() {
+    	$('#btn7').addClass('active');
+    	$('#btn7').html('Un: classes');
+        $('#inpType').val('72');
+        $('#inpUnused').val('CLASS');
+        $(this).closest('form').submit();
+    });
+    $('#btn7-3').on('click', function() {
+    	$('#btn7').addClass('active');
+    	$('#btn7').html('Un: includes');
+        $('#inpType').val('73');
+        $('#inpUnused').val('INCLUDE');
+        $(this).closest('form').submit();
+    });
+    $('#btn7-4').on('click', function() {
+    	$('#btn7').addClass('active');
+    	$('#btn7').html('Un: all');
+        $('#inpType').val('74');
+        $('#inpUnused').val('*');
+        $(this).closest('form').submit();
+    });
     $('.elements').on('click', function(){
     	$('#btn4').html('DB field');
     });
+    $('.elements').on('click', function(){
+    	$('#btn7').html('Unused');
+    });
+    
 
 
     $("#btnShort").click(function( event ) {
