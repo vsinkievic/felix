@@ -5,8 +5,9 @@ temp-table ttSystemInfo:read-json("file",os-getenv("JSON-LOCATION"),"empty").
 find ttSystemInfo.
 
 //message ttSystemInfo.flocalSourcePath + "\" ttSystemInfo.fsystemName.
-connect value(ttSystemInfo.fsystemDBparameters).
-//run createDB.p(input ttSystemInfo.flocalSourcePath + "\", input ttSystemInfo.fsystemName).
+run createDB.p(input ttSystemInfo.fsystemDBparameters).
+
+//connect value(ttSystemInfo.fsystemDBparameters).
 
 os-create-dir value(os-getenv("TEMP") + "/" + ttSystemInfo.fsystemName).
 

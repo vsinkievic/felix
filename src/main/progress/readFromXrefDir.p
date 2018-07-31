@@ -2,8 +2,8 @@
 
 define variable cFileStream as character no-undo format "x(200)".
 define variable cPath as character no-undo format "x(200)".
-define input parameter  cDir as character no-undo format "x(200)".
-define input parameter  cSystem as character no-undo format "x(200)".
+define input parameter cDir as character no-undo format "x(200)".
+define input parameter cSystem as character no-undo format "x(200)".
 
     
 //---Triggeriu propath pridejimas
