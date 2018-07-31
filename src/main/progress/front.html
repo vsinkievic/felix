@@ -44,6 +44,7 @@
 	            define variable cList as character no-undo extent.
 	            define variable iCount as integer no-undo.
 	            define variable cUnused as character no-undo.
+				define variable iLineCounter as integer no-undo.
 	
 	            cName = get-field('name').
 	            iType = integer(get-field('type')).
@@ -94,14 +95,14 @@
 	    	    
         <div class="container">
 	        <div class="row page-header">
-	            <div class="col-4">
+	            <div class="col-3">
 	                <h1><a href="front.html"><span id="logo">Felix<sup>&reg</sup></a></span></h1>
 	                <h4>XREF analyser</h4>
 	            </div>
 	            
 	            <!-- Buttons block -->
 	            
-	            <div class="col-8 btn-block">
+	            <div class="col-9 btn-block">
 	                <form id="xrefForm">
 	                    <div class="btn-group d-flex flex-wrap flex-md-nowrap" role="group" id="elements-holder">
 	                        <input class="btn elements active" id="btn0" type="hidden">
@@ -357,12 +358,15 @@
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 		                        <table>
-		                            <thead><th>Compile Unit</th></thead>
-		                            <!--WSS for each ttDetails: -->
+		                            <thead><th>#</th><th>Compile Unit</th></thead>
+		                            <!--WSS for each ttDetails: 
+									iLineCounter = iLineCounter + 1. -->
 		                                <tr>
+										    <td> `iLineCounter`</td>
 										    <td> `ttDetails.compileUnit` </td>
 										</tr>
-			                        <!--WSS end. -->
+			                        <!--WSS end. 
+									iLineCounter = 0. -->
 			                    </table>
 		                    </div>
 		                <!--WSS end.
@@ -380,11 +384,13 @@
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
 								<table>
 		                            <thead>
-		                            <th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
+		                            <th>#</th><th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
 		                                <th>Type</th><th>Line</th><th class="t-4">Info</th>
 		                            </thead>
-								    <!--WSS for each ttDetails: -->
+								    <!--WSS for each ttDetails:
+									iLineCounter = iLineCounter + 1. -->
 		                            <tr>
+									    <td>`iLineCounter`</td>
 		                                <td class="t-1">`ttDetails.compileUnit`</td>
 										<td class="t-2">`ttDetails.fileName`</td>
 										<td class="t-3">`ttDetails.sourcePath`</td>
@@ -392,7 +398,8 @@
 										<td>`ttDetails.line`</td>
 										<td class="t-4">`ttDetails.info`</td>
 									</tr>
-			    					<!--WSS end. -->
+			    					<!--WSS end. 
+									iLineCounter = 0. -->
 		                        </table>
 		                    </div>
 		                <!--WSS end. 
@@ -404,13 +411,15 @@
                             <div class='form-holder'>
                             <p class="output-message">Output of <span id="typeRef" class="refName"></span>:</p>
                                 <table>
-                                    <thead><th>Name</th><th>Compile Unit</th></thead>
-                                    <!--WSS for each ttUnused where ttUnused.type matches cUnused: -->
+                                    <thead><th>#</th><th>Name</th><th>Compile Unit</th></thead>
+                                    <!--WSS for each ttUnused where ttUnused.type matches cUnused: 
+									iLineCounter = iLineCounter + 1. -->
                                         <tr>
                                             <td> `ttUnused.Name` </td>
                                             <td> `ttUnused.compileUnit` </td>
                                         </tr>
-                                    <!--WSS end. -->
+                                    <!--WSS end.
+									iLineCounter = 0. -->
                                 </table>
                             </div>
                     <!--WSS end. 
@@ -419,40 +428,50 @@
 		            then do: 
 			            run getTree.p (input cName, input cSystem, output table ttList, output table ttCalling). -->
 			            <div class="form-holder">
-	                        <p class="output-message">Working environment of `cName` in <span 
-	                             class="refName">`cSystem`</span>:</p>
-		                </div>
-	
-                        <div class="tree-bucket">
-                           <!--WSS iCount = 1.
-                           for each ttCalling by ttCalling.type: -->
-                               <form id="cf`iCount`" action="front.html">
-                                   <span class="tree-bucket-entries" value="`iCount`">`ttCalling.f1` <span 
-                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
-                                   <input type="hidden" name="tree" value="yes">
-                                   <input type="hidden" name="name" value="`ttCalling.f1`">
-                                   <input type="hidden" name="system" value="`cSystem`">
-                               </form>
-                           <!--WSS iCount = iCount + 1.
-                           end.  -->
+                            <p class="output-message">Working environment of <span class="refName">`cName`</span> in <span 
+                                 class="refName">`cSystem`</span>:</p>
                         </div>
-
-		                <div class="tree-bucket">
-		                       <span class="tree-bucket-entries tree-bucket-entries-main">`cName`</span>
-		                </div>
-
-	                    <div class="tree-bucket">
-	                       <!--WSS for each ttList by ttList.type: -->
-	                           <form id="cf`iCount`" action="front.html">
-                                   <span class="tree-bucket-entries" value="`iCount`"><span class="tree-bucket-entries-type">
-                                       (`ttList.type`)</span> `ttList.f1`</span>
-	                               <input type="hidden" name="tree" value="yes">
-	                               <input type="hidden" name="name" value="`ttList.f1`">
-	                               <input type="hidden" name="system" value="`cSystem`">
-	                           </form>
-                           <!--WSS iCount = iCount + 1.
-                           end.  -->
-	                    </div>
+	
+		                <table>
+                            <thead>
+                                <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
+                            </thead>
+			                <td valign = "top" style="width:50%;">
+				                <div class="align-item-start">
+			                           <!--WSS iCount = 1.
+			                           for each ttCalling by ttCalling.type: 
+			                           iLineCounter = iLineCounter + 1. -->
+			                               <form id="cf`iCount`" action="front.html">
+			                               <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
+                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
+			                                   <input type="hidden" name="tree" value="yes">
+			                                   <input type="hidden" name="name" value="`ttCalling.f1`">
+			                                   <input type="hidden" name="system" value="`cSystem`">
+			                               </form>
+			                           <!--WSS iCount = iCount + 1.
+			                           end.  
+			                           iLineCounter = 0.-->
+		                        </div>
+	                        </td>
+                        
+	                        <td valign = "top">
+			                    <div class="">
+				                       <!--WSS for each ttList by ttList.type: 
+				                       iLineCounter = iLineCounter + 1. -->
+				                           <form id="cf`iCount`" action="front.html">
+				                           
+                                            <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span><span class="tree-bucket-entries-type">
+                                            (`ttList.type`)</span> `ttList.f1`</span>
+				                               <input type="hidden" name="tree" value="yes">
+				                               <input type="hidden" name="name" value="`ttList.f1`">
+				                               <input type="hidden" name="system" value="`cSystem`">
+				                           </form>
+			                           <!--WSS iCount = iCount + 1.
+			                           end.  
+			                           iLineCounter = 0. -->
+			                    </div>
+		                    </td>
+	                    </table>
 	                <!--WSS end.  -->
 	            </div>
             </div>
