@@ -400,17 +400,12 @@
 		            
 		            if cUnused <> "" and iType > 70 and lTree = false
                     then do:
-                        case iType:
-                                when 71 then run findUnused.p (input cSystem, output table ttUnused).
-                                when 72 then run findUnused.p (input cSystem, output table ttUnused).
-                                when 73 then run findUnused.p (input cSystem, output table ttUnused).
-                                when 74 then run findUnused.p (input cSystem, output table ttUnused).
-                        end case. -->
+                        run findUnused.p (input cSystem, output table ttUnused). -->
                             <div class='form-holder'>
                             <p class="output-message">Output of <span id="typeRef" class="refName"></span>:</p>
                                 <table>
                                     <thead><th>Name</th><th>Compile Unit</th></thead>
-                                    <!--WSS for each ttUnused where ttUnused.type = cUnused: -->
+                                    <!--WSS for each ttUnused where ttUnused.type matches cUnused: -->
                                         <tr>
                                             <td> `ttUnused.Name` </td>
                                             <td> `ttUnused.compileUnit` </td>
