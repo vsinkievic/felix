@@ -39,21 +39,21 @@ $(document).ready(function(){
     });
     $('#btn7-1').on('click', function() {
     	$('#btn7').addClass('active');
-    	$('#btn7').html('Un: procedure');
+    	$('#btn7').html('Un: procedures');
         $('#inpType').val('71');
         $('#inpUnused').val('PROCEDURE');
         $(this).closest('form').submit();
     });
     $('#btn7-2').on('click', function() {
     	$('#btn7').addClass('active');
-    	$('#btn7').html('Un: class');
+    	$('#btn7').html('Un: classes');
         $('#inpType').val('72');
         $('#inpUnused').val('CLASS');
         $(this).closest('form').submit();
     });
     $('#btn7-3').on('click', function() {
     	$('#btn7').addClass('active');
-    	$('#btn7').html('Un: include');
+    	$('#btn7').html('Un: includes');
         $('#inpType').val('73');
         $('#inpUnused').val('INCLUDE');
         $(this).closest('form').submit();
