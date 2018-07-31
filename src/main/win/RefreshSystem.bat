@@ -14,4 +14,8 @@ goto waitloop
 
 %DLC%\bin\prowin -b -p ../progress/waitForXrefs.p -db FelixDB -S 9000 
 
-del %TEMP%"\compile.done"
+del %TEMP%\compile.done
+
+type %TEMP%\%FELIX-SYSTEM-NAME%\errorfiles.txt
+
+del %TEMP%\%FELIX-SYSTEM-NAME%\errorfiles.txt

@@ -7,15 +7,17 @@ define variable isum as integer init 0.
 define variable cFileType as character no-undo.
 
 function compileFiles returns integer (cImputDirectory as character) forward.
+function addPropath return integer (cImputDirectory as character) forward.
 
 //----------------------------------- Main BLock -----------------------------------------
 
 input from os-dir(cImputDir).
-
+output to value(cOutputDir + "errorfiles.txt").
+message "-----------FAILAI KURIE NESIKOMPILIUOJA!-----------".
 compileFiles (cImputDir).
 
 input close.
-
+output close.
 os-command value("type nul > " + os-getenv("TEMP") + "\compile.done").
 
 //----------------------------------- Functions -----------------------------------------
@@ -42,21 +44,32 @@ function compileFiles returns integer (cImputDirectory as character):
             
         end.       
             
-        else if cFileType = "p" OR cFileType = "cls" OR cFileType = "i" OR cFileType = "w"
+        else if cFileType = "p" or cFileType = "cls" or cFileType = "i" or cFileType = "w"
         then do:
-            
+            do on error undo, throw:
             cPath = cImputDirectory + "\" + cFileStream.
-            cPath = Replace (cPath, "\", "_").
-            cPath = Replace (cPath, " ", "").
+            cPath = replace (cPath, "\", "_").
+            cPath = replace (cPath, " ", "").
             cPath = substring(cPath, 4).
-            compile value(cImputDir + "\" + cFileStream) save xref value(cOutputDir + subst("&1.xref", cPath)).
-            isum = isum + 1.
-
+            
+            
+            compile value(cImputDirectory + "\" + cFileStream) save xref value(cOutputDir + subst("&1.xref", cPath)).
+                        isum = isum + 1.
+            
+            catch eSystemError as Progress.Lang.Error :
+                os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
+                message cImputDirectory + "\" + cFileStream.
+                
+                undo, next.
+            end catch.
+            end.
         end.
         
     end.
     
     return isum.
 end function.
+
+
 
 

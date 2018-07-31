@@ -81,7 +81,23 @@ $(document).ready(function(){
         };
     });
 
-
+    $("#btnTree").click(function( event ) {
+        let fValid = true;
+        if ($('#inpName').val() == "") {
+            $('#invFeedbackName').show();
+            fValid = false;
+        };
+        if (fValid) {
+        	console.log('Tree button submitted');
+            $('.invalid-feedback').hide();
+            $('#inpTree').val('yes');
+            $("#xrefForm").submit();
+        } else {
+        event.preventDefault();
+        }
+    });
+    
+    
     $(".systems-select").click(function() {
         $(".systems-list").children().removeClass('systems-select-active');
         $(this).addClass("systems-select-active");
@@ -90,6 +106,16 @@ $(document).ready(function(){
 
     });
 
+    
+    $(".tree-bucket-entries").click(function() {
+    	console.log("click");
+    	let target = $(this).attr("value");
+    	$("#cf" + target).submit();
+    });
+    
+    
+    
+    
     /*--------- SCROLL BACK TO TOP ARROW:   ----------*/
 
     $(window).scroll(function() {
