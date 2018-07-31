@@ -23,6 +23,7 @@
     <body>
 	    <script language="speedscript">
 	            {ttDetails.i}
+	            {ttUnused.i}
 	            
 	            define temp-table ttList
                    field f1 as character
@@ -42,11 +43,13 @@
 	            define variable lClearFront as logical init true no-undo.
 	            define variable cList as character no-undo extent.
 	            define variable iCount as integer no-undo.
+	            define variable cUnused as character no-undo.
 	
 	            cName = get-field('name').
 	            iType = integer(get-field('type')).
 	            cUpdSystem = get-value('updSystem').
 	            cSystem = get-field('system').
+	            cUnused = get-value('unused').
 	            
 	            if cName <> "" or iType > 0 or cUpdSystem <> "" then lClearFront = false.
 	            
@@ -67,6 +70,7 @@
 	                    iType = 0.
 	                    lDetails = false.
 	                    cUpdSystem = "".
+	                    cUnused = "".
 	                end.
 	            end.
 	            
@@ -117,12 +121,25 @@
 	                        <!-- <input class="btn elements w-100" id="btn4" name="bDBfield" 
 	                        type="button" value="DB field"> -->
 	                        <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
+	                        <div class="btn-group" role="group">
+                                <button id="btn7" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Unused 
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btn7">
+                                    <a class="btn dropdown-item" id="btn7-1">Procedure</a>
+                                    <a class="btn dropdown-item" id="btn7-2">Class</a>
+                                    <a class="btn dropdown-item" id="btn7-3">Include</a>
+                                    <a class="btn dropdown-item" id="btn7-4">All</a>
+                                </div>
+                            </div>
 	                        <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" 
 	                            type="button" value="User Guide"
 	                            style="background-color: #626060; color:white;">
 	                    </div>
 	
 	                    <input id="inpType" type="hidden" name="type" value="`iType`">
+	                    <input id="inpUnused" type="hidden" name="unused" value="`cUnused`">
 	                    <div id="invFeedbackType" class="invalid-feedback">
 	                        Please select type.
 	                    </div>
@@ -148,6 +165,7 @@
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
                             <input id="inpTree" type="hidden" name="tree" value="">
+                            
 	                    </div>
 	                </form>
 	            </div>
@@ -323,7 +341,7 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 and lTree = false
+		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTree = false
 		            then do:
 		                if lDetails = false 
 		                then do: 
@@ -379,6 +397,29 @@
 		                    </div>
 		                <!--WSS end. 
 		            end.
+		            
+		            if cUnused <> "" and iType > 70 and lTree = false
+                    then do:
+                        case iType:
+                                when 71 then run findUnused.p (input cSystem, output table ttUnused).
+                                when 72 then run findUnused.p (input cSystem, output table ttUnused).
+                                when 73 then run findUnused.p (input cSystem, output table ttUnused).
+                                when 74 then run findUnused.p (input cSystem, output table ttUnused).
+                        end case. -->
+                            <div class='form-holder'>
+                            <p class="output-message">Output of <span id="typeRef" class="refName"></span>:</p>
+                                <table>
+                                    <thead><th>Name</th><th>Compile Unit</th></thead>
+                                    <!--WSS for each ttUnused where ttUnused.type = cUnused: -->
+                                        <tr>
+                                            <td> `ttUnused.Name` </td>
+                                            <td> `ttUnused.compileUnit` </td>
+                                        </tr>
+                                    <!--WSS end. -->
+                                </table>
+                            </div>
+                    <!--WSS end. 
+		            
 		            if lTree = true
 		            then do: 
 			            run getTree.p (input cName, input cSystem, output table ttList, output table ttCalling). -->
@@ -456,6 +497,26 @@
         case 5:
             $('#btn5').addClass('active');
             $('#typeRef').html("index");
+            break;
+        case 71:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: procedure');
+            $('#typeRef').html('Unused procedures');
+            break;
+        case 72:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: class');
+            $('#typeRef').html('Unused classes');
+            break;
+        case 73:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: include');
+            $('#typeRef').html('Unused includes');
+            break;
+        case 74:
+            $('#btn7').addClass('active');
+            $('#btn7').html('Un: all');
+            $('#typeRef').html('Unused files');
             break;
     };
     
