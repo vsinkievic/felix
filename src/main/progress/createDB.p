@@ -1,4 +1,4 @@
-define input parameter cPth as character no-undo init "C:\mokymai\Felix\CrDbTest" format "x(200)". //cnage to input param
+define variable cPth as character no-undo init "C:\Users\Studentas1\Desktop\Testavimas".
 define variable cDelDb as character no-undo.
 define variable cLoadSt as character no-undo.
 define variable cDelBi as character no-undo.
@@ -75,12 +75,12 @@ do transaction:
     if cDbName = ?
     then do:
         cDbName = replace(cDfName, ".df", "").
-        //message "creating db" view-as alert-box.
+        message "creating db" view-as alert-box.
         run createDbInternal.
     end.
     else do:
         cDbName = replace(cDfName, ".df", "").
-        //message "resetting db" view-as alert-box.
+        message "resetting db" view-as alert-box.
         os-command value(cDelDb).
         run createDbInternal.
     end.
@@ -88,7 +88,8 @@ do transaction:
     procedure createDbInternal:
         cDelBi = "%DLC%/bin/prostrct remove " + cPth + cDbName + " bi".
         cTrunBi = "%DLC%/bin/proutil " + cPth + cDbName + ".db" + " -C truncate bi".
-        create database cPth + cDbName from "EMPTY".
+      //  os-command value("C:\Progress\OpenEdge\bin\procopy C:\Progress\OpenEdge\empty.db C:\Users\Studentas1\Desktop\Testavimas\Alfredas.db").
+     //   create database cPth + cDbName from "EMPTY".
         if cStName <> ""
         then do:
             os-command silent value(cTrunBi).
@@ -98,6 +99,7 @@ do transaction:
         connect value(cPth + cDbName) -1.
         create alias DICTDB for database value(cDbName).
         run prodict/load_df.p (cPth + cDfName).
-      //  disconnect value(cDbName).
+        disconnect value(cDbName).
     end.
 end.
+//disconnect value(cDbName).
