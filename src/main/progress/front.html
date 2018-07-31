@@ -19,15 +19,29 @@
         </script>
     </head>
     
+    
     <body>
 	    <script language="speedscript">
 	            {ttDetails.i}
+	            
+	            define temp-table ttList
+                   field f1 as character
+                   field type as character.
+                   
+                define temp-table ttCalling
+                    field f1 as character
+                    field type as character.
+                   
+	            
 	            define variable cName as character no-undo.
 	            define variable iType as integer no-undo init 0.
 	            define variable cSystem as character no-undo.
 	            define variable lDetails as logical init false no-undo.
+                define variable lTree as logical init false no-undo.
 	            define variable cUpdSystem as character no-undo.
 	            define variable lClearFront as logical init true no-undo.
+	            define variable cList as character no-undo extent.
+	            define variable iCount as integer no-undo.
 	
 	            cName = get-field('name').
 	            iType = integer(get-field('type')).
@@ -38,6 +52,9 @@
 	            
 	            if get-field('details') <> "" then
 	                lDetails = logical(get-field('details'), "yes/no").
+
+                if get-field('tree') <> "" then
+                    lTree = logical(get-field('tree'), "yes/no").
 	                
 	            if get-field('delete') <> "" 
 	            then do:
@@ -125,8 +142,12 @@
 	                        <div class="w-10">
 	                            <button id="btnDetailed" type="submit" class="btn btn-block pull-right">Detailed report</button>
 	                        </div>
+	                        <div class="w-10">
+                                <button id="btnTree" type="submit" class="btn btn-block pull-right">Tree View</button>
+                            </div>	                        
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
+                            <input id="inpTree" type="hidden" name="tree" value="">
 	                    </div>
 	                </form>
 	            </div>
@@ -170,7 +191,7 @@
 	
 	            <div class="col-9">
 	            
-	               <!-- User guide text -->
+	                <!-- User guide text -->
 	            
 	                <div class="user-guide">
 	                    <h3>System window overview</h3>
@@ -302,19 +323,18 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 
+		            <!--WSS if cName <> "" and iType > 0 and lTree = false
 		            then do:
 		                if lDetails = false 
-		                then do:
-		                    case iType:
-		                        when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
-		                        when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input false).
-		                        when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
-                                when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input false).
-                                when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input false).
-		                        when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
-		                    end case. -->
-		                    
+		                then do: 
+	                        case iType:
+	                            when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
+	                        end case. -->
 		                    <div class='form-holder'>
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
@@ -328,16 +348,15 @@
 			                    </table>
 		                    </div>
 		                <!--WSS end.
-		                else do:
-		                    case iType:
-		                        when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input true).
-		                        when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input true).
-		                        when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input true).
-	                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input true).
-	                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input true).
-		                        when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input true).
-		                    end case. -->                        
-		                
+		                else do: 
+                            case iType:
+                                when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input true).
+                                when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input true).
+                                when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input true).
+                                when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input true).
+                                when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input true).
+                                when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input true).
+                            end case. -->
 							<div class='form-holder'>
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
@@ -359,7 +378,46 @@
 		                        </table>
 		                    </div>
 		                <!--WSS end. 
-		            end. -->
+		            end.
+		            if lTree = true
+		            then do: 
+			            run getTree.p (input cName, input cSystem, output table ttList, output table ttCalling). -->
+			            <div class="form-holder">
+	                        <p class="output-message">Working environment of `cName` in <span 
+	                             class="refName">`cSystem`</span>:</p>
+		                </div>
+	
+                        <div class="tree-bucket">
+                           <!--WSS iCount = 1.
+                           for each ttCalling by ttCalling.type: -->
+                               <form id="cf`iCount`" action="front.html">
+                                   <span class="tree-bucket-entries" value="`iCount`">`ttCalling.f1` <span 
+                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
+                                   <input type="hidden" name="tree" value="yes">
+                                   <input type="hidden" name="name" value="`ttCalling.f1`">
+                                   <input type="hidden" name="system" value="`cSystem`">
+                               </form>
+                           <!--WSS iCount = iCount + 1.
+                           end.  -->
+                        </div>
+
+		                <div class="tree-bucket">
+		                       <span class="tree-bucket-entries tree-bucket-entries-main">`cName`</span>
+		                </div>
+
+	                    <div class="tree-bucket">
+	                       <!--WSS for each ttList by ttList.type: -->
+	                           <form id="cf`iCount`" action="front.html">
+                                   <span class="tree-bucket-entries" value="`iCount`"><span class="tree-bucket-entries-type">
+                                       (`ttList.type`)</span> `ttList.f1`</span>
+	                               <input type="hidden" name="tree" value="yes">
+	                               <input type="hidden" name="name" value="`ttList.f1`">
+	                               <input type="hidden" name="system" value="`cSystem`">
+	                           </form>
+                           <!--WSS iCount = iCount + 1.
+                           end.  -->
+	                    </div>
+	                <!--WSS end.  -->
 	            </div>
             </div>
         <a href="javascript:" id="return-to-top"><span>&#x27A4;</span></s></a>
@@ -401,7 +459,7 @@
             break;
     };
     
-    /*--------- TABLE WIDTH ADJUSTMENT:   ----------*/
+/*--------- TABLE WIDTH ADJUSTMENT:   ----------*/
     
     let cwid = $('.page-header').width();
     let twid = $('table').width();
