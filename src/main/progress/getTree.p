@@ -12,6 +12,8 @@ define output parameter table for ttUp.
 define output parameter table for ttDown.
 
 cName = replace(cName,".cls","").
+cName = replace(cName,".p","").
+cName = replace(cName,".i","").
 
 for each files no-lock where (files.compileunit matches ("*/" + cName) or
                     files.compileunit matches ("*/" + cName + "~~.*")) and

@@ -5,6 +5,8 @@ define output parameter table for ttDetails.
 define input parameter vSystem as character.
 define input parameter vIsDetailed as logical.
 
+vName = replace(vName,".i","").
+
 for each files no-lock where 
          files.type = "INCLUDE" and 
          files.system = vSystem and
