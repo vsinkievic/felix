@@ -156,9 +156,7 @@ $(document).ready(function(){
 
     
     $(".tree-bucket-entries").click(function() {
-    	console.log("click");
-    	let target = $(this).attr("value");
-    	$("#cf" + target).submit();
+    	$(this).closest('form').submit();
     });
     
     

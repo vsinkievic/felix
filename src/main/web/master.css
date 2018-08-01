@@ -54,18 +54,23 @@ th, td {
     padding: 0px 2px 0px 5px;
     white-space: normal;
     word-wrap: break-word;
-    width: 50px;
 }
 
 th {
     border: 1px dotted darkgrey;
-    width: 50px;
 }
 
 td {
     border-left: 1px dotted darkgrey;
     border-right: 1px dotted darkgrey;
-    width: 50px;
+}
+
+.t-linecounter {
+	max-width: 30px!important;
+}
+
+.t-high {
+	width: 50%;
 }
 
 .form-reports-input {
@@ -100,21 +105,28 @@ td {
 }
 
 
-#autocomplete {
+#autocomplete, .mouse-over-list, .mouse-over-list-active {
     position: absolute;
     background-color: white;
     transform: translate(50px, -5px);
     margin: 0px;
-    max-height: 50vh;
-    width: calc(65% - 90px);
     box-shadow: 2px 3px 5px #888888;
     z-index: 1;
 }
 
-#autocomplete lh {
-    font-size: 14px;
+#autocomplete {
+    width: calc(65% - 90px);
+    max-height: 50vh;
+}
+
+#autocomplete lh, .mouse-over-list lh, .mouse-over-list-active lh {
+    font-size: 12px;
     font-style: italic;
     margin: 2px 5px;
+}
+
+.mouse-over-list-active lh {
+	font-weight: bold;
 }
 
 .autocomplete-list-items {
@@ -204,6 +216,10 @@ td {
 	display: block;
 	cursor: pointer;
 }
+
+.tree-bucket-entries:hover {
+	text-decoration: underline dotted;
+} 
 
 .tree-bucket-entries-main {
     box-shadow: 2px 2px 2px 2px firebrick;

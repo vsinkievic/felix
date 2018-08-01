@@ -11,13 +11,13 @@ function getNameFromPath returns character (input cPath as character):
         cPath = substring(cPath, 1, index(cPath, ":") - 1).
     end.
     
-    if not cPath matches ('*.cls')
-    then do:
-        if (index (cPath, ".") > 0) and (index(cPath, ".") < length(cPath) - 2)
-        then do:
-            cPath = substring(cPath, index(cPath, ".") + 1).
-        end.
-    end.
+    do while num-entries(cPath, ".") > 1 and 
+            not 
+            (entry(2, cPath, ".") = "cls" or 
+            entry(2, cPath, ".") = "p" or 
+            entry(2, cPath, ".") = "i"):
+        cPath = substring(cPath, index(cPath, ".") + 1).
+    end.        
         
     return cPath.
     
