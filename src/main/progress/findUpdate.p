@@ -14,18 +14,18 @@ for each fieldDB no-lock where
     if vIsDetailed 
     then do:
         create ttDetails.
-        assign
-            ttDetails.system = fieldDB.system
-            ttDetails.compileUnit = fieldDB.compileUnit
-            ttDetails.fileName = fieldDB.fileName
-            ttDetails.sourceName = fieldDB.sourceName
-            ttDetails.sourcePath = fieldDB.sourcePath
-            ttDetails.type = fieldDB.type
-            ttDetails.line = fieldDB.line
-            ttDetails.info = fieldDB.info.
+        ttDetails.system = fieldDB.system.
+        ttDetails.compileUnit = fieldDB.compileUnit.
+        ttDetails.fileName = fieldDB.fileName.
+        ttDetails.sourceName = fieldDB.sourceName.
+        ttDetails.sourcePath = fieldDB.sourcePath.
+        ttDetails.type = fieldDB.type.
+        ttDetails.line = fieldDB.line.
+        ttDetails.info = fieldDB.info.
     end.
     else do:        
-        find first ttDetails where fieldDB.compileUnit = ttDetails.compileUnit no-error.
+        find first ttDetails where 
+                   ttDetails.compileUnit = fieldDB.compileUnit no-error.
         if not available ttDetails
         then do:
             create ttDetails.
