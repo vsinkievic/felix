@@ -1,5 +1,5 @@
 {getMethodNameFromPath.i}
-
+{ttList.i}
 
 define input parameter cName as character no-undo.
 define input parameter cSystem as character no-undo.
@@ -8,18 +8,8 @@ define variable iCount as integer no-undo init 0.
 define variable iDepth as integer no-undo init 5.
 define variable cLine as character no-undo.
 
-define temp-table ttUp
-    field f1 as character
-    field type as character.
-
-define temp-table ttDown
-    field f1 as character
-    field type as character.
-
-
 define output parameter table for ttUp. 
 define output parameter table for ttDown.
-
 
 for each files no-lock where (files.compileunit matches ("*/" + cName) or
                     files.compileunit matches ("*/" + cName + ".*")) and
@@ -39,7 +29,6 @@ for each files no-lock where (files.compileunit matches ("*/" + cName) or
                     ttUp.type = files.type.
                 end.                
 end.
-
 
 for each files no-lock where 
          files.system = cSystem and

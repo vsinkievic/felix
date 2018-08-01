@@ -113,7 +113,7 @@ $(document).ready(function(){
         };
     });
 
-    $("#btnTree").click(function( event ) {
+    $("#btnTreeShort").click(function( event ) {
         let fValid = true;
         if ($('#inpName').val() == "") {
             $('#invFeedbackName').show();
@@ -122,7 +122,23 @@ $(document).ready(function(){
         if (fValid) {
         	console.log('Tree button submitted');
             $('.invalid-feedback').hide();
-            $('#inpTree').val('yes');
+            $('#inpTreeShort').val('yes');
+            $("#xrefForm").submit();
+        } else {
+        event.preventDefault();
+        }
+    });
+    
+    $("#btnTreeDetailed").click(function( event ) {
+        let fValid = true;
+        if ($('#inpName').val() == "") {
+            $('#invFeedbackName').show();
+            fValid = false;
+        };
+        if (fValid) {
+        	console.log('Tree button submitted');
+            $('.invalid-feedback').hide();
+            $('#inpTreeDetailed').val('yes');
             $("#xrefForm").submit();
         } else {
         event.preventDefault();

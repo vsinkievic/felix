@@ -19,7 +19,6 @@
         </script>
     </head>
     
-    
     <body>
 	    <script language="speedscript">
 	            {ttDetails.i}
@@ -27,18 +26,19 @@
 	            
 	            define temp-table ttList
                    field f1 as character
+                   field f2 as character 
                    field type as character.
                    
                 define temp-table ttCalling
                     field f1 as character
                     field type as character.
-                   
 	            
 	            define variable cName as character no-undo.
 	            define variable iType as integer no-undo init 0.
 	            define variable cSystem as character no-undo.
 	            define variable lDetails as logical init false no-undo.
-                define variable lTree as logical init false no-undo.
+                define variable lTreeShort as logical init false no-undo.
+                define variable lTreeDetailed as logical init false no-undo.
 	            define variable cUpdSystem as character no-undo.
 	            define variable lClearFront as logical init true no-undo.
 	            define variable cList as character no-undo extent.
@@ -57,8 +57,11 @@
 	            if get-field('details') <> "" then
 	                lDetails = logical(get-field('details'), "yes/no").
 
-                if get-field('tree') <> "" then
-                    lTree = logical(get-field('tree'), "yes/no").
+                if get-field('treeShort') <> "" then
+                    lTreeShort = logical(get-field('treeShort'), "yes/no").
+                    
+                if get-field('treeDetailed') <> "" then
+                    lTreeDetailed = logical(get-field('treeDetailed'), "yes/no").
 	                
 	            if get-field('delete') <> "" 
 	            then do:
@@ -161,12 +164,15 @@
 	                            <button id="btnDetailed" type="submit" class="btn btn-block pull-right">Detailed report</button>
 	                        </div>
 	                        <div class="w-10">
-                                <button id="btnTree" type="submit" class="btn btn-block pull-right">Tree View</button>
-                            </div>	                        
+                                <button id="btnTreeShort" type="submit" class="btn btn-block pull-right">Tree View short</button>
+                            </div>	 
+                            <div class="w-10">
+                                <button id="btnTreeDetailed" type="submit" class="btn btn-block pull-right">Tree View detailed</button>
+                            </div>                           
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
-                            <input id="inpTree" type="hidden" name="tree" value="">
-                            
+                            <input id="inpTreeShort" type="hidden" name="treeShort" value="">
+                            <input id="inpTreeDetailed" type="hidden" name="treeDetailed" value="">
 	                    </div>
 	                </form>
 	            </div>
@@ -327,7 +333,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Delete system and all it's data from Felix<sup>&reg</sup>?
+                                        Delete system `systems.systemName` and all it's data from Felix<sup>&reg</sup>?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -342,7 +348,7 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTree = false
+		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTreeShort = false and lTreeDetailed = false
 		            then do:
 		                if lDetails = false 
 		                then do: 
@@ -405,13 +411,13 @@
 		                <!--WSS end. 
 		            end.
 		            
-		            if cUnused <> "" and iType > 70 and lTree = false
+		            if cUnused <> "" and iType > 70 and lTreeShort = false and lTreeDetailed
                     then do:
                         run findUnused.p (input cSystem, output table ttUnused). -->
                             <div class='form-holder'>
                             <p class="output-message">Output of <span id="typeRef" class="refName"></span>:</p>
                                 <table>
-                                    <thead><th>#</th><th>Type</th><th>Name</th><th>Compile Unit</th></thead>
+                                    <thead><th>#</th><th>Name</th><th>Compile Unit</th></thead>
                                     <!--WSS for each ttUnused where ttUnused.type matches cUnused: 
 									iLineCounter = iLineCounter + 1. -->
                                         <tr>
@@ -426,9 +432,12 @@
                             </div>
                     <!--WSS end. 
 		            
-		            if lTree = true
+		            if lTreeShort = true or lTreeDetailed = true
 		            then do: 
-			            run getTree.p (input cName, input cSystem, output table ttList, output table ttCalling). -->
+			            if lTreeShort = true then
+                            run getTree.p (input cName, input cSystem, output table ttCalling, output table ttList). 
+                        if lTreeDetailed = true then 
+                            run getTreeDetailed.p (input cName, input cSystem, output table ttCalling, output table ttList). -->
 			            <div class="form-holder">
                             <p class="output-message">Working environment of <span class="refName">`cName`</span> in <span 
                                  class="refName">`cSystem`</span>:</p>
@@ -438,7 +447,7 @@
                             <thead>
                                 <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
                             </thead>
-			                <td valign = "top" style="width:50%;">
+			                <td valign = "top" style="width: 50%;">
 				                <div class="align-item-start">
 			                           <!--WSS iCount = 1.
 			                           for each ttCalling by ttCalling.f1: 
@@ -455,15 +464,19 @@
 			                           iLineCounter = 0.-->
 		                        </div>
 	                        </td>
-                        
-	                        <td valign = "top">
+                            
+	                        <td valign = "top" style="width: 50%;">
 			                    <div class="">
 				                       <!--WSS for each ttList by ttList.f1: 
 				                       iLineCounter = iLineCounter + 1. -->
 				                           <form id="cf`iCount`" action="front.html">
-				                           
                                             <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span><span class="tree-bucket-entries-type">
-                                            (`ttList.type`)</span> `ttList.f1`</span>
+                                            (`ttList.type`)</span>`ttList.f1`<br> 
+                                            <!--WSS if lTreeDetailed = true then -->
+                                                <span><strong>Information: </strong>`ttList.f2`</span>
+                                            <!WSS end. -->
+                                            </span>
+                                            
 				                               <input type="hidden" name="tree" value="yes">
 				                               <input type="hidden" name="name" value="`ttList.f1`">
 				                               <input type="hidden" name="system" value="`cSystem`">
@@ -472,7 +485,7 @@
 			                           end.  
 			                           iLineCounter = 0. -->
 			                    </div>
-		                    </td>
+		                    </td>                        
 	                    </table>
 	                <!--WSS end.  -->
 	            </div>
@@ -549,4 +562,3 @@
         }
     };
 </script>
-
