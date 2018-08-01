@@ -229,7 +229,7 @@
                                 information prepared for analysis.</p>
                             <h5>3. Choose a type.<h5>
                             <p>Choose a type of the element you are searching: a procedure, a class, an include, 
-                                a database field ("access" or "update"), or an index.</p>
+                                a database field ("access" or "update"), index or unused elements.</p>
                             <h5>4. Insert name.<h5>
                             <p>Insert a name of the element you are searching. The more correct and specific name 
                                  you enter, the better search results are displayed.</p>
@@ -237,10 +237,18 @@
                             <p>Felix<sup>&reg</sup> XREF analyser outputs two types of reports: "Short report" 
                                 shows only those ABL elements which are using the searched element; "Detailed report" 
                                 includes path, call type, and repeated calls wwitin the same object, if any.</p>
+                            <h5>6. Choose detail of tree view.<h5>
+                            <p>Felix<sup>&reg</sup> XREF analyser outputs two types of tree view reports: in the first column "Tree view short" 
+                                shows all ABL elements which are using the searched element and in the second column shows all ABL elements that searched element is using; "Tree view detailed" 
+                                 shows same information as "Tree View short" plus additional information like methods and etc. </p>
 	                    <h3>Example of short report</h3>
 	                    <img class="user-guide-img" src="/felix/how_to_two" alt="Picture of how-to">
 	                    <h3>Example of detailed report</h3>
 	                    <img class="user-guide-img" src="/felix/how_to_three" alt="Picture of how-to">
+	                    <h3>Example of "Tree View short"</h3>
+                        <img class="user-guide-img" src="/felix/how_to_four" alt="Picture of how-to">
+                        <h3>Example of "Tree View detailed"</h3>
+                        <img class="user-guide-img" src="/felix/how_to_five" alt="Picture of how-to">
 	                </div>
 	                
 	                <!--WSS if lClearFront 
@@ -306,10 +314,11 @@
 		                        <label for="sysPath">Path:</label>
 		                        <input id="sysPath" autocomplete="off" type="text" class="form-control"
 		                            name="sysPath" value="`systems.localSourcePath`" placeholder="please enter system source path">
-		                        <label for="sysPropath">Propath:</label>
+		                        <!-- <label for="sysPropath">Propath:</label>
 		                        <input id="sysPropath" autocomplete="off" type="text" class="form-control"
 		                            name="sysPropath" value="`systems.systemPropath`" placeholder="please enter system propath">
-		                        <label for="dbPar">Database:</label>
+		                        -->
+		                        <label for="dbPar">Database .df and .st path:</label>
 		                        <input id="dbPar" autocomplete="off" type="text" class="form-control"
 		                            name="dbPar" value="`systems.systemDBparameters`" placeholder="please enter system database parameters">
 		                        <input type="hidden" name="updSystem" value="add">
@@ -368,7 +377,7 @@
 		                            <!--WSS for each ttDetails: 
 									iLineCounter = iLineCounter + 1. -->
 		                                <tr>
-										    <td> `iLineCounter`</td>
+										    <td style = "width: 7%;"> `iLineCounter`</td>
 										    <td> `ttDetails.compileUnit` </td>
 										</tr>
 			                        <!--WSS end. 
@@ -396,7 +405,7 @@
 								    <!--WSS for each ttDetails:
 									iLineCounter = iLineCounter + 1. -->
 		                            <tr>
-									    <td>`iLineCounter`</td>
+									    <td style = "width: 7%;">`iLineCounter`</td>
 		                                <td class="t-1">`ttDetails.compileUnit`</td>
 										<td class="t-2">`ttDetails.fileName`</td>
 										<td class="t-3">`ttDetails.sourcePath`</td>
@@ -411,7 +420,7 @@
 		                <!--WSS end. 
 		            end.
 		            
-		            if cUnused <> "" and iType > 70 and lTreeShort = false and lTreeDetailed
+		            if cUnused <> "" and iType > 70 and lTreeShort = false and lTreeDetailed = false
                     then do:
                         run findUnused.p (input cSystem, output table ttUnused). -->
                             <div class='form-holder'>
@@ -421,7 +430,7 @@
                                     <!--WSS for each ttUnused where ttUnused.type matches cUnused: 
 									iLineCounter = iLineCounter + 1. -->
                                         <tr>
-                                            <td> `iLineCounter` </td>
+                                            <td style = "width: 7%;"> `iLineCounter` </td>
                                             <td> `ttUnused.Type` </td>
                                             <td> `ttUnused.Name` </td>
                                             <td> `ttUnused.compileUnit` </td>
@@ -441,52 +450,53 @@
 			            <div class="form-holder">
                             <p class="output-message">Working environment of <span class="refName">`cName`</span> in <span 
                                  class="refName">`cSystem`</span>:</p>
-                        </div>
+                        
 	
-		                <table>
-                            <thead>
-                                <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
-                            </thead>
-			                <td valign = "top" style="width: 50%;">
-				                <div class="align-item-start">
-			                           <!--WSS iCount = 1.
-			                           for each ttCalling by ttCalling.f1: 
-			                           iLineCounter = iLineCounter + 1. -->
-			                               <form id="cf`iCount`" action="front.html">
-			                               <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
-                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
-			                                   <input type="hidden" name="tree" value="yes">
-			                                   <input type="hidden" name="name" value="`ttCalling.f1`">
-			                                   <input type="hidden" name="system" value="`cSystem`">
-			                               </form>
-			                           <!--WSS iCount = iCount + 1.
-			                           end.  
-			                           iLineCounter = 0.-->
-		                        </div>
-	                        </td>
-                            
-	                        <td valign = "top" style="width: 50%;">
-			                    <div class="">
-				                       <!--WSS for each ttList by ttList.f1: 
-				                       iLineCounter = iLineCounter + 1. -->
-				                           <form id="cf`iCount`" action="front.html">
-                                            <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span><span class="tree-bucket-entries-type">
-                                            (`ttList.type`)</span>`ttList.f1`<br> 
-                                            <!--WSS if lTreeDetailed = true then -->
-                                                <span><strong>Information: </strong>`ttList.f2`</span>
-                                            <!WSS end. -->
-                                            </span>
-                                            
-				                               <input type="hidden" name="tree" value="yes">
-				                               <input type="hidden" name="name" value="`ttList.f1`">
-				                               <input type="hidden" name="system" value="`cSystem`">
-				                           </form>
-			                           <!--WSS iCount = iCount + 1.
-			                           end.  
-			                           iLineCounter = 0. -->
-			                    </div>
-		                    </td>                        
-	                    </table>
+			                <table>
+	                            <thead>
+	                                <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
+	                            </thead>
+				                <td valign = "top" style="width: 50%;">
+					                <div class="align-item-start">
+				                           <!--WSS iCount = 1.
+				                           for each ttCalling by ttCalling.f1: 
+				                           iLineCounter = iLineCounter + 1. -->
+				                               <form id="cf`iCount`" action="front.html">
+				                               <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
+	                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
+				                                   <input type="hidden" name="tree" value="yes">
+				                                   <input type="hidden" name="name" value="`ttCalling.f1`">
+				                                   <input type="hidden" name="system" value="`cSystem`">
+				                               </form>
+				                           <!--WSS iCount = iCount + 1.
+				                           end.  
+				                           iLineCounter = 0.-->
+			                        </div>
+		                        </td>
+	                            
+		                        <td valign = "top" style="width: 50%;">
+				                    <div class="">
+					                       <!--WSS for each ttList by ttList.f1: 
+					                       iLineCounter = iLineCounter + 1. -->
+					                           <form id="cf`iCount`" action="front.html">
+	                                            <span class="tree-bucket-entries" value="`iCount`"><span>`iLineCounter`. </span><span class="tree-bucket-entries-type">
+	                                            (`ttList.type`)</span>`ttList.f1`<br> 
+	                                            <!--WSS if lTreeDetailed = true then -->
+	                                                <span><strong>Information: </strong>`ttList.f2`</span>
+	                                            <!WSS end. -->
+	                                            </span>
+	                                            
+					                               <input type="hidden" name="tree" value="yes">
+					                               <input type="hidden" name="name" value="`ttList.f1`">
+					                               <input type="hidden" name="system" value="`cSystem`">
+					                           </form>
+				                           <!--WSS iCount = iCount + 1.
+				                           end.  
+				                           iLineCounter = 0. -->
+				                    </div>
+			                    </td>                        
+		                    </table>
+		                </div>
 	                <!--WSS end.  -->
 	            </div>
             </div>

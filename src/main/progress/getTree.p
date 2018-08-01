@@ -1,4 +1,4 @@
-{getMethodNameFromPath.i}
+{getNameFromPath.i}
 {ttList.i}
 
 define input parameter cName as character no-undo.
