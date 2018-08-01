@@ -12,14 +12,14 @@ define output parameter table for ttUp.
 define output parameter table for ttDown.
 
 for each files no-lock where (files.compileunit matches ("*/" + cName) or
-                    files.compileunit matches ("*/" + cName + ".*")) and
+                    files.compileunit matches ("*/" + cName + "~~.*")) and
                     (files.type = "RUN" or
                     files.type = "INCLUDE" or
                     files.type = "NEW" or 
                     files.type = "CLASS" or 
                     files.type = "INVOKE" or 
-                    files.type = "IMPLICIT INVOKE" and
-                    files.system = cSystem)
+                    files.type = "IMPLICIT INVOKE") and
+                    files.system = cSystem
                     by files.info:
                 find first ttUp where getNameFromPath(files.info) = ttUp.f1 no-error.
                 if not available ttUp
@@ -38,9 +38,9 @@ for each files no-lock where
                  files.type = "IMPLICIT INVOKE" or 
                  files.type = "ACCESS" or 
                  files.type = "UPDATE") and
-                 (files.info matches("*." + cName) or
+                 (files.info matches("*~~." + cName) or
                  files.info = cName or
-                 files.info matches ("*." + cName + ":*"))
+                 files.info matches ("*~~." + cName + ":*"))
                  or
                  (files.type = "RUN" and
                  (files.info matches("*/" + cName) or
