@@ -15,10 +15,10 @@ define buffer bFiles for files.
         find first bFiles where
                    bFiles.system = vSystem and
                    bFiles.type <> "COMPILE" and
-                   (bFiles.info matches ("*/" + vName + ".p") or
+                   (bFiles.info matches ("*/" + vName + "~~.p") or
                    bFiles.info = vName or
                    bFiles.info matches("*/" + vName) or
-                   bFiles.info matches (vName + ".p")) no-lock no-error.
+                   bFiles.info matches (vName + "~~.p")) no-lock no-error.
         if available bFiles 
         then do:
             create ttUnused.
@@ -33,9 +33,9 @@ define buffer bFiles for files.
         find first bFiles where
                    bFiles.system = vSystem and
                    bFiles.type <> "COMPILE" and
-                   bFiles.info matches("*." + vName) or
+                   bFiles.info matches("*~~." + vName) or
                    bFiles.info = vName or
-                   bFiles.info matches ("*." + vName + ":*") no-lock no-error.
+                   bFiles.info matches ("*~~." + vName + ":*") no-lock no-error.
         if not available bFiles
         then do:
             create ttUnused.

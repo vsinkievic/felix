@@ -11,6 +11,8 @@ define variable cLine as character no-undo.
 define output parameter table for ttUp. 
 define output parameter table for ttDown.
 
+cName = replace(cName,".cls","").
+
 for each files no-lock where (files.compileunit matches ("*/" + cName) or
                     files.compileunit matches ("*/" + cName + "~~.*")) and
                     (files.type = "RUN" or
