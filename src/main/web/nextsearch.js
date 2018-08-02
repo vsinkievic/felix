@@ -4,18 +4,13 @@ function ajaxOnMouseOver() {
 	
 			clearTimeout(timeout);
         	
-
-        	
             let searchVal = $(this).attr("value");
             let searchSys = $('#inpSystem').val();
-            console.log(searchVal);
-            let id = $(this).closest('form').attr('id');
-            console.log(id);
+            let id = parseInt($(this).closest('form').attr('id'));
 
             
             timeout = setTimeout(function(){
-    			$(".mouse-over-list").hide();
-
+    			$(".mouse-over-list").empty();
                 
                 $.ajax({
                     type: "POST",
@@ -49,17 +44,18 @@ function ajaxOnMouseOver() {
                         	let listHead = $('<lh>' + searchVal + ' uses:</lh>');
                         	listHead.appendTo(wrapper);
                         	for (var i = 0; i < filteredResults.length; i++) {
-                        		let listItem = $("<form id=" + id + 1000 + i + " action='front.html'></form>");
-                        		let listItemCore = $("<span class='tree-bucket-entries' value='" + filteredResults[i].name + "'>" +
-                        				"<span class='tree-bucket-entries-type'>(" + filteredResults[i].type + ") </span>" + 
-                        				filteredResults[i].name + "</span>" + "<input type='hidden' name='treeShort' value='yes'>" +
-                        				"<input id='ce" + id + 1000 + i + "' type='hidden' name='name' value=" + filteredResults[i].name + 
+                        		let listItem = $("<form id=" + (id + 1000 + i) + " action='front.html'></form>");
+                        		let listItemCore = $("<span class='tree-bucket-entries' value='" + filteredResults[i].name + "'>" + 
+                        				"<span>" + (i + 1) + ". </span><span class='tree-bucket-entries-type'>(" + 
+                        				filteredResults[i].type + ") </span>" + filteredResults[i].name + "</span>" + 
+                        				"<input type='hidden' name='treeShort' value='yes'>" + "<input id='ce" + (id + 1000 + i) + 
+                        				"' type='hidden' name='name' value=" + filteredResults[i].name + 
                         				"><input type='hidden' name='system' value=" + searchSys + ">");
                         		listItemCore.appendTo(listItem);
                         		listItem.appendTo(wrapper);
                         		$('#cd' + id).css('transform', 'translate(110px, -20px)');
                         		$('#cd' + id).show();
-                                let nextList = $('<div class="mouse-over-list" id="cd' + + id + 1000 + i + '"></div>');
+                                let nextList = $('<div class="mouse-over-list" id="cd' + + (id + 1000 + i) + '"></div>');
                                 nextList.appendTo(wrapper);
 
                                 listItemCore.mouseenter(ajaxOnMouseOver);
@@ -78,11 +74,8 @@ function ajaxOnMouseOver() {
                         console.log("need fix");
                     }
                 });  
-            }, 1000);
+            }, 700);
 }
-
-
-
 
 
 
