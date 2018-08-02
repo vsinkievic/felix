@@ -3,7 +3,6 @@ function unusedAjax (searchType) {
 $('.about').hide();
 $('.user-guide').hide();
 $('.form-holder').empty();
-$('.form-holder').first().html("Report is being generated...");
 var i = 0;
 var int = setInterval(function() {
 	i = i + 1;
