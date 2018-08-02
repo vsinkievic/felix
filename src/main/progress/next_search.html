@@ -1,0 +1,68 @@
+
+<script language="SpeedScript">
+    create widget-pool.
+    {src/web2/wrap-cgi.i}       /* standard WebSpeed include */
+    {getNameFromPath.i}         /* local function */
+    
+</script>
+
+<script language="speedscript">
+    define temp-table ttElements no-undo
+        field name as character
+        field type as character.
+    
+
+    define variable cName as character no-undo.
+    define variable cSystem as character no-undo.
+    define variable cTypeCall as character no-undo.
+    
+    define variable httOut as handle no-undo.
+    httOut = temp-table ttElements:handle.
+    
+    cName = get-field('name').
+    cSystem = get-field('systemName').
+    
+    
+    cName = replace(cName,".cls","").
+	cName = replace(cName,".p","").
+	cName = replace(cName,".i","").
+
+    for each files no-lock where 
+         files.system = cSystem and
+               ( (files.type = "NEW" or 
+                 files.type = "CLASS" or 
+                 files.type = "INVOKE" or 
+                 files.type = "IMPLICIT INVOKE" or 
+                 files.type = "ACCESS" or 
+                 files.type = "UPDATE") and
+                 (files.info matches("*~~." + cName) or
+                 files.info = cName or
+                 files.info matches ("*~~." + cName + ":*"))
+                 or
+                 (files.type = "RUN" and
+                 (files.info matches("*/" + cName) or
+                 files.info matches("*/" + cName + ".p") or
+                 files.info = cName or
+                 files.info matches (cName + ".p")))
+                 or
+                 (files.type = "INCLUDE" and 
+                 (files.info matches ("*/" + cName) or
+                 files.info matches("*/" + cName + ".i") or
+                 files.info = cName or
+                 files.info matches(cName + ".i")))
+               )
+                 by getNameFromPath(files.compileUnit):
+
+         find first ttElements where getNameFromPath(files.compileUnit) = ttElements.name no-error.
+         if not available ttElements
+         then do:
+             create ttElements.
+             ttElements.name = getNameFromPath(files.compileUnit).
+             ttElements.type = files.type.
+         end.
+   end. 
+
+    output-content-type ("application/json":U).
+    httOut:write-json("STREAM", "WebStream").
+</script>
+

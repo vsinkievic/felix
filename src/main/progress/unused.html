@@ -1,8 +1,15 @@
+<script language="SpeedScript">
+{src/web2/wrap-cgi.i}       /* standard WebSpeed include */
 {ttUnused.i}
 
-define input parameter vSystem as character no-undo.
-define output parameter table for ttUnused.    
+define variable hUnused as handle no-undo.    
+hUnused = temp-table ttUnused:handle.
 define variable vName as character no-undo.
+define variable vSystem as character no-undo.
+
+vSystem = get-field('systemName').
+
+
 define buffer bFiles for files.
 
  for each files no-lock where
@@ -60,3 +67,9 @@ define buffer bFiles for files.
         end.
     end.
 end.
+
+output-content-type ("application/json").
+hUnused:write-json("STREAM", "WebStream").
+
+
+</script>

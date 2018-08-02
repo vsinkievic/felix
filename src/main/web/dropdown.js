@@ -38,7 +38,7 @@ $(document).ready(function() {
                             listItem.click(function() {
                             	let cName = $(this).html();
                             	$('#inpName').val(cName);
-                            	$("#xrefForm").submit();
+                            	$('#autocomplete').empty();
                             });
                     	};
                     };

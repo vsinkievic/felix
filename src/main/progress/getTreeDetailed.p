@@ -1,4 +1,4 @@
-{getNameFromPath.i}
+{getMethodNameFromPath.i}
 {ttList.i}
 
 define input parameter cName as character no-undo.
@@ -12,8 +12,6 @@ define output parameter table for ttUp.
 define output parameter table for ttDown.
 
 cName = replace(cName,".cls","").
-cName = replace(cName,".p","").
-cName = replace(cName,".i","").
 
 for each files no-lock where (files.compileunit matches ("*/" + cName) or
                     files.compileunit matches ("*/" + cName + "~~.*")) and
@@ -59,14 +57,8 @@ for each files no-lock where
                  files.info matches(cName + ".i")))
                )
                  by files.compileUnit:
-
-         find first ttDown where getNameFromPath(files.compileUnit) = ttDown.f1 no-error.
-         if not available ttDown
-         then do:
-             create ttDown.
-             ttDown.f1 = getNameFromPath(files.compileUnit).
-             ttDown.type = files.type.
-         end.
+                     create ttDown.
+                     ttDown.f1 = getNameFromPath(files.compileUnit).
+                     ttDown.f2 = files.info.
+                     ttDown.type = files.type.
 end.
-
-    
