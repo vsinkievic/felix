@@ -14,7 +14,7 @@ define variable iStCounter as integer no-undo init 0.
 define variable iDfCounter as integer no-undo init 0.
 define variable iDbCounter as integer no-undo init 0.
 
-//cError = os-getenv("TEMP") + "\propath.ini".
+cError = os-getenv("TEMP") + "\DBerrors.txt".
 
 if substr(cPth, length(cPth)) <> "\" and index(cPth, "\") <> 0
 then do:
@@ -54,17 +54,17 @@ do transaction:
     then do:    
         if replace(cStName, ".st", "") <> replace(cDfName, ".df", "")
         then do:
-            //output to cError.
-            display ".st ir .df failø pavadinimai nesutampa".
-            //output close.
+            output to value(cError).
+            display ".st ir .df failø pavadinimai nesutampa" format "x(50)" with width 100.
+            output close.
             undo creation, leave creation.
         end.
     end.
     if (iStCounter > 1) or (iDbCounter > 1) or (iDfCounter > 1)
     then do:
-        //output to cError.
-        display "Yra daugiau nei po vienà .db arba .st arba .df failà".
-        //output close.
+        output to value(cError).
+        display "Yra daugiau nei po vienà .db arba .st arba .df failà" format "x(50)" with width 100.
+        output close.
         undo creation, leave creation.
     end.
     
