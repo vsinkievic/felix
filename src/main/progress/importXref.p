@@ -23,6 +23,7 @@ input from value(cPath).
         repeat:
             
             import unformatted cWholeLine.
+            cWholeLine = replace(cWholeLine,"\","/").
             
             cSourceName = substring(cWholeLine, 1, index(cWholeLine, " ")).
             cWholeLine = substring(cWholeLine, index(cWholeLine, " ") + 1).
