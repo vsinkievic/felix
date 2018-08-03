@@ -75,12 +75,10 @@ do transaction:
     if cDbName = ?
     then do:
         cDbName = replace(cDfName, ".df", "").
-        message "creating db" view-as alert-box.
         run createDbInternal.
     end.
     else do:
         cDbName = replace(cDfName, ".df", "").
-        message "resetting db" view-as alert-box.
         os-command value(cDelDb).
         run createDbInternal.
     end.
