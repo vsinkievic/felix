@@ -24,7 +24,6 @@ input from value(cPath).
             
             import unformatted cWholeLine.
             cWholeLine = replace(cWholeLine,"\","/").
-            
             cSourceName = substring(cWholeLine, 1, index(cWholeLine, " ")).
             cWholeLine = substring(cWholeLine, index(cWholeLine, " ") + 1).
             cFileName = substring(cWholeLine, 1, index(cWholeLine, " ")).
