@@ -86,7 +86,6 @@ do transaction:
     procedure createDbInternal:
         cDelBi = "%DLC%\bin\prostrct remove " + cPth + cDbName + " bi".
         cTrunBi = "%DLC%\bin\proutil " + cPth + cDbName + ".db" + " -C truncate bi".
-      message cPth cDbName view-as alert-box.
         create database cPth + cDbName from "EMPTY".
         if cStName <> ""
         then do:
