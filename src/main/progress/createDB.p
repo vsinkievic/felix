@@ -75,12 +75,10 @@ do transaction:
     if cDbName = ?
     then do:
         cDbName = replace(cDfName, ".df", "").
-        message "creating db" view-as alert-box.
         run createDbInternal.
     end.
     else do:
         cDbName = replace(cDfName, ".df", "").
-        message "resetting db" view-as alert-box.
         os-command value(cDelDb).
         run createDbInternal.
     end.
@@ -88,7 +86,6 @@ do transaction:
     procedure createDbInternal:
         cDelBi = "%DLC%\bin\prostrct remove " + cPth + cDbName + " bi".
         cTrunBi = "%DLC%\bin\proutil " + cPth + cDbName + ".db" + " -C truncate bi".
-      //  os-command value("C:\Progress\OpenEdge\bin\procopy C:\Progress\OpenEdge\empty.db C:\Users\Studentas1\Desktop\Testavimas\Alfredas.db").
       message cPth cDbName view-as alert-box.
         create database cPth + cDbName from "EMPTY".
         if cStName <> ""
@@ -103,4 +100,3 @@ do transaction:
         disconnect value(cDbName).
     end.
 end.
-//disconnect value(cDbName).
