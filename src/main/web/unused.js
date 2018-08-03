@@ -3,17 +3,12 @@ function unusedAjax (searchType) {
 $('.about').hide();
 $('.user-guide').hide();
 $('.form-holder').empty();
-var i = 0;
-var int = setInterval(function() {
-	i = i + 1;
-	//$('.form-holder').first().html("Report is being generated... " + i + " s");
-	$('.form-holder').first().html('<center><img valign = "middle" class="loader-img" src="/felix/ajax-loader.gif" alt=""></center>');
-	console.log(i);
-}, 1000);
+$('.form-holder').first().html('<div class="spinner-wrapper"><br><h3>Please wait</h3><br><img class="spinner" src="/felix/ajax-loader.gif" alt="Please wait"></div>');
 
 
 
 let searchSys = $('#inpSystem').val();
+console.log("before ajax");
 
     $.ajax({
         type: "POST",
@@ -21,6 +16,7 @@ let searchSys = $('#inpSystem').val();
         datatype: "application/json",
         data: {'systemName': searchSys},
         success: function(data){
+        	console.log("ajax success");
             data = data.substring(0, data.indexOf('<') - 1);
             let results = $.parseJSON(data);
             let ttUnused = results.ttUnused;
@@ -43,7 +39,6 @@ let searchSys = $('#inpSystem').val();
                 	newRow.appendTo(resTable);
             	};
             }
-            clearInterval(int);
             $('.form-holder').empty();
             resTable.appendTo($('.form-holder').first());
             

@@ -11,14 +11,13 @@ function ajaxOnMouseOver() {
             
             timeout = setTimeout(function(){
     			$(".mouse-over-list").empty();
-                
+
                 $.ajax({
                     type: "POST",
                     url: "next_search.html",
                     datatype: "application/json",
                     data: {'name': searchVal, 'systemName': searchSys},
                     success: function(data){
-                    	console.log("ajax returned ok");
                         data = data.substring(0, data.indexOf('<') - 1);
                         let results = $.parseJSON(data);
                         let filteredResults = [];
@@ -29,7 +28,7 @@ function ajaxOnMouseOver() {
                                 filteredResults.push(fResult);
                                 };
                         };
-                        if (filteredResults.length > 0) {
+                        if (filteredResults.length >= 0) {
                         	let wrapper = $('#cd' + id);
                         	wrapper.mouseenter(function(){
                         		wrapper.removeClass('mouse-over-list');
@@ -53,21 +52,19 @@ function ajaxOnMouseOver() {
                         				"><input type='hidden' name='system' value=" + searchSys + ">");
                         		listItemCore.appendTo(listItem);
                         		listItem.appendTo(wrapper);
-                        		$('#cd' + id).css('transform', 'translate(110px, -20px)');
-                        		$('#cd' + id).show();
                                 let nextList = $('<div class="mouse-over-list" id="cd' + + (id + 1000 + i) + '"></div>');
                                 nextList.appendTo(wrapper);
 
                                 listItemCore.mouseenter(ajaxOnMouseOver);
                                 listItemCore.mouseleave(function(){
-                                	clearInterval(timeout);
-                                listItemCore.click(function() {
-                                  	$(this).closest('form').submit();
+	                                clearInterval(timeout);
+	                                listItemCore.click(function() {
+	                                  	$(this).closest('form').submit();
+	                                });
                                 });
-                                	
-                                });
-                                
                         	};
+                    		$('#cd' + id).css('transform', 'translate(110px, -20px)');
+                    		$('#cd' + id).show();
                         };
                     },
                     error: function() {
