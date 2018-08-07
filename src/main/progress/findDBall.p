@@ -5,10 +5,23 @@ define output parameter table for ttDetails.
 define input parameter vSystem as character.
 define input parameter vIsDetailed as logical.
 
+if index(vName, ".p") <> 0 then
+    vName = replace(vName,".p","").
+    
+if index(vName, ".cls") <> 0 then
+    vName = replace(vName,".cls","").
+    
+if index(vName, ".i") <> 0 then
+    vName = replace(vName,".i","").
+    
 for each fieldDB no-lock where
-         fieldDB.system = vSystem and
-         fieldDB.type = "INDEX" and
-         fieldDB.info = vName 
+         (fieldDB.type = "REFERENCE" or
+         fieldDB.type = "DELETE" or
+         fieldDB.type = "ACCESS" or
+         fieldDB.type = "UPDATE") and
+         (fieldDB.info matches("*~~." + vName) or
+         fieldDB.info = vName or
+         fieldDB.info matches ("*~~." + vName + ":*"))
          by fieldDB.compileUnit:
              
     if vIsDetailed 

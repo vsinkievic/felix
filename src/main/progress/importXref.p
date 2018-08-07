@@ -102,16 +102,16 @@ input from value(cPath).
                
                 cXrefInformation = entry(2,cXrefInformation," ").
               
-                create files.
+                create fieldDB.
                     assign
-                        files.fileName = entry(i - 1, cFileName, "/")
-                        files.sourceName = entry(i2 - 1, cSourceName, "/")
-                        files.sourcePath = cSourePath
-                        files.line = integer(cLineNumber)
-                        files.type = "INDEX"
-                        files.info = cXrefInformation
-                        files.compileUnit = cCompileUnit
-                        files.system = cSystem.
+                        fieldDB.fileName = entry(i - 1, cFileName, "/")
+                        fieldDB.sourceName = entry(i2 - 1, cSourceName, "/")
+                        fieldDB.sourcePath = cSourePath
+                        fieldDB.line = integer(cLineNumber)
+                        fieldDB.type = "INDEX"
+                        fieldDB.info = cXrefInformation
+                        fieldDB.compileUnit = cCompileUnit
+                        fieldDB.system = cSystem.
             end.
             else if cXrefType = "INVOKE"
             then do:
