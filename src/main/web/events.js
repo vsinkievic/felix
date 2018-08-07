@@ -6,15 +6,25 @@ $(document).ready(function(){
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 	});
-	
-    $('#btn1').on('click', function() {
-        $('#inpType').val('1');
+    $('#btn1-1').on('click', function() {
+    	$('#btn1').addClass('active');
+    	$('#btn1').html('Procedure');
+        $('#inpType').val('11');
     });
-    $('#btn2').on('click', function() {
-        $('#inpType').val('2');
+    $('#btn1-2').on('click', function() {
+    	$('#btn1').addClass('active');
+    	$('#btn1').html('Class');
+        $('#inpType').val('12');
     });
-    $('#btn3').on('click', function() {
-        $('#inpType').val('3');
+    $('#btn1-3').on('click', function() {
+    	$('#btn1').addClass('active');
+    	$('#btn1').html('Include');
+        $('#inpType').val('13');
+    });
+    $('#btn1-4').on('click', function() {
+    	$('#btn1').addClass('active');
+    	$('#btn1').html('All');
+        $('#inpType').val('14');
     });
     $('#btn4-1').on('click', function() {
     	$('#btn4').addClass('active');
@@ -25,6 +35,16 @@ $(document).ready(function(){
     	$('#btn4').addClass('active');
     	$('#btn4').html('DB: update');
         $('#inpType').val('42');
+    });
+    $('#btn4-3').on('click', function() {
+    	$('#btn4').addClass('active');
+    	$('#btn4').html('Index');
+        $('#inpType').val('43');
+    });
+    $('#btn4-4').on('click', function() {
+    	$('#btn4').addClass('active');
+    	$('#btn4').html('All');
+        $('#inpType').val('44');
     });
     $('#btn5').on('click', function() {
         $('#inpType').val('5');
@@ -68,7 +88,7 @@ $(document).ready(function(){
     $('.elements').on('click', function(){
     	$('#btn7').html('Unused');
     });
-    $("#btnShort").click(function( event ) {
+    $("#btnReport").click(function( event ) {
         let fValid = true;
 
         if ($('#inpName').val() == "") {
@@ -88,25 +108,7 @@ $(document).ready(function(){
         }
     });
 
-    $("#btnDetailed").click(function( event ) {
-        let fValid = true;
-
-        if ($('#inpName').val() == "") {
-            $('#invFeedbackName').show();
-            fValid = false;
-        };
-        if ($('#inpType').val() == "0") {
-            $('#invFeedbackType').show();
-            fValid = false;
-        };
-        if (fValid) {
-            $('.invalid-feedback').hide();
-            $('#inpDetails').val('yes');
-            $("#xrefForm").submit();
-        };
-    });
-
-    $("#btnTreeShort").click(function( event ) {
+    $("#btnTree").click(function( event ) {
         let fValid = true;
         if ($('#inpName').val() == "") {
             $('#invFeedbackName').show();
@@ -115,23 +117,7 @@ $(document).ready(function(){
         if (fValid) {
         	console.log('Tree button submitted');
             $('.invalid-feedback').hide();
-            $('#inpTreeShort').val('yes');
-            $("#xrefForm").submit();
-        } else {
-        event.preventDefault();
-        }
-    });
-    
-    $("#btnTreeDetailed").click(function( event ) {
-        let fValid = true;
-        if ($('#inpName').val() == "") {
-            $('#invFeedbackName').show();
-            fValid = false;
-        };
-        if (fValid) {
-        	console.log('Tree button submitted');
-            $('.invalid-feedback').hide();
-            $('#inpTreeDetailed').val('yes');
+            $('#inpTree').val('yes');
             $("#xrefForm").submit();
         } else {
         event.preventDefault();
