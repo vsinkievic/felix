@@ -137,7 +137,7 @@ input from value(cPath).
                         files.compileUnit = cCompileUnit
                         files.system = cSystem.
             end.
-            else if cXrefType = "ACCESS" or cXrefType = "UPDATE"
+            else if cXrefType = "ACCESS" or cXrefType = "UPDATE" or cXrefType = "REFERENCE" or cXrefType = "DELETE"
             then do:
                 if index(cXrefInformation, "INHERITED") <> 0 or index(cXrefInformation, "PUBLIC") <> 0
                 then do:
