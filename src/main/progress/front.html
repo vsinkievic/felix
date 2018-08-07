@@ -39,8 +39,7 @@
 	            define variable iType as integer no-undo init 0.
 	            define variable cSystem as character no-undo.
 	            define variable lDetails as logical init false no-undo.
-                define variable lTreeShort as logical init false no-undo.
-                define variable lTreeDetailed as logical init false no-undo.
+                define variable lTree as logical init false no-undo.
 	            define variable cUpdSystem as character no-undo.
 	            define variable lClearFront as logical init true no-undo.
 	            define variable cList as character no-undo extent.
@@ -59,11 +58,8 @@
 	            if get-field('details') <> "" then
 	                lDetails = logical(get-field('details'), "yes/no").
 
-                if get-field('treeShort') <> "" then
-                    lTreeShort = logical(get-field('treeShort'), "yes/no").
-                    
-                if get-field('treeDetailed') <> "" then
-                    lTreeDetailed = logical(get-field('treeDetailed'), "yes/no").
+                if get-field('tree') <> "" then
+                    lTree = logical(get-field('tree'), "yes/no").
 	                
 	            if get-field('delete') <> "" 
 	            then do:
@@ -110,10 +106,24 @@
 	            <div class="col-9 btn-block">
 	                <form id="xrefForm">
 	                    <div class="btn-group d-flex flex-wrap flex-md-nowrap" role="group" id="elements-holder">
-	                        <input class="btn elements active" id="btn0" type="hidden">
+	                        <div class="btn-group" role="group">
+	                            <input class="btn elements active" id="btn0" type="hidden">
+                                <button id="btn1" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
+                                    all_sugalvot_pavadinima
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btn1">
+                                    <a class="btn dropdown-item" id="btn1-1">Procedure</a>
+                                    <a class="btn dropdown-item" id="btn1-2">Class</a>
+                                    <a class="btn dropdown-item" id="btn1-3">Include</a>
+                                    <a class="btn dropdown-item" id="btn1-4">All</a>
+                                </div>
+                            </div>
+	                        <!-- <input class="btn elements active" id="btn0" type="hidden">
 	                        <input class="btn elements w-100" id="btn1" name="bProcedure" type="button" value="Procedure">
 	                        <input class="btn elements w-100" id="btn2" name="bClass" type="button" value="Class">
-	                        <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include">
+	                        <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include"> -->
+	                        
 	                        <div class="btn-group" role="group">
 	                            <button id="btn4" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
                                     aria-haspopup="true" aria-expanded="false">
@@ -122,11 +132,11 @@
                                 <div class="dropdown-menu" aria-labelledby="btn4">
                                     <a class="btn dropdown-item" id="btn4-1">ACCESS</a>
                                     <a class="btn dropdown-item" id="btn4-2">UPDATE</a>
+                                    <a class="btn dropdown-item" id="btn4-3">Index</a>
+                                    <a class="btn dropdown-item" id="btn4-4">All</a>
                                 </div>
 	                        </div>
-	                        <!-- <input class="btn elements w-100" id="btn4" name="bDBfield" 
-	                        type="button" value="DB field"> -->
-	                        <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index">
+	                        <!-- <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index"> -->
 	                        <div class="btn-group" role="group">
                                 <button id="btn7" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
                                     aria-haspopup="true" aria-expanded="false">
@@ -160,21 +170,14 @@
 	                            </div>
 	                        </div>
 	                        <div class="w-10">
-	                            <button id="btnShort" type="submit" class="btn btn-block pull-right">Short report</button>
+	                            <button id="btnReport" type="submit" class="btn btn-block pull-right">Report</button>
 	                        </div>
 	                        <div class="w-10">
-	                            <button id="btnDetailed" type="submit" class="btn btn-block pull-right">Detailed report</button>
-	                        </div>
-	                        <div class="w-10">
-                                <button id="btnTreeShort" type="submit" class="btn btn-block pull-right">Tree View short</button>
-                            </div>	 
-                            <div class="w-10">
-                                <button id="btnTreeDetailed" type="submit" class="btn btn-block pull-right">Tree View detailed</button>
-                            </div>                           
+                                <button id="btnTree" type="submit" class="btn btn-block pull-right">Tree View</button>
+                            </div>	                       
 	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
 	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
-                            <input id="inpTreeShort" type="hidden" name="treeShort" value="">
-                            <input id="inpTreeDetailed" type="hidden" name="treeDetailed" value="">
+                            <input id="inpTree" type="hidden" name="tree" value="">
 	                    </div>
 	                </form>
 	            </div>
@@ -359,17 +362,19 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTreeShort = false and lTreeDetailed = false
+		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTree = false
 		            then do:
 		                if lDetails = false 
 		                then do: 
 	                        case iType:
-	                            when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 11 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 12 then run findClass.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 13 then run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 14 then run findAll.p (input cName, output table ttDetails, input cSystem, input false).
 	                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input false).
 	                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 43 then run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 44 then run findDBAll.p (input cName, output table ttDetails, input cSystem, input false).
 	                        end case. -->
 		                    <div class='form-holder'>
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
@@ -422,7 +427,7 @@
 		                <!--WSS end. 
 		            end.
 		            
-		            if cUnused <> "" and iType > 70 and lTreeShort = false and lTreeDetailed = false
+		            if cUnused <> "" and iType > 70 and lTree = false
                     then do:
                         run findUnused.p (input cSystem, output table ttUnused). -->
                             <div class='form-holder'>
@@ -443,17 +448,12 @@
                             </div>
                     <!--WSS end. 
 		            
-		            if lTreeShort = true or lTreeDetailed = true
+		            if lTree = true
 		            then do: 
-			            if lTreeShort = true then
-                            run getTree.p (input cName, input cSystem, output table ttCalling, output table ttList). 
-                        if lTreeDetailed = true then 
-                            run getTreeDetailed.p (input cName, input cSystem, output table ttCalling, output table ttList). -->
+                        run getTree.p (input cName, input cSystem, output table ttCalling, output table ttList). -->
 			            <div class="form-holder">
                             <p class="output-message">Working environment of <span class="refName">`cName`</span> in <span 
                                  class="refName">`cSystem`</span>:</p>
-                        
-	
 			                <table>
 	                            <thead>
 	                                <th><span class="refName">`cName` </span>used by</th><th><span class="refName">`cName` </span>is using</th>
@@ -465,11 +465,8 @@
                                                <form id="`iCount`" action="front.html">
                                                 <span class="tree-bucket-entries" value="`ttList.f1`"><span>`iLineCounter`. </span>
                                                    <span class="tree-bucket-entries-type">(`ttList.type`) </span>`ttList.f1`<br> 
-                                                <!--WSS if lTreeDetailed = true then -->
-                                                    <span><strong>Information: </strong>`ttList.f2`</span>
-                                                <!WSS end. -->
-                                                </span>
-                                                   <input type="hidden" name="treeShort" value="yes">
+                                                    <strong>Information: </strong>`ttList.f2`</span>
+                                                   <input type="hidden" name="tree" value="yes">
                                                    <input type="hidden" name="name" value="`ttList.f1`">
                                                    <input type="hidden" name="system" value="`cSystem`">
                                                </form>
@@ -487,7 +484,7 @@
 				                               <form id="`iCount`" action="front.html">
 				                               <span class="tree-bucket-entries" value="`ttCalling.f1`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
 	                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
-				                                   <input type="hidden" name="treeShort" value="yes">
+				                                   <input type="hidden" name="tree" value="yes">
 				                                   <input type="hidden" name="name" value="`ttCalling.f1`">
 				                                   <input type="hidden" name="system" value="`cSystem`">
 				                               </form>
@@ -513,17 +510,25 @@
 
     let type = parseInt(`iType`);
     switch(type) {
-        case 1: 
+        case 11:
             $('#btn1').addClass('active');
+            $('#btn1').html('Procedure');
             $('#typeRef').html('procedure');
             break;
-        case 2:
-            $('#btn2').addClass('active');
+        case 12:
+            $('#btn1').addClass('active');
+            $('#btn1').html('Class');
             $('#typeRef').html('class');
             break;
-        case 3:
-            $('#btn3').addClass('active');
+        case 13:
+            $('#btn1').addClass('active');
+            $('#btn1').html('Include');
             $('#typeRef').html('include');
+            break;
+        case 14:
+            $('#btn1').addClass('active');
+            $('#btn1').html('All');
+            $('#typeRef').html('all');
             break;
         case 41:
             $('#btn4').addClass('active');
@@ -534,6 +539,16 @@
             $('#btn4').addClass('active');
             $('#btn4').html('DB: update');
             $('#typeRef').html('DB field ("UPDATE")');
+            break;
+        case 43:
+            $('#btn4').addClass('active');
+            $('#btn4').html('Index');
+            $('#typeRef').html('index');
+            break;
+        case 44:
+            $('#btn4').addClass('active');
+            $('#btn4').html('All');
+            $('#typeRef').html('all');
             break;
         case 5:
             $('#btn5').addClass('active');
