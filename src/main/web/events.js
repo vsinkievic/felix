@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	$('.user-guide').hide();
+
+	$('#testai').on('click', function() {
+    	$('#myModal').modal('show');
+    });
 	$('#btn1').on('click', function() {
     	$('#btn1').addClass('active');
         $('#inpFiles').val('yes');
