@@ -24,6 +24,7 @@
     <body>
 	    <script language="speedscript">
 	            {ttDetails.i}
+	            {ttDetailedDetails.i}
 	            {ttUnused.i}
 	            
 	            define temp-table ttList
@@ -45,6 +46,7 @@
 	            define variable cList as character no-undo extent.
 	            define variable iCount as integer no-undo.
 	            define variable cUnused as character no-undo.
+	            define variable cFiles as character no-undo.
 				define variable iLineCounter as integer no-undo.
 	
 	            cName = get-field('name').
@@ -90,6 +92,7 @@
 	                    systems.systemPropath = get-field('sysPropath').
 	                    systems.systemDBparameters = get-field('dbPar').
 	                    systems.systemName = get-field("sysName").
+	                    
 	                end.
 	            end.
 	    </script>
@@ -107,78 +110,78 @@
 	                <form id="xrefForm">
 	                    <div class="btn-group d-flex flex-wrap flex-md-nowrap" role="group" id="elements-holder">
 	                        <div class="btn-group" role="group">
-	                            <input class="btn elements active" id="btn0" type="hidden">
-                                <button id="btn1" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
-                                    aria-haspopup="true" aria-expanded="false">
-                                    all_sugalvot_pavadinima
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="btn1">
-                                    <a class="btn dropdown-item" id="btn1-1">Procedure</a>
-                                    <a class="btn dropdown-item" id="btn1-2">Class</a>
-                                    <a class="btn dropdown-item" id="btn1-3">Include</a>
-                                    <a class="btn dropdown-item" id="btn1-4">All</a>
-                                </div>
+                                <button class="btn elements w-100" id="btn1" type="button">Files</button>
+                                <button class="btn elements w-100" id="btn2" type="button">DB structure</button>
+                                <input class="btn elements w-100" id="btn3" name="bUnused" type="button" value="Unused">
+                                <input class="btn w-100 user-guide-btn" id="btn4" name="buser-guide" 
+	                                type="button" value="User Guide"
+	                                style="background-color: #626060; color:white;">
                             </div>
-	                        <!-- <input class="btn elements active" id="btn0" type="hidden">
-	                        <input class="btn elements w-100" id="btn1" name="bProcedure" type="button" value="Procedure">
-	                        <input class="btn elements w-100" id="btn2" name="bClass" type="button" value="Class">
-	                        <input class="btn elements w-100" id="btn3" name="bInclude" type="button" value="Include"> -->
-	                        
-	                        <div class="btn-group" role="group">
-	                            <button id="btn4" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
-                                    aria-haspopup="true" aria-expanded="false">
-                                    DB field 
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="btn4">
-                                    <a class="btn dropdown-item" id="btn4-1">ACCESS</a>
-                                    <a class="btn dropdown-item" id="btn4-2">UPDATE</a>
-                                    <a class="btn dropdown-item" id="btn4-3">Index</a>
-                                    <a class="btn dropdown-item" id="btn4-4">All</a>
-                                </div>
-	                        </div>
-	                        <!-- <input class="btn elements w-100" id="btn5" name="bIndex" type="button" value="Index"> -->
-	                        <div class="btn-group" role="group">
-                                <button id="btn7" type="button" class="btn elements dropdown-toggle w-100" data-toggle="dropdown" 
-                                    aria-haspopup="true" aria-expanded="false">
-                                    Unused 
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="btn7">
-                                    <a class="btn dropdown-item" id="btn7-1">Procedures</a>
-                                    <a class="btn dropdown-item" id="btn7-2">Classes</a>
-                                    <a class="btn dropdown-item" id="btn7-3">Includes</a>
-                                    <a class="btn dropdown-item" id="btn7-4">All</a>
-                                </div>
-                            </div>
-	                        <input class="btn w-100 user-guide-btn" id="btn6" name="buser-guide" 
-	                            type="button" value="User Guide"
-	                            style="background-color: #626060; color:white;">
 	                    </div>
-	
+	                    
 	                    <input id="inpType" type="hidden" name="type" value="`iType`">
 	                    <input id="inpUnused" type="hidden" name="unused" value="`cUnused`">
-	                    <div id="invFeedbackType" class="invalid-feedback">
-	                        Please select type.
-	                    </div>
-	
-	                    <div class="form-group d-flex flex-wrap flex-md-nowrap justify-content-between form-reports-input">
-	                        <div class="w-90">
-	                            <input class="form-control" autocomplete="off" name="name" id="inpName"
-	                                placeholder="Please enter name" value="`cName`">
-	                            <ul id="autocomplete"></ul>
-	                            <div id="invFeedbackName" class="invalid-feedback">
-	                                Please enter name.
-	                            </div>
-	                        </div>
-	                        <div class="w-10">
-	                            <button id="btnReport" type="submit" class="btn btn-block pull-right">Report</button>
-	                        </div>
-	                        <div class="w-10">
+	                    
+	                    <div class="input-group" style="margin-top:12px;">
+						  <input class="form-control" autocomplete="off" name="name" id="inpName"
+                                    placeholder="Please enter name" value="`cName`">
+                                <ul id="autocomplete"></ul>
+                                <div id="invFeedbackName" class="invalid-feedback">
+                                    Please enter name.
+                                </div>
+						  <!--WSS if (iType > 10 or iType < 20) then do: -->
+						  <div class="input-group-append" style="margin-left:5px;">
+						      <button id="btn21" class="btn elements dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
+                              <div class="dropdown-menu" aria-labelledby="btn21">
+                                  <a class="btn dropdown-item" id="btn1-1">Procedure</a>
+                                  <a class="btn dropdown-item" id="btn1-2">Class</a>
+                                  <a class="btn dropdown-item" id="btn1-3">Include</a>
+                                  <a class="btn dropdown-item" id="btn1-4">All</a>
+                              </div>
+						  </div>
+						  <!--WSS end.  -->
+						  <!--WSS if (iType > 20 or iType < 30) then do: -->
+						  <div class="input-group-append" style="margin-left:5px;">
+                              <button id="btn22" class="btn elements dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
+                              <div class="dropdown-menu" aria-labelledby="btn22">
+                                  <a class="btn dropdown-item" id="btn2-1">ACCESS</a>
+                                  <a class="btn dropdown-item" id="btn2-2">UPDATE</a>
+                                  <a class="btn dropdown-item" id="btn2-3">DELETE</a>
+                                  <a class="btn dropdown-item" id="btn2-4">REFERENCE</a>
+                                  <a class="btn dropdown-item" id="btn2-5">Index</a>
+                                  <a class="btn dropdown-item" id="btn2-6">All</a>
+                              </div>
+                          </div>
+                          <!--WSS end. -->
+                          <!--WSS if (iType > 30 or iType < 40) then do: -->
+                          <div class="input-group-append" style="margin-left:5px;">
+                              <button id="btn23" class="btn elements dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select</button>
+                              <div class="dropdown-menu" aria-labelledby="btn23">
+                                  <a class="btn dropdown-item" id="btn3-1">Procedures</a>
+                                  <a class="btn dropdown-item" id="btn3-2">Classes</a>
+                                  <a class="btn dropdown-item" id="btn3-3">Includes</a>
+                                  <a class="btn dropdown-item" id="btn3-4">All</a>
+                              </div>
+                          </div>
+                          <!--WSS end. -->
+                          <div class="w-10" style="margin-left:10px;">
+                                <button id="btnReport" type="submit" class="btn btn-block pull-right">Report</button>
+                            </div>
+                            <div class="w-10" style="margin-left:10px;">
                                 <button id="btnTree" type="submit" class="btn btn-block pull-right">Tree View</button>
-                            </div>	                       
-	                        <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
-	                        <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
+                            </div>     
+                            
+                            <div id="invFeedbackType" class="invalid-feedback">
+                            Please select type.
+                            </div>
+                                                
+                            <input id="inpDetails" type="hidden" name="details" value="`get-field('details')`">
+                            <input id="inpSystem" type="hidden" name="system" value="`get-field('system')`">
                             <input id="inpTree" type="hidden" name="tree" value="">
-	                    </div>
+                            <input id="inpFiles" type="hidden" name="files" value="`get-field('files')`">
+                            <input id="inpDbStruct" type="hidden" name="dbstruct" value="`get-field('dbstruct')`">
+                            <input id="inpUnused" type="hidden" name="unused" value="`get-field('unused')`">
+				        </div>
 	                </form>
 	            </div>
 	        </div>
@@ -277,25 +280,48 @@
 	                then do: -->
 	                    <div class="form-holder">
 	                        <form action='front.html'>
-	                            <h3>New system for xref processing</h3>
-	                            <label for="sysName">Name:</label>
-	                            <input id="sysName" autocomplete="off" type="text" class="form-control"
-	                                name="sysName" value="" placeholder="please enter system name" required>
-	                            <label for="sysPath">Path:</label>
-	                            <input id="sysPath" autocomplete="off" type="text" class="form-control"
-	                                name="sysPath" placeholder="please enter system source path">
-	                            <!-- <label for="sysPropath">Propath:</label>
-	                            <input id="sysPropath" autocomplete="off" type="text" class="form-control"
-	                                name="sysPropath" placeholder="please enter system propath"> -->
-	                            <label for="dbPar">Database .df and .st path:</label>
-	                            <input id="dbPar" autocomplete="off" type="text" class="form-control"
-	                                name="dbPar" placeholder="please enter system database parameters">
-	                            <input type="hidden" name="updSystem" value="add">
-	                            <div class="button-holder">
-	                                <input class="btn btn-dark" type="submit">
-	                            </div>
-	                        </form>
+                                <h3>New system for xref processing</h3>
+                                <label for="sysName">Name:</label>
+                                <input id="sysName" autocomplete="off" type="text" class="form-control"
+                                    name="sysName" value="" placeholder="please enter system name" required>
+                                <label for="sysPath">Path:</label>
+                                <input id="sysPath" autocomplete="off" type="text" class="form-control"
+                                    name="sysPath" placeholder="please enter system source path">
+                                <!-- <label for="sysPropath">Propath:</label>
+                                <input id="sysPropath" autocomplete="off" type="text" class="form-control"
+                                    name="sysPropath" placeholder="please enter system propath"> -->
+                                <label for="dbPar">Database .df and .st path:</label>
+                                <input id="dbPar" autocomplete="off" type="text" class="form-control"
+                                    name="dbPar" placeholder="please enter system database parameters">
+                                <label for="entryPoint">Entry points:</label>
+                                <input id="entryPoint" autocomplete="off" type="text" class="form-control"
+                                    name="entryPoint" placeholder="please enter entry points">
+                                <input type="hidden" name="updSystem" value="add">
+                                <div class="button-holder">
+                                    <input class="btn btn-dark" type="submit" data-toggle="modal" data-target="#myModal">
+                                </div>
+                                
+                            </form>
 	                    </div>
+	                    <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Some text in the modal.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
 	                <!--WSS end. -->
 	
 	                <div class="form-holder">
@@ -312,28 +338,27 @@
 	                        </script>
 	
 		                    <form action='front.html'>
-		                        <h3>Update system <span class="refName">`systems.systemName`</span> for xref processing</h3>
-		                        <label for="sysName">Name:</label>
-		                        <input id="sysName" autocomplete="off" type="text" class="form-control"
-		                            name="sysName" value="`systems.systemName`" placeholder="please enter system name" required>
-		                        <label for="sysPath">Path:</label>
-		                        <input id="sysPath" autocomplete="off" type="text" class="form-control"
-		                            name="sysPath" value="`systems.localSourcePath`" placeholder="please enter system source path">
-		                        <!-- <label for="sysPropath">Propath:</label>
-		                        <input id="sysPropath" autocomplete="off" type="text" class="form-control"
-		                            name="sysPropath" value="`systems.systemPropath`" placeholder="please enter system propath">
-		                        -->
-		                        <label for="dbPar">Database .df and .st path:</label>
-		                        <input id="dbPar" autocomplete="off" type="text" class="form-control"
-		                            name="dbPar" value="`systems.systemDBparameters`" placeholder="please enter system database parameters">
-		                        <input type="hidden" name="updSystem" value="add">
-		                        <input type="hidden" name="oldName" value="`systems.systemName`">
-		                            <div class="button-holder d-flex justify-content-between">
-		                                <input class="btn btn-dark" type="submit" value="Update">
-		                                <button type="button" class="btn btn-danger" data-toggle="modal"
-		                                   data-target="#deleteModal" value="">Delete</button>
-		                            </div>
-		                    </form>
+                                <h3>Update system <span class="refName">`systems.systemName`</span> for xref processing</h3>
+                                <label for="sysName">Name:</label>
+                                <input id="sysName" autocomplete="off" type="text" class="form-control"
+                                    name="sysName" value="`systems.systemName`" placeholder="please enter system name" required>
+                                <label for="sysPath">Path:</label>
+                                <input id="sysPath" autocomplete="off" type="text" class="form-control"
+                                    name="sysPath" value="`systems.localSourcePath`" placeholder="please enter system source path">
+                                <label for="dbPar">Database .df and .st path:</label>
+                                <input id="dbPar" autocomplete="off" type="text" class="form-control"
+                                    name="dbPar" value="`systems.systemDBparameters`" placeholder="please enter system database parameters">
+                                <label for="entryPoint">Entry points:</label>
+                                <input id="entryPoint" autocomplete="off" type="text" class="form-control"
+                                    name="entryPoint" placeholder="please enter entry points">
+                                <input type="hidden" name="updSystem" value="add">
+                                <input type="hidden" name="oldName" value="`systems.systemName`">
+                                    <div class="button-holder d-flex justify-content-between">
+                                        <input class="btn btn-dark" type="submit" value="Update">
+                                        <button type="button" class="btn btnDelete" data-toggle="modal"
+                                           data-target="#deleteModal" value="">Delete</button>
+                                    </div>
+                            </form>
 	                       
 	                        <!-- Modal "Confirm delete" -->
 		
@@ -352,7 +377,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                         <form action="front.html">
-                                            <button name="delete" type="submit" class="btn btn-danger" value="`systems.systemName`">Delete</button>
+                                            <button name="delete" type="submit" class="btn btnDelete" value="`systems.systemName`">Delete</button>
                                         </form>
                                     </div>
                                 </div>
@@ -362,72 +387,98 @@
 	            
 	               <!-- Running procedure to generate short or detailed report by type -->
 	            
-		            <!--WSS if cName <> "" and iType > 0 and iType < 70 and lTree = false
+		            <!--WSS
+		            if cName <> "" and iType > 0 and iType < 30 and lTree = false
 		            then do:
 		                if lDetails = false 
 		                then do: 
 	                        case iType:
-	                            when 11 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 12 then run findClass.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 13 then run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 14 then run findAll.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 43 then run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
-	                            when 44 then run findDBAll.p (input cName, output table ttDetails, input cSystem, input false).
+	                            when 11 then do: 
+	                                   run findProcedure.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findProcedure.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 12 then do:
+	                                   run findClass.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findClass.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 13 then do: 
+	                                   run findInclude.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findInclude.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 14 then do: 
+	                                   run findAll.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findAll.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 21 then do: 
+	                                   run findAccess.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findAccess.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 22 then do: 
+	                                   run findUpdate.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findUpdate.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 23 then do: 
+	                                   run findDelete.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findDelete.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 24 then do: 
+	                                   run findReference.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findReference.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 25 then do: 
+	                                   run findIndex.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findIndex.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
+	                            when 26 then do: 
+	                                   run findDBAll.p (input cName, output table ttDetails, input cSystem, input false).
+	                                   run findDBAll.p (input cName, output table ttDetailedDetails, input cSystem, input true).
+	                            end.
 	                        end case. -->
 		                    <div class='form-holder'>
                                 <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
                                     class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
-		                        <table>
-		                            <thead><th class="t-linecounter">#</th><th>Compile Unit</th></thead>
+		                        
+		                            <!--<<thead><th class="t-linecounter">#</th><th>Compile Unit</th></thead> -->
 		                            <!--WSS for each ttDetails: 
-									iLineCounter = iLineCounter + 1. -->
-		                                <tr>
-										    <td class="t-linecounter"> `iLineCounter`</td>
-										    <td> `ttDetails.compileUnit` </td>
-										</tr>
+									iLineCounter = iLineCounter + 1.
+									 -->
+										    <div class="showLine" id = "`iLineCounter`" onclick="myFunction(`iLineCounter`)" title="Click for details"> `iLineCounter`. `ttDetails.compileUnit` </div>
+										    <br>
+										    <div id="myDIV `iLineCounter`" style = "display:none">
+										    <table>
+										    <thead>
+										    <th>Source Path</th><th>File Name</th><th>Type</th><th>Line</th><th>Info</th>
+										    </thead>
+										    <!--WSS for each ttDetailedDetails 
+										              where ttDetailedDetails.compileUnit = ttDetails.compileUnit:
+										     -->
+										    
+										    <tr>
+                                                  <td>`ttDetailedDetails.sourcePath`</td>
+                                                  <td>`ttDetailedDetails.fileName`</td>
+                                                  <td>`ttDetailedDetails.type`</td>
+                                                  <td>`ttDetailedDetails.line`</td>
+                                                  <td>`ttDetailedDetails.info`</td>
+                                            </tr>
+                                            
+                                            <!--WSS end. -->
+                                            
+                                            </table>
+											</div>
+											
+										
 			                        <!--WSS end. 
 									iLineCounter = 0. -->
-			                    </table>
+									       
+                                            
+			                    
 		                    </div>
-		                <!--WSS end.
-		                else do: 
-                            case iType:
-                                when 1 then run findProcedure.p (input cName, output table ttDetails, input cSystem, input true).
-                                when 2 then run findClass.p (input cName, output table ttDetails, input cSystem, input true).
-                                when 3 then run findInclude.p (input cName, output table ttDetails, input cSystem, input true).
-                                when 41 then run findAccess.p (input cName, output table ttDetails, input cSystem, input true).
-                                when 42 then run findUpdate.p (input cName, output table ttDetails, input cSystem, input true).
-                                when 5 then run findIndex.p (input cName, output table ttDetails, input cSystem, input true).
-                            end case. -->
-							<div class='form-holder'>
-                                <p class="output-message">Output of <span id="typeRef" class="refName"></span> matching "<span 
-                                    class="refName">`cName`</span>" references (xref) in <span class="refName">`cSystem`</span>:</p>
-								<table>
-		                            <thead>
-		                            <th class="t-linecounter">#</th><th class="t-1">Compile Unit</th><th class="t-2">File Name</th><th class="t-3">Source Path</th>
-		                                <th>Type</th><th>Line</th><th class="t-4">Info</th>
-		                            </thead>
-								    <!--WSS for each ttDetails:
-									iLineCounter = iLineCounter + 1. -->
-		                            <tr>
-									    <td class="t-linecounter">`iLineCounter`</td>
-		                                <td class="t-1">`ttDetails.compileUnit`</td>
-										<td class="t-2">`ttDetails.fileName`</td>
-										<td class="t-3">`ttDetails.sourcePath`</td>
-										<td>`ttDetails.type`</td>
-										<td>`ttDetails.line`</td>
-										<td class="t-4">`ttDetails.info`</td>
-									</tr>
-			    					<!--WSS end. 
-									iLineCounter = 0. -->
-		                        </table>
-		                    </div>
+		                <!--WSS end.  -->
+							
 		                <!--WSS end. 
-		            end.
 		            
-		            if cUnused <> "" and iType > 70 and lTree = false
+		            
+		            if cUnused <> "" and iType > 30 and lTree = false
                     then do:
                         run findUnused.p (input cSystem, output table ttUnused). -->
                             <div class='form-holder'>
@@ -476,24 +527,24 @@
                                            iLineCounter = 0. -->
                                     </div>
                                 </td>
-				                <td valign = "top" class="t-high">
-					                <div class="align-item-start">
-				                           <!--WSS
-				                           for each ttCalling by ttCalling.f1: 
-				                           iLineCounter = iLineCounter + 1. -->
-				                               <form id="`iCount`" action="front.html">
-				                               <span class="tree-bucket-entries" value="`ttCalling.f1`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
-	                                       class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
-				                                   <input type="hidden" name="tree" value="yes">
-				                                   <input type="hidden" name="name" value="`ttCalling.f1`">
-				                                   <input type="hidden" name="system" value="`cSystem`">
-				                               </form>
-				                               <div class="mouse-over-list" id="cd`iCount`"></div>
-				                           <!--WSS iCount = iCount + 1.
-				                           end.  
-				                           iLineCounter = 0.-->
-			                        </div>
-		                        </td>
+				               <td valign = "top" class="t-high">
+                                    <div class="align-item-start">
+                                           <!--WSS
+                                           for each ttCalling by ttCalling.f1: 
+                                           iLineCounter = iLineCounter + 1. -->
+                                               <form id="`iCount`" action="front.html">
+                                               <span class="tree-bucket-entries" value="`ttCalling.f1`"><span>`iLineCounter`. </span> `ttCalling.f1` <span 
+                                           class="tree-bucket-entries-type">(`ttCalling.type`)</span></span>
+                                                   <input type="hidden" name="tree" value="yes">
+                                                   <input type="hidden" name="name" value="`ttCalling.f1`">
+                                                   <input type="hidden" name="system" value="`cSystem`">
+                                               </form>
+                                               <div class="mouse-over-list" id="cd`iCount`"></div>
+                                           <!--WSS iCount = iCount + 1.
+                                           end.  
+                                           iLineCounter = 0.-->
+                                    </div>
+                                </td>
 		                    </table>
 		                </div>
 	                <!--WSS end.  -->
@@ -507,71 +558,102 @@
 <script type="text/javascript">
 
 /*--------- HIGHLIGHT BUTTON OF CURRENT TYPE:   ----------*/
-
+    
+    $('#btn21').hide();
+    $('#btn22').hide();
+    $('#btn23').hide();
+    if(`iType` > 10 && `iType` < 20) {
+        $('#btn21').show();
+        $('#btn21').addClass('active');
+    }
+    if(`iType` > 20 && `iType` < 30) {
+        $('#btn22').show();
+        $('#btn22').addClass('active');
+    }
+    if(`iType` > 30 && `iType` < 40) {
+        $('#btn23').show();
+        $('#btn23').addClass('active');
+    }
     let type = parseInt(`iType`);
     switch(type) {
         case 11:
             $('#btn1').addClass('active');
-            $('#btn1').html('Procedure');
+            $('#btn21').html('Procedure');
             $('#typeRef').html('procedure');
             break;
         case 12:
             $('#btn1').addClass('active');
-            $('#btn1').html('Class');
+            $('#btn21').html('Class');
             $('#typeRef').html('class');
             break;
         case 13:
             $('#btn1').addClass('active');
-            $('#btn1').html('Include');
+            $('#btn21').html('Include');
             $('#typeRef').html('include');
             break;
         case 14:
             $('#btn1').addClass('active');
-            $('#btn1').html('All');
+            $('#btn21').html('All');
             $('#typeRef').html('all');
             break;
-        case 41:
-            $('#btn4').addClass('active');
-            $('#btn4').html('DB: access');
+        case 21:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: access');
             $('#typeRef').html('DB field ("ACCESS")');
             break;
-        case 42:
-            $('#btn4').addClass('active');
-            $('#btn4').html('DB: update');
+        case 22:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: update');
             $('#typeRef').html('DB field ("UPDATE")');
             break;
-        case 43:
-            $('#btn4').addClass('active');
-            $('#btn4').html('Index');
-            $('#typeRef').html('index');
+        case 23:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: delete');
+            $('#typeRef').html('DB field ("DELETE")');
             break;
-        case 44:
-            $('#btn4').addClass('active');
-            $('#btn4').html('All');
-            $('#typeRef').html('all');
+        case 24:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: reference');
+            $('#typeRef').html('DB field ("REFERENCE")');
             break;
-        case 5:
-            $('#btn5').addClass('active');
-            $('#typeRef').html("index");
+        case 25:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: index');
+            $('#typeRef').html("Index");
             break;
-        case 71:
-            $('#btn7').addClass('active');
-            $('#btn7').html('Un: procedures');
+        case 26:
+            $('#btn2').addClass('active');
+            $('#btn22').addClass('active');
+            $('#btn22').html('DB: all');
+            $('#typeRef').html("DB fields: all");
+            break;
+        case 31:
+            $('#btn3').addClass('active');
+            $('#btn23').addClass('active');
+            $('#btn23').html('Un: procedures');
             $('#typeRef').html('Unused procedures');
             break;
-        case 72:
-            $('#btn7').addClass('active');
-            $('#btn7').html('Un: classes');
+        case 32:
+            $('#btn3').addClass('active');
+            $('#btn23').addClass('active');
+            $('#btn23').html('Un: classes');
             $('#typeRef').html('Unused classes');
             break;
-        case 73:
-            $('#btn7').addClass('active');
-            $('#btn7').html('Un: includes');
+        case 33:
+            $('#btn3').addClass('active');
+            $('#btn23').addClass('active');
+            $('#btn23').html('Un: includes');
             $('#typeRef').html('Unused includes');
             break;
-        case 74:
-            $('#btn7').addClass('active');
-            $('#btn7').html('Un: all');
+        case 34:
+            $('#btn3').addClass('active');
+            $('#btn23').addClass('active');
+            $('#btn23').html('Un: all');
             $('#typeRef').html('Unused files');
             break;
     };
@@ -588,4 +670,21 @@
             $('.t-' + i).css({"maxWidth": ewid / 1.5, "wordWrap": "break-word"});
         }
     };
+    
+   function myFunction(btnNum) {
+           var x = document.getElementById("myDIV " + btnNum);
+           var y = document.getElementsByClassName('visibleDiv');
+           if (x.style.display === "none") {
+               x.style.display = "block";
+               if (y.length >= 1) {
+                   for (var i=0; i < y.length; i++) {
+                       y[i].style.display = "none";
+                       y[i].classList.remove('visibleDiv');
+                   }
+               };
+               x.classList.add('visibleDiv');
+           } else {
+               x.style.display = "none";
+           }
+       }
 </script>

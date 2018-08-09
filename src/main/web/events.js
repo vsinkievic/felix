@@ -1,92 +1,134 @@
 $(document).ready(function(){
-
 	$('.user-guide').hide();
-	
+	$('#btn1').on('click', function() {
+    	$('#btn1').addClass('active');
+        $('#inpFiles').val('yes');
+        $('#btn21').show();
+        $('#btn22').hide();
+    	$('#btn23').hide();
+    });
+    $('#btn2').on('click', function() {
+    	$('#btn2').addClass('active');
+        $('#inpDBstruct').val('yes');
+        $('#btn22').show();
+        $('#btn21').hide();
+    	$('#btn23').hide();
+    });
+    $('#btn3').on('click', function() {
+    	$('#btn3').addClass('active');
+        $('#inpUnused').val('yes');
+        $('#btn23').show();
+        $('#btn22').hide();
+    	$('#btn21').hide();
+    });
 	$('.elements').on('click', function(){
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 	});
     $('#btn1-1').on('click', function() {
     	$('#btn1').addClass('active');
-    	$('#btn1').html('Procedure');
+    	$('#btn21').addClass('active');
+    	$('#btn21').html('Procedure');
         $('#inpType').val('11');
     });
     $('#btn1-2').on('click', function() {
     	$('#btn1').addClass('active');
-    	$('#btn1').html('Class');
+    	$('#btn21').addClass('active');
+    	$('#btn21').html('Class');
         $('#inpType').val('12');
     });
     $('#btn1-3').on('click', function() {
     	$('#btn1').addClass('active');
-    	$('#btn1').html('Include');
+    	$('#btn21').addClass('active');
+    	$('#btn21').html('Include');
         $('#inpType').val('13');
     });
     $('#btn1-4').on('click', function() {
     	$('#btn1').addClass('active');
-    	$('#btn1').html('All');
+    	$('#btn21').addClass('active');
+    	$('#btn21').html('All');
         $('#inpType').val('14');
+    });  
+    $('#btn2-1').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: access');
+        $('#inpType').val('21');
     });
-    $('#btn4-1').on('click', function() {
-    	$('#btn4').addClass('active');
-    	$('#btn4').html('DB: access');
-        $('#inpType').val('41');
+    $('#btn2-2').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: update');
+        $('#inpType').val('22');
     });
-    $('#btn4-2').on('click', function() {
-    	$('#btn4').addClass('active');
-    	$('#btn4').html('DB: update');
-        $('#inpType').val('42');
+    $('#btn2-3').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: delete');
+        $('#inpType').val('23');
     });
-    $('#btn4-3').on('click', function() {
-    	$('#btn4').addClass('active');
-    	$('#btn4').html('Index');
-        $('#inpType').val('43');
+    $('#btn2-4').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: reference');
+        $('#inpType').val('24');
     });
-    $('#btn4-4').on('click', function() {
-    	$('#btn4').addClass('active');
-    	$('#btn4').html('All');
-        $('#inpType').val('44');
+    $('#btn2-5').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: index');
+        $('#inpType').val('25');
     });
-    $('#btn5').on('click', function() {
-        $('#inpType').val('5');
+    $('#btn2-6').on('click', function() {
+    	$('#btn2').addClass('active');
+    	$('#btn22').addClass('active');
+    	$('#btn22').html('DB: all');
+        $('#inpType').val('26');
     });
-    $('#btn6').on('click', function() {
+//    $('#btn3-1').on('click', function() {
+//    	$('#btn3').addClass('active');
+//    	$('#btn23').addClass('active');
+//    	$('#btn23').html('Un: procedures');
+//        $('#inpType').val('31');
+//        $('#inpUnused').val('PROCEDURE');
+//        $(this).closest('form').submit();
+//    });
+//    $('#btn3-2').on('click', function() {
+//    	$('#btn3').addClass('active');
+//    	$('#btn23').addClass('active');
+//    	$('#btn23').html('Un: classes');
+//        $('#inpType').val('32');
+//        $('#inpUnused').val('CLASS');
+//        $(this).closest('form').submit();
+//    });
+//    $('#btn3-3').on('click', function() {
+//    	$('#btn3').addClass('active');
+//    	$('#btn23').addClass('active');
+//    	$('#btn23').html('Un: includes');
+//        $('#inpType').val('33');
+//        $('#inpUnused').val('INCLUDE');
+//        $(this).closest('form').submit();
+//    });
+//    $('#btn3-4').on('click', function() {
+//    	$('#btn3').addClass('active');
+//    	$('#btn23').addClass('active');
+//    	$('#btn23').html('Un: all');
+//        $('#inpType').val('34');
+//        $('#inpUnused').val('*');
+//        $(this).closest('form').submit();
+//    });
+    $('#btn4').on('click', function() {
     	$('.about').hide();
         $('.user-guide').show();
         $('.form-holder').empty();
     });
-//    $('#btn7-1').on('click', function() {
-//    	$('#btn7').addClass('active');
-//    	$('#btn7').html('Un: procedures');
-//        $('#inpType').val('71');
-//        $('#inpUnused').val('PROCEDURE');
-//        $(this).closest('form').submit();
-//    });
-//    $('#btn7-2').on('click', function() {
-//    	$('#btn7').addClass('active');
-//    	$('#btn7').html('Un: classes');
-//        $('#inpType').val('72');
-//        $('#inpUnused').val('CLASS');
-//        $(this).closest('form').submit();
-//    });
-//    $('#btn7-3').on('click', function() {
-//    	$('#btn7').addClass('active');
-//    	$('#btn7').html('Un: includes');
-//        $('#inpType').val('73');
-//        $('#inpUnused').val('INCLUDE');
-//        $(this).closest('form').submit();
-//    });
-//    $('#btn7-4').on('click', function() {
-//    	$('#btn7').addClass('active');
-//    	$('#btn7').html('Un: all');
-//        $('#inpType').val('74');
-//        $('#inpUnused').val('*');
-//        $(this).closest('form').submit();
-//    });
+    
+    
     $('.elements').on('click', function(){
-    	$('#btn4').html('DB field');
+    	$('#btn2').html('DB structure');
     });
     $('.elements').on('click', function(){
-    	$('#btn7').html('Unused');
+    	$('#btn3').html('Unused');
     });
     $("#btnReport").click(function( event ) {
         let fValid = true;
