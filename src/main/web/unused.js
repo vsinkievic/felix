@@ -55,24 +55,28 @@ console.log("before ajax");
 
 $(document).ready(function() {
 
-	$('#btn7-1').on('click', function() {
-		$('#btn7').addClass('active');
-		$('#btn7').html('Un: procedures');
+	$('#btn3-1').on('click', function() {
+		$('#btn3').addClass('active');
+		$('#btn23').addClass('active');
+		$('#btn23').html('Un: procedures');
 		unusedAjax('PROCEDURE');
 	});
-	$('#btn7-2').on('click', function() {
-		$('#btn7').addClass('active');
-		$('#btn7').html('Un: classes');
+	$('#btn3-2').on('click', function() {
+		$('#btn3').addClass('active');
+		$('#btn23').addClass('active');
+		$('#btn23').html('Un: classes');
 	    unusedAjax('CLASS');
 	});
-	$('#btn7-3').on('click', function() {
-		$('#btn7').addClass('active');
-		$('#btn7').html('Un: includes');
+	$('#btn3-3').on('click', function() {
+		$('#btn3').addClass('active');
+		$('#btn23').addClass('active');
+		$('#btn23').html('Un: includes');
 	    unusedAjax('INCLUDE');
 	});
-	$('#btn7-4').on('click', function() {
-		$('#btn7').addClass('active');
-		$('#btn7').html('Un: all');
+	$('#btn3-4').on('click', function() {
+		$('#btn3').addClass('active');
+		$('#btn23').addClass('active');
+		$('#btn23').html('Un: all');
 	    unusedAjax('ALL');
 	});
 });

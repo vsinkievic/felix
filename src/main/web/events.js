@@ -89,37 +89,65 @@ $(document).ready(function(){
     	$('#btn22').html('DB: all');
         $('#inpType').val('26');
     });
+    $('#btn3-1').on('click', function() {
+    	$('#btn3').addClass('active');
+    	$('#btn23').addClass('active');
+    	$('#btn23').html('Un: procedures');
+        $('#inpType').val('31');
+        $('#inpUnused').empty();
+        $('#inpUnused').val('PROCEDURE');
+        $(this).closest('form').submit();
+    });
+    $('#btn3-2').on('click', function() {
+    	$('#btn3').addClass('active');
+    	$('#btn23').addClass('active');
+    	$('#btn23').html('Un: classes');
+        $('#inpType').val('32');
+        $('#inpUnused').empty();
+        $('#inpUnused').val('CLASS');
+        $(this).closest('form').submit();
+    });
+    $('#btn3-3').on('click', function() {
+    	$('#btn3').addClass('active');
+    	$('#btn23').addClass('active');
+    	$('#btn23').html('Un: includes');
+        $('#inpType').val('33');
+        $('#inpUnused').empty();
+        $('#inpUnused').val('INCLUDE');
+        $(this).closest('form').submit();
+    });
+    $('#btn3-4').on('click', function() {
+    	$('#btn3').addClass('active');
+    	$('#btn23').addClass('active');
+    	$('#btn23').html('Un: all');
+        $('#inpType').val('34');
+        $('#inpUnused').empty();
+        $('#inpUnused').val('*');
+        $(this).closest('form').submit();
+    });
 //    $('#btn3-1').on('click', function() {
 //    	$('#btn3').addClass('active');
 //    	$('#btn23').addClass('active');
-//    	$('#btn23').html('Un: procedures');
+//    	$('#btn23').html('Un:procedures');
 //        $('#inpType').val('31');
-//        $('#inpUnused').val('PROCEDURE');
-//        $(this).closest('form').submit();
 //    });
 //    $('#btn3-2').on('click', function() {
 //    	$('#btn3').addClass('active');
 //    	$('#btn23').addClass('active');
-//    	$('#btn23').html('Un: classes');
+//    	$('#btn23').html('DB: update');
 //        $('#inpType').val('32');
-//        $('#inpUnused').val('CLASS');
-//        $(this).closest('form').submit();
 //    });
 //    $('#btn3-3').on('click', function() {
 //    	$('#btn3').addClass('active');
 //    	$('#btn23').addClass('active');
-//    	$('#btn23').html('Un: includes');
+//    	$('#btn23').html('DB: delete');
 //        $('#inpType').val('33');
-//        $('#inpUnused').val('INCLUDE');
-//        $(this).closest('form').submit();
 //    });
 //    $('#btn3-4').on('click', function() {
 //    	$('#btn3').addClass('active');
 //    	$('#btn23').addClass('active');
-//    	$('#btn23').html('Un: all');
+//    	$('#btn23').html('DB: reference');
 //        $('#inpType').val('34');
-//        $('#inpUnused').val('*');
-//        $(this).closest('form').submit();
 //    });
     $('#btn4').on('click', function() {
     	$('.about').hide();

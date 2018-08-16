@@ -21,9 +21,9 @@
     cSystem = get-field('systemName').
     
     case iType:
-        when 1 then run findProcedure.p (input cSearch, output table ttDetails, input cSystem, input true).
-        when 2 then run findClass.p (input cSearch, output table ttDetails, input cSystem, input true).
-        when 3 then do:
+        when 11 then run findProcedure.p (input cSearch, output table ttDetails, input cSystem, input true).
+        when 12 then run findClass.p (input cSearch, output table ttDetails, input cSystem, input true).
+        when 13 then do:
 			           for each files no-lock where 
 						        files.type = "INCLUDE" and 
 						        files.system = cSystem and
@@ -33,7 +33,17 @@
 					            ttDetails.info = files.info.
 					   end.
                 end.
-        when 41 then do:
+        when 14 then do:
+                       for each files no-lock where 
+                                files.type = "*" and 
+                                files.system = cSystem and
+                                files.info matches ("*/" + cSearch + "*"):
+                            create ttDetails.
+                            assign
+                                ttDetails.info = files.info.
+                       end.
+                end.
+        when 21 then do:
 				       for each fieldDB no-lock where
 					            fieldDB.system = cSystem and
 					            fieldDB.type = "ACCESS" and
@@ -43,7 +53,7 @@
 							ttDetails.info = fieldDB.info.
 					   end.
                 end.
-        when 42 then do:
+        when 22 then do:
                         for each fieldDB no-lock where
                                 fieldDB.system = cSystem and
                                 fieldDB.type = "UPDATE" and
@@ -53,7 +63,27 @@
                             ttDetails.info = fieldDB.info.
                         end.
                 end.
-        when 5 then do:
+        when 23 then do:
+                        for each fieldDB no-lock where
+                                fieldDB.system = cSystem and
+                                fieldDB.type = "DELETE" and
+                                fieldDB.info matches("*" + cSearch + "*")
+                                by fieldDB.compileUnit:
+                            create ttDetails.
+                            ttDetails.info = fieldDB.info.
+                        end.
+                end.
+        when 24 then do:
+                        for each fieldDB no-lock where
+                                fieldDB.system = cSystem and
+                                fieldDB.type = "REFERENCE" and
+                                fieldDB.info matches("*" + cSearch + "*")
+                                by fieldDB.compileUnit:
+                            create ttDetails.
+                            ttDetails.info = fieldDB.info.
+                        end.
+                end.
+        when 25 then do:
                         for each files no-lock where 
 						         files.system = cSystem and
 						         files.type = "INDEX" and
@@ -62,6 +92,16 @@
 						    create ttDetails.
 						    ttDetails.info = files.info.
 						end.
+                end.
+        when 26 then do:
+                        for each fieldDB no-lock where
+                                fieldDB.system = cSystem and
+                                fieldDB.type = "*" and
+                                fieldDB.info matches("*" + cSearch + "*")
+                                by fieldDB.compileUnit:
+                            create ttDetails.
+                            ttDetails.info = fieldDB.info.
+                        end.
                 end.
     end case.
 
