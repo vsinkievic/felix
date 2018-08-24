@@ -2,6 +2,8 @@
 
 SET FELIX-SYSTEM-NAME=%1
 
+
+
 set DLC=C:\progress\openedge
 
 %DLC%\bin\prowin -b -p ../progress/FindSystem.p -db FelixDB -S 9000 
@@ -16,6 +18,6 @@ goto waitloop
 
 del %TEMP%\compile.done
 
-type %TEMP%\%FELIX-SYSTEM-NAME%\errorfiles.txt
 
-del %TEMP%\%FELIX-SYSTEM-NAME%\errorfiles.txt
+
+%DLC%\bin\prowin -b -p ../progress/unused.p -db FelixDB -S 9000 

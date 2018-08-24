@@ -30,6 +30,7 @@ SystemN = os-getenv("FELIX-SYSTEM-NAME").
             ttSystemInfo.flocalSourcePath = systems.localSourcePath.
             ttSystemInfo.fsystemPropath = systems.systemPropath.
             ttSystemInfo.fsystemDBparameters = systems.systemDBparameters.
+            systems.hasErrors = no.
         
 
 iniFileName = createIniFile(getPath() + "," + ttSystemInfo.flocalSourcePath).

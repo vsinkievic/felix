@@ -5,17 +5,16 @@ define input parameter cOutputDir as character no-undo format "x(200)".
 define variable cPath as character no-undo format "x(200)". 
 define variable isum as integer init 0.
 define variable cFileType as character no-undo.
+define variable cInputPath as character no-undo format "x(200)".
 
 function compileFiles returns integer (cInputDirectory as character) forward.
 function addPropath return integer (cInputDirectory as character) forward.
 
 //----------------------------------- Main BLock -----------------------------------------
-
+cInputPath = cInputDir.
 input from os-dir(cInputDir).
-output to value(cOutputDir + "errorfiles.txt").
-message "-----------FAILAI KURIE NESIKOMPILIUOJA!-----------".
+output to value(cOutputDir + os-getenv("FELIX-SYSTEM-NAME") + ".txt").
 compileFiles (cInputDir).
-
 input close.
 output close.
 os-command value("type nul > " + os-getenv("TEMP") + "\compile.done").
@@ -57,9 +56,13 @@ function compileFiles returns integer (cInputDirectory as character):
                             isum = isum + 1.
                 
                 catch eSystemError as Progress.Lang.Error :
-                    os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
-                    message cInputDirectory + "\" + cFileStream.
                     
+                    os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
+                    message replace(cInputDirectory + "\" + cFileStream, cInputPath,"").
+                    message eSystemError:GetMessage(1).
+/*                    find systems where systems.systemName = os-getenv("FELIX-SYSTEM-NAME").*/
+/*                    if systems.hasErrors = no                                              */
+/*                        then systems.hasErrors = yes.                                      */
                     undo, next.
                 end catch.
             end.

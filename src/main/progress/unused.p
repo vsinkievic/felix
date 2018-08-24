@@ -13,7 +13,7 @@ define buffer bUsed for ttUsed.
 function detailLevel returns integer (compileUnitNext1 as character) forward.
 function isUsing return integer (systemName1 as character) forward.
 
-vSystem = "indigo".
+vSystem = os-getenv("FELIX-SYSTEM-NAME").
 
 find first systems where systems.systemName = vSystem no-lock.
 
@@ -119,4 +119,4 @@ function isUsing return integer (systemName as character):
     display i.
 end.    
 
-compile unused.p listing transactions.lis   
+  

@@ -29,20 +29,26 @@ input from os-dir(cPth).
 
 repeat:
     import cFileStream.
-        if cFileStream matches "*.db" 
+        //display cFileStream format "x(100)" with width 200.
+        if cFileStream matches ("*.db")
         then do:
             cDbName = replace(cFileStream, ".db", "").
             iDbCounter = iDbCounter + 1.
         end.
-        else if cFileStream matches "*.df" 
+        else if cFileStream matches ("*.df")
         then do:
+            
             cDfName = cFileStream.
             iDfCounter = iDfCounter + 1.
+            message "df " + cDfName.
+            
         end.
-        else if cFileStream matches "*.st" 
+        else if cFileStream matches ("*.st")
         then do:
+            //message "PAmate st".
             cStName = cFileStream.
             iStCounter = iStCounter + 1.
+            message "ifo " +  cStName.
         end.
 end.
 
@@ -55,6 +61,7 @@ do transaction:
         if replace(cStName, ".st", "") <> replace(cDfName, ".df", "")
         then do:
             output to value(cError).
+            display replace(cStName, ".st", "") + "  " +  replace(cDfName, ".df", "").
             display ".st ir .df failø pavadinimai nesutampa" format "x(50)" with width 100.
             output close.
             undo creation, leave creation.
@@ -63,7 +70,7 @@ do transaction:
     if (iStCounter > 1) or (iDbCounter > 1) or (iDfCounter > 1)
     then do:
         output to value(cError).
-        display "Yra daugiau nei po vienà .db arba .st arba .df failà" format "x(50)" with width 100.
+        display "Yra daugiau nei po viena .db arba .st arba .df faila" format "x(50)" with width 100.
         output close.
         undo creation, leave creation.
     end.
@@ -71,7 +78,6 @@ do transaction:
     
     cDelDb = "%DLC%\bin\prodel " + cPth + cDbName.
     cLoadSt = "%DLC%\bin\prostrct add " + cPth + replace(cStName, ".st", "") + " " + cPth + cStName.
-    
     if cDbName = ?
     then do:
         cDbName = replace(cDfName, ".df", "").
@@ -84,8 +90,11 @@ do transaction:
     end.
     
     procedure createDbInternal:
+        
+        
         cDelBi = "%DLC%\bin\prostrct remove " + cPth + cDbName + " bi".
         cTrunBi = "%DLC%\bin\proutil " + cPth + cDbName + ".db" + " -C truncate bi".
+        
         create database cPth + cDbName from "EMPTY".
         if cStName <> ""
         then do:

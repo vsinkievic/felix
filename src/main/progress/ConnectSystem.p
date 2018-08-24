@@ -9,6 +9,8 @@ find ttSystemInfo.
 if ttSystemInfo.fsystemDBparameters <> ""
     then do:
         run createDB.p(input ttSystemInfo.fsystemDBparameters, output cDBname).
+        //message cDBname.
+        display cDBname format "x(100)" with size 50 by 20.
         connect value(ttSystemInfo.fsystemDBparameters + "\" + cDBname) -1.
     end.
 
