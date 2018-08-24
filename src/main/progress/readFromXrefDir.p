@@ -8,11 +8,10 @@ define input parameter cSystem as character no-undo format "x(200)".
     
 //---Triggeriu propath pridejimas
 define variable ppropath as character no-undo.
-ppropath = "C:\Users\dvarzgalys\Progress\Developer Studio 4.3.1\workspace\felix\src\main\progress\Triggers".
+find systems where systems.systemName = cSystem.
+ppropath = systems.systemLocation + "\felix\src\main\progress\Triggers".
 propath = substring(propath,3).
-propath =  ".," + ppropath + "," + propath.
-    
-    display os-getenv("%cd%") with width 100.
+propath =  ".," + ppropath + "," + systems.systemPropath + "," + propath.
 
 //----DB duomenu trynimas
 for each files where files.system = cSystem:
