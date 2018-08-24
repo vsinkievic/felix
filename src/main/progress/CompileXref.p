@@ -15,7 +15,10 @@ function deleteErrorFile return integer (cOutputDirectory as character) forward.
 cInputPath = cInputDir.
 input from os-dir(cInputDir).
 output to value(cOutputDir + os-getenv("FELIX-SYSTEM-NAME") + ".txt").
+<<<<<<< HEAD
 deleteErrorFile (cOutputDir).
+=======
+>>>>>>> e194ccc0d97b976e678ed86c5bfda95bb5e71376
 compileFiles (cInputDir).
 input close.
 output close.
@@ -67,13 +70,22 @@ function compileFiles returns integer (cInputDirectory as character):
                             isum = isum + 1.
                 
                 catch eSystemError as Progress.Lang.Error :
+<<<<<<< HEAD
                     os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
                     message replace(cInputDirectory + "\" + cFileStream, cInputPath,"").
                     message eSystemError:GetMessage(1).
 /*                    find systems where systems.systemName = os-getenv("FELIX-SYSTEM-NAME").*/
 /*                    if systems.hasErrors = no                                              */
 /*                        then systems.hasErrors = yes.                                      */
+=======
+>>>>>>> e194ccc0d97b976e678ed86c5bfda95bb5e71376
                     
+                    os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
+                    message replace(cInputDirectory + "\" + cFileStream, cInputPath,"").
+                    message eSystemError:GetMessage(1).
+/*                    find systems where systems.systemName = os-getenv("FELIX-SYSTEM-NAME").*/
+/*                    if systems.hasErrors = no                                              */
+/*                        then systems.hasErrors = yes.                                      */
                     undo, next.
                 end catch.
             end.
