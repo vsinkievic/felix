@@ -40,7 +40,7 @@ repeat:
             
             cDfName = cFileStream.
             iDfCounter = iDfCounter + 1.
-            message "df " + cDfName.
+            
             
         end.
         else if cFileStream matches ("*.st")
@@ -48,7 +48,7 @@ repeat:
             //message "PAmate st".
             cStName = cFileStream.
             iStCounter = iStCounter + 1.
-            message "ifo " +  cStName.
+            
         end.
 end.
 
