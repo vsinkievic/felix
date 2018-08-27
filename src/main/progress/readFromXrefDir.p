@@ -11,7 +11,8 @@ define variable ppropath as character no-undo.
 find systems where systems.systemName = cSystem.
 ppropath = systems.systemLocation + "\felix\src\main\progress\Triggers".
 propath = substring(propath,3).
-propath =  ".," + ppropath + "," + systems.systemPropath + "," + propath.
+propath =  ".," + ppropath + "," + propath.
+message propath.
 
 //----DB duomenu trynimas
 for each files where files.system = cSystem:

@@ -43,7 +43,7 @@ function compileFiles returns integer (cInputDirectory as character):
             
         end.       
             
-        else if cFileType = "p" or cFileType = "cls" or cFileType = "i" or cFileType = "w"
+        else if cFileType = "p" or cFileType = "cls" or cFileType = "w"
         then do:
             do on error undo, throw:
                 cPath = cInputDirectory + "\" + cFileStream.
@@ -60,9 +60,6 @@ function compileFiles returns integer (cInputDirectory as character):
                     os-command value("del " + cOutputDir + subst("&1.xref", cPath)).
                     message replace(cInputDirectory + "\" + cFileStream, cInputPath,"").
                     message eSystemError:GetMessage(1).
-/*                    find systems where systems.systemName = os-getenv("FELIX-SYSTEM-NAME").*/
-/*                    if systems.hasErrors = no                                              */
-/*                        then systems.hasErrors = yes.                                      */
                     undo, next.
                 end catch.
             end.

@@ -9,12 +9,18 @@ find ttSystemInfo.
 if ttSystemInfo.fsystemDBparameters <> ""
     then do:
         run createDB.p(input ttSystemInfo.fsystemDBparameters, output cDBname).
-        //message cDBname.
-        display cDBname format "x(100)" with size 50 by 20.
         connect value(ttSystemInfo.fsystemDBparameters + "\" + cDBname) -1.
     end.
 
 os-create-dir value(os-getenv("TEMP") + "/" + ttSystemInfo.fsystemName).
+
+if index(ttSystemInfo.fsystemPropath, " ") <> 0
+    then replace(ttSystemInfo.fsystemPropath," ","").
+if r-index(ttSystemInfo.fsystemPropath, ",") = length(ttSystemInfo.fsystemPropath)
+ then ttSystemInfo.fsystemPropath = substring(ttSystemInfo.fsystemPropath, 1, length(ttSystemInfo.fsystemPropath) - 1).
+   
+propath = substring(propath,3).
+propath =  ".," + ttSystemInfo.fsystemPropath + "," + propath.
 
 run CompileXref.p(input ttSystemInfo.flocalSourcePath, input os-getenv("TEMP") + "\" + ttSystemInfo.fsystemName + "\").
 
